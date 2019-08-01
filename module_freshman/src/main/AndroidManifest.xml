@@ -9,19 +9,19 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".OnlineCommunicationActivity">
+        <activity android:name=".ui.OnlineCommunicationActivity">
         </activity>
-        <activity android:name=".GuidedCquptActivity">
+        <activity android:name=".ui.GuidedActivity">
         </activity>
-        <activity android:name=".CampusGuideActivity">
+        <activity android:name=".ui.CampusGuideActivity">
         </activity>
-        <activity android:name=".AdmissionProcessActivity">
+        <activity android:name=".ui.ProcessActivity">
         </activity>
-        <activity android:name=".AdmissionMustActivity">
+        <activity android:name=".ui.NecessityActivity">
         </activity>
-        <activity android:name=".SayToYouActivity">
+        <activity android:name=".ui.WordsActivity">
         </activity>
-        <activity android:name=".HomeActivity">
+        <activity android:name=".ui.HomepageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
