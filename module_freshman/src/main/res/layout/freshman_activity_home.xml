@@ -7,11 +7,159 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".ui.HomepageActivity">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                    android:gravity="center"
+                    android:background="#000000"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:actionBarSize">
+
+                <TextView
+                        android:text="迎新"
+                        android:textColor="#ffffff"
+                        android:textSize="24sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <View
+                    android:layout_margin="8dp"
+                    android:background="#000000"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp">
+
+            </View>
+
+
+            <LinearLayout
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:background="@drawable/freshman_shape_linear_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp">
+
+                <TextView
+                        android:textColor="#ffffff"
+                        android:text="入学必备"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:background="@drawable/freshman_shape_linear_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp">
+
+                <TextView
+                        android:textColor="#ffffff"
+                        android:text="指路重邮"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:background="@drawable/freshman_shape_linear_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp">
+
+                <TextView
+                        android:textColor="#ffffff"
+                        android:text="入学流程"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:background="@drawable/freshman_shape_linear_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp">
+
+                <TextView
+                        android:textColor="#ffffff"
+                        android:text="更多功能"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:background="@drawable/freshman_shape_linear_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp">
+
+                <TextView
+                        android:textColor="#ffffff"
+                        android:text="校园指导"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:background="@drawable/freshman_shape_linear_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp">
+
+                <TextView
+                        android:textColor="#ffffff"
+                        android:text="线上活动"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginBottom="12dp"
+                    android:gravity="center"
+                    android:background="@drawable/freshman_shape_linear_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp">
+
+                <TextView
+                        android:textColor="#ffffff"
+                        android:text="关于我们"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 </layout>
