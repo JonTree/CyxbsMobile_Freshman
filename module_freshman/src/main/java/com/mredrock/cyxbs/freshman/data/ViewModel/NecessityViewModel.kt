@@ -7,9 +7,14 @@ import com.mredrock.cyxbs.freshman.generated.callback.OnClickListener
 import org.greenrobot.eventbus.EventBus
 
 class NecessityViewModel :BaseViewModel() {
-    init {
-        Log.d("MyTag","viewmodel ready")
-        EventBus.getDefault().post(1)
-    }
+
+//        Log.d("MyTag","viewmodel ready")
+
+
+    /**
+     * @see 完成数据获取后 重写此eventbus
+     */
+//        EventBus.getDefault().postSticky(NecessityBean())
+
 
 }
