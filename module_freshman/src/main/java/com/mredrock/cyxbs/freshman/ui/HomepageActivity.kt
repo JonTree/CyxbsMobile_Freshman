@@ -1,16 +1,14 @@
 package com.mredrock.cyxbs.freshman.ui
 
-import android.app.Activity
-import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.HomepageViewModel
-import com.mredrock.cyxbs.freshman.util.util.kt
+import com.mredrock.cyxbs.freshman.data.ViewModel.MoreFuntionActivity
+
 
 class HomepageActivity : BaseActivity() {
     override val isFragmentActivity: Boolean = false
@@ -31,18 +29,19 @@ class HomepageActivity : BaseActivity() {
     fun onClick(index:Int){
         val intent:Intent
         when(index){
-            1 ->{
-                this.startActivity<NecessityActivity>()
-            }
-            2 ->{
-                this.startActivity<GuidedActivity>()
-            }
-            3 ->{
-                this.startActivity<ProcessActivity>()
-            }
-            4 ->{
-                this.startActivity<>()
-            }
+            1 ->startActivity<NecessityActivity>()
+
+            2 ->startActivity<GuideActivity>()
+
+            3 ->startActivity<ProcessActivity>()
+
+            4 ->startActivity<CampusGuideActivity>()
+
+            5 -> startActivity<OnlineCommunicationActivity>()
+
+            6 -> startActivity<MoreFuntionActivity>()
+
+//            7 -> startActivity<>()
         }
 
     }
