@@ -4,6 +4,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+                name="activity"
+                type="com.mredrock.cyxbs.freshman.ui.HomepageActivity"/>
 
     </data>
 
@@ -14,31 +17,14 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:onClick="@{}">
 
-
-            <LinearLayout
-                    android:gravity="center"
-                    android:background="#000000"
+            <ImageView
+                    android:id="@+id/img_banner"
                     android:layout_width="match_parent"
-                    android:layout_height="?android:actionBarSize">
-
-                <TextView
-                        android:text="迎新"
-                        android:textColor="#ffffff"
-                        android:textSize="24sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-            <View
-                    android:layout_margin="8dp"
-                    android:background="#000000"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp">
-
-            </View>
+                    android:layout_height="wrap_content"
+                    />
 
 
             <LinearLayout
@@ -47,7 +33,8 @@
                     android:gravity="center"
                     android:background="@drawable/freshman_shape_linear_home"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="80dp"
+                    android:onClick="@{()->activity.onClick(1)}">
 
                 <TextView
                         android:textColor="#ffffff"
@@ -64,7 +51,8 @@
                     android:gravity="center"
                     android:background="@drawable/freshman_shape_linear_home"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="80dp"
+                    android:onClick="@{()->activity.onClick(2)}">
 
                 <TextView
                         android:textColor="#ffffff"
@@ -81,7 +69,8 @@
                     android:gravity="center"
                     android:background="@drawable/freshman_shape_linear_home"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="80dp"
+                    android:onClick="@{()->activity.onClick(3)}">
 
                 <TextView
                         android:textColor="#ffffff"
@@ -97,7 +86,8 @@
                     android:gravity="center"
                     android:background="@drawable/freshman_shape_linear_home"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="80dp"
+                    android:onClick="@{()->activity.onClick(4)}">
 
                 <TextView
                         android:textColor="#ffffff"
@@ -114,7 +104,8 @@
                     android:gravity="center"
                     android:background="@drawable/freshman_shape_linear_home"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="80dp"
+                    android:onClick="@{()->activity.onClick(5)}">
 
                 <TextView
                         android:textColor="#ffffff"
@@ -131,7 +122,8 @@
                     android:gravity="center"
                     android:background="@drawable/freshman_shape_linear_home"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="80dp"
+                    android:onClick="@{()->activity.onClick(6)}">
 
                 <TextView
                         android:textColor="#ffffff"
@@ -148,7 +140,8 @@
                     android:gravity="center"
                     android:background="@drawable/freshman_shape_linear_home"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp">
+                    android:layout_height="80dp"
+                    android:onClick="@{()->activity.onClick(7)}">
 
                 <TextView
                         android:textColor="#ffffff"

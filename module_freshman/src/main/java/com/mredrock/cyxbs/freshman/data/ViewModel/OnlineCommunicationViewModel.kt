@@ -1,4 +1,6 @@
 package com.mredrock.cyxbs.freshman.data.ViewModel
 
-class OnlineCommunicationViewModel {
+import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
+
+class OnlineCommunicationViewModel :BaseViewModel() {
 }

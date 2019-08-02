@@ -1,4 +1,8 @@
 package com.mredrock.cyxbs.freshman.data.ViewModel
 
-class CampusGuideViewModel {
+
+import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
+
+class CampusGuideViewModel :BaseViewModel() {
+
 }
