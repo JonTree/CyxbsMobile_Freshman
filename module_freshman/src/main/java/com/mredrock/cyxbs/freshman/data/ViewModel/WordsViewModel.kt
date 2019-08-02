@@ -1,4 +1,6 @@
 package com.mredrock.cyxbs.freshman.data.ViewModel
 
-class WordsViewModel {
+import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
+
+class WordsViewModel :BaseViewModel() {
 }

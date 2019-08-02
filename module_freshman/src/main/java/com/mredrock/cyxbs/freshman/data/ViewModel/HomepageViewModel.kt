@@ -1,4 +1,6 @@
 package com.mredrock.cyxbs.freshman.data.ViewModel
 
-class HomepageViewModel {
+import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
+
+class HomepageViewModel :BaseViewModel() {
 }
