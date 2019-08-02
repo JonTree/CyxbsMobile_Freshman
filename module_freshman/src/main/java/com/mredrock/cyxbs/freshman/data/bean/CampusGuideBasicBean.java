@@ -1,11 +1,13 @@
 package com.mredrock.cyxbs.freshman.data.bean;
 
+import androidx.databinding.BaseObservable;
+
 import java.util.List;
 
 /**
  * Created by Tree on 2019/8/2 16:07
  */
-public class CampusGuideBasicBean {
+public class CampusGuideBasicBean extends BaseObservable {
 
     /**
      * code : 200
@@ -41,7 +43,7 @@ public class CampusGuideBasicBean {
         this.text = text;
     }
 
-    public static class TextBean {
+    public static class TextBean extends BaseObservable{
         /**
          * title : 宿舍
          * message : [{"name":"...","detail":"...","photo":"..."},{"name":"...","detail":"...","photo":"..."}]
@@ -66,7 +68,7 @@ public class CampusGuideBasicBean {
             this.message = message;
         }
 
-        public static class MessageBean {
+        public static class MessageBean extends BaseObservable{
             /**
              * name : ...
              * detail : ...

@@ -1,10 +1,12 @@
 package com.mredrock.cyxbs.freshman.data.bean;
 
+import androidx.databinding.BaseObservable;
+
 import java.util.List;
 /**
  * Created by Tree on 2019/8/2 16:17
  */
-public class OnlineActivitiesBean {
+public class OnlineActivitiesBean extends BaseObservable {
 
 
     /**
@@ -41,7 +43,7 @@ public class OnlineActivitiesBean {
         this.text = text;
     }
 
-    public static class TextBean {
+    public static class TextBean extends BaseObservable{
         /**
          * name : 学长学姐帮帮忙
          * photo : ....

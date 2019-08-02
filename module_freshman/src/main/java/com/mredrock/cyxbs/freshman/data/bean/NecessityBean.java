@@ -1,11 +1,13 @@
 package com.mredrock.cyxbs.freshman.data.bean;
 
+import androidx.databinding.BaseObservable;
+
 import java.util.List;
 
 /**
  * Created by Tree on 2019/8/2 16:01
  */
-public class NecessityBean {
+public class NecessityBean extends BaseObservable {
 
     /**
      * code : 200
@@ -41,7 +43,7 @@ public class NecessityBean {
         this.text = text;
     }
 
-    public static class TextBean {
+    public static class TextBean extends BaseObservable{
         /**
          * title : 报道必备
          * data : [{"name":"录取通知书","detail":"...."},{"name":"高考准考证","detail":"...."}]
@@ -66,7 +68,7 @@ public class NecessityBean {
             this.data = data;
         }
 
-        public static class DataBean {
+        public static class DataBean extends BaseObservable{
             /**
              * name : 录取通知书
              * detail : ....

@@ -1,11 +1,11 @@
-//package com.mredrock.cyxbs.freshman.util
-//
-//import android.view.LayoutInflater
-//import android.view.View
-//import android.view.ViewGroup
-//import androidx.recyclerview.widget.RecyclerView
-//import com.mredrock.cyxbs.freshman.R
-//
+package com.mredrock.cyxbs.freshman.util
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.mredrock.cyxbs.freshman.R
+
 //class NecessityAdapter constructor(): RecyclerView.Adapter<ViewHolder>() {
 //
 //

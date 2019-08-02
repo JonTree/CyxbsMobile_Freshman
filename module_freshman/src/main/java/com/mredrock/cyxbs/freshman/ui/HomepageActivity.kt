@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.HomepageViewModel
-import com.mredrock.cyxbs.freshman.data.ViewModel.MoreFuntionActivity
 
 
 class HomepageActivity : BaseActivity() {
@@ -39,7 +38,7 @@ class HomepageActivity : BaseActivity() {
 
             5 -> startActivity<OnlineCommunicationActivity>()
 
-            6 -> startActivity<MoreFuntionActivity>()
+            6 -> startActivity<MoreFunctionActivity>()
 
 //            7 -> startActivity<>()
         }
