@@ -15,7 +15,7 @@
         <androidx.appcompat.widget.Toolbar
                 android:id="@+id/tb_necessity"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="?actionBarSize"/>
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/res_necessity"
                 android:layout_width="match_parent"
