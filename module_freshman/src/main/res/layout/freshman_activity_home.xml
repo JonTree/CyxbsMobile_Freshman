@@ -336,7 +336,7 @@
                     android:background="@mipmap/freshman_backgroup_item"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:onClick="@{()->activity.onClick(1)}">
+                    android:onClick="@{()->activity.onClick(6)}">
 
                 <TextView
                         android:text="更多功能"
@@ -396,7 +396,7 @@
                     android:background="@mipmap/freshman_backgroup_item"
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:onClick="@{()->activity.onClick(1)}">
+                    android:onClick="@{()->activity.onClick(7)}">
 
                 <TextView
                         android:text="关于我们"

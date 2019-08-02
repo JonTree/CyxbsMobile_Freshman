@@ -7,10 +7,32 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+            android:fitsSystemWindows="true"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".ui.CampusGuideActivity">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.Toolbar
+                android:fitsSystemWindows="true"
+                android:background="@drawable/freshman_shape_backgroud_tool_bar"
+                app:title=""
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize">
+            <TextView
+                    android:text="校园指引"
+                    android:textSize="18sp"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+
+
+    </LinearLayout>
 </layout>
