@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.ui
+package com.mredrock.cyxbs.freshman.ui.acivity
 
 import android.os.Bundle
 import com.mredrock.cyxbs.common.ui.BaseActivity
