@@ -1,11 +1,13 @@
 package com.mredrock.cyxbs.freshman.data.bean;
 
+import androidx.databinding.BaseObservable;
+
 import java.util.List;
 
 /**
  * Created by Tree on 2019/8/2 16:10
  */
-public class CampusGuideDemystifyBean {
+public class CampusGuideDemystifyBean extends BaseObservable {
 
     /**
      * code : 200
@@ -41,7 +43,7 @@ public class CampusGuideDemystifyBean {
         this.text = text;
     }
 
-    public static class TextBean {
+    public static class TextBean extends BaseObservable{
         /**
          * name : 学院
          * message : [{"title":"最难科目","data":[{"subject_1":"数学","data":"80%"},{"subject_2":"物理","data":"80%"}]},{"title":"男女比例","boy":"20%","girl":"80%"}]
@@ -66,7 +68,7 @@ public class CampusGuideDemystifyBean {
             this.message = message;
         }
 
-        public static class MessageBean {
+        public static class MessageBean extends BaseObservable{
             /**
              * title : 最难科目
              * data : [{"subject_1":"数学","data":"80%"},{"subject_2":"物理","data":"80%"}]
@@ -111,7 +113,7 @@ public class CampusGuideDemystifyBean {
                 this.data = data;
             }
 
-            public static class DataBean {
+            public static class DataBean extends BaseObservable{
                 /**
                  * subject_1 : 数学
                  * data : 80%

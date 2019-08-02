@@ -1,11 +1,13 @@
 package com.mredrock.cyxbs.freshman.data.bean;
 
+import androidx.databinding.BaseObservable;
+
 import java.util.List;
 
 /**
  * Created by Tree on 2019/8/2 16:02
  */
-public class ProcessBean {
+public class ProcessBean extends BaseObservable {
 
     /**
      * code : 200
@@ -41,7 +43,7 @@ public class ProcessBean {
         this.test = test;
     }
 
-    public static class TestBean {
+    public static class TestBean extends BaseObservable{
         /**
          * title : 报到时间
          * message : 9月5-6日

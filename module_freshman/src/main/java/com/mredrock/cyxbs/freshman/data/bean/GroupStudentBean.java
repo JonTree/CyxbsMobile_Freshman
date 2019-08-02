@@ -1,11 +1,13 @@
 package com.mredrock.cyxbs.freshman.data.bean;
 
+import androidx.databinding.BaseObservable;
+
 import java.util.List;
 
 /**
  * Created by Tree on 2019/8/2 16:16
  */
-public class GroupStudentBean {
+public class GroupStudentBean extends BaseObservable {
 
 
     /**
@@ -43,7 +45,7 @@ public class GroupStudentBean {
         this.text = text;
     }
 
-    public static class TextBean {
+    public static class TextBean extends BaseObservable{
         /**
          * name : 学院
          * data : 11111

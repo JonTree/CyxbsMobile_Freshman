@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
+        <variable
+                name="bean"
+                type="com.mredrock.cyxbs.freshman.data.bean.NecessityBean.TextBean.DataBean"/>
     </data>
 
     <LinearLayout
@@ -20,7 +22,8 @@
             <TextView
                     android:id="@+id/tv_necessity_item"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="@{bean.name}"/>
             <ImageView
                     android:id="@+id/img_arrow"
                     android:layout_width="wrap_content"
@@ -33,7 +36,8 @@
             <TextView
                     android:id="@+id/tv_necessity_detail"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="@{bean.detail}"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

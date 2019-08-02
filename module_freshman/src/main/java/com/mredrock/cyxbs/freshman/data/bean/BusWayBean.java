@@ -1,11 +1,13 @@
 package com.mredrock.cyxbs.freshman.data.bean;
 
+import androidx.databinding.BaseObservable;
+
 import java.util.List;
 
 /**
  * Created by Tree on 2019/8/2 16:12
  */
-public class BusWayBean {
+public class BusWayBean extends BaseObservable {
 
     /**
      * code : 200
@@ -51,7 +53,7 @@ public class BusWayBean {
         this.text_2 = text_2;
     }
 
-    public static class Text1Bean {
+    public static class Text1Bean extends BaseObservable{
         /**
          * title : 重庆邮电大学地址:
          * message : 重庆市南岸区南山街道崇文路2号重庆邮电大学
@@ -77,7 +79,7 @@ public class BusWayBean {
         }
     }
 
-    public static class Text2Bean {
+    public static class Text2Bean extends BaseObservable{
         /**
          * title : 推荐线路:
          * message : [{"name":"重庆火车北站北广场/南广场","route":"...."},{"name":"江北机场","route":"...."}]
@@ -102,7 +104,7 @@ public class BusWayBean {
             this.message = message;
         }
 
-        public static class MessageBean {
+        public static class MessageBean extends BaseObservable{
             /**
              * name : 重庆火车北站北广场/南广场
              * route : ....
