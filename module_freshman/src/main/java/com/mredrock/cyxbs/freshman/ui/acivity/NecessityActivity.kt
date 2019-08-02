@@ -21,16 +21,23 @@ class NecessityActivity : BaseActivity() {
         setContentView(R.layout.freshman_activity_necessity)
         val titleBinding = DataBindingUtil.setContentView<com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityTitleBinding>(this,R.layout.freshman_recycle_item_necessity_title)
         val itemBinding = DataBindingUtil.setContentView<com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityItemBinding>(this,R.layout.freshman_recycle_item_necessity_item)
-        val viewModel = ViewModelProviders.of(this).get(NecessityViewModel::class.java)
+
 //        val vm : Deliverable = viewModel
 
-
+        val viewModel = ViewModelProviders.of(this).get(NecessityViewModel::class.java)
         titleBinding.lifecycleOwner = this
         itemBinding.lifecycleOwner = this
     }
 
-   @Subscribe
-    fun onEvent(a:Int){
-        Log.d("MyTag","event bus success")
+    override fun onResume() {
+        super.onResume()
+
     }
+
+    @Subscribe(sticky = true)
+    fun onEvent(a:NecessityBean){
+//        Log.d("MyTag","event bus success")
+
+    }
+
 }
