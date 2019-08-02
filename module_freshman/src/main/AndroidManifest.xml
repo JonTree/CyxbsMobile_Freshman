@@ -9,21 +9,21 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ui.MoreFunctionActivity">
+        <activity android:name=".ui.acivity.MoreFunctionActivity">
         </activity>
-        <activity android:name=".ui.OnlineCommunicationActivity">
+        <activity android:name=".ui.acivity.OnlineCommunicationActivity">
         </activity>
-        <activity android:name=".ui.GuideActivity">
+        <activity android:name=".ui.acivity.GuideActivity">
         </activity>
-        <activity android:name=".ui.CampusGuideActivity">
+        <activity android:name=".ui.acivity.CampusGuideActivity">
         </activity>
-        <activity android:name=".ui.ProcessActivity">
+        <activity android:name=".ui.acivity.ProcessActivity">
         </activity>
-        <activity android:name=".ui.NecessityActivity">
+        <activity android:name=".ui.acivity.NecessityActivity">
         </activity>
-        <activity android:name=".ui.WordsActivity">
+        <activity android:name=".ui.acivity.WordsActivity">
         </activity>
-        <activity android:name=".ui.HomepageActivity">
+        <activity android:name=".ui.acivity.HomepageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

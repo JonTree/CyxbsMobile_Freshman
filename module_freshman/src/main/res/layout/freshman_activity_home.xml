@@ -7,7 +7,7 @@
 
         <variable
                 name="activity"
-                type="com.mredrock.cyxbs.freshman.ui.HomepageActivity"/>
+                type="com.mredrock.cyxbs.freshman.ui.acivity.HomepageActivity"/>
 
     </data>
 
@@ -15,7 +15,7 @@
             android:background="#C9E3FF"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".ui.HomepageActivity">
+            tools:context=".ui.acivity.HomepageActivity">
 
         <LinearLayout
                 android:orientation="vertical"

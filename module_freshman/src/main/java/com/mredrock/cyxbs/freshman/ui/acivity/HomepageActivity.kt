@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.ui
+package com.mredrock.cyxbs.freshman.ui.acivity
 
 import android.content.Intent
 import android.os.Bundle
