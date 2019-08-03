@@ -5,11 +5,9 @@
         <variable
                 name="bean"
                 type="com.mredrock.cyxbs.freshman.data.bean.NecessityBean.TextBean.DataBean"/>
-
         <variable
-                name="View"
+                name="view"
                 type="android.view.View"/>
-
     </data>
 
     <LinearLayout
@@ -42,6 +40,7 @@
                     android:id="@+id/tv_necessity_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="@{bean.open ? view.GONE:view.VISIBLE}"
                     android:text="@{bean.detail}"/>
         </LinearLayout>
     </LinearLayout>
