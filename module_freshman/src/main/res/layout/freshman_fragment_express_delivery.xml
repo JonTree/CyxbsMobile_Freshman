@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.viewpager.widget.ViewPager
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_express_delivery"
+            android:layout_width="match_parent"
+            android:layout_height="46dp">
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_express_delivery"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+    </androidx.viewpager.widget.ViewPager>
 
 
 
-
-
-
-</androidx.viewpager.widget.ViewPager>
+</LinearLayout>

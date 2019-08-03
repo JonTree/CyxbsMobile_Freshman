@@ -13,7 +13,7 @@ import com.mredrock.cyxbs.freshman.data.ViewModel.CampusGuideViewModel
 /**
  * Created by Tree on 2019/8/3 10:01
  */
-class CanteenFragment(override val viewModelClass: Class<CampusGuideViewModel>) : BaseViewModelFragment<CampusGuideViewModel>() {
+class CanteenFragment:BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.freshman_fragment_canteen,container)
     }
