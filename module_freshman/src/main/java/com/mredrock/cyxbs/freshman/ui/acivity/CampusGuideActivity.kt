@@ -9,6 +9,9 @@ import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.R
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.fragment.app.FragmentTransaction
+import com.mredrock.cyxbs.common.ui.BaseFragment
 import androidx.databinding.DataBindingUtil
 import com.mredrock.cyxbs.freshman.ui.fragment.CanteenFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.DemystifyFragment
@@ -22,17 +25,18 @@ import com.mredrock.cyxbs.freshman.databinding.FreshmanActivityCampusGuideBindin
 class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
     override val viewModelClass: Class<CampusGuideViewModel> = CampusGuideViewModel::class.java
 //        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
-    override val isFragmentActivity: Boolean = false
-        //To change initializer of created properties use File | Settings | File Templates.
-    lateinit var binding :FreshmanActivityCampusGuideBinding
-    lateinit var canteenFragment: CanteenFragment
-    lateinit var demystifyFragment: DemystifyFragment
-    lateinit var dormitoryFragment: DormitoryFragment
-    lateinit var expressDeliveryFragment: ExpressDeliveryFragment
+    override val isFragmentActivity: Boolean = true
+    //To change initializer of created properties use File | Settings | File Templates.
+    lateinit var binding : FreshmanActivityCampusGuideBinding
+    var canteenFragment: CanteenFragment? = null
+    var demystifyFragment: DemystifyFragment? = null
+    var dormitoryFragment: DormitoryFragment? = null
+    var expressDeliveryFragment: ExpressDeliveryFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_campus_guide)
+
         binding = DataBindingUtil.setContentView(this,R.layout.freshman_activity_campus_guide)
         binding.activity = this
         canteenFragment = CanteenFragment()
@@ -54,51 +58,41 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
 
     //进行选中Tab的处理
     private fun selectTab(i: Int) {
-        //获取FragmentManager对象
         val manager = supportFragmentManager
-        //获取FragmentTransaction对象
         val transaction = manager.beginTransaction()
-        //先隐藏所有的Fragment
         hideFragments(transaction)
+        fun clickLogic(tab:TextView,fragment:BaseFragment?,initFragment:()->Unit) {
+            tab.setTextColor(0xff4b72f)
+            if (fragment == null) {
+                initFragment()
+            } else {
+                transaction.show(fragment)
+            }
+        }
         when (i) {
             //当选中点击的是微信的Tab时
             0 -> {
-                //设置微信的ImageButton为绿色
-                mWeixinImg.setImageResource(R.mipmap.tab_weixin_pressed)
-                //如果微信对应的Fragment没有实例化，则进行实例化，并显示出来
-                if (mFragWeinxin == null) {
-                    mFragWeinxin = WeixinFragment()
-                    transaction.add(R.id.id_content, mFragWeinxin)
-                } else {
-                    //如果微信对应的Fragment已经实例化，则直接显示出来
-                    transaction.show(mFragWeinxin)
+                clickLogic(tv_tab_canteen,canteenFragment){
+                    canteenFragment = CanteenFragment()
+                    transaction.add(R.id.frame_layout_fragment_container_campus_guide,canteenFragment as CanteenFragment)
                 }
             }
             1 -> {
-                mFrdImg.setImageResource(R.mipmap.tab_find_frd_pressed)
-                if (mFragFrd == null) {
-                    mFragFrd = FrdFragment()
-                    transaction.add(R.id.id_content, mFragFrd)
-                } else {
-                    transaction.show(mFragFrd)
+                clickLogic(tv_tab_dormitories,dormitoryFragment){
+                    dormitoryFragment = DormitoryFragment()
+                    transaction.add(R.id.frame_layout_fragment_container_campus_guide,dormitoryFragment as DormitoryFragment)
                 }
             }
             2 -> {
-                mAddressImg.setImageResource(R.mipmap.tab_address_pressed)
-                if (mFragAddress == null) {
-                    mFragAddress = AddressFragment()
-                    transaction.add(R.id.id_content, mFragAddress)
-                } else {
-                    transaction.show(mFragAddress)
+                clickLogic(tv_tab_canteen,expressDeliveryFragment){
+                    expressDeliveryFragment = ExpressDeliveryFragment()
+                    transaction.add(R.id.frame_layout_fragment_container_campus_guide,expressDeliveryFragment as ExpressDeliveryFragment)
                 }
             }
             3 -> {
-                mSettingImg.setImageResource(R.mipmap.tab_settings_pressed)
-                if (mFragSetting == null) {
-                    mFragSetting = SettingFragment()
-                    transaction.add(R.id.id_content, mFragSetting)
-                } else {
-                    transaction.show(mFragSetting)
+                clickLogic(tv_tab_canteen,demystifyFragment){
+                    demystifyFragment = DemystifyFragment()
+                    transaction.add(R.id.frame_layout_fragment_container_campus_guide,demystifyFragment as DemystifyFragment)
                 }
             }
         }
@@ -108,17 +102,17 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
 
     //将四个的Fragment隐藏
     private fun hideFragments(transaction: FragmentTransaction) {
-        if (mFragWeinxin != null) {
-            transaction.hide(mFragWeinxin)
+        canteenFragment?.let {
+            transaction.hide(it)
         }
-        if (mFragFrd != null) {
-            transaction.hide(mFragFrd)
+        dormitoryFragment?.let {
+            transaction.hide(it)
         }
-        if (mFragAddress != null) {
-            transaction.hide(mFragAddress)
+        expressDeliveryFragment?.let {
+            transaction.hide(it)
         }
-        if (mFragSetting != null) {
-            transaction.hide(mFragSetting)
+        demystifyFragment?.let {
+            transaction.hide(it)
         }
     }
 
