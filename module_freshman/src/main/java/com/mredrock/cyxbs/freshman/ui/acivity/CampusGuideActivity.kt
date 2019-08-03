@@ -20,6 +20,7 @@ import com.mredrock.cyxbs.freshman.ui.fragment.ExpressDeliveryFragment
 import kotlinx.android.synthetic.main.freshman_activity_campus_guide.*
 import com.mredrock.cyxbs.freshman.data.ViewModel.CampusGuideViewModel
 import com.mredrock.cyxbs.freshman.databinding.FreshmanActivityCampusGuideBinding
+import org.jetbrains.anko.textColor
 
 
 class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
@@ -28,18 +29,15 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
     override val isFragmentActivity: Boolean = true
     //To change initializer of created properties use File | Settings | File Templates.
     lateinit var binding : FreshmanActivityCampusGuideBinding
-    var canteenFragment: CanteenFragment? = null
-    var demystifyFragment: DemystifyFragment? = null
-    var dormitoryFragment: DormitoryFragment? = null
-    var expressDeliveryFragment: ExpressDeliveryFragment? = null
+    private var canteenFragment: CanteenFragment? = null
+    private var demystifyFragment: DemystifyFragment? = null
+    private var dormitoryFragment: DormitoryFragment? = null
+    private var expressDeliveryFragment: ExpressDeliveryFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.freshman_activity_campus_guide)
-
-        binding = DataBindingUtil.setContentView(this,R.layout.freshman_activity_campus_guide)
+        binding = setContentView(this,R.layout.freshman_activity_campus_guide)
         binding.activity = this
-        canteenFragment = CanteenFragment()
     }
 
 
@@ -49,10 +47,10 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
         //先将四个ImageButton置为灰色
         resetImgs()
         when (id) {
-            R.id.tv_tab_dormitories -> selectTab(0)
-            R.id.tv_tab_canteen -> selectTab(1)
-            R.id.tv_tab_express_delivery -> selectTab(2)
-            R.id.tv_tab_demystify -> selectTab(3)
+            0 -> selectTab(0)
+            1 -> selectTab(1)
+            2 -> selectTab(2)
+            3 -> selectTab(3)
         }
     }
 
@@ -62,7 +60,7 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
         val transaction = manager.beginTransaction()
         hideFragments(transaction)
         fun clickLogic(tab:TextView,fragment:BaseFragment?,initFragment:()->Unit) {
-            tab.setTextColor(0xff4b72f)
+            tab.setTextColor(0x4b72ff)
             if (fragment == null) {
                 initFragment()
             } else {
@@ -96,7 +94,6 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
                 }
             }
         }
-        //不要忘记提交事务
         transaction.commit()
     }
 
@@ -116,12 +113,11 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
         }
     }
 
-    //将四个ImageButton置为灰色
     private fun resetImgs() {
-        tv_tab_canteen.setTextColor(0x00000000)
-        tv_tab_demystify.setTextColor(0x00000000)
-        tv_tab_dormitories.setTextColor(0x00000000)
-        tv_tab_express_delivery.setTextColor(0x00000000)
+        tv_tab_canteen.textColor = 0x000000
+        tv_tab_demystify.textColor = 0x000000
+        tv_tab_dormitories.textColor = 0x000000
+        tv_tab_express_delivery.textColor = 0x000000
     }
 
 }

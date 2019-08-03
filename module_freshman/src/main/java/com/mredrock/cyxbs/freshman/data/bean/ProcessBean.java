@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.data.bean;
 
+import android.view.View;
 import androidx.databinding.BaseObservable;
 
 import java.util.List;
@@ -8,7 +9,6 @@ import java.util.List;
  * Created by Tree on 2019/8/2 16:02
  */
 public class ProcessBean extends BaseObservable {
-
     /**
      * code : 200
      * info : ok

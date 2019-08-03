@@ -14,7 +14,7 @@ import com.mredrock.cyxbs.freshman.R
 class DemystifyFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.freshman_fragment_demystify, container)
+        return inflater.inflate(R.layout.freshman_fragment_demystify, null)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

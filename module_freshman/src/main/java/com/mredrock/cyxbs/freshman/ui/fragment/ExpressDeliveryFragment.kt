@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.ui.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,13 +18,13 @@ import kotlinx.android.synthetic.main.freshman_fragment_express_delivery.*
 class ExpressDeliveryFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.freshman_fragment_express_delivery,container)
+        return inflater.inflate(R.layout.freshman_fragment_express_delivery,null)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        vp_express_delivery.adapter = ExpressDeliveryViewPagerAdapter()
+        vp_express_delivery.adapter = ExpressDeliveryViewPagerAdapter(activity as Context)
         tl_express_delivery.setupWithViewPager(vp_express_delivery)
 
     }
