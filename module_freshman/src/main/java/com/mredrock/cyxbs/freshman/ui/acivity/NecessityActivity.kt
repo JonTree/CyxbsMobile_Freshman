@@ -8,6 +8,7 @@ import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.NecessityViewModel
 import com.mredrock.cyxbs.freshman.data.bean.NecessityBean
+import com.mredrock.cyxbs.freshman.util.NecessityAdapter
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -15,29 +16,24 @@ import org.greenrobot.eventbus.ThreadMode
 class NecessityActivity : BaseActivity() {
     override val isFragmentActivity: Boolean = false
         //To change initializer of created properties use File | Settings | File Templates.
-
-    override fun onCreate(savedInstanceState: Bundle?) {
+      override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_necessity)
-        val titleBinding = DataBindingUtil.setContentView<com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityTitleBinding>(this,R.layout.freshman_recycle_item_necessity_title)
-        val itemBinding = DataBindingUtil.setContentView<com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityItemBinding>(this,R.layout.freshman_recycle_item_necessity_item)
+
+
 
 //        val vm : Deliverable = viewModel
 
         val viewModel = ViewModelProviders.of(this).get(NecessityViewModel::class.java)
-        titleBinding.lifecycleOwner = this
-        itemBinding.lifecycleOwner = this
-    }
-
-    override fun onResume() {
-        super.onResume()
 
     }
+
+
 
     @Subscribe(sticky = true)
-    fun onEvent(a:NecessityBean){
+    fun onBeanReady(bean:NecessityBean){
 //        Log.d("MyTag","event bus success")
-
+        NecessityAdapter(bean)
     }
 
 }
