@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.NecessityViewModel
 import com.mredrock.cyxbs.freshman.data.bean.NecessityBean
 import com.mredrock.cyxbs.freshman.util.NecessityAdapter
+import kotlinx.android.synthetic.main.freshman_activity_necessity.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -33,7 +36,9 @@ class NecessityActivity : BaseActivity() {
     @Subscribe(sticky = true)
     fun onBeanReady(bean:NecessityBean){
 //        Log.d("MyTag","event bus success")
-        NecessityAdapter(bean)
+        res_necessity.adapter = NecessityAdapter(bean)
+        res_necessity.layoutManager = LinearLayoutManager(this)
+
     }
 
 }
