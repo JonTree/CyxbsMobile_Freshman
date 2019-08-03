@@ -5,11 +5,9 @@
         <variable
                 name="bean"
                 type="com.mredrock.cyxbs.freshman.data.bean.NecessityBean.TextBean.DataBean"/>
-
         <variable
-                name="View"
+                name="view"
                 type="android.view.View"/>
-
     </data>
 
     <LinearLayout
