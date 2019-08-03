@@ -76,14 +76,14 @@ public class NecessityBean extends BaseObservable {
 
             private String name;
             private String detail;
-            private boolean isOpen = false;
+            private boolean open = false;
 
-            public boolean isOpen() {
-                return isOpen;
+            public boolean getOpen() {
+                return open;
             }
 
             public void setOpen(boolean open) {
-                isOpen = open;
+                this.open = open;
             }
 
             public String getName() {
