@@ -4,7 +4,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+                name="activity"
+                type="com.mredrock.cyxbs.freshman.ui.acivity.CampusGuideActivity"/>
     </data>
 
     <LinearLayout
@@ -44,7 +46,8 @@
                     android:textSize="18dp"
                     android:gravity="left"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:onClick="@{activity.onClick(0)}"/>
 
             <View
                     android:layout_weight="1"
@@ -57,7 +60,8 @@
                     android:textSize="18dp"
                     android:gravity="center"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:onClick="@{activity.onClick(1)}"/>
 
             <View
                     android:layout_weight="1"
@@ -70,7 +74,8 @@
                     android:textSize="18dp"
                     android:gravity="center"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:onClick="@{activity.onClick(2)}"/>
 
             <View
                     android:layout_weight="1"
@@ -83,7 +88,8 @@
                     android:gravity="right"
                     android:textSize="18dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:onClick="@{activity.onClick(3)}"/>
 
         </LinearLayout>
 

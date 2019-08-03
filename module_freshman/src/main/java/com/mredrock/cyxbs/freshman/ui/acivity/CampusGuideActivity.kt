@@ -9,20 +9,22 @@ import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.R
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import androidx.databinding.DataBindingUtil
 import com.mredrock.cyxbs.freshman.ui.fragment.CanteenFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.DemystifyFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.DormitoryFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.ExpressDeliveryFragment
 import kotlinx.android.synthetic.main.freshman_activity_campus_guide.*
 import com.mredrock.cyxbs.freshman.data.ViewModel.CampusGuideViewModel
+import com.mredrock.cyxbs.freshman.databinding.FreshmanActivityCampusGuideBinding
 
 
-class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>(),View.OnClickListener  {
+class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
     override val viewModelClass: Class<CampusGuideViewModel> = CampusGuideViewModel::class.java
 //        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
     override val isFragmentActivity: Boolean = false
         //To change initializer of created properties use File | Settings | File Templates.
-
+    lateinit var binding :FreshmanActivityCampusGuideBinding
     lateinit var canteenFragment: CanteenFragment
     lateinit var demystifyFragment: DemystifyFragment
     lateinit var dormitoryFragment: DormitoryFragment
@@ -31,16 +33,18 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>(),View.O
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_campus_guide)
+        binding = DataBindingUtil.setContentView(this,R.layout.freshman_activity_campus_guide)
+        binding.activity = this
         canteenFragment = CanteenFragment()
     }
 
 
 
     //处理Tab的点击事件
-    override fun onClick(v: View) {
+    fun onClick(id:Int) {
         //先将四个ImageButton置为灰色
         resetImgs()
-        when (v.id) {
+        when (id) {
             R.id.tv_tab_dormitories -> selectTab(0)
             R.id.tv_tab_canteen -> selectTab(1)
             R.id.tv_tab_express_delivery -> selectTab(2)
