@@ -39,6 +39,7 @@
                 android:layout_height="50dp">
 
             <TextView
+                    android:id="@+id/tv_tab_dormitories"
                     android:text="宿舍"
                     android:textSize="18dp"
                     android:gravity="left"
@@ -51,6 +52,7 @@
                     android:layout_height="0dp"/>
 
             <TextView
+                    android:id="@+id/tv_tab_canteen"
                     android:text="食堂"
                     android:textSize="18dp"
                     android:gravity="center"
@@ -63,6 +65,7 @@
                     android:layout_height="0dp"/>
 
             <TextView
+                    android:id="@+id/tv_tab_express_delivery"
                     android:text="快递"
                     android:textSize="18dp"
                     android:gravity="center"
@@ -75,6 +78,7 @@
                     android:layout_height="0dp"/>
 
             <TextView
+                    android:id="@+id/tv_tab_demystify"
                     android:text="数据揭秘"
                     android:gravity="right"
                     android:textSize="18dp"
