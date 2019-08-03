@@ -15,7 +15,7 @@ import com.mredrock.cyxbs.freshman.data.ViewModel.CampusGuideViewModel
  */
 class CanteenFragment:BaseFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.freshman_fragment_canteen,container)
+        return inflater.inflate(R.layout.freshman_fragment_canteen,null)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

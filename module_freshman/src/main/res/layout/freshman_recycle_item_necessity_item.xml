@@ -5,6 +5,11 @@
         <variable
                 name="bean"
                 type="com.mredrock.cyxbs.freshman.data.bean.NecessityBean.TextBean.DataBean"/>
+
+        <variable
+                name="View"
+                type="android.view.View"/>
+
     </data>
 
     <LinearLayout
@@ -27,8 +32,7 @@
             <ImageView
                     android:id="@+id/img_arrow"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{bean.open}"/>
+                    android:layout_height="wrap_content"/>
         </LinearLayout>
         <LinearLayout
                 android:orientation="horizontal"
@@ -38,7 +42,6 @@
                     android:id="@+id/tv_necessity_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="@{bean.open?View.GONE:View.VISIBLE}"
                     android:text="@{bean.detail}"/>
         </LinearLayout>
     </LinearLayout>
