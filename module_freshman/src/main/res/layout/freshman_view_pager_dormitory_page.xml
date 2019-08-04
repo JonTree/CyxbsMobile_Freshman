@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:paddingTop="15dp"
-              android:paddingEnd="15dp"
+              android:paddingTop="18dp"
+              android:paddingEnd="18dp"
               android:gravity="center"
               android:paddingStart="15dp"
               android:layout_width="match_parent"
@@ -10,21 +10,18 @@
 
 
 
-        <GridLayout
-                android:background="@mipmap/freshman_backgroup_view_pager_item"
+
+    <View
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+        <LinearLayout
                 android:orientation="vertical"
                 android:padding="18dp"
-                android:rowCount="2"
-                android:columnCount="1"
                 android:layout_marginBottom="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
-
-            <ViewFlipper
-                    android:layout_width="match_parent"
-                    android:layout_height="191dp"/>
-
 
 
             <TextView
@@ -33,6 +30,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-        </GridLayout>
+        </LinearLayout>
 
 </LinearLayout>
