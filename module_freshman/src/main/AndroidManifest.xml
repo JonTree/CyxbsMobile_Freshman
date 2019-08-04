@@ -9,8 +9,6 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/freshman_AppTheme">
-        <activity android:name=".ui.acivity.MainActivity">
-        </activity>
         <activity android:name=".ui.acivity.MoreFunctionActivity">
         </activity>
         <activity android:name=".ui.acivity.OnlineCommunicationActivity">

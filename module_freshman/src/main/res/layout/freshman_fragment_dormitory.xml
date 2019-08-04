@@ -45,51 +45,27 @@
 
             <LinearLayout
                     android:orientation="horizontal"
-                    android:layout_marginBottom="15dp"
-                    android:gravity="center"
                     android:paddingEnd="18dp"
                     android:paddingStart="18dp"
+                    android:paddingTop="50dp"
+                    android:paddingBottom="50dp"
+                    android:gravity="top"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp">
 
 
-                <ViewFlipper
+                <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/vp_dormitory_carousel"
                         android:layout_width="match_parent"
-                        android:layout_height="191dp"
+                        android:layout_height="match_parent"
                         android:autoStart="true"
+                        android:flipInterval="4000"
                         android:inAnimation="@anim/freshman_slide_in_right"
                         android:outAnimation="@anim/freshman_slide_out_left">
 
-                    <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/text"/>
 
-                    <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/text"/>
-
-                    <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/text"/>
-
-                    <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitXY"
-                            android:src="@drawable/text"/>
-
-                </ViewFlipper>
+                </androidx.viewpager.widget.ViewPager>
 
             </LinearLayout>
 

@@ -17,22 +17,8 @@
             android:layout_height="match_parent"
             tools:context=".ui.acivity.CampusGuideActivity">
 
+        <include layout="@layout/common_toolbar"/>
 
-        <Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@drawable/freshman_shape_backgroud_tool_bar">
-
-            <TextView
-                    android:id="@+id/toolbar_title"
-                    android:text="校园指引"
-                    android:textSize="18sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textColor="#Ffffff"/>
-        </Toolbar>
 
         <LinearLayout
                 android:layout_marginHorizontal="16dp"

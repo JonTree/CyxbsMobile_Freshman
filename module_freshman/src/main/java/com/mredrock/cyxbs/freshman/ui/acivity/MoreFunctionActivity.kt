@@ -11,3 +11,4 @@ class MoreFunctionActivity : AppCompatActivity() {
         setContentView(R.layout.freshman_activity_more_funtion)
     }
 }
+
