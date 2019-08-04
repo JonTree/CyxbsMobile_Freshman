@@ -103,7 +103,7 @@
             android:name=".ui.ExceptionActivity"
             android:process=":exception_handler"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/freshman_AppTheme" />
     </application>
 
 </manifest>

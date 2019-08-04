@@ -6,15 +6,14 @@ import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import com.mredrock.cyxbs.freshman.R
 import kotlinx.android.synthetic.main.freshman_view_pager_express_delivery_page.view.*
-import java.math.MathContext
 
 /**
- * Created by Tree on 2019/8/3 11:12
+ * Created by Tree on 2019/8/3 22:37
  */
-class ExpressDeliveryViewPagerAdapter(val context: Context) : PagerAdapter() {
+class DormitoryViewPagerAdapter(val context: Context): PagerAdapter() {
 
 
-    val list = listOf("顺丰","韵达","中通","圆通","中通","邮政","菜鸟驿站（校外）","百世")
+    val list = listOf("知行苑","明理苑","宁静苑","兴业苑")
 
     private val pagerList = ArrayList<View>()
 
@@ -25,7 +24,7 @@ class ExpressDeliveryViewPagerAdapter(val context: Context) : PagerAdapter() {
             pagerList.add(
                 View.inflate(
                     context,
-                    R.layout.freshman_view_pager_express_delivery_page,
+                    R.layout.freshman_view_pager_dormitory_page,
                     null
                 )
             )}
@@ -44,13 +43,6 @@ class ExpressDeliveryViewPagerAdapter(val context: Context) : PagerAdapter() {
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        pagerList[position].ll_express_delivery_container.addView(
-            View.inflate(
-                context,
-                R.layout.freshman_view_pager_page_scroll_view_item_express_delivery,
-                null
-            )
-        )
         container.addView(pagerList[position])
         return pagerList[position]
     }
@@ -58,5 +50,4 @@ class ExpressDeliveryViewPagerAdapter(val context: Context) : PagerAdapter() {
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
         container.removeView(pagerList[position])
     }
-
 }

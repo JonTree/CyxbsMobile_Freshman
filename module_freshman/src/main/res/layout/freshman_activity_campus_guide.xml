@@ -10,6 +10,7 @@
     </data>
 
     <LinearLayout
+            android:background="#EFF7FF"
             android:fitsSystemWindows="true"
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -43,10 +44,11 @@
             <TextView
                     android:id="@+id/tv_tab_dormitories"
                     android:text="宿舍"
-                    android:textSize="18dp"
-                    android:gravity="left"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:gravity="center"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:onClick="@{()->activity.onClick(0)}"/>
 
             <View
@@ -57,10 +59,11 @@
             <TextView
                     android:id="@+id/tv_tab_canteen"
                     android:text="食堂"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
                     android:gravity="center"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:onClick="@{()->activity.onClick(1)}"/>
 
             <View
@@ -71,10 +74,11 @@
             <TextView
                     android:id="@+id/tv_tab_express_delivery"
                     android:text="快递"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
                     android:gravity="center"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:onClick="@{()->activity.onClick(2)}"/>
 
             <View
@@ -85,10 +89,11 @@
             <TextView
                     android:id="@+id/tv_tab_demystify"
                     android:text="数据揭秘"
-                    android:gravity="right"
-                    android:textSize="18dp"
+                    android:textSize="18sp"
+                    android:textColor="#000000"
+                    android:gravity="center"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:onClick="@{()->activity.onClick(3)}"/>
 
         </LinearLayout>

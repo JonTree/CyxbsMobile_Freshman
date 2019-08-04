@@ -38,6 +38,7 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
         super.onCreate(savedInstanceState)
         binding = setContentView(this,R.layout.freshman_activity_campus_guide)
         binding.activity = this
+        selectTab(0)
     }
 
 
@@ -60,7 +61,7 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
         val transaction = manager.beginTransaction()
         hideFragments(transaction)
         fun clickLogic(tab:TextView,fragment:BaseFragment?,initFragment:()->Unit) {
-            tab.setTextColor(0x4b72ff)
+            tab.textColor = 0xff4b72ff.toInt()
             if (fragment == null) {
                 initFragment()
             } else {
@@ -70,25 +71,26 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
         when (i) {
             //当选中点击的是微信的Tab时
             0 -> {
-                clickLogic(tv_tab_canteen,canteenFragment){
-                    canteenFragment = CanteenFragment()
-                    transaction.add(R.id.frame_layout_fragment_container_campus_guide,canteenFragment as CanteenFragment)
-                }
-            }
-            1 -> {
                 clickLogic(tv_tab_dormitories,dormitoryFragment){
                     dormitoryFragment = DormitoryFragment()
                     transaction.add(R.id.frame_layout_fragment_container_campus_guide,dormitoryFragment as DormitoryFragment)
                 }
             }
+            1 -> {
+
+                clickLogic(tv_tab_canteen,canteenFragment){
+                    canteenFragment = CanteenFragment()
+                    transaction.add(R.id.frame_layout_fragment_container_campus_guide,canteenFragment as CanteenFragment)
+                }
+            }
             2 -> {
-                clickLogic(tv_tab_canteen,expressDeliveryFragment){
+                clickLogic(tv_tab_express_delivery,expressDeliveryFragment){
                     expressDeliveryFragment = ExpressDeliveryFragment()
                     transaction.add(R.id.frame_layout_fragment_container_campus_guide,expressDeliveryFragment as ExpressDeliveryFragment)
                 }
             }
             3 -> {
-                clickLogic(tv_tab_canteen,demystifyFragment){
+                clickLogic(tv_tab_demystify,demystifyFragment){
                     demystifyFragment = DemystifyFragment()
                     transaction.add(R.id.frame_layout_fragment_container_campus_guide,demystifyFragment as DemystifyFragment)
                 }
@@ -114,10 +116,10 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
     }
 
     private fun resetImgs() {
-        tv_tab_canteen.textColor = 0x000000
-        tv_tab_demystify.textColor = 0x000000
-        tv_tab_dormitories.textColor = 0x000000
-        tv_tab_express_delivery.textColor = 0x000000
+        tv_tab_canteen.textColor = 0xff000000.toInt()
+        tv_tab_demystify.textColor = 0xff000000.toInt()
+        tv_tab_dormitories.textColor = 0xff000000.toInt()
+        tv_tab_express_delivery.textColor = 0xff000000.toInt()
     }
 
 }
