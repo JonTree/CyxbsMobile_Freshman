@@ -5,11 +5,15 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.mredrock.cyxbs.common.ui.BaseActivity
+import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
+import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.HomepageViewModel
 
 
-class HomepageActivity : BaseActivity() {
+class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
+    override val viewModelClass: Class<HomepageViewModel> = HomepageViewModel::class.java
+
     override val isFragmentActivity: Boolean = false
          //To change initializer of created properties use File | Settings | File Templates.
 
