@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by Tree on 2019/8/4 17:39
  */
-public class ExpressDeliveryBean {
+public class CampusGuideExpressDeliveryBean {
 
     /**
      * code : 200
