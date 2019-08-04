@@ -38,8 +38,10 @@ class DormitoryFragment : BaseFragment() {
     }
     @Subscribe(sticky = true)
     fun onBeanReady(bean: CampusGuideBasicBean){
-        vp_dormitory.adapter = DormitoryViewPagerAdapter(activity as Context)
+        vp_dormitory.adapter = DormitoryViewPagerAdapter(activity as Context,bean.text[0])
         tl_dormitory.setupWithViewPager(vp_dormitory)
+
+
         vp_dormitory_carousel.adapter = DormitoryCarouselViewPagerAdapter(activity as Context)
         vp_dormitory_carousel.adapter = DormitoryCarouselViewPagerAdapter(activity as Context)
         vp_dormitory_carousel.currentItem = ((Int.MAX_VALUE/2) -1)
