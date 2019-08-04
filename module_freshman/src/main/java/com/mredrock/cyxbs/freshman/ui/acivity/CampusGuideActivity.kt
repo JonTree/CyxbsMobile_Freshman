@@ -19,7 +19,9 @@ import com.mredrock.cyxbs.freshman.ui.fragment.DormitoryFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.ExpressDeliveryFragment
 import kotlinx.android.synthetic.main.freshman_activity_campus_guide.*
 import com.mredrock.cyxbs.freshman.data.ViewModel.CampusGuideViewModel
+import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanActivityCampusGuideBinding
+import org.greenrobot.eventbus.Subscribe
 import org.jetbrains.anko.textColor
 
 
