@@ -37,13 +37,16 @@ class DormitoryCarouselViewPagerAdapter(val context: Context) : PagerAdapter() {
         } else {
             0
         }
+        return TextView(context).apply {
+            text = list[i]
 
-
-        return  ImageView(context).apply {
-            layoutParams =
-                LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-            imageBitmap = getPicture(list[i])
         }
+
+//        return  ImageView(context).apply {
+//            layoutParams =
+//                LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+//            imageBitmap = getPicture(list[i])
+//        }
 
     }
 
