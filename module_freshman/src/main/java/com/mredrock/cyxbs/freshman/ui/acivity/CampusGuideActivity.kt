@@ -1,18 +1,13 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil.setContentView
-import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.R
-import android.widget.ImageButton
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
 import com.mredrock.cyxbs.common.ui.BaseFragment
-import androidx.databinding.DataBindingUtil
 import com.mredrock.cyxbs.freshman.ui.fragment.CanteenFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.DemystifyFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.DormitoryFragment
@@ -25,12 +20,12 @@ import org.greenrobot.eventbus.Subscribe
 import org.jetbrains.anko.textColor
 
 
-class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
+class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
     override val viewModelClass: Class<CampusGuideViewModel> = CampusGuideViewModel::class.java
-//        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+    //        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
     override val isFragmentActivity: Boolean = true
     //To change initializer of created properties use File | Settings | File Templates.
-    lateinit var binding : FreshmanActivityCampusGuideBinding
+    lateinit var binding: FreshmanActivityCampusGuideBinding
     private var canteenFragment: CanteenFragment? = null
     private var demystifyFragment: DemystifyFragment? = null
     private var dormitoryFragment: DormitoryFragment? = null
@@ -38,15 +33,17 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = setContentView(this,R.layout.freshman_activity_campus_guide)
+        binding = setContentView(this, R.layout.freshman_activity_campus_guide)
+        common_toolbar.init(
+            title = "校园指引"
+        )
         binding.activity = this
         selectTab(0)
     }
 
 
-
     //处理Tab的点击事件
-    fun onClick(id:Int) {
+    fun onClick(id: Int) {
         //先将四个ImageButton置为灰色
         resetImgs()
         when (id) {
@@ -62,7 +59,7 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
         val manager = supportFragmentManager
         val transaction = manager.beginTransaction()
         hideFragments(transaction)
-        fun clickLogic(tab:TextView,fragment:BaseFragment?,initFragment:()->Unit) {
+        fun clickLogic(tab: TextView, fragment: BaseFragment?, initFragment: () -> Unit) {
             tab.textColor = 0xff4b72ff.toInt()
             if (fragment == null) {
                 initFragment()
@@ -73,28 +70,40 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
         when (i) {
             //当选中点击的是微信的Tab时
             0 -> {
-                clickLogic(tv_tab_dormitories,dormitoryFragment){
+                clickLogic(tv_tab_dormitories, dormitoryFragment) {
                     dormitoryFragment = DormitoryFragment()
-                    transaction.add(R.id.frame_layout_fragment_container_campus_guide,dormitoryFragment as DormitoryFragment)
+                    transaction.add(
+                        R.id.frame_layout_fragment_container_campus_guide,
+                        dormitoryFragment as DormitoryFragment
+                    )
                 }
             }
             1 -> {
 
-                clickLogic(tv_tab_canteen,canteenFragment){
+                clickLogic(tv_tab_canteen, canteenFragment) {
                     canteenFragment = CanteenFragment()
-                    transaction.add(R.id.frame_layout_fragment_container_campus_guide,canteenFragment as CanteenFragment)
+                    transaction.add(
+                        R.id.frame_layout_fragment_container_campus_guide,
+                        canteenFragment as CanteenFragment
+                    )
                 }
             }
             2 -> {
-                clickLogic(tv_tab_express_delivery,expressDeliveryFragment){
+                clickLogic(tv_tab_express_delivery, expressDeliveryFragment) {
                     expressDeliveryFragment = ExpressDeliveryFragment()
-                    transaction.add(R.id.frame_layout_fragment_container_campus_guide,expressDeliveryFragment as ExpressDeliveryFragment)
+                    transaction.add(
+                        R.id.frame_layout_fragment_container_campus_guide,
+                        expressDeliveryFragment as ExpressDeliveryFragment
+                    )
                 }
             }
             3 -> {
-                clickLogic(tv_tab_demystify,demystifyFragment){
+                clickLogic(tv_tab_demystify, demystifyFragment) {
                     demystifyFragment = DemystifyFragment()
-                    transaction.add(R.id.frame_layout_fragment_container_campus_guide,demystifyFragment as DemystifyFragment)
+                    transaction.add(
+                        R.id.frame_layout_fragment_container_campus_guide,
+                        demystifyFragment as DemystifyFragment
+                    )
                 }
             }
         }
