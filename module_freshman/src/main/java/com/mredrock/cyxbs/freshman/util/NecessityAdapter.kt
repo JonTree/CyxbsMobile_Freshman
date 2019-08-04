@@ -53,9 +53,11 @@ class NecessityAdapter constructor(val bean:NecessityBean): RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         var beanNum : Int = 0
-        var flag = 1
-        var lastFlag = 1
+        var flag = 0
+        var lastFlag = 0
         for(textBean in bean.text){
+            if(textBean.data == null)
+                break
             flag += textBean.data.size+1
             if(position < flag){
                 break
@@ -66,8 +68,12 @@ class NecessityAdapter constructor(val bean:NecessityBean): RecyclerView.Adapter
         }
         LogUtils.d("MyTag","position=$position,beanNum=$beanNum,flag=$flag,lastFlag=$lastFlag,title=${holder is TitleViewHolder}")
         when{
-            holder is TitleViewHolder -> holder.binding?.bean = bean.text[beanNum]
-            holder is ItemViewHolder -> holder.binding?.bean = bean.text[beanNum].data[position-lastFlag]
+            holder is TitleViewHolder -> {if(bean.text[beanNum].data != null)
+                holder.binding?.bean = bean.text[beanNum]
+            }
+            holder is ItemViewHolder ->{ if(bean.text[beanNum].data != null)
+                holder.binding?.bean = bean.text[beanNum].data[position-lastFlag-1]
+            }
         }
 
 
@@ -91,7 +97,7 @@ class NecessityAdapter constructor(val bean:NecessityBean): RecyclerView.Adapter
                return 0
            }
             if(textBean.data!=null)
-            index += textBean.data.size
+            index += textBean.data.size+1
        }
         return 1
 

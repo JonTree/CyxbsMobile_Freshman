@@ -2,9 +2,14 @@ package com.mredrock.cyxbs.freshman.ui.acivity
 
 import android.os.Bundle
 import com.mredrock.cyxbs.common.ui.BaseActivity
+import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
+import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.data.ViewModel.GuidedViewModel
 
-class GuideActivity : BaseActivity() {
+class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
+    override val viewModelClass: Class<GuidedViewModel> = GuidedViewModel::class.java
+
     override val isFragmentActivity: Boolean = false
         //To change initializer of created properties use File | Settings | File Templates.
 

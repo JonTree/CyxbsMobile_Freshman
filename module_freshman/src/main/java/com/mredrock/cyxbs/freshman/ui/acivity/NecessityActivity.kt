@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.ui.BaseActivity
+import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
+import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.NecessityViewModel
 import com.mredrock.cyxbs.freshman.data.bean.NecessityBean
@@ -16,7 +18,8 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
-class NecessityActivity : BaseActivity() {
+class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
+    override val viewModelClass: Class<NecessityViewModel> = NecessityViewModel::class.java
     override val isFragmentActivity: Boolean = false
         //To change initializer of created properties use File | Settings | File Templates.
       override fun onCreate(savedInstanceState: Bundle?) {
