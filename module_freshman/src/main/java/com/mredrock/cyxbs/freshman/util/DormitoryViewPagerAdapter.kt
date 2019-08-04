@@ -3,39 +3,45 @@ package com.mredrock.cyxbs.freshman.util
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.PagerAdapter
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
+import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerDormitoryPageBinding
 import kotlinx.android.synthetic.main.freshman_view_pager_express_delivery_page.view.*
 
 /**
  * Created by Tree on 2019/8/3 22:37
  */
-class DormitoryViewPagerAdapter(val context: Context): PagerAdapter() {
+class DormitoryViewPagerAdapter(val context: Context,val bean:CampusGuideBasicBean.TextBean): PagerAdapter() {
 
 
-    val list = listOf("知行苑","明理苑","宁静苑","兴业苑")
+
 
     private val pagerList = ArrayList<View>()
 
 
 
     init {
-        repeat(list.size) {
+        for(msg in bean.message) {
+            val view = View.inflate(
+                context,
+                R.layout.freshman_view_pager_dormitory_page,
+                null
+            )
+            val bind = DataBindingUtil.bind<FreshmanViewPagerDormitoryPageBinding>(view)
+
             pagerList.add(
-                View.inflate(
-                    context,
-                    R.layout.freshman_view_pager_dormitory_page,
-                    null
-                )
+                view
             )}
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return list[position]
+        return bean.message[position].name
     }
 
     override fun getCount(): Int {
-        return list.size
+        return bean.message.size
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {

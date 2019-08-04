@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.PagerAdapter
+import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideExpressDeliveryBean
@@ -58,22 +59,26 @@ class ExpressDeliveryViewPagerAdapter(val context: Context,var bean:CampusGuideE
 //                null
 //            )
 //        )
+
         for(msg in bean.text[position].message){
-            val view = View.inflate(
+            var view = View.inflate(
                 context,
                 R.layout.freshman_view_pager_page_scroll_view_item_express_delivery,
                 null
             )
+            container.addView(view)
             val bind = DataBindingUtil.bind<FreshmanViewPagerPageScrollViewItemExpressDeliveryBinding>(view)
             bind?.bean = msg
+            LogUtils.d("MyTag","do")
         }
 
-        container.addView(pagerList[position])
-        return pagerList[position]
+
+        return container
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        container.removeView(pagerList[position])
+        container.removeViewAt(position)
+//        container.removeView(pagerList[position])
     }
 
 }
