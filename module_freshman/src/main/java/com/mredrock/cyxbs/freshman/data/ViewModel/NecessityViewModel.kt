@@ -8,7 +8,7 @@ import org.greenrobot.eventbus.EventBus
 
 class NecessityViewModel :BaseViewModel() {
 
-//        Log.d("MyTag","viewmodel ready")
+
 
 
     /**

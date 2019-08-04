@@ -9,6 +9,8 @@ import com.mredrock.cyxbs.common.ui.BaseFragment
 import com.mredrock.cyxbs.common.ui.BaseViewModelFragment
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.CampusGuideViewModel
+import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
+import org.greenrobot.eventbus.Subscribe
 
 /**
  * Created by Tree on 2019/8/3 10:01
@@ -21,6 +23,10 @@ class CanteenFragment:BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+    }
+    @Subscribe(sticky = true)
+    fun onBeanReady(bean:CampusGuideBasicBean){
 
     }
 }

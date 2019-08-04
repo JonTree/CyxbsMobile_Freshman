@@ -38,7 +38,7 @@ class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
 
     @Subscribe(sticky = true)
     fun onBeanReady(bean:NecessityBean){
-//        Log.d("MyTag","event bus success")
+
         res_necessity.adapter = NecessityAdapter(bean)
         res_necessity.layoutManager = LinearLayoutManager(this)
 
