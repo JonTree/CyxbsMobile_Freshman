@@ -46,7 +46,7 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>()  {
     //处理Tab的点击事件
     fun onClick(id:Int) {
         //先将四个ImageButton置为灰色
-//        resetImgs()
+        resetImgs()
         when (id) {
             0 -> selectTab(0)
             1 -> selectTab(1)

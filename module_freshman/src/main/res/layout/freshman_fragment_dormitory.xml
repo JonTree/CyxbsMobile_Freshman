@@ -16,7 +16,6 @@
             app:tabSelectedTextColor="#000000"
             android:background="#F9FCFF"
             app:tabIndicatorHeight="0dp"
-            app:tabMode="scrollable"
             app:tabRippleColor="@null"
             android:layout_width="match_parent"
             android:layout_height="46dp">
@@ -47,6 +46,9 @@
             <LinearLayout
                     android:orientation="horizontal"
                     android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:paddingEnd="18dp"
+                    android:paddingStart="18dp"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="0dp">
@@ -54,8 +56,40 @@
 
                 <ViewFlipper
                         android:layout_width="match_parent"
-                        android:layout_height="191dp"/>
+                        android:layout_height="191dp"
+                        android:autoStart="true"
+                        android:inAnimation="@anim/freshman_slide_in_right"
+                        android:outAnimation="@anim/freshman_slide_out_left">
 
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/text"/>
+
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/text"/>
+
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/text"/>
+
+                    <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/text"/>
+
+                </ViewFlipper>
 
             </LinearLayout>
 
