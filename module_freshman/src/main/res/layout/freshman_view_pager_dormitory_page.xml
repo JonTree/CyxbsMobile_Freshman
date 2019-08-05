@@ -7,118 +7,83 @@
                 type="com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean.TextBean.MessageBean"/>
     </data>
 
-    <FrameLayout
+
+
+    <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+        <LinearLayout
+                android:background="@drawable/freshman_backgroup_view_pager_item"
+                android:layout_marginBottom="110dp"
+                android:layout_weight="652"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+        </LinearLayout>
+
+
+
+
+
+
+
+            <TextView
+                    android:textSize="14sp"
+                    android:text="的合法的就是v后方基地和的合法的就是v后方基基地和的合法的就是v后方基基地和的合法的就是v后方基基地和的合法的就是v后方基基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+            <!--<TextView-->
+            <!--android:textSize="14sp"-->
+            <!--android:text="@{bean.detail}"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+
+
+    </LinearLayout>
+
+
+    <ScrollView
+            android:orientation="vertical"
+            android:paddingTop="15dp"
+            android:paddingEnd="15dp"
+            android:scrollbars="none"
+            android:paddingStart="15dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
 
         <LinearLayout
-                android:orientation="horizontal"
+                android:id="@+id/ll_express_delivery_container"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            <View
-                    android:layout_weight="15"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"/>
-
-
-            <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_weight="327"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent">
-
-                <View
-                        android:layout_weight="32"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"/>
-
-                <LinearLayout
-                        android:background="@drawable/freshman_backgroup_view_pager_item"
-                        android:layout_marginBottom="110dp"
-
-                        android:layout_weight="652"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp">
-
-            </LinearLayout>
-
-
-            </LinearLayout>
-
-            <View
-                    android:layout_weight="15"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"/>
+                android:layout_height="wrap_content">
 
         </LinearLayout>
 
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            <View
-                    android:layout_weight="33"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"/>
+    </ScrollView>
 
 
 
-            <LinearLayout
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_weight="309"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent">
-
-
-                <View
-                        android:layout_weight="1"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"/>
-
-
-                <ScrollView
-                        android:orientation="vertical"
-                        android:paddingBottom="128dp"
-                        android:layout_weight="1"
-                        android:scrollbars="none"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp">
-
-
-                    <TextView
-                            android:textSize="14sp"
-                            android:text="的合法的就是v后方基地和的合法的就是v后方基基地和的合法的就是v后方基基地和的合法的就是v后方基基地和的合法的就是v后方基基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和的合法的就是v后方基地和"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
-
-
-                    <!--<TextView-->
-                    <!--android:textSize="14sp"-->
-                    <!--android:text="@{bean.detail}"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"/>-->
 
 
 
-                </ScrollView>
-
-            </LinearLayout>
-
-            <View
-                    android:layout_weight="33"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"/>
 
 
-        </LinearLayout>
-
-        <!--我知道你看了我这个文件之后会说卧槽，这人不用padding来增加内边距，-->
-        <!--而用weight来用比例，我只是想做一个完美的屏幕适配-->
+   
 
 
-    </FrameLayout>
+
+
+
+
+
 </layout>
