@@ -9,23 +9,6 @@
 
     </data>
 
-    <LinearLayout
-            android:paddingEnd="18dp"
-            android:paddingStart="18dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-        <androidx.viewpager.widget.ViewPager
-                android:id="@+id/vp_dormitory_carousel"
-                android:layout_weight="242"
-                android:layout_width="match_parent"
-                android:layout_height="0dp">
-
-
-        </androidx.viewpager.widget.ViewPager>
-
-
         <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -33,7 +16,5 @@
                 imageUrl="@{uri}">
 
         </ImageView>
-
-    </LinearLayout>
 
 </layout>
