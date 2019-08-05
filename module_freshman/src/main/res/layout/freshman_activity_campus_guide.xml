@@ -11,7 +11,6 @@
 
     <LinearLayout
             android:background="#EFF7FF"
-            android:fitsSystemWindows="true"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -21,7 +20,7 @@
 
 
         <LinearLayout
-                android:layout_marginHorizontal="16dp"
+                android:paddingHorizontal="16dp"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"

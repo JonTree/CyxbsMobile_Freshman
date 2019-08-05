@@ -6,6 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
     <View
             android:background="#E1E7FF"
             android:layout_width="match_parent"
@@ -22,60 +23,112 @@
 
     </com.google.android.material.tabs.TabLayout>
 
-    <FrameLayout
-            android:layout_weight="1"
+    <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="match_parent">
 
-        <androidx.viewpager.widget.ViewPager
-                android:id="@+id/vp_dormitory"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-        </androidx.viewpager.widget.ViewPager>
+        <View
+                android:layout_weight="15"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
 
         <LinearLayout
+                android:layout_weight="327"
                 android:orientation="vertical"
-                android:gravity="center"
-                android:paddingEnd="15dp"
-                android:paddingStart="15dp"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent">
 
 
-            <LinearLayout
-                    android:orientation="horizontal"
-                    android:paddingEnd="18dp"
-                    android:paddingStart="18dp"
-                    android:paddingTop="50dp"
-                    android:paddingBottom="50dp"
-                    android:gravity="top"
-                    android:layout_weight="1"
+            <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp">
-
+                    android:layout_height="match_parent">
 
                 <androidx.viewpager.widget.ViewPager
-                        android:id="@+id/vp_dormitory_carousel"
+                        android:id="@+id/vp_dormitory"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                </androidx.viewpager.widget.ViewPager>
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:gravity="center"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
 
-                </androidx.viewpager.widget.ViewPager>
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:gravity="top"
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp">
 
-            </LinearLayout>
+                        <View
+                                android:layout_weight="18"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"/>
 
-            <View
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp">
+                        <LinearLayout
+                                android:layout_weight="309"
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent">
+
+                            <View
+                                    android:layout_weight="50"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"/>
+
+                            <androidx.viewpager.widget.ViewPager
+                                    android:id="@+id/vp_dormitory_carousel"
+                                    android:layout_weight="242"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp">
 
 
-            </View>
+                            </androidx.viewpager.widget.ViewPager>
 
+                            <View
+                                    android:layout_weight="50"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"/>
+
+
+                        </LinearLayout>
+
+
+                        <View
+                                android:layout_weight="18"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"/>
+
+                    </LinearLayout>
+
+                    <View
+                            android:layout_weight="1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp">
+
+
+                    </View>
+
+                </LinearLayout>
+
+            </FrameLayout>
         </LinearLayout>
 
-    </FrameLayout>
 
+        <View
+                android:layout_weight="15"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+
+    </LinearLayout>
+
+    <!--我知道你看了我这个文件之后会说卧槽，这人不用padding来增加内边距，-->
+    <!--而用weight来用比例，我只是想做一个完美的屏幕适配-->
 
 </LinearLayout>

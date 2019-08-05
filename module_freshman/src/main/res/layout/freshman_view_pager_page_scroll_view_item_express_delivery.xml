@@ -13,12 +13,14 @@
             android:layout_height="wrap_content">
 
         <LinearLayout
-                android:background="@mipmap/freshman_backgroup_view_pager_item"
+                android:background="@drawable/freshman_backgroup_view_pager_item"
                 android:orientation="vertical"
                 android:padding="18dp"
                 android:layout_marginBottom="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+
 
 
             <ImageView
@@ -27,6 +29,8 @@
                     android:adjustViewBounds="true"
                     android:scaleType="fitXY"
                     imageUrl="@{bean.photo}"/>
+
+
 
             <TextView
                     android:text="@{bean.title}"
@@ -42,6 +46,10 @@
                     android:text="@{bean.detail}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
+
+
+
+
 
         </LinearLayout>
 
