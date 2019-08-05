@@ -8,14 +8,15 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
 import org.jetbrains.anko.imageBitmap
 
 /**
  * Created by Tree on 2019/8/4 20:12
  */
-class DormitoryCarouselViewPagerAdapter(val context: Context) : PagerAdapter() {
+class DormitoryCarouselViewPagerAdapter(val context: Context, val bean: CampusGuideBasicBean.TextBean) :
 
-    val list = listOf("链接1", "链接2", "链接3", "链接4", "链接5")
+    PagerAdapter() {
 
     override fun getCount(): Int {
         return Int.MAX_VALUE
@@ -31,27 +32,18 @@ class DormitoryCarouselViewPagerAdapter(val context: Context) : PagerAdapter() {
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
+        val list  = bean.message.flatMap { it.photos }
         var i = position
+
         i = if ((i + 1) % list.size != 0) {
             (i + 1) % list.size - 1
         } else {
-            0
+            1
         }
-        return TextView(context).apply {
-            text = list[i]
-
-        }
-
-//        return  ImageView(context).apply {
-//            layoutParams =
-//                LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-//            imageBitmap = getPicture(list[i])
-//        }
-
+        return  ImageView(context).apply {
+            layoutParams =
+                LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        }.let { Util.loadImage(it, list[i], null) }
     }
 
-//    fun getPicture(uri:String): Bitmap? {
-//        //TODO
-//
-//    }
 }

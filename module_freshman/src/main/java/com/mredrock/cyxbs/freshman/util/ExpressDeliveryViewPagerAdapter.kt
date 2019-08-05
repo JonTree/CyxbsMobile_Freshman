@@ -15,27 +15,30 @@ import java.math.MathContext
 /**
  * Created by Tree on 2019/8/3 11:12
  */
-class ExpressDeliveryViewPagerAdapter(val context: Context,var bean:CampusGuideExpressDeliveryBean) : PagerAdapter() {
+class ExpressDeliveryViewPagerAdapter(val context: Context, var bean: CampusGuideExpressDeliveryBean) : PagerAdapter() {
 
 
-    val list = listOf("顺丰","韵达","中通","圆通","中通","邮政","菜鸟驿站（校外）","百世")
+    val list = listOf("顺丰", "韵达", "中通", "圆通", "中通", "邮政", "菜鸟驿站（校外）", "百世")
 
     private val pagerList = ArrayList<View>()
 
 
-
     init {
-        for(msg in bean.text) {
+        for (msg in bean.text) {
             val view = View.inflate(
                 context,
                 R.layout.freshman_view_pager_express_delivery_page,
                 null
             )
-            val bind = DataBindingUtil.bind<com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerExpressDeliveryPageBinding>(view)
+            val bind =
+                DataBindingUtil.bind<com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerExpressDeliveryPageBinding>(
+                    view
+                )
             bind?.text = msg.name
             pagerList.add(
                 view
-            )}
+            )
+        }
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
@@ -51,21 +54,18 @@ class ExpressDeliveryViewPagerAdapter(val context: Context,var bean:CampusGuideE
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-//        pagerList[position].ll_express_delivery_container.addView(
-//            View.inflate(
-//                context,
-//                R.layout.freshman_view_pager_page_scroll_view_item_express_delivery,
-//                null
-//            )
-//        )
-        for(msg in bean.text[position].message){
-            val view = View.inflate(
-                context,
-                R.layout.freshman_view_pager_page_scroll_view_item_express_delivery,
-                null
-            )
-            val bind = DataBindingUtil.bind<FreshmanViewPagerPageScrollViewItemExpressDeliveryBinding>(view)
-            bind?.bean = msg
+
+        if (pagerList[position].ll_express_delivery_container.getChildAt(0) == null) {
+            for (msg in bean.text[position].message) {
+                val view = View.inflate(
+                    context,
+                    R.layout.freshman_view_pager_page_scroll_view_item_express_delivery,
+                    null
+                )
+                pagerList[position].ll_express_delivery_container.addView(view)
+                val bind = DataBindingUtil.bind<FreshmanViewPagerPageScrollViewItemExpressDeliveryBinding>(view)
+                bind?.bean = msg
+            }
         }
 
         container.addView(pagerList[position])

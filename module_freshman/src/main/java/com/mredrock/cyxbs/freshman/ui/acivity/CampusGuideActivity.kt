@@ -22,10 +22,11 @@ import org.jetbrains.anko.textColor
 
 class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
     override val viewModelClass: Class<CampusGuideViewModel> = CampusGuideViewModel::class.java
-    //        get() = TODO("not implemented") //To change initializer of created properties use File | Settings | File Templates.
+
     override val isFragmentActivity: Boolean = true
-    //To change initializer of created properties use File | Settings | File Templates.
+
     lateinit var binding: FreshmanActivityCampusGuideBinding
+
     private var canteenFragment: CanteenFragment? = null
     private var demystifyFragment: DemystifyFragment? = null
     private var dormitoryFragment: DormitoryFragment? = null
