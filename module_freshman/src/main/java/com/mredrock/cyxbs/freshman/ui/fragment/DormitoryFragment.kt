@@ -23,6 +23,7 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import android.view.animation.Interpolator
+import kotlinx.android.synthetic.main.freshman_view_pager_item_carousel.*
 
 
 /**

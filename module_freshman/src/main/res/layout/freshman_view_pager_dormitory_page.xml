@@ -2,9 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <variable
-                name="bean"
-                type="com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean.TextBean.MessageBean"/>
+        <!--<variable-->
+                <!--name="bean"-->
+                <!--type="com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean.TextBean.MessageBean"/>-->
     </data>
 
 
@@ -22,7 +22,7 @@
                 android:layout_marginBottom="110dp"
                 android:layout_weight="652"
                 android:layout_width="match_parent"
-                android:layout_height="0dp">
+                android:layout_height="1dp">
 
         </LinearLayout>
 
@@ -50,26 +50,10 @@
     </LinearLayout>
 
 
-    <ScrollView
-            android:orientation="vertical"
-            android:paddingTop="15dp"
-            android:paddingEnd="15dp"
-            android:scrollbars="none"
-            android:paddingStart="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
 
-        <LinearLayout
-                android:id="@+id/ll_express_delivery_container"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-        </LinearLayout>
 
 
-    </ScrollView>
 
 
 

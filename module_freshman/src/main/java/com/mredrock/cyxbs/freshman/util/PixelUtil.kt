@@ -2,7 +2,7 @@ package com.mredrock.cyxbs.freshman.util
 
 import android.content.Context
 
-object DP_PX {
+object PixelUtil {
     //将dp转换为px
     fun dp2px(context: Context, dpValue: Float): Int {
         val scale = context.resources.displayMetrics.density
