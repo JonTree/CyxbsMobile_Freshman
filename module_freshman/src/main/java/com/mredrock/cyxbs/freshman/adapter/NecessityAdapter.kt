@@ -1,6 +1,5 @@
-package com.mredrock.cyxbs.freshman.util
+package com.mredrock.cyxbs.freshman.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,14 +37,14 @@ class NecessityAdapter constructor(val bean:NecessityBean): RecyclerView.Adapter
 //                val view =
 //                    LayoutInflater.from(parent.context).inflate(R.layout.freshman_recycle_item_necessity_title, parent)
                 val binding = DataBindingUtil.inflate<FreshmanRecycleItemNecessityTitleBinding>(LayoutInflater.from(parent.context),R.layout.freshman_recycle_item_necessity_title,parent,false)
-                return TitleViewHolder(binding.root,binding)
+                return TitleViewHolder(binding.root, binding)
 
             }
             else -> {
 //                val view =
 //                    LayoutInflater.from(parent.context).inflate(R.layout.freshman_recycle_item_necessity_title, parent)
                 val binding = DataBindingUtil.inflate<FreshmanRecycleItemNecessityItemBinding>(LayoutInflater.from(parent.context),R.layout.freshman_recycle_item_necessity_item,parent,false)
-                    return ItemViewHolder(binding.root,binding)
+                    return ItemViewHolder(binding.root, binding)
 
             }
         }
