@@ -11,6 +11,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".ui.acivity.OnlineCommunicationActivity">
-
+        <com.mredrock.cyxbs.freshman.ui.view.FreshmanHistogramView
+                android:id="@+id/fre"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:ignore="MissingConstraints"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
