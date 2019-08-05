@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+                name="uri"
+                type="String"/>
+
+    </data>
+
+    <LinearLayout
+            android:paddingEnd="18dp"
+            android:paddingStart="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_dormitory_carousel"
+                android:layout_weight="242"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+
+        </androidx.viewpager.widget.ViewPager>
+
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                imageUrl="@{uri}">
+
+        </ImageView>
+
+    </LinearLayout>
+
+</layout>

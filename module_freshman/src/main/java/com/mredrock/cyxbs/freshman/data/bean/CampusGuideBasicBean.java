@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.freshman.data.bean;
 
 import androidx.databinding.BaseObservable;
+import androidx.databinding.ObservableArrayList;
 
 import java.util.List;
 
