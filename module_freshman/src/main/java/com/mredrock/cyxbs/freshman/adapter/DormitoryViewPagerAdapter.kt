@@ -22,7 +22,6 @@ class DormitoryViewPagerAdapter(val context: Context,val bean:CampusGuideBasicBe
 
 
 
-
     private val pagerList = ArrayList<View>()
 
     private var isPause = false

@@ -1,22 +1,18 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
 import android.os.Bundle
-import android.view.View
 import androidx.databinding.DataBindingUtil.setContentView
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.R
 import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
 import com.mredrock.cyxbs.common.ui.BaseFragment
-import com.mredrock.cyxbs.freshman.ui.fragment.CanteenFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.DemystifyFragment
-import com.mredrock.cyxbs.freshman.ui.fragment.DormitoryFragment
+import com.mredrock.cyxbs.freshman.ui.fragment.DormitoryCanteenFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.ExpressDeliveryFragment
 import kotlinx.android.synthetic.main.freshman_activity_campus_guide.*
 import com.mredrock.cyxbs.freshman.data.ViewModel.CampusGuideViewModel
-import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanActivityCampusGuideBinding
-import org.greenrobot.eventbus.Subscribe
 import org.jetbrains.anko.textColor
 
 
@@ -27,9 +23,9 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
 
     lateinit var binding: FreshmanActivityCampusGuideBinding
 
-    private var canteenFragment: CanteenFragment? = null
+    private var canteenFragment: DormitoryCanteenFragment? = null
     private var demystifyFragment: DemystifyFragment? = null
-    private var dormitoryFragment: DormitoryFragment? = null
+    private var dormitoryFragment: DormitoryCanteenFragment? = null
     private var expressDeliveryFragment: ExpressDeliveryFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,6 +58,7 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
         hideFragments(transaction)
         fun clickLogic(tab: TextView, fragment: BaseFragment?, initFragment: () -> Unit) {
             tab.textColor = 0xff4b72ff.toInt()
+            tab.paint.isFakeBoldText = true
             if (fragment == null) {
                 initFragment()
             } else {
@@ -72,20 +69,20 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
             //当选中点击的是微信的Tab时
             0 -> {
                 clickLogic(tv_tab_dormitories, dormitoryFragment) {
-                    dormitoryFragment = DormitoryFragment()
+                    dormitoryFragment = DormitoryCanteenFragment(0)
                     transaction.add(
                         R.id.frame_layout_fragment_container_campus_guide,
-                        dormitoryFragment as DormitoryFragment
+                        dormitoryFragment as DormitoryCanteenFragment
                     )
                 }
             }
             1 -> {
 
                 clickLogic(tv_tab_canteen, canteenFragment) {
-                    canteenFragment = CanteenFragment()
+                    canteenFragment = DormitoryCanteenFragment(1)
                     transaction.add(
                         R.id.frame_layout_fragment_container_campus_guide,
-                        canteenFragment as CanteenFragment
+                        canteenFragment as DormitoryCanteenFragment
                     )
                 }
             }
@@ -128,10 +125,14 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
     }
 
     private fun resetImgs() {
-        tv_tab_canteen.textColor = 0xff000000.toInt()
-        tv_tab_demystify.textColor = 0xff000000.toInt()
-        tv_tab_dormitories.textColor = 0xff000000.toInt()
-        tv_tab_express_delivery.textColor = 0xff000000.toInt()
+        fun updataTextView(tab: TextView) {
+            tab.textColor = 0xff000000.toInt()
+            tab.paint.isFakeBoldText = false
+        }
+        updataTextView(tv_tab_canteen)
+        updataTextView(tv_tab_demystify)
+        updataTextView(tv_tab_dormitories)
+        updataTextView(tv_tab_express_delivery)
     }
 
 }
