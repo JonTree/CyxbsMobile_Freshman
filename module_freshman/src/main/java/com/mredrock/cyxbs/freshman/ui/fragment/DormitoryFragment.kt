@@ -23,6 +23,7 @@ import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 import android.view.animation.Interpolator
+import kotlinx.android.synthetic.main.freshman_view_pager_dormitory_page.*
 
 
 /**
@@ -30,7 +31,6 @@ import android.view.animation.Interpolator
  */
 class DormitoryFragment : BaseFragment() {
 
-    private var isPause = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -47,49 +47,12 @@ class DormitoryFragment : BaseFragment() {
         tl_dormitory.setupWithViewPager(vp_dormitory)
 
 
-        vp_dormitory_carousel.adapter = DormitoryCarouselViewPagerAdapter(activity as Context,bean.text[0])
-        vp_dormitory_carousel.currentItem = ((Int.MAX_VALUE/2) -1)
-//        vp_dormitory_carousel.setOnTouchListener { _, event ->
-//            when (event.action) {
-//                MotionEvent.ACTION_DOWN -> isPause = true
-//                MotionEvent.ACTION_UP -> isPause = false
-//            }
-//            return@setOnTouchListener false
-//        }
 
-
-        try {
-            val aClass = ViewPager::class.java
-            val sInterpolator = aClass.getDeclaredField("sInterpolator")
-            sInterpolator.isAccessible = true
-            val scroller = object : Scroller(activity, sInterpolator.get(vp_dormitory_carousel) as Interpolator) {
-                override fun startScroll(startX: Int, startY: Int, dx: Int, dy: Int, duration: Int) {
-                    //最后一个参数即viewpager自动滑动的时间
-                    super.startScroll(startX, startY, dx, dy, 2000)
-                }
-            }
-            val mScroller = aClass.getDeclaredField("mScroller")
-            mScroller.isAccessible = true
-            mScroller.set(vp_dormitory_carousel, scroller)
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-
-
-        Thread{
-            while (true) {
-                Thread.sleep(3000)
-                if (isPause) {
-                    continue
-                }
-                EventBus.getDefault().post(UpdataViewPagerAutoSlideEvent())
-            }
-        }.start()
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun updataViewPagerAutoSlide(event: UpdataViewPagerAutoSlideEvent) {
-        vp_dormitory_carousel.apply {
+        event.viewPager.apply {
             currentItem += 1
         }
     }
