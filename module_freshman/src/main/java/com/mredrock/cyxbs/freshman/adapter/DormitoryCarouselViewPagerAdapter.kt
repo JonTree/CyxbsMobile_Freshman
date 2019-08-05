@@ -1,20 +1,14 @@
-package com.mredrock.cyxbs.freshman.util
+package com.mredrock.cyxbs.freshman.adapter
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableArrayList
 import androidx.viewpager.widget.PagerAdapter
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerItemCarouselBinding
-import org.jetbrains.anko.image
-import org.jetbrains.anko.imageBitmap
 
 /**
  * Created by Tree on 2019/8/4 20:12

@@ -1,22 +1,15 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
 import android.os.Bundle
-import android.util.Log
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
-import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.NecessityViewModel
 import com.mredrock.cyxbs.freshman.data.bean.NecessityBean
-import com.mredrock.cyxbs.freshman.util.NecessityAdapter
+import com.mredrock.cyxbs.freshman.adapter.NecessityAdapter
 import kotlinx.android.synthetic.main.freshman_activity_necessity.*
-import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 
 class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
     override val viewModelClass: Class<NecessityViewModel> = NecessityViewModel::class.java

@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.util
+package com.mredrock.cyxbs.freshman.adapter
 
 import android.content.Context
 import android.view.View
@@ -10,10 +10,9 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
-import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerDormitoryPageBinding
+import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerDormitoryAndCanteenPageBinding
 import com.mredrock.cyxbs.freshman.event.UpdataViewPagerAutoSlideEvent
-import kotlinx.android.synthetic.main.freshman_view_pager_dormitory_page.view.*
-import kotlinx.android.synthetic.main.freshman_view_pager_express_delivery_page.view.*
+import kotlinx.android.synthetic.main.freshman_view_pager_dormitory_and_canteen_page.view.*
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -35,10 +34,11 @@ class DormitoryViewPagerAdapter(val context: Context,val bean:CampusGuideBasicBe
         for(msg in bean.message) {
             val view = View.inflate(
                 context,
-                R.layout.freshman_view_pager_dormitory_page,
+                R.layout.freshman_view_pager_dormitory_and_canteen_page,
                 null
             ).apply {
-                vp_dormitory_carousel.adapter = DormitoryCarouselViewPagerAdapter(context as Context,bean)
+                vp_dormitory_carousel.adapter =
+                    DormitoryCarouselViewPagerAdapter(context as Context, bean)
                 vp_dormitory_carousel.currentItem = ((Int.MAX_VALUE/2) -1)
                 try {
                     val aClass = ViewPager::class.java
@@ -66,7 +66,7 @@ class DormitoryViewPagerAdapter(val context: Context,val bean:CampusGuideBasicBe
                         EventBus.getDefault().post(UpdataViewPagerAutoSlideEvent(vp_dormitory_carousel))
                     }
                 }.start() }
-            val bind = DataBindingUtil.bind<FreshmanViewPagerDormitoryPageBinding>(view)
+            val bind = DataBindingUtil.bind<FreshmanViewPagerDormitoryAndCanteenPageBinding>(view)
             bind?.bean = msg
             pagerList.add(
                 view

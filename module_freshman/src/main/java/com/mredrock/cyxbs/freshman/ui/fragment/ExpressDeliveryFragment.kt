@@ -5,13 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.viewpager.widget.ViewPager
 import com.mredrock.cyxbs.common.ui.BaseFragment
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideExpressDeliveryBean
-import com.mredrock.cyxbs.freshman.util.ExpressDeliveryViewPagerAdapter
+import com.mredrock.cyxbs.freshman.adapter.ExpressDeliveryViewPagerAdapter
 import kotlinx.android.synthetic.main.freshman_fragment_express_delivery.*
 import org.greenrobot.eventbus.Subscribe
 
@@ -33,7 +30,8 @@ class ExpressDeliveryFragment : BaseFragment() {
     @Subscribe(sticky = true)
     fun onBeanReady(bean: CampusGuideExpressDeliveryBean){
 
-        vp_express_delivery.adapter = ExpressDeliveryViewPagerAdapter(activity as Context,bean)
+        vp_express_delivery.adapter =
+            ExpressDeliveryViewPagerAdapter(activity as Context, bean)
         tl_express_delivery.setupWithViewPager(vp_express_delivery)
     }
 }

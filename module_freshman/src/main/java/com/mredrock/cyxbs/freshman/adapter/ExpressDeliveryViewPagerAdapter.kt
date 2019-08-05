@@ -1,4 +1,4 @@
-package com.mredrock.cyxbs.freshman.util
+package com.mredrock.cyxbs.freshman.adapter
 
 import android.content.Context
 import android.view.View
