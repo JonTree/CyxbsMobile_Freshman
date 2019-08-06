@@ -17,7 +17,7 @@ class FreshmanPieChartView @JvmOverloads constructor(
     private val lightBlueFillingPaint = Paint()
     private val dataPaint = Paint()
 
-    var mProportion :Float = 0.1.toFloat()
+    private var mProportion :Float = 0.1.toFloat()
     var textSize = PixelUtil.sp2px(context,20.toFloat()).toFloat()
     var storkeWidth = PixelUtil.dp2px(context,1.toFloat()).toFloat()
     private var radius :Int? = null
@@ -48,14 +48,14 @@ class FreshmanPieChartView @JvmOverloads constructor(
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         viewWidth = MeasureSpec.getSize(widthMeasureSpec)
         viewHeight = MeasureSpec.getSize(heightMeasureSpec)
-        radius = (0.26*viewWidth!!).toInt()
+        radius = (viewWidth!!/2.1).toInt()
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
     }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
 
-        drawTitle(canvas)
+//        drawTitle(canvas)
         drawPieChart(canvas)
     }
 
@@ -65,7 +65,7 @@ class FreshmanPieChartView @JvmOverloads constructor(
 
         canvas?.drawRect(rectMan,coordinatePaint)
         canvas?.drawRect(rectMan,lightBlueFillingPaint)
-        canvas?.drawText("男",(0.195*viewWidth!!).toFloat(),(0.085*viewHeight!!).toFloat(),coordinatePaint)
+        canvas?.drawText("男",(0.22*viewWidth!!).toFloat(),(0.085*viewHeight!!).toFloat(),coordinatePaint)
 
         canvas?.save()
         canvas?.translate(0.toFloat(),(0.15*viewHeight!!).toFloat())
@@ -73,7 +73,7 @@ class FreshmanPieChartView @JvmOverloads constructor(
 
         canvas?.drawRect(rectWoman,coordinatePaint)
         canvas?.drawRect(rectWoman,pinkFillingPaint)
-        canvas?.drawText("女",(0.195*viewWidth!!).toFloat(),(0.085*viewHeight!!).toFloat(),coordinatePaint)
+        canvas?.drawText("女",(0.22*viewWidth!!).toFloat(),(0.085*viewHeight!!).toFloat(),coordinatePaint)
 
         canvas?.restore()
     }
@@ -86,7 +86,7 @@ class FreshmanPieChartView @JvmOverloads constructor(
         var girlTextPointAngle =  (360-mProportion*360)/2
 //        var boyTextPointAngle = (mProportion*360)
         canvas?.save()
-        canvas?.translate((0.5*viewWidth!!).toFloat(),(0.57*viewHeight!!).toFloat())
+        canvas?.translate((0.5*viewWidth!!).toFloat(),(0.5*viewHeight!!).toFloat())
 
         coordinatePaint.style = Paint.Style.STROKE
         LogUtils.d("MyTag","360-mProportion*360=${360-mProportion*360}")
