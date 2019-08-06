@@ -17,9 +17,9 @@ class FreshmanHistogramView @JvmOverloads constructor(
     private val framePaint = Paint()
     private val blueFillingPaint =Paint()
     private val pinkFillingPaint = Paint()
-    private val lightBluePaint = Paint()
+    private val lightBlueFillingPaint = Paint()
     private val dataPaint = Paint()
-    private val list :List<Paint> = listOf(blueFillingPaint,pinkFillingPaint,lightBluePaint)
+    private val list :List<Paint> = listOf(blueFillingPaint,pinkFillingPaint,lightBlueFillingPaint)
 
     private var viewWidth :Float? = null
     private var coordinateWidth :Float? = null
@@ -37,7 +37,7 @@ class FreshmanHistogramView @JvmOverloads constructor(
         framePaint.color = Color.rgb(104,130,255)
         blueFillingPaint.color = Color.rgb(81,110,255)
         pinkFillingPaint.color = Color.rgb(255,115,184)
-        lightBluePaint.color = Color.rgb(60,206,255)
+        lightBlueFillingPaint.color = Color.rgb(60,206,255)
 
 
         coordinatePaint.strokeWidth = paintWidth.toFloat()
@@ -47,7 +47,7 @@ class FreshmanHistogramView @JvmOverloads constructor(
         framePaint.style = Paint.Style.STROKE
         blueFillingPaint.style = Paint.Style.FILL
         pinkFillingPaint.style = Paint.Style.FILL
-        lightBluePaint.style = Paint.Style.FILL
+        lightBlueFillingPaint.style = Paint.Style.FILL
 
         coordinatePaint.textAlign = Paint.Align.CENTER
         dataPaint.textAlign = Paint.Align.CENTER

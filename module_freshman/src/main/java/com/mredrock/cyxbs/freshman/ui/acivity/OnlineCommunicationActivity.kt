@@ -18,8 +18,6 @@ class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationVie
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_online_communication)
 
-        var list= listOf<String>("高等数学","大学物理","线性代数")
-        var data = listOf<Float>(60.toFloat(),38.toFloat(),40.toFloat())
-        fre.bindData(list,data)
+
     }
 }
