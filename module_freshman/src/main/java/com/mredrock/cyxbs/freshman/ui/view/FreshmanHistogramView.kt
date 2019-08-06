@@ -56,13 +56,16 @@ class FreshmanHistogramView @JvmOverloads constructor(
         coordinatePaint.letterSpacing = 0.1.toFloat()
         dataPaint.letterSpacing = 0.07.toFloat()
     }
-    var title:List<String>? = null
-    var data:List<Float>? = null
+    var title:List<String> = listOf("","","")
+    var data:List<Float> = listOf(0f,0f,0f)
 
-    fun bindData(title:List<String>,data:List<Float>){
-        this.title = title
-        this.data = data
-        postInvalidate()
+    fun bindData(title:List<String>? ,data:List<Float>?){
+        if (title != null && data != null) {
+            this.title = title
+            this.data = data
+            postInvalidate()
+        }
+
     }
 
 
@@ -105,7 +108,7 @@ class FreshmanHistogramView @JvmOverloads constructor(
         drawVertical(canvas)
 //        if(data != null && title != null){
             repeat(3){
-                drawRect(it, data!![it], title!![it],canvas,list[it])
+                drawRect(it, data[it], title[it],canvas,list[it])
 
             }
 //        }

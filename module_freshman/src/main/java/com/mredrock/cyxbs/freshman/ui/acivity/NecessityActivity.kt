@@ -15,25 +15,20 @@ import org.greenrobot.eventbus.Subscribe
 class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
     override val viewModelClass: Class<NecessityViewModel> = NecessityViewModel::class.java
     override val isFragmentActivity: Boolean = false
-        //To change initializer of created properties use File | Settings | File Templates.
-      override fun onCreate(savedInstanceState: Bundle?) {
+    //To change initializer of created properties use File | Settings | File Templates.
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_necessity)
-
-            fab.setOnClickListener { view ->
-
-            }
-
-//        val vm : Deliverable = viewModel
-
+        common_toolbar.init(
+            title = "入学必备"
+        )
         val viewModel = ViewModelProviders.of(this).get(NecessityViewModel::class.java)
 
     }
 
 
-
     @Subscribe(sticky = true)
-    fun onBeanReady(bean:NecessityBean){
+    fun onBeanReady(bean: NecessityBean) {
         res_necessity.adapter = NecessityAdapter(bean)
         res_necessity.layoutManager = LinearLayoutManager(this)
 

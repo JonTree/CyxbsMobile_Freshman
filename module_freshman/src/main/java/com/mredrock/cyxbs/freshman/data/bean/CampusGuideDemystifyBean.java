@@ -12,7 +12,7 @@ public class CampusGuideDemystifyBean extends BaseObservable {
     /**
      * code : 200
      * info : ok
-     * text : [{"name":"学院","message":[{"title":"最难科目","data":[{"subject_1":"数学","data":"80%"},{"subject_2":"物理","data":"80%"}]},{"title":"男女比例","boy":"20%","girl":"80%"}]},{"name":"学院","message":[{"title":"最难科目","data":[{"subject_1":"数学","data":"80%"},{"subject_2":"物理","data":"80%"}]},{"title":"男女比例","boy":"20%","girl":"80%"}]}]
+     * text : [{"name":"学院","message":[{"title":"最难科目","data":[{"subject":"数学","data":"80%"},{"subject":"物理","data":"80%"}]},{"title":"男女比例","boy":"20%","girl":"80%"}]},{"name":"学院","message":[{"title":"最难科目","data":[{"subject":"数学","data":"80%"},{"subject":"物理","data":"80%"}]},{"title":"男女比例","boy":"20%","girl":"80%"}]}]
      */
 
     private int code;
@@ -43,10 +43,10 @@ public class CampusGuideDemystifyBean extends BaseObservable {
         this.text = text;
     }
 
-    public static class TextBean extends BaseObservable{
+    public static class TextBean {
         /**
          * name : 学院
-         * message : [{"title":"最难科目","data":[{"subject_1":"数学","data":"80%"},{"subject_2":"物理","data":"80%"}]},{"title":"男女比例","boy":"20%","girl":"80%"}]
+         * message : [{"title":"最难科目","data":[{"subject":"数学","data":"80%"},{"subject":"物理","data":"80%"}]},{"title":"男女比例","boy":"20%","girl":"80%"}]
          */
 
         private String name;
@@ -68,10 +68,10 @@ public class CampusGuideDemystifyBean extends BaseObservable {
             this.message = message;
         }
 
-        public static class MessageBean extends BaseObservable{
+        public static class MessageBean {
             /**
              * title : 最难科目
-             * data : [{"subject_1":"数学","data":"80%"},{"subject_2":"物理","data":"80%"}]
+             * data : [{"subject":"数学","data":"80%"},{"subject":"物理","data":"80%"}]
              * boy : 20%
              * girl : 80%
              */
@@ -113,23 +113,21 @@ public class CampusGuideDemystifyBean extends BaseObservable {
                 this.data = data;
             }
 
-            public static class DataBean extends BaseObservable{
+            public static class DataBean {
                 /**
-                 * subject_1 : 数学
+                 * subject : 数学
                  * data : 80%
-                 * subject_2 : 物理
                  */
 
-                private String subject_1;
+                private String subject;
                 private String data;
-                private String subject_2;
 
-                public String getSubject_1() {
-                    return subject_1;
+                public String getSubject() {
+                    return subject;
                 }
 
-                public void setSubject_1(String subject_1) {
-                    this.subject_1 = subject_1;
+                public void setSubject(String subject) {
+                    this.subject = subject;
                 }
 
                 public String getData() {
@@ -138,14 +136,6 @@ public class CampusGuideDemystifyBean extends BaseObservable {
 
                 public void setData(String data) {
                     this.data = data;
-                }
-
-                public String getSubject_2() {
-                    return subject_2;
-                }
-
-                public void setSubject_2(String subject_2) {
-                    this.subject_2 = subject_2;
                 }
             }
         }
