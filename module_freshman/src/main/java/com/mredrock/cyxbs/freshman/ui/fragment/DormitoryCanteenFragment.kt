@@ -43,6 +43,7 @@ class DormitoryCanteenFragment(val position:Int): BaseFragment() {
         tl_dormitory.setupWithViewPager(vp_dormitory)
     }
 
+    @Synchronized
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun updataViewPagerAutoSlide(event: UpdataViewPagerAutoSlideEvent) {
         event.viewPager.apply {
