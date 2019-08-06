@@ -22,14 +22,64 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <ImageView
-                    android:id="@+id/img_banner"
-                    android:src="@mipmap/freshman_banner"
-                    android:layout_marginBottom="12dp"
-                    android:scaleType="fitXY"
-                    android:adjustViewBounds="true"
+            <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content">
+
+
+                <ImageView
+                        android:id="@+id/img_banner"
+                        android:src="@mipmap/freshman_banner"
+                        android:layout_marginBottom="12dp"
+                        android:scaleType="fitXY"
+                        android:adjustViewBounds="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+
+                    <ImageView
+                            android:id="@+id/iv_home_purple_screw"
+                            android:src="@mipmap/freshman_ic_home_purple_screw"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintVertical_bias="0.268 "
+                            app:layout_constraintHorizontal_bias="0.484"/>
+
+
+                    <ImageView
+                            android:id="@+id/iv_home_red_screw"
+                            android:src="@mipmap/freshamn_ic_home_red_screw"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.796"
+                            app:layout_constraintVertical_bias="0.415"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            </FrameLayout>
+
+
 
 
             <androidx.constraintlayout.widget.ConstraintLayout

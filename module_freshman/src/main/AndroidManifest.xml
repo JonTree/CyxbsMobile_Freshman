@@ -9,6 +9,8 @@
             android:roundIcon="@mipmap/freshmanic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/freshman_AppTheme">
+        <activity android:name=".ui.acivity.DemystifyDetailActivity">
+        </activity>
         <activity android:name=".ui.acivity.MoreFunctionActivity">
         </activity>
         <activity android:name=".ui.acivity.OnlineCommunicationActivity">
@@ -26,6 +28,7 @@
         <activity android:name=".ui.acivity.HomepageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
