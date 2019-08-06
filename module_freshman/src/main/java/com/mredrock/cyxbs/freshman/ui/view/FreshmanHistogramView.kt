@@ -69,9 +69,9 @@ class FreshmanHistogramView @JvmOverloads constructor(
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
 
         viewWidth = MeasureSpec.getSize(widthMeasureSpec).toFloat()
-        coordinateWidth = MeasureSpec.getSize(widthMeasureSpec).toFloat()*0.77.toFloat()
+        coordinateWidth = MeasureSpec.getSize(widthMeasureSpec).toFloat()*0.9.toFloat()
         viewHeight = MeasureSpec.getSize(heightMeasureSpec).toFloat()
-        coordinateHeight = MeasureSpec.getSize(heightMeasureSpec).toFloat()*0.77.toFloat()
+        coordinateHeight = MeasureSpec.getSize(heightMeasureSpec).toFloat()*0.9.toFloat()
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 //        super.onMeasure(MeasureSpec.makeMeasureSpec(MeasureSpec.getMode(widthMeasureSpec),MeasureSpec.getSize(viewWidth)),
 //            MeasureSpec.makeMeasureSpec(MeasureSpec.getMode(heightMeasureSpec),MeasureSpec.getSize(viewHeight)))
@@ -98,7 +98,7 @@ class FreshmanHistogramView @JvmOverloads constructor(
 //        canvas?.drawPath(path,coordinatePaint)
 //        canvas?.drawTextOnPath("挂科率前三",path,0.toFloat(),0.toFloat(),coordinatePaint)
 
-        canvas?.translate(((viewWidth!!-coordinateWidth!!)*0.5).toFloat(),((viewHeight!!-coordinateHeight!!)*0.5+coordinateHeight!!).toFloat())
+        canvas?.translate(((viewWidth!!-coordinateWidth!!)*0.5).toFloat(),((viewHeight!!-coordinateHeight!!)*0.1+coordinateHeight!!).toFloat())
 
 
         drawHorizontal(canvas)
