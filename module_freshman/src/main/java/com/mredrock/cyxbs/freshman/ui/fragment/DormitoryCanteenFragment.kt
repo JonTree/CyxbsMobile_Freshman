@@ -12,7 +12,6 @@ import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
 import com.mredrock.cyxbs.freshman.event.UpdataViewPagerAutoSlideEvent
 import com.mredrock.cyxbs.freshman.adapter.DormitoryViewPagerAdapter
-import com.mredrock.cyxbs.freshman.databinding.FreshmanFragmentDormitoryBinding
 import kotlinx.android.synthetic.main.freshman_fragment_dormitory.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
