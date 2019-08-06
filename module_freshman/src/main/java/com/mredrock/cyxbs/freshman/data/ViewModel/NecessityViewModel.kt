@@ -16,11 +16,11 @@ class NecessityViewModel :BaseViewModel() {
             "\t\t\t\"title\": \"报道必备\",\n" +
             "\t\t\t\"data\": [{\n" +
             "\t\t\t\t\t\"name\": \"录取通知书\",\n" +
-            "\t\t\t\t\t\"detail\": \"啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦\"\n" +
+            "\t\t\t\t\t\"detail\": \"\"\n" +
             "\t\t\t\t},\n" +
             "\t\t\t\t{\n" +
             "\t\t\t\t\t\"name\": \"高考准考证\",\n" +
-            "\t\t\t\t\t\"detail\": \"啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦\"\n" +
+            "\t\t\t\t\t\"detail\": \"\"\n" +
             "\t\t\t\t}\n" +
             "\t\t\t]\n" +
             "\t\t},\n" +
@@ -52,7 +52,8 @@ class NecessityViewModel :BaseViewModel() {
             "}"
 
     init {
-        EventBus.getDefault().postSticky(gson.fromJson(data, NecessityBean::class.java))
+        val a = gson.fromJson(data, NecessityBean::class.java)
+        EventBus.getDefault().postSticky(a)
     }
 
 
