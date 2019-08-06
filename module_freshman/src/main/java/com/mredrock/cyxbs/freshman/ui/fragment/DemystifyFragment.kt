@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.common.ui.BaseFragment
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.adapter.DemysityAdapter
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideExpressDeliveryBean
 import com.mredrock.cyxbs.freshman.adapter.ExpressDeliveryViewPagerAdapter
+import com.mredrock.cyxbs.freshman.data.bean.CampusGuideDemystifyBean
 import kotlinx.android.synthetic.main.freshman_fragment_demystify.*
 import kotlinx.android.synthetic.main.freshman_fragment_express_delivery.*
 import org.greenrobot.eventbus.Subscribe
@@ -19,16 +22,18 @@ import org.greenrobot.eventbus.Subscribe
 class DemystifyFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.freshman_fragment_demystify, null)
+        return inflater.inflate(R.layout.freshman_fragment_demystify, container,false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        rc_demysify.layoutManager = LinearLayoutManager(activity as Context)
     }
+
     @Subscribe(sticky = true)
-    fun onBeanReady(bean: CampusGuideExpressDeliveryBean){
-        vp_demystify.adapter =
-            ExpressDeliveryViewPagerAdapter(activity as Context, bean)
-        tl_demystify.setupWithViewPager(vp_express_delivery)
+    fun acceptData(campusGuideDemystifyBean: CampusGuideDemystifyBean) {
+        rc_demysify.adapter = DemysityAdapter(campusGuideDemystifyBean)
     }
+
+
 }
