@@ -3,6 +3,7 @@ package com.mredrock.cyxbs.freshman.ui.acivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.NecessityViewModel
@@ -19,7 +20,9 @@ class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_necessity)
 
+            fab.setOnClickListener { view ->
 
+            }
 
 //        val vm : Deliverable = viewModel
 

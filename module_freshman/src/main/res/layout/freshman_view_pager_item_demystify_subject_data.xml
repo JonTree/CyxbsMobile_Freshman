@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:paddingTop="15dp"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:layout_weight="328"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+        <View
+                android:layout_weight="15"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+
+        <LinearLayout
+                android:layout_weight="345"
+                android:layout_width="0dp"
+                android:layout_height="match_parent">
+
+
+            <com.mredrock.cyxbs.freshman.ui.view.FreshmanHistogramView
+                    android:id="@+id/fhv_subject_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+
+        </LinearLayout>
+
+        <View
+                android:layout_weight="15"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+
+    </LinearLayout>
+
+
+    <View
+            android:layout_weight="211"
+            android:layout_width="0dp"
+            android:layout_height="0dp"/>
+
+</LinearLayout>
