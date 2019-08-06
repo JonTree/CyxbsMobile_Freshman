@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark" tools:ignore="ResourceName">#798DFA</color>
     <color name="colorAccent" tools:ignore="ResourceName">#788EFA</color>
     <color name="colorTabBackground" tools:ignore="ResourceName">#F9FCFF</color>
+    <color name="colorControlNormal" tools:ignore="ResourceName">#D0D1D2</color>
+    <color name="colorControlActivated" tools:ignore="ResourceName">#AEC0FF</color>
 </resources>

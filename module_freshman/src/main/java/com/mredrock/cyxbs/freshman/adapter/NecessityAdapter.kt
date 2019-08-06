@@ -123,6 +123,6 @@ class TitleViewHolder(item: View, val binding: FreshmanRecycleItemNecessityTitle
 }
 
 class ItemViewHolder(item: View, val binding: FreshmanRecycleItemNecessityItemBinding) : RecyclerView.ViewHolder(item) {
-    val textView_title: TextView = item.tv_necessity_item
+    val textView_title: TextView = item.tv_necessity_item_name
     val textView_detail: TextView = item.tv_necessity_detail
 }
