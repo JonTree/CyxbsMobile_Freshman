@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBean
+import com.mredrock.cyxbs.freshman.data.bean.CampusGuideDemystifyBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideExpressDeliveryBean
 import org.greenrobot.eventbus.EventBus
 
@@ -75,9 +76,56 @@ class CampusGuideViewModel :BaseViewModel() {
             "  ]\n" +
             "}"
 
+
+    val de = "{\n" +
+            "\t\"code\": 200,\n" +
+            "\t\"info\": \"ok\",\n" +
+            "\t\"text\": [{\n" +
+            "\t\t\t\"name\": \"学院\",\n" +
+            "\t\t\t\"message\": [{\n" +
+            "\t\t\t\t\t\"title\": \"最难科目\",\n" +
+            "\t\t\t\t\t\"data\": [{\n" +
+            "\t\t\t\t\t\t\"subject\": \"数学\",\n" +
+            "\t\t\t\t\t\t\"data\": \"80%\"\n" +
+            "\t\t\t\t\t}, {\n" +
+            "\t\t\t\t\t\t\"subject\": \"物理\",\n" +
+            "\t\t\t\t\t\t\"data\": \"80%\"\n" +
+            "\t\t\t\t\t}]\n" +
+            "\t\t\t\t},\n" +
+            "\t\t\t\t{\n" +
+            "\t\t\t\t\t\"title\": \"男女比例\",\n" +
+            "\t\t\t\t\t\"boy\": \"20%\",\n" +
+            "\t\t\t\t\t\"girl\": \"80%\"\n" +
+            "\t\t\t\t}\n" +
+            "\t\t\t]\n" +
+            "\t\t},\n" +
+            "\t\t{\n" +
+            "\t\t\t\"name\": \"学院\",\n" +
+            "\t\t\t\"message\": [{\n" +
+            "\t\t\t\t\t\"title\": \"最难科目\",\n" +
+            "\t\t\t\t\t\"data\": [{\n" +
+            "\t\t\t\t\t\t\"subject\": \"数学\",\n" +
+            "\t\t\t\t\t\t\"data\": \"80%\"\n" +
+            "\t\t\t\t\t}, {\n" +
+            "\t\t\t\t\t\t\"subject\": \"物理\",\n" +
+            "\t\t\t\t\t\t\"data\": \"80%\"\n" +
+            "\t\t\t\t\t}]\n" +
+            "\t\t\t\t},\n" +
+            "\t\t\t\t{\n" +
+            "\t\t\t\t\t\"title\": \"男女比例\",\n" +
+            "\t\t\t\t\t\"boy\": \"20%\",\n" +
+            "\t\t\t\t\t\"girl\": \"80%\"\n" +
+            "\t\t\t\t}\n" +
+            "\t\t\t]\n" +
+            "\t\t}\n" +
+            "\t]\n" +
+            "}"
+
     init {
         val gson = Gson()
         EventBus.getDefault().postSticky(gson.fromJson(data,CampusGuideBasicBean::class.java))
+        EventBus.getDefault().postSticky(gson.fromJson(de,CampusGuideDemystifyBean::class.java))
+
     }
 
     fun sendBean(bean:CampusGuideBean){
