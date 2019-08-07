@@ -1,6 +1,8 @@
 package com.mredrock.cyxbs.freshman.data.bean;
 
+import android.util.Log;
 import androidx.databinding.BaseObservable;
+import com.mredrock.cyxbs.common.utils.LogUtils;
 
 import java.util.List;
 
@@ -77,6 +79,24 @@ public class NecessityBean extends BaseObservable {
             private String name;
             private String detail;
             private boolean open = false;
+            private boolean openAble;
+            private boolean choosed;
+
+            public boolean getOpenAble() {
+                return openAble;
+            }
+
+            public void setOpenAble(boolean openAble) {
+                this.openAble = openAble;
+            }
+
+            public boolean getChoosed() {
+                return choosed;
+            }
+
+            public void setChoosed(boolean choosed) {
+                this.choosed = choosed;
+            }
 
             public boolean getOpen() {
                 return open;
