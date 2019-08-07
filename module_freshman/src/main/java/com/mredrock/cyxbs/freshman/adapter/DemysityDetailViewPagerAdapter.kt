@@ -15,7 +15,7 @@ import com.mredrock.cyxbs.freshman.data.bean.CampusGuideSubjectBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerDormitoryAndCanteenPageBinding
 import com.mredrock.cyxbs.freshman.event.UpdataViewPagerAutoSlideEvent
 import kotlinx.android.synthetic.main.freshman_view_pager_dormitory_and_canteen_page.view.*
-import kotlinx.android.synthetic.main.freshman_view_pager_item_demystify_male_female_ratio.view.*
+import kotlinx.android.synthetic.main.freshman_view_pager_page_demystify_male_female_ratio.view.*
 import kotlinx.android.synthetic.main.freshman_view_pager_item_demystify_subject_data.view.*
 import org.greenrobot.eventbus.EventBus
 
@@ -43,7 +43,7 @@ class DemysityDetailViewPagerAdapter(val context: Context, val bean1: CampusGuid
             })
             pagerList.add(View.inflate(
                 context,
-                R.layout.freshman_view_pager_item_demystify_male_female_ratio,
+                R.layout.freshman_view_pager_page_demystify_male_female_ratio,
                 null
             ).apply {
                 fpcv_man_woamn_data.setManProportion(bean2.text[position].boy.substringBefore("%").toFloat()/100)

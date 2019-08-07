@@ -8,10 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.PagerAdapter
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.bean.BusWayBean
-import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerPagerGuidedBinding
+import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerPageGuidedBusWayBinding
 import kotlinx.android.synthetic.main.freshman_route_bus_item.view.*
 import kotlinx.android.synthetic.main.freshman_route_bus_item_item.view.*
-import kotlinx.android.synthetic.main.freshman_view_pager_pager_guided.view.*
+import kotlinx.android.synthetic.main.freshman_view_pager_page_guided_bus_way.view.*
 
 /**
  * Created by Tree on 2019/8/7 16:24
@@ -31,10 +31,10 @@ class GuideViewPagerAdapter(val context: Context, val bean: BusWayBean) : PagerA
         bean.text_2.message.forEach { isOpens.add(false) }
         pagerList.add(View.inflate(
             context,
-            R.layout.freshman_view_pager_pager_guided,
+            R.layout.freshman_view_pager_page_guided_bus_way,
             null
         ).apply {
-            DataBindingUtil.bind<FreshmanViewPagerPagerGuidedBinding>(this)?.bean = bean
+            DataBindingUtil.bind<FreshmanViewPagerPageGuidedBusWayBinding>(this)?.bean = bean
             for (msg in bean.text_2.message) {
                 this.ll_guide_bus_routes_item.addView(
                     View.inflate(//生成子项

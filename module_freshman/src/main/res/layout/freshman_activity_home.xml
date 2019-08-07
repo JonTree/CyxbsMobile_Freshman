@@ -45,7 +45,7 @@
                     <com.github.glomadrian.grav.GravView
                             android:id="@+id/grav_1"
                             android:layout_width="50dp"
-                            android:layout_height="60dp"
+                            android:layout_height="0dp"
                             android:layout_centerInParent="true"
                             app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
                             app:array_colors="@array/freshman_Spectral"
@@ -62,17 +62,18 @@
                             app:ball_size_from_size="4px"
                             app:ball_size_to_size="6px"
                             app:shake_direction="horizontal"
-                            app:layout_constraintTop_toTopOf="parent"
                             android:layout_marginStart="8dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintHorizontal_bias="0.273"
-                            />
+                            app:layout_constraintHorizontal_bias="0.26"
+                            app:layout_constraintBottom_toBottomOf="@+id/freshman_view2"
+                            app:layout_constraintTop_toTopOf="@+id/freshman_view3"
+                            app:layout_constraintVertical_bias="0.0"/>
 
 
                     <View
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="1dp"
+                            android:layout_height="1dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             android:layout_marginEnd="8dp"
                             android:layout_marginTop="8dp"
@@ -83,6 +84,20 @@
                             app:layout_constraintHorizontal_bias="0.506"
                             app:layout_constraintVertical_bias="0.583"
                             android:id="@+id/freshman_view2"/>
+
+                    <View
+                            android:layout_width="1dp"
+                            android:layout_height="1dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginStart="8dp"
+                            app:layout_constraintHorizontal_bias="0.498"
+                            app:layout_constraintVertical_bias="0.33"
+                            android:id="@+id/freshman_view3"/>
 
                     <com.github.glomadrian.grav.GravView
                             android:id="@+id/grav_2"
@@ -104,14 +119,14 @@
                             app:ball_size_from_size="4px"
                             app:ball_size_to_size="6px"
                             app:shake_direction="horizontal"
-                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/freshman_view3"
                             app:layout_constraintBottom_toBottomOf="@+id/freshman_view2"
-                            app:layout_constraintVertical_bias="1.0"
+                            app:layout_constraintVertical_bias="0.0"
                             android:layout_marginStart="8dp"
                             app:layout_constraintStart_toStartOf="parent"
                             android:layout_marginEnd="8dp"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.731"/>
+                            app:layout_constraintHorizontal_bias="0.74"/>
 
                     <ImageView
                             android:id="@+id/iv_home_purple_screw"

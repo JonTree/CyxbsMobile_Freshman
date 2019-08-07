@@ -10,7 +10,7 @@ import com.mredrock.cyxbs.freshman.data.bean.CampusGuideManAndWomanBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideSubjectBean
 import com.mredrock.cyxbs.freshman.util.gson
 import kotlinx.android.synthetic.main.freshman_activity_demystify_detail.*
-import kotlinx.android.synthetic.main.freshman_view_pager_item_demystify_male_female_ratio.*
+import kotlinx.android.synthetic.main.freshman_view_pager_page_demystify_male_female_ratio.*
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
