@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="freshman_path">
+        <item>com.github.glomadrian.grav.generator.animation.PathAnimator</item>
+        <item>com.github.glomadrian.grav.generator.animation.BallSizeAnimator</item>
+    </string-array>
+    <string-array name="freshman_BallWaveAnimations">
+        <item>com.github.glomadrian.grav.generator.animation.SideToSideAnimator</item>
+        <item>com.github.glomadrian.grav.generator.animation.ShakeAnimator</item>
+        <item>com.github.glomadrian.grav.generator.animation.BallSizeAnimator</item>
+    </string-array>
+</resources>

@@ -11,6 +11,7 @@
 
     </data>
 
+
     <ScrollView
             android:background="#C9E3FF"
             android:layout_width="match_parent"
@@ -41,7 +42,48 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-
+                    <com.github.glomadrian.grav.GravView
+                            android:id="@+id/grav_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
+                            app:single_color="@color/gravWrite"
+                            app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
+                            app:regular_cell_size="100"
+                            app:regular_variance="200"
+                            app:gravGenerator="com.github.glomadrian.grav.generator.grav.BallGenerator"
+                            app:ball_size="3dp"
+                            app:animationGenerators="@array/freshman_BallWaveAnimations"
+                            app:side_to_side_min_duration="2000"
+                            app:side_to_side_max_duration="5000"
+                            app:side_to_side_direction="downToUp"
+                            app:shake_variance="50dp"
+                            app:ball_size_from_size="4px"
+                            app:ball_size_to_size="6px"
+                            app:shake_direction="horizontal"
+                            />
+                    <com.github.glomadrian.grav.GravView
+                            android:id="@+id/grav_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerInParent="true"
+                            app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
+                            app:single_color="@color/gravWrite"
+                            app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
+                            app:regular_cell_size="100"
+                            app:regular_variance="200"
+                            app:gravGenerator="com.github.glomadrian.grav.generator.grav.BallGenerator"
+                            app:ball_size="3dp"
+                            app:animationGenerators="@array/freshman_BallWaveAnimations"
+                            app:side_to_side_min_duration="2000"
+                            app:side_to_side_max_duration="5000"
+                            app:side_to_side_direction="downToUp"
+                            app:shake_variance="50dp"
+                            app:ball_size_from_size="4px"
+                            app:ball_size_to_size="6px"
+                            app:shake_direction="horizontal"
+                            />
                     <ImageView
                             android:id="@+id/iv_home_purple_screw"
                             android:src="@mipmap/freshman_ic_home_purple_screw"
@@ -494,4 +536,6 @@
         </LinearLayout>
 
     </ScrollView>
+
+
 </layout>
