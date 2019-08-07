@@ -25,13 +25,13 @@ class DemystifyDetailActivity : BaseActivity() {
             "\t\t\t\t\t\"title\": \"最难科目\",\n" +
             "\t\t\t\t\t\"data\": [{\n" +
             "\t\t\t\t\t\t\"subject\": \"数学\",\n" +
-            "\t\t\t\t\t\t\"data\": \"20%\"\n" +
+            "\t\t\t\t\t\t\"data\": \"0.2\"\n" +
             "\t\t\t\t\t}, {\n" +
             "\t\t\t\t\t\t\"subject\": \"物理\",\n" +
-            "\t\t\t\t\t\t\"data\": \"38%\"\n" +
+            "\t\t\t\t\t\t\"data\": \"0.38\"\n" +
             "\t\t\t\t\t}, {\n" +
             "\t\t\t\t\t\t\"subject\": \"物理\",\n" +
-            "\t\t\t\t\t\t\"data\": \"16%\"\n" +
+            "\t\t\t\t\t\t\"data\": \"0.16\"\n" +
             "\t\t\t\t\t}]\n" +
             "\t\t\t\t},\n" +
             "\t\t\t\t{\n" +
