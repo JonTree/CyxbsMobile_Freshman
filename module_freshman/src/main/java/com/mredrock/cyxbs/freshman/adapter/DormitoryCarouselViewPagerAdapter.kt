@@ -1,14 +1,18 @@
 package com.mredrock.cyxbs.freshman.adapter
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableArrayList
 import androidx.viewpager.widget.PagerAdapter
+import com.bumptech.glide.Glide
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
-import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerItemCarouselBinding
+import com.mredrock.cyxbs.freshman.util.Util
 
 /**
  * Created by Tree on 2019/8/4 20:12
@@ -47,9 +51,14 @@ class DormitoryCarouselViewPagerAdapter(val context: Context, val bean: CampusGu
             1
         }
 
-        val view = View.inflate(context, R.layout.freshman_view_pager_item_carousel, null)
-        val binding = DataBindingUtil.bind<FreshmanViewPagerItemCarouselBinding>(view)
-        binding?.uri = list[i]
+        val view = ImageView(context).apply {
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+            )
+            scaleType = ImageView.ScaleType.CENTER_CROP
+        }
+        Glide.with(context).load(list[i]).into(view)
         container.addView(view)
         return view
     }

@@ -42,7 +42,7 @@ class DemysityDetailAdapter(val context: Context, val bean: CampusGuideDemystify
             R.layout.freshman_view_pager_item_demystify_male_female_ratio,
             null
         ).apply {
-            fpcv_man_woamn_data.setManProportion(bean.boy.substringBefore("%").toFloat())
+//            fpcv_man_woamn_data.setManProportion(bean.boy!!.substringBefore("%").toFloat())
         })
 
     }

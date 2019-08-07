@@ -72,7 +72,7 @@ class FreshmanHistogramView @JvmOverloads constructor(
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
 
         viewWidth = MeasureSpec.getSize(widthMeasureSpec).toFloat()
-        coordinateWidth = MeasureSpec.getSize(widthMeasureSpec).toFloat()*0.9.toFloat()
+        coordinateWidth = MeasureSpec.getSize(widthMeasureSpec).toFloat()*0.95.toFloat()
         viewHeight = MeasureSpec.getSize(heightMeasureSpec).toFloat()
         coordinateHeight = MeasureSpec.getSize(heightMeasureSpec).toFloat()*0.9.toFloat()
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)

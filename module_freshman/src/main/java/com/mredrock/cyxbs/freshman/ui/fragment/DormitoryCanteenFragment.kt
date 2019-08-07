@@ -39,7 +39,7 @@ class DormitoryCanteenFragment(val position:Int): BaseFragment() {
     fun onBeanReady(bean: CampusGuideBasicBean){
         vp_dormitory.adapter =
             DormitoryViewPagerAdapter(activity as Context, bean.text[position])
-        tl_dormitory.setupWithViewPager(vp_dormitory)
+//        tl_dormitory.setupWithViewPager(vp_dormitory)
     }
 
     @Synchronized

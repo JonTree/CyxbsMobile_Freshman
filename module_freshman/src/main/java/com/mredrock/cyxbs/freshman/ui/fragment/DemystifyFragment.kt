@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.freshman.ui.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.mredrock.cyxbs.freshman.adapter.DemysityAdapter
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideExpressDeliveryBean
 import com.mredrock.cyxbs.freshman.adapter.ExpressDeliveryViewPagerAdapter
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideDemystifyBean
+import com.mredrock.cyxbs.freshman.ui.acivity.DemystifyDetailActivity
 import kotlinx.android.synthetic.main.freshman_fragment_demystify.*
 import kotlinx.android.synthetic.main.freshman_fragment_express_delivery.*
 import org.greenrobot.eventbus.Subscribe
@@ -28,6 +30,8 @@ class DemystifyFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         rc_demysify.layoutManager = LinearLayoutManager(activity as Context)
+        val intent = Intent(activity, DemystifyDetailActivity::class.java)
+        startActivity(intent)
     }
 
     @Subscribe(sticky = true)
