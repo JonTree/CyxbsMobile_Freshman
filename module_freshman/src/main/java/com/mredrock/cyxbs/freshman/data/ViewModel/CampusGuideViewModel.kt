@@ -123,7 +123,9 @@ class CampusGuideViewModel :BaseViewModel() {
             "}"
 
     init {
-        EventBus.getDefault().postSticky(gson.fromJson(data,CampusGuideBasicBean::class.java))
+        val a = gson.fromJson(data, CampusGuideBasicBean::class.java)
+
+        EventBus.getDefault().postSticky(a)
         EventBus.getDefault().postSticky(gson.fromJson(de,CampusGuideDemystifyBean::class.java))
     }
 
