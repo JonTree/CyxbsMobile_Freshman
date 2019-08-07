@@ -86,9 +86,14 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
 
     }
 
-    override fun onStop() {
+    override fun onPause() {
         iv_home_red_screw.clearAnimation()
         iv_home_purple_screw.clearAnimation()
+        super.onPause()
+    }
+
+    override fun onStop() {
+
         super.onStop()
     }
 }
