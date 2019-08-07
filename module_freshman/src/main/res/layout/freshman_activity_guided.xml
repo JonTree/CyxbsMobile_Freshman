@@ -21,12 +21,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"/>
 
-        <TableLayout
+        <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tl_guided"
                 android:layout_width="match_parent"
                 android:layout_height="49dp">
-        </TableLayout>
 
+        </com.google.android.material.tabs.TabLayout>
 
         <View
                 android:background="#b3c4ff"
