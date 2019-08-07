@@ -10,12 +10,12 @@
 
     <include layout="@layout/common_toolbar"/>
 
-    <TableLayout
+    <com.google.android.material.tabs.TabLayout
             android:id="@+id/tl_demystify_detail"
             android:layout_width="match_parent"
             android:layout_height="49dp">
 
-    </TableLayout>
+    </com.google.android.material.tabs.TabLayout>
 
     <androidx.viewpager.widget.ViewPager
             android:id="@+id/vp_demystify_detail"

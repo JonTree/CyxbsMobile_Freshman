@@ -9,11 +9,12 @@ import java.util.List;
  */
 public class BusWayBean extends BaseObservable {
 
+
     /**
      * code : 200
      * info : ok
      * text_1 : {"title":"重庆邮电大学地址:","message":"重庆市南岸区南山街道崇文路2号重庆邮电大学"}
-     * text_2 : {"title":"推荐线路:","message":[{"name":"重庆火车北站北广场/南广场","route":"...."},{"name":"江北机场","route":"...."}]}
+     * text_2 : {"title":"推荐线路:","message":[{"name":"重庆火车北站北广场/南广场","route":["...","...."]},{"name":"江北机场","route":["....","......"]}]}
      */
 
     private int code;
@@ -53,7 +54,7 @@ public class BusWayBean extends BaseObservable {
         this.text_2 = text_2;
     }
 
-    public static class Text1Bean extends BaseObservable{
+    public static class Text1Bean {
         /**
          * title : 重庆邮电大学地址:
          * message : 重庆市南岸区南山街道崇文路2号重庆邮电大学
@@ -79,10 +80,10 @@ public class BusWayBean extends BaseObservable {
         }
     }
 
-    public static class Text2Bean extends BaseObservable{
+    public static class Text2Bean {
         /**
          * title : 推荐线路:
-         * message : [{"name":"重庆火车北站北广场/南广场","route":"...."},{"name":"江北机场","route":"...."}]
+         * message : [{"name":"重庆火车北站北广场/南广场","route":["...","...."]},{"name":"江北机场","route":["....","......"]}]
          */
 
         private String title;
@@ -104,14 +105,14 @@ public class BusWayBean extends BaseObservable {
             this.message = message;
         }
 
-        public static class MessageBean extends BaseObservable{
+        public static class MessageBean {
             /**
              * name : 重庆火车北站北广场/南广场
-             * route : ....
+             * route : ["...","...."]
              */
 
             private String name;
-            private String route;
+            private List<String> route;
 
             public String getName() {
                 return name;
@@ -121,11 +122,11 @@ public class BusWayBean extends BaseObservable {
                 this.name = name;
             }
 
-            public String getRoute() {
+            public List<String> getRoute() {
                 return route;
             }
 
-            public void setRoute(String route) {
+            public void setRoute(List<String> route) {
                 this.route = route;
             }
         }

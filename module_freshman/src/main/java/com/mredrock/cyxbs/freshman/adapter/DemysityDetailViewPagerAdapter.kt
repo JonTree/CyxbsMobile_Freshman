@@ -10,6 +10,8 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideDemystifyBean
+import com.mredrock.cyxbs.freshman.data.bean.CampusGuideManAndWomanBean
+import com.mredrock.cyxbs.freshman.data.bean.CampusGuideSubjectBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerDormitoryAndCanteenPageBinding
 import com.mredrock.cyxbs.freshman.event.UpdataViewPagerAutoSlideEvent
 import kotlinx.android.synthetic.main.freshman_view_pager_dormitory_and_canteen_page.view.*
@@ -20,9 +22,8 @@ import org.greenrobot.eventbus.EventBus
 /**
  * Created by Tree on 2019/8/6 22:31
  */
-class DemysityDetailAdapter(val context: Context, val bean: CampusGuideDemystifyBean.TextBean.MessageBean) :
+class DemysityDetailViewPagerAdapter(val context: Context, val bean1: CampusGuideSubjectBean, val bean2:CampusGuideManAndWomanBean, val position: Int) :
     PagerAdapter() {
-
 
     private val pagerList = ArrayList<View>()
 
@@ -33,22 +34,17 @@ class DemysityDetailAdapter(val context: Context, val bean: CampusGuideDemystify
             null
         ).apply {
             fhv_subject_data.bindData(
-                bean.data.map { it.subject }.determineIfTheSizeIsAppropriate(),
-                bean.data.map { it.data.substringBefore("%").toFloat() }.determineIfTheSizeIsAppropriate()
-            )
-//            fhv_subject_data.bindData(
-//                listOf("gs","dw","ss"),
-//                listOf(10f,60f,70f)
-//            )
+                bean1.text[position].message.map { it.subject}.determineIfTheSizeIsAppropriate(),
+                bean1.text[position].message.map { it.data.substringBefore("%").toFloat()}.determineIfTheSizeIsAppropriate()
+                )
         })
          pagerList.add(View.inflate(
             context,
             R.layout.freshman_view_pager_item_demystify_male_female_ratio,
             null
         ).apply {
-//            fpcv_man_woamn_data.setManProportion(bean.boy!!.substringBefore("%").toFloat())
+             fpcv_man_woamn_data.setManProportion(bean2.text[position].boy.toFloat())
         })
-
     }
 
     fun <T> List<T>.determineIfTheSizeIsAppropriate(): List<T>? {

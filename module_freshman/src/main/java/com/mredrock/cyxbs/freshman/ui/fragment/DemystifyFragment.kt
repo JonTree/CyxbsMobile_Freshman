@@ -23,6 +23,8 @@ import org.greenrobot.eventbus.Subscribe
  */
 class DemystifyFragment : BaseFragment() {
 
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.freshman_fragment_demystify, container,false)
     }
@@ -30,13 +32,8 @@ class DemystifyFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         rc_demysify.layoutManager = LinearLayoutManager(activity as Context)
+        rc_demysify.adapter = DemysityAdapter(this,)
 
     }
-
-    @Subscribe(sticky = true)
-    fun acceptData(campusGuideDemystifyBean: CampusGuideDemystifyBean) {
-        rc_demysify.adapter = DemysityAdapter(campusGuideDemystifyBean)
-    }
-
 
 }

@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideDemystifyBean
+import com.mredrock.cyxbs.freshman.data.bean.CampusGuideSubjectBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemDemystifyBinding
 import com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityItemBinding
 import com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityTitleBinding
@@ -19,7 +20,7 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 /**
  * Created by Tree on 2019/8/6 10:22
  */
-class DemysityAdapter(val context: Context, val campusGuideDemystifyBean: CampusGuideDemystifyBean) :
+class DemysityAdapter(val context: Context, val bean: CampusGuideSubjectBean) :
     RecyclerView.Adapter<DemysityAdapter.ViewHolder>() {
 
 
@@ -34,17 +35,17 @@ class DemysityAdapter(val context: Context, val campusGuideDemystifyBean: Campus
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding?.bean = campusGuideDemystifyBean.text[position]
+        holder.binding?.bean = bean.text[position]
         holder.itemView.setOnClickListener {
             context.startActivity(Intent(context, DemystifyDetailActivity::class.java).apply {
-                putExtra("bean", campusGuideDemystifyBean.text[position])
+                putExtra("position",position)
             })
         }
     }
 
 
     override fun getItemCount(): Int {
-        return campusGuideDemystifyBean.text.size
+        return bean.text.size
     }
 
     class ViewHolder(item: View, val binding: FreshmanRecycleItemDemystifyBinding?) : RecyclerView.ViewHolder(item)
