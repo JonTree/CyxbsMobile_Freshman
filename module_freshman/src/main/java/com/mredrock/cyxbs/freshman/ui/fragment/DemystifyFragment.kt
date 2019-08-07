@@ -30,8 +30,7 @@ class DemystifyFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         rc_demysify.layoutManager = LinearLayoutManager(activity as Context)
-        val intent = Intent(activity, DemystifyDetailActivity::class.java)
-        startActivity(intent)
+
     }
 
     @Subscribe(sticky = true)

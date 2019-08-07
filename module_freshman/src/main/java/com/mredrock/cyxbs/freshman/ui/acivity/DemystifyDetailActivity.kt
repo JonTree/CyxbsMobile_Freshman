@@ -10,6 +10,7 @@ import com.mredrock.cyxbs.freshman.data.bean.CampusGuideDemystifyBean
 import com.mredrock.cyxbs.freshman.util.gson
 import kotlinx.android.synthetic.main.freshman_activity_demystify_detail.*
 import org.greenrobot.eventbus.Subscribe
+import java.io.Serializable
 
 class DemystifyDetailActivity : BaseActivity() {
 
@@ -68,9 +69,10 @@ class DemystifyDetailActivity : BaseActivity() {
         common_toolbar.init(
             title = "数据揭秘"
         )
-        val a = gson.fromJson(data, CampusGuideDemystifyBean::class.java)
 
-        vp_demystify_detail.adapter = DemysityDetailAdapter(this,a.text[0].message[0])
+        vp_demystify_detail.adapter = DemysityDetailAdapter(
+            this, intent.getSerializableExtra("bean") as CampusGuideDemystifyBean.TextBean
+        )
 
     }
 
