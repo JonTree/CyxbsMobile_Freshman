@@ -31,4 +31,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dependencies {
+        implementation 'com.github.maning0303:MNImageBrowser:V1.2.0'
+    }
 }
