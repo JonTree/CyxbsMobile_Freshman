@@ -20,7 +20,7 @@ class FreshmanPieChartView @JvmOverloads constructor(
     private val lightBlueFillingPaint = Paint()
     private val dataPaint = Paint()
 
-    private var mProportion :Float = 0.1.toFloat()
+    private var mProportion :Float = 0.toFloat()
     var textSize = PixelUtil.sp2px(context,20.toFloat()).toFloat()
     var storkeWidth = PixelUtil.dp2px(context,1.toFloat()).toFloat()
     private var radius :Int? = null
@@ -82,12 +82,12 @@ class FreshmanPieChartView @JvmOverloads constructor(
         canvas?.restore()
     }
     fun setManProportion(proportion : Float){
-        doAnimation(proportion)
+        targetProportion = proportion
 
     }
-    var showText = false
-    private fun doAnimation(proportion: Float){
-        val valueAnimator = ValueAnimator.ofFloat(0.1f,proportion)
+    var targetProportion : Float? = null
+    fun doAnimation(){
+        val valueAnimator = ValueAnimator.ofFloat(0f,targetProportion!!)
         valueAnimator.setDuration(2000)
         valueAnimator.addUpdateListener {
             mProportion = it.animatedValue as Float
