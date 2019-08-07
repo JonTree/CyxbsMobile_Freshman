@@ -6,4 +6,5 @@
     <color name="colorTabBackground" tools:ignore="ResourceName">#F9FCFF</color>
     <color name="colorControlNormal" tools:ignore="ResourceName">#D0D1D2</color>
     <color name="colorControlActivated" tools:ignore="ResourceName">#AEC0FF</color>
+    <color name="gravWrite" tools:ignore="ResourceName">#66ffffff</color>
 </resources>

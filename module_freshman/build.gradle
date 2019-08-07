@@ -33,5 +33,6 @@ android {
     }
     dependencies {
         implementation 'com.github.maning0303:MNImageBrowser:V1.2.0'
+        implementation 'com.github.glomadrian:Grav:1.1'
     }
 }

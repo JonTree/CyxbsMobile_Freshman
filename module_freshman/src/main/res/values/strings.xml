@@ -1,3 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name" tools:ignore="ResourceName">CyxbsMobile_Freshman</string>
+    <string name="freshman_circle">
+M527.023,71.8233 C780.213,71.8233,985.464,277.075,985.464,530.265
+C985.464,783.455,780.213,988.707,527.023,988.707
+C273.832,988.707,68.5809,783.455,68.5809,530.265
+C68.5809,277.075,273.832,71.8233,527.023,71.8233 Z
+  </string>
+    <integer name="freshman_grav_original_width">1062</integer>
+    <integer name="freshman_grav_original_height">1062</integer>
 </resources>
