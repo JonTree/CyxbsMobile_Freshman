@@ -19,8 +19,8 @@ class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationVie
         setContentView(R.layout.freshman_activity_online_communication)
         val dataa = listOf<Float>(0.1f,0.5f,0.8f)
 
-        val  title = listOf<String>("gs","dw","ls")
-        fs_aaaa.data = dataa
-        fs_aaaa.title= title
+//        val  title = listOf<String>("gs","dw","ls")
+//        fs_aaaa.data = dataa
+//        fs_aaaa.title= title
     }
 }
