@@ -8,9 +8,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.data.ViewModel.NecessityViewModel
 import com.mredrock.cyxbs.freshman.data.bean.NecessityBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityItemBinding
 import com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityTitleBinding
+import com.mredrock.cyxbs.freshman.ui.acivity.NecessityActivity
 import kotlinx.android.synthetic.main.freshman_recycle_item_necessity_item.view.*
 import kotlinx.android.synthetic.main.freshman_recycle_item_necessity_title.view.*
 
@@ -80,10 +82,14 @@ class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapt
             holder is TitleViewHolder -> {
                 if (bean.text[beanNum].data != null)
                     holder.binding?.bean = bean.text[beanNum]
+
             }
             holder is ItemViewHolder -> {
                 if (bean.text[beanNum].data != null)
                     holder.binding?.bean = bean.text[beanNum].data[position - lastFlag - 1]
+                if(holder.binding.bean?.detail != "")
+                    holder.binding.bean?.openAble = true
+
             }
         }
 

@@ -36,6 +36,10 @@ class DemysityDetailAdapter(val context: Context, val bean: CampusGuideDemystify
                 bean.data.map { it.subject }.determineIfTheSizeIsAppropriate(),
                 bean.data.map { it.data.substringBefore("%").toFloat() }.determineIfTheSizeIsAppropriate()
             )
+//            fhv_subject_data.bindData(
+//                listOf("gs","dw","ss"),
+//                listOf(10f,60f,70f)
+//            )
         })
          pagerList.add(View.inflate(
             context,

@@ -2,12 +2,30 @@ package com.mredrock.cyxbs.freshman.data.ViewModel
 
 import android.util.Log
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
+import com.mredrock.cyxbs.freshman.data.ViewModelCallback.NecessityViewModelCallback
 import com.mredrock.cyxbs.freshman.data.bean.NecessityBean
 import com.mredrock.cyxbs.freshman.generated.callback.OnClickListener
 import com.mredrock.cyxbs.freshman.util.gson
 import org.greenrobot.eventbus.EventBus
 
-class NecessityViewModel :BaseViewModel() {
+class NecessityViewModel :BaseViewModel(),NecessityViewModelCallback {
+    var basicBean :NecessityBean? = null
+    override fun internetDataReady(bean: NecessityBean) {
+        if(basicBean != null){
+            basicBean = bean
+        }
+        else{
+            compareBean(bean)
+        }
+    }
+
+    override fun getLocalData(bean: NecessityBean) {
+        compareBean(bean)
+    }
+
+    override fun getLocalMemorandum(bean: NecessityBean) {
+        compareBean(bean)
+    }
 
     val data = "{\n" +
             "\t\"code\": 200,\n" +
@@ -16,11 +34,11 @@ class NecessityViewModel :BaseViewModel() {
             "\t\t\t\"title\": \"报道必备\",\n" +
             "\t\t\t\"data\": [{\n" +
             "\t\t\t\t\t\"name\": \"录取通知书\",\n" +
-            "\t\t\t\t\t\"detail\": \"\"\n" +
+            "\t\t\t\t\t\"detail\": \"啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦\"\n" +
             "\t\t\t\t},\n" +
             "\t\t\t\t{\n" +
             "\t\t\t\t\t\"name\": \"高考准考证\",\n" +
-            "\t\t\t\t\t\"detail\": \"\"\n" +
+            "\t\t\t\t\t\"detail\": \"啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦\"\n" +
             "\t\t\t\t}\n" +
             "\t\t\t]\n" +
             "\t\t},\n" +
@@ -50,11 +68,18 @@ class NecessityViewModel :BaseViewModel() {
             "\t\t}\n" +
             "\t]\n" +
             "}"
-
+    val bean:NecessityBean
     init {
-        val a = gson.fromJson(data, NecessityBean::class.java)
-        EventBus.getDefault().postSticky(a)
+        bean = gson.fromJson(data, NecessityBean::class.java)
+        EventBus.getDefault().postSticky(bean)
     }
+
+    private fun compareBean(bean: NecessityBean){
+        TODO()
+    }
+
+
+
 
 
 }

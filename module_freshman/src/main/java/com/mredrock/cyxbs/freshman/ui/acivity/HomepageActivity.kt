@@ -55,6 +55,7 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
         animationRed.interpolator = LinearInterpolator()
         iv_home_purple_screw.startAnimation(animation)
 
+
 //        LogUtils.d("MyTag","${iv_home_red_screw.layoutParams.height}")
 //        val animationRed :RotateAnimation = RotateAnimation(0f,350f,Animation.RELATIVE_TO_SELF,-iv_home_red_screw.layoutParams.height/2f,Animation.RELATIVE_TO_SELF,-iv_home_red_screw.layoutParams.height/2f)
 //        animationRed.repeatMode = Animation.RESTART
@@ -85,6 +86,11 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
 
     }
 
+    override fun onStop() {
+        iv_home_red_screw.clearAnimation()
+        iv_home_purple_screw.clearAnimation()
+        super.onStop()
+    }
 }
 
 

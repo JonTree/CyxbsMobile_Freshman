@@ -1,10 +1,13 @@
 package com.mredrock.cyxbs.freshman.ui.view
 
+import android.animation.AnimatorSet
+import android.animation.ValueAnimator
 import android.content.Context
 import android.content.res.TypedArray
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import android.view.animation.AnimationSet
 import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.util.PixelUtil
@@ -19,17 +22,19 @@ class FreshmanHistogramView @JvmOverloads constructor(
     private val pinkFillingPaint = Paint()
     private val lightBlueFillingPaint = Paint()
     private val dataPaint = Paint()
+    private var firstDoOnDraw = true
     private val list :List<Paint> = listOf(blueFillingPaint,pinkFillingPaint,lightBlueFillingPaint)
 
     private var viewWidth :Float? = null
-    private var coordinateWidth :Float? = null
+    private var coordinateWidth :Float = 0f
 
     private var viewHeight :Float? = null
-    private var coordinateHeight :Float? = null 
+    private var coordinateHeight :Float = 0f
     private val arrowConst = PixelUtil.dp2px(context,5.toFloat())
     private var mergin = 0.08
     private var paintWidth = PixelUtil.dp2px(context, 1.toFloat())
     private var textWidth = PixelUtil.sp2px(context,13.toFloat()).toFloat()
+    private var valueAnimator:ValueAnimator? = null
     init {
         setLayerType(LAYER_TYPE_SOFTWARE,null)
         coordinatePaint.color = Color.rgb(124,150,255)
@@ -57,24 +62,71 @@ class FreshmanHistogramView @JvmOverloads constructor(
         dataPaint.letterSpacing = 0.07.toFloat()
     }
     var title:List<String> = listOf("","","")
-    var data:List<Float> = listOf(0f,0f,0f)
+    var data = mutableListOf(0f,0f,0f)
 
     fun bindData(title:List<String>? ,data:List<Float>?){
         if (title != null && data != null) {
             this.title = title
-            this.data = data
-            postInvalidate()
+            doAnimation(data)
+
+
         }
 
+    }
+    fun doCoordinationAnimation(){
+        val horizentalAnimator = ValueAnimator.ofFloat(0f,viewWidth!!.toFloat()*0.95.toFloat())
+        val verticalAnimator = ValueAnimator.ofFloat(0f,viewHeight!!.toFloat()*0.9.toFloat())
+        horizentalAnimator.addUpdateListener {
+            coordinateWidth = it.animatedValue as Float
+            this.invalidate()
+        }
+        verticalAnimator.addUpdateListener {
+            coordinateHeight = it.animatedValue as Float
+            this.invalidate()
+        }
+        val set = AnimatorSet()
+        set.playTogether(horizentalAnimator,verticalAnimator)
+        set.setDuration(1400)
+        set.start()
+    }
+    fun doAnimation(data: List<Float>){
+        
+        val valueAnimator1 = ValueAnimator.ofFloat(0f,data[0])
+        val valueAnimator2 =  ValueAnimator.ofFloat(0f,data[1])
+        val valueAnimator3 = ValueAnimator.ofFloat(0f,data[2])
+
+       
+//        valueAnimator1.duration = 1000
+        valueAnimator1.addUpdateListener {
+            this.data[0] = it.animatedValue as Float
+            this.invalidate()
+        }
+//        valueAnimator2.duration = 1000
+        valueAnimator2.addUpdateListener {
+            this.data[1] = it.animatedValue as Float
+            this.invalidate()
+        }
+//        valueAnimator3.duration = 1000
+        valueAnimator3.addUpdateListener {
+            this.data[2] = it.animatedValue as Float
+            this.invalidate()
+        }
+        valueAnimator1.startDelay = 304
+        valueAnimator2.startDelay = 730
+        valueAnimator3.startDelay = 1156
+        val set = AnimatorSet()
+        set.playTogether(valueAnimator1,valueAnimator2,valueAnimator3)
+        set.setDuration(1400)
+        set.start()
     }
 
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
 
         viewWidth = MeasureSpec.getSize(widthMeasureSpec).toFloat()
-        coordinateWidth = MeasureSpec.getSize(widthMeasureSpec).toFloat()*0.95.toFloat()
+        coordinateWidth =0f
         viewHeight = MeasureSpec.getSize(heightMeasureSpec).toFloat()
-        coordinateHeight = MeasureSpec.getSize(heightMeasureSpec).toFloat()*0.9.toFloat()
+        coordinateHeight = 0f
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
 //        super.onMeasure(MeasureSpec.makeMeasureSpec(MeasureSpec.getMode(widthMeasureSpec),MeasureSpec.getSize(viewWidth)),
 //            MeasureSpec.makeMeasureSpec(MeasureSpec.getMode(heightMeasureSpec),MeasureSpec.getSize(viewHeight)))
@@ -107,11 +159,17 @@ class FreshmanHistogramView @JvmOverloads constructor(
         drawHorizontal(canvas)
         drawVertical(canvas)
 //        if(data != null && title != null){
+
             repeat(3){
                 drawRect(it, data[it], title[it],canvas,list[it])
 
             }
 //        }
+        if(firstDoOnDraw){
+            firstDoOnDraw = false
+            doCoordinationAnimation()
+            
+        }
     }
     private fun drawHorizontal(canvas: Canvas?){
         canvas?.drawLine(0.toFloat(),0.toFloat(),coordinateWidth!!.toFloat(),0.toFloat(),coordinatePaint)
@@ -121,6 +179,7 @@ class FreshmanHistogramView @JvmOverloads constructor(
             -PixelUtil.dp2px(context,3.toFloat()).toFloat(),coordinateWidth!!.toFloat(),0.toFloat(),coordinatePaint)
 
     }
+
     private fun drawVertical(canvas: Canvas?){
         canvas?.drawLine(0.toFloat(),0.toFloat(),0.toFloat(),-coordinateHeight!!.toFloat(),coordinatePaint)
         canvas?.drawLine(0.toFloat(),-coordinateHeight!!.toFloat(),PixelUtil.dp2px(context,3.toFloat()).toFloat(),
@@ -128,6 +187,7 @@ class FreshmanHistogramView @JvmOverloads constructor(
         canvas?.drawLine(0.toFloat(),-coordinateHeight!!.toFloat(),-PixelUtil.dp2px(context,3.toFloat()).toFloat(),
             -coordinateHeight!!.toFloat()+PixelUtil.dp2px(context,4.toFloat()).toFloat(),coordinatePaint)
     }
+
     private fun drawRect(index:Int,data:Float,title:String?,canvas: Canvas?,insidePaint:Paint){
         var i =index*2+1
 
@@ -150,7 +210,7 @@ class FreshmanHistogramView @JvmOverloads constructor(
                 (mergin*coordinateHeight!!).toFloat(),
                 coordinatePaint
             )
-            canvas?.drawText("$data%",(pix+0.07*coordinateWidth!!).toFloat(),
+            canvas?.drawText(String.format("%.2f",(data)),(pix+0.07*coordinateWidth!!).toFloat(),
                 -((data/100)*coordinateHeight!!.toFloat()).toInt()-PixelUtil.dp2px(context, (12).toFloat()).toFloat(),dataPaint)
         }
     }
