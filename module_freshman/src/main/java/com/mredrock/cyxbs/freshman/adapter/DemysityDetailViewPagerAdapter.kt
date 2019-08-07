@@ -28,35 +28,47 @@ class DemysityDetailViewPagerAdapter(val context: Context, val bean1: CampusGuid
     private val pagerList = ArrayList<View>()
 
     init {
-        pagerList.add(View.inflate(
-            context,
-            R.layout.freshman_view_pager_item_demystify_subject_data,
-            null
-        ).apply {
-            fhv_subject_data.bindData(
-                bean1.text[position].message.map { it.subject}.determineIfTheSizeIsAppropriate(),
-                bean1.text[position].message.map { it.data.substringBefore("%").toFloat()}.determineIfTheSizeIsAppropriate()
+        if (position != -1) {
+            pagerList.add(View.inflate(
+                context,
+                R.layout.freshman_view_pager_item_demystify_subject_data,
+                null
+            ).apply {
+                fhv_subject_data.bindData(
+                    bean1.text[position].message.map { it.subject}.determineIfTheSizeIsAppropriate(),
+                    bean1.text[position].message.map { it.data.toFloat()}.determineIfTheSizeIsAppropriate()
                 )
-        })
-         pagerList.add(View.inflate(
-            context,
-            R.layout.freshman_view_pager_item_demystify_male_female_ratio,
-            null
-        ).apply {
-             fpcv_man_woamn_data.setManProportion(bean2.text[position].boy.toFloat())
-        })
+            })
+            pagerList.add(View.inflate(
+                context,
+                R.layout.freshman_view_pager_item_demystify_male_female_ratio,
+                null
+            ).apply {
+                fpcv_man_woamn_data.setManProportion(bean2.text[position].boy.substringBefore("%").toFloat()/100)
+            })
+        }
+
     }
 
-    fun <T> List<T>.determineIfTheSizeIsAppropriate(): List<T>? {
+    private fun <T> List<T>.determineIfTheSizeIsAppropriate(): List<T>? {
         if (size != 3) {
             return null
         }
         return this
     }
 
+    override fun getPageTitle(position: Int): CharSequence? {
+        return when(position){
+            0 -> bean1.title
+            1 -> bean2.title
+
+            else -> ""
+        }
+    }
+
 
     override fun getCount(): Int {
-        return 2
+        return pagerList.size
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
