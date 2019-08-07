@@ -1,5 +1,8 @@
 package com.mredrock.cyxbs.freshman.ui.view
 
+import android.animation.Animator
+import android.animation.AnimatorSet
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
@@ -27,6 +30,7 @@ class FreshmanPieChartView @JvmOverloads constructor(
         lightBlueFillingPaint.color = Color.rgb(60,206,255)
         dataPaint.color = Color.rgb(255,255,255)
 
+        dataPaint.alpha = 0
         coordinatePaint.strokeWidth = storkeWidth
         coordinatePaint.style = Paint.Style.FILL_AND_STROKE
         dataPaint.style = Paint.Style.FILL_AND_STROKE
@@ -78,10 +82,29 @@ class FreshmanPieChartView @JvmOverloads constructor(
         canvas?.restore()
     }
     fun setManProportion(proportion : Float){
-        mProportion = proportion
-        postInvalidate()
-    }
+        doAnimation(proportion)
 
+    }
+    var showText = false
+    private fun doAnimation(proportion: Float){
+        val valueAnimator = ValueAnimator.ofFloat(0.1f,proportion)
+        valueAnimator.setDuration(2000)
+        valueAnimator.addUpdateListener {
+            mProportion = it.animatedValue as Float
+            invalidate()
+        }
+       val alphaAnimator = ValueAnimator.ofInt(0,255)
+        alphaAnimator.setDuration(600)
+        alphaAnimator.addUpdateListener {
+            dataPaint.alpha = it.animatedValue as Int
+            invalidate()
+        }
+        alphaAnimator.startDelay = 1700
+        val set = AnimatorSet()
+        set.playTogether(valueAnimator,alphaAnimator)
+
+        set.start()
+    }
     private fun drawPieChart(canvas: Canvas?){
         var girlTextPointAngle =  (360-mProportion*360)/2
 //        var boyTextPointAngle = (mProportion*360)
@@ -103,33 +126,18 @@ class FreshmanPieChartView @JvmOverloads constructor(
 
         canvas?.restore()
         var woProporation  = 1-mProportion
-        val woman :String = String.format("%.2f",(woProporation*100))
-        val man :String = String.format("%.2f",(mProportion*100))
+        val woman :String = String.format("%.1f",(woProporation*100))
+        val man :String = String.format("%.1f",(mProportion*100))
         LogUtils.d("MyTag","$girlTextPointAngle  ")
 
         var girlTag = 0.5f
         var boyTag = 0.5f
-        if(girlTextPointAngle<45){
-            girlTag = 0.66f
-            boyTag = 0.33f
-        }
-        if(girlTextPointAngle<25){
-            girlTag = 0.8f
 
-        }
-        if(girlTextPointAngle>135){
-            girlTag = 0.33f
-            boyTag = 0.66f
-        }
-        if(girlTextPointAngle>155){
-            boyTag = 0.8f
-
-        }
         LogUtils.d("MyTag","girl$girlTextPointAngle cos${cos(girlTextPointAngle)}")
 
-        canvas?.drawText("$woman%",-sin(girlTextPointAngle*0.017f)*radius!!*girlTag,cos(girlTextPointAngle*0.017f)*radius!!*girlTag,dataPaint)
 
+            canvas?.drawText("$woman%",-sin(girlTextPointAngle*0.017f)*radius!!*girlTag,cos(girlTextPointAngle*0.017f)*radius!!*girlTag,dataPaint)
+            canvas?.drawText("$man%",sin(girlTextPointAngle*0.017f)*radius!!*boyTag, -cos(girlTextPointAngle*0.017f)*radius!!*boyTag,dataPaint)
 
-        canvas?.drawText("$man%",sin(girlTextPointAngle*0.017f)*radius!!*boyTag, -cos(girlTextPointAngle*0.017f)*radius!!*boyTag,dataPaint)
     }
 }
