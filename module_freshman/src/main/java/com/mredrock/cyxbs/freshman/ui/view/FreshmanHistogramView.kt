@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.freshman.ui.view
 
 import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.content.Context
 import android.content.res.TypedArray
@@ -16,7 +17,7 @@ class FreshmanHistogramView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
     private val coordinatePaint = Paint()
-    private val emptyPaint = Paint()
+    private val textPaint = Paint()
     private val framePaint = Paint()
     private val blueFillingPaint =Paint()
     private val pinkFillingPaint = Paint()
@@ -43,21 +44,27 @@ class FreshmanHistogramView @JvmOverloads constructor(
         blueFillingPaint.color = Color.rgb(81,110,255)
         pinkFillingPaint.color = Color.rgb(255,115,184)
         lightBlueFillingPaint.color = Color.rgb(60,206,255)
-
+        textPaint.color = Color.rgb(124,150,255)
 
         coordinatePaint.strokeWidth = paintWidth.toFloat()
         framePaint.strokeWidth = paintWidth.toFloat()
 
+        textPaint.style = Paint.Style.FILL
         coordinatePaint.style = Paint.Style.FILL_AND_STROKE
         framePaint.style = Paint.Style.STROKE
         blueFillingPaint.style = Paint.Style.FILL
         pinkFillingPaint.style = Paint.Style.FILL
         lightBlueFillingPaint.style = Paint.Style.FILL
 
+        textPaint.textAlign = Paint.Align.CENTER
         coordinatePaint.textAlign = Paint.Align.CENTER
         dataPaint.textAlign = Paint.Align.CENTER
+
+        textPaint.textSize = textWidth
         coordinatePaint.textSize = textWidth
         dataPaint.textSize = textWidth
+
+        textPaint.letterSpacing = 0.1f
         coordinatePaint.letterSpacing = 0.1.toFloat()
         dataPaint.letterSpacing = 0.07.toFloat()
     }
@@ -84,6 +91,8 @@ class FreshmanHistogramView @JvmOverloads constructor(
             coordinateHeight = it.animatedValue as Float
             this.invalidate()
         }
+
+
         val set = AnimatorSet()
         set.playTogether(horizentalAnimator,verticalAnimator)
         set.setDuration(1400)
@@ -153,7 +162,7 @@ class FreshmanHistogramView @JvmOverloads constructor(
 //        canvas?.drawPath(path,coordinatePaint)
 //        canvas?.drawTextOnPath("挂科率前三",path,0.toFloat(),0.toFloat(),coordinatePaint)
 
-        canvas?.translate(((viewWidth!!-coordinateWidth!!)*0.5).toFloat(),((viewHeight!!-coordinateHeight!!)*0.1+coordinateHeight!!).toFloat())
+        canvas?.translate(((viewWidth!!-viewWidth!!.toFloat()*0.9.toFloat()!!)*0.5).toFloat(),((viewHeight!!-viewHeight!!.toFloat()*0.9.toFloat()!!)*0.1+viewHeight!!.toFloat()*0.9.toFloat()!!).toFloat())
 
 
         drawHorizontal(canvas)
@@ -186,18 +195,22 @@ class FreshmanHistogramView @JvmOverloads constructor(
             -coordinateHeight!!.toFloat()+PixelUtil.dp2px(context,4.toFloat()).toFloat(),coordinatePaint)
         canvas?.drawLine(0.toFloat(),-coordinateHeight!!.toFloat(),-PixelUtil.dp2px(context,3.toFloat()).toFloat(),
             -coordinateHeight!!.toFloat()+PixelUtil.dp2px(context,4.toFloat()).toFloat(),coordinatePaint)
+        canvas?.drawLine(0f,-0.15f*coordinateHeight,-PixelUtil.dp2px(context,3.toFloat()).toFloat(),-0.15f*coordinateHeight,coordinatePaint)
+        canvas?.drawLine(0f,-0.3f*coordinateHeight,-PixelUtil.dp2px(context,3.toFloat()).toFloat(),-0.3f*coordinateHeight,coordinatePaint)
+        canvas?.drawLine(0f,-0.45f*coordinateHeight,-PixelUtil.dp2px(context,3.toFloat()).toFloat(),-0.45f*coordinateHeight,coordinatePaint)
+        canvas?.drawLine(0f,-0.6f*coordinateHeight,-PixelUtil.dp2px(context,3.toFloat()).toFloat(),-0.6f*coordinateHeight,coordinatePaint)
     }
 
     private fun drawRect(index:Int,data:Float,title:String?,canvas: Canvas?,insidePaint:Paint){
         var i =index*2+1
 
 
-        var pix = (coordinateWidth!!/11.5*(index*3.5+1)).toFloat()
+        var pix = (viewWidth!!.toFloat()*0.95.toFloat()!!/11.5*(index*3.5+1)).toFloat()
 
 
         LogUtils.d("MyTag","after:"+((data/100)*(coordinateHeight!!.toFloat())).toInt()+"before:"+coordinateHeight!!.toFloat())
-        var rect:Rect = Rect(pix.toInt(),-((data/100)*coordinateHeight!!.toFloat()).toInt(),
-            (pix+0.13*coordinateWidth!!).toInt(),-PixelUtil.dp2px(context ,1.toFloat()))
+        var rect:Rect = Rect(pix.toInt(),-((data)*viewHeight!!.toFloat()*0.9.toFloat()!!.toFloat()).toInt(),
+            (pix+0.13*viewWidth!!.toFloat()*0.95.toFloat()!!).toInt(),-PixelUtil.dp2px(context ,1.toFloat()))
 
         canvas?.drawRect(rect,framePaint)
         canvas?.drawRect(rect,insidePaint)
@@ -206,12 +219,12 @@ class FreshmanHistogramView @JvmOverloads constructor(
         if(title!= null) {
             canvas?.drawText(
                 title,
-                (pix+0.07*coordinateWidth!!).toFloat(),
-                (mergin*coordinateHeight!!).toFloat(),
-                coordinatePaint
+                (pix+0.07*viewWidth!!.toFloat()*0.95.toFloat()!!).toFloat(),
+                (mergin*viewHeight!!.toFloat()*0.9.toFloat()!!).toFloat(),
+                textPaint
             )
-            canvas?.drawText(String.format("%.2f",(data)),(pix+0.07*coordinateWidth!!).toFloat(),
-                -((data/100)*coordinateHeight!!.toFloat()).toInt()-PixelUtil.dp2px(context, (12).toFloat()).toFloat(),dataPaint)
+            canvas?.drawText(String.format("%.2f",(data)),(pix+0.07*viewWidth!!.toFloat()*0.95.toFloat()!!).toFloat(),
+                -((data)*coordinateHeight!!.toFloat()).toInt()-PixelUtil.dp2px(context, (12).toFloat()).toFloat(),dataPaint)
         }
     }
 
