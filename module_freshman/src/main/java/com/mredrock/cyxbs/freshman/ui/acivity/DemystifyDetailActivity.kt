@@ -6,6 +6,8 @@ import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.adapter.DemysityDetailViewPagerAdapter
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideDemystifyBean
+import com.mredrock.cyxbs.freshman.data.bean.CampusGuideManAndWomanBean
+import com.mredrock.cyxbs.freshman.data.bean.CampusGuideSubjectBean
 import com.mredrock.cyxbs.freshman.util.gson
 import kotlinx.android.synthetic.main.freshman_activity_demystify_detail.*
 import org.greenrobot.eventbus.Subscribe
@@ -23,15 +25,15 @@ class DemystifyDetailActivity : BaseActivity() {
             "      \"message\": [\n" +
             "        {\n" +
             "          \"subject\": \"....\",\n" +
-            "          \"data\": \"....\"\n" +
+            "          \"data\": \"0.89\"\n" +
             "        },\n" +
             "        {\n" +
             "          \"subject\": \"....\",\n" +
-            "          \"data\": \"....\"\n" +
+            "          \"data\": \"0.75\"\n" +
             "        },\n" +
             "        {\n" +
             "          \"subject\": \"....\",\n" +
-            "          \"data\": \"....\"\n" +
+            "          \"data\": \"0.69\"\n" +
             "        }\n" +
             "      ]\n" +
             "    },\n" +
@@ -40,15 +42,15 @@ class DemystifyDetailActivity : BaseActivity() {
             "      \"message\": [\n" +
             "        {\n" +
             "          \"subject\": \".....\",\n" +
-            "          \"data\": \"....\"\n" +
+            "          \"data\": \"0.89\"\n" +
             "        },\n" +
             "        {\n" +
             "          \"subject\": \".....\",\n" +
-            "          \"data\":\".....\"\n" +
+            "          \"data\":\"0.78\"\n" +
             "        },\n" +
             "        {\n" +
             "          \"subject\": \".....\",\n" +
-            "          \"data\": \".....\"\n" +
+            "          \"data\": \"0.45\"\n" +
             "        }\n" +
             "      ]\n" +
             "    }\n" +
@@ -80,14 +82,18 @@ class DemystifyDetailActivity : BaseActivity() {
         common_toolbar.init(
             title = "数据揭秘"
         )
-        val a = gson.fromJson(data, CampusGuideDemystifyBean::class.java)
-        vp_demystify_detail.adapter = DemysityDetailViewPagerAdapter(this,)
+        vp_demystify_detail.adapter = DemysityDetailViewPagerAdapter(
+            this,
+            gson.fromJson(data, CampusGuideSubjectBean::class.java),
+            gson.fromJson(data2, CampusGuideManAndWomanBean::class.java),
+            intent.getIntExtra("position",-1)
+        )
         tl_demystify_detail.setupWithViewPager(vp_demystify_detail)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEvent(a:CampusGuideDemystifyBean){
-        LogUtils.d("MyTag","do")
+    fun onEvent(a: CampusGuideDemystifyBean) {
+        LogUtils.d("MyTag", "do")
     }
 
 }
