@@ -1,65 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-
-
-    <data>
-
-        <variable
-                name="bean"
-                type="com.mredrock.cyxbs.freshman.data.bean.BusWayBean.Text2Bean.MessageBean"/>
-
-
-    </data>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:paddingStart="15dp"
+              android:paddingEnd="15dp"
+              android:paddingBottom="15dp"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
 
     <LinearLayout
+            android:id="@+id/ll_guide_on_clik"
+            android:animateLayoutChanges="true"
+            android:background="@drawable/freshman_shape_necessity_linear_backgroup"
             android:orientation="vertical"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:paddingBottom="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <LinearLayout
-                android:background="@drawable/freshman_shape_necessity_linear_backgroup"
-                android:orientation="vertical"
+
+        <RelativeLayout
+                android:padding="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-
-            <RelativeLayout
-                    android:padding="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                <TextView
-                        android:text="@{bean.name}"
-                        android:textColor="#333333"
-                        android:layout_alignParentStart="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+            <TextView
+                    android:id="@+id/tv_bus_route_title"
+                    android:textColor="#333333"
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
 
-                <ImageView
-                        android:src="@mipmap/freshman_more_function_arrow"
-                        android:layout_gravity="end"
-                        android:layout_alignParentEnd="true"
-                        android:layout_width="13dp"
-                        android:layout_height="13dp"/>
+            <ImageView
+                    android:src="@mipmap/freshman_more_function_arrow"
+                    android:layout_gravity="end"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="13dp"
+                    android:layout_height="13dp"/>
 
-            </RelativeLayout>
+        </RelativeLayout>
 
-            <LinearLayout
-                    android:id="@+id/ll_route_bus__item"
-                    android:orientation="vertical"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-            </LinearLayout>
+        <LinearLayout
+                android:id="@+id/ll_route_bus__item"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
         </LinearLayout>
 
-
     </LinearLayout>
-</layout>
+
+
+</LinearLayout>

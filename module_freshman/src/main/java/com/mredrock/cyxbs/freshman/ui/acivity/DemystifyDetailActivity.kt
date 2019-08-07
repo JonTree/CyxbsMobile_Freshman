@@ -104,6 +104,7 @@ class DemystifyDetailActivity : BaseActivity() {
                 if (isFirst) {
                     if (position == 1) {
                         fpcv_man_woamn_data.doAnimation()
+                        isFirst = false
                     }
                 }
             }
