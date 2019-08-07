@@ -2,6 +2,7 @@ package com.mredrock.cyxbs.freshman.data.bean;
 
 import androidx.databinding.BaseObservable;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -43,7 +44,7 @@ public class CampusGuideDemystifyBean extends BaseObservable {
         this.text = text;
     }
 
-    public static class TextBean {
+    public static class TextBean implements Serializable{
         /**
          * name : 学院
          * message : [{"title":"最难科目","data":[{"subject":"数学","data":"80%"},{"subject":"物理","data":"80%"}]},{"title":"男女比例","boy":"20%","girl":"80%"}]
@@ -68,7 +69,7 @@ public class CampusGuideDemystifyBean extends BaseObservable {
             this.message = message;
         }
 
-        public static class MessageBean {
+        public static class MessageBean implements Serializable {
             /**
              * title : 最难科目
              * data : [{"subject":"数学","data":"80%"},{"subject":"物理","data":"80%"}]

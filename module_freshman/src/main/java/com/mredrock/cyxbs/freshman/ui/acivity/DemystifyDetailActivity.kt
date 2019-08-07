@@ -82,12 +82,10 @@ class DemystifyDetailActivity : BaseActivity() {
 
     override fun onResume() {
 
-
-
-
-
         super.onResume()
         val a = gson.fromJson(data, CampusGuideDemystifyBean::class.java)
         vp_demystify_detail.adapter = DemysityDetailAdapter(this,a.text[0].message[0])
     }
+
+
 }
