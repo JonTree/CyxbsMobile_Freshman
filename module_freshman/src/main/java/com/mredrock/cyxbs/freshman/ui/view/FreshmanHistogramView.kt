@@ -224,7 +224,7 @@ class FreshmanHistogramView @JvmOverloads constructor(
                 textPaint
             )
             canvas?.drawText(String.format("%.2f",(data)),(pix+0.07*viewWidth!!.toFloat()*0.95.toFloat()!!).toFloat(),
-                -((data)*coordinateHeight!!.toFloat()).toInt()-PixelUtil.dp2px(context, (12).toFloat()).toFloat(),dataPaint)
+                -((data)*viewHeight!!.toFloat()*0.9!!.toFloat()).toInt()-PixelUtil.dp2px(context, (12).toFloat()).toFloat(),dataPaint)
         }
     }
 
