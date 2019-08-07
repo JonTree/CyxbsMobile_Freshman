@@ -29,12 +29,12 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
             "    \"title\": \"推荐线路:\",\n" +
             "    \"message\": [{\n" +
             "      \"name\": \"重庆火车北站北广场/南广场\",\n" +
-            "      \"route\": [\"...\",\"....\"]\n" +
+            "      \"route\": [\"江北机场乘坐三号线→南坪站下车从5号出口出站→乘坐346/347路公交车→邮电大学站下车\",\"乘坐机场大巴→上清寺后下车乘坐108路公交车→南坪站转乘346/347路公交车→邮电大学站下车\"]\n" +
             "    },\n" +
             "      {\n" +
-            "        \"name\": \"江北机场\",\n" +
-            "        \"route\": [\"....\",\"......\"]\n" +
-            "      }\n" +
+            "      \"name\": \"重庆火车北站北广场/南广场\",\n" +
+            "      \"route\": [\"江北机场乘坐三号线→南坪站下车从5号出口出站→乘坐346/347路公交车→邮电大学站下车\",\"乘坐机场大巴→上清寺后下车乘坐108路公交车→南坪站转乘346/347路公交车→邮电大学站下车\"]\n" +
+            "    }\n" +
             "    ]\n" +
             "  }\n" +
             "}"
@@ -44,9 +44,7 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_guided)
-
         vp_guided.adapter = GuideViewPagerAdapter(this, gson.fromJson(data, BusWayBean::class.java))
         tl_guided.setupWithViewPager(vp_dormitory)
-
     }
 }
