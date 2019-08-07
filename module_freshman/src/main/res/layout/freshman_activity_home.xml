@@ -45,10 +45,10 @@
                     <com.github.glomadrian.grav.GravView
                             android:id="@+id/grav_1"
                             android:layout_width="50dp"
-                            android:layout_height="0dp"
+                            android:layout_height="60dp"
                             android:layout_centerInParent="true"
                             app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
-                            app:single_color="@color/gravWrite"
+                            app:array_colors="@array/freshman_Spectral"
                             app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
                             app:regular_cell_size="100"
                             app:regular_variance="200"
@@ -66,9 +66,8 @@
                             android:layout_marginStart="8dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintBottom_toBottomOf="@+id/freshman_view2"
                             app:layout_constraintHorizontal_bias="0.273"
-                            app:layout_constraintVertical_bias="1.0"/>
+                            />
 
 
                     <View
@@ -82,16 +81,16 @@
                             app:layout_constraintStart_toStartOf="parent"
                             android:layout_marginStart="8dp"
                             app:layout_constraintHorizontal_bias="0.506"
-                            app:layout_constraintVertical_bias="0.59"
+                            app:layout_constraintVertical_bias="0.583"
                             android:id="@+id/freshman_view2"/>
 
                     <com.github.glomadrian.grav.GravView
                             android:id="@+id/grav_2"
-                            android:layout_width="30dp"
+                            android:layout_width="50dp"
                             android:layout_height="0dp"
                             android:layout_centerInParent="true"
                             app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
-                            app:single_color="@color/gravWrite"
+                            app:array_colors="@array/freshman_Spectral"
                             app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
                             app:regular_cell_size="100"
                             app:regular_variance="200"
