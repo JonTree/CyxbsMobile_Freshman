@@ -2,11 +2,14 @@ package com.mredrock.cyxbs.freshman.ui.acivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import com.maning.imagebrowserlibrary.MNImageBrowser
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.OnlineCommunicationViewModel
+import com.mredrock.cyxbs.freshman.util.MyImageEngine
 import kotlinx.android.synthetic.main.freshman_activity_online_communication.*
 
 class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationViewModel>() {
@@ -17,7 +20,16 @@ class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationVie
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_online_communication)
-        val dataa = listOf<Float>(0.1f,0.5f,0.8f)
+
+        cv_.setManProportion(0.9f)
+        MNImageBrowser.with(this)
+            .setCustomShadeView(View.inflate(this,R.layout.freshman_custom_view,null))
+            .setIndicatorHide(true)
+            .setImageEngine(MyImageEngine())
+            .setImageUrl("https://ws1.sinaimg.cn/large/0065oQSqly1g0ajj4h6ndj30sg11xdmj.jpg")
+            .setFullScreenMode(true)
+            .show(cv_)
+
 
 //        val  title = listOf<String>("gs","dw","ls")
 //        fs_aaaa.data = dataa
