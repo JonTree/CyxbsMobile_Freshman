@@ -3,7 +3,6 @@ package com.mredrock.cyxbs.freshman.ui.acivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil.setContentView
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
-import com.mredrock.cyxbs.freshman.R
 import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
 import com.mredrock.cyxbs.common.ui.BaseFragment
@@ -12,8 +11,17 @@ import com.mredrock.cyxbs.freshman.ui.fragment.DormitoryCanteenFragment
 import com.mredrock.cyxbs.freshman.ui.fragment.ExpressDeliveryFragment
 import kotlinx.android.synthetic.main.freshman_activity_campus_guide.*
 import com.mredrock.cyxbs.freshman.data.ViewModel.CampusGuideViewModel
+import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanActivityCampusGuideBinding
+import com.mredrock.cyxbs.freshman.util.apiService
 import org.jetbrains.anko.textColor
+import javax.security.auth.callback.Callback
+import android.R
+import android.widget.Toast
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Response
+import java.io.IOException
 
 
 class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
@@ -30,11 +38,20 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = setContentView(this, R.layout.freshman_activity_campus_guide)
+        binding = setContentView(this, com.mredrock.cyxbs.freshman.R.layout.freshman_activity_campus_guide)
         common_toolbar.init(
             title = "校园指引"
         )
         binding.activity = this
+        apiService.getCampusGuideBasicBean().enqueue(object :  retrofit2.Callback<CampusGuideBasicBean> {
+            override fun onResponse(call: Call<CampusGuideBasicBean>, response: Response<CampusGuideBasicBean>) {
+                selectTab(0)
+            }
+
+            override fun onFailure(call: Call<CampusGuideBasicBean>, t: Throwable) {
+//                Toast.makeText(this,"网络链接失败",Toast.LENGTH_SHORT)
+            }
+        })
         selectTab(0)
     }
 
@@ -71,7 +88,7 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
                 clickLogic(tv_tab_dormitories, dormitoryFragment) {
                     dormitoryFragment = DormitoryCanteenFragment(0)
                     transaction.add(
-                        R.id.frame_layout_fragment_container_campus_guide,
+                        com.mredrock.cyxbs.freshman.R.id.frame_layout_fragment_container_campus_guide,
                         dormitoryFragment as DormitoryCanteenFragment
                     )
                 }
@@ -81,7 +98,7 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
                 clickLogic(tv_tab_canteen, canteenFragment) {
                     canteenFragment = DormitoryCanteenFragment(1)
                     transaction.add(
-                        R.id.frame_layout_fragment_container_campus_guide,
+                        com.mredrock.cyxbs.freshman.R.id.frame_layout_fragment_container_campus_guide,
                         canteenFragment as DormitoryCanteenFragment
                     )
                 }
@@ -90,7 +107,7 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
                 clickLogic(tv_tab_express_delivery, expressDeliveryFragment) {
                     expressDeliveryFragment = ExpressDeliveryFragment()
                     transaction.add(
-                        R.id.frame_layout_fragment_container_campus_guide,
+                        com.mredrock.cyxbs.freshman.R.id.frame_layout_fragment_container_campus_guide,
                         expressDeliveryFragment as ExpressDeliveryFragment
                     )
                 }
@@ -99,7 +116,7 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
                 clickLogic(tv_tab_demystify, demystifyFragment) {
                     demystifyFragment = DemystifyFragment()
                     transaction.add(
-                        R.id.frame_layout_fragment_container_campus_guide,
+                        com.mredrock.cyxbs.freshman.R.id.frame_layout_fragment_container_campus_guide,
                         demystifyFragment as DemystifyFragment
                     )
                 }

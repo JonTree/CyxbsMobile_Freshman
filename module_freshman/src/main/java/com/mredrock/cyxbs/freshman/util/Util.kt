@@ -5,8 +5,13 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
+import com.mredrock.cyxbs.freshman.updata.APIService
+import com.mredrock.cyxbs.freshman.updata.ApiGenerator
 
 val gson = Gson()
+
+val apiService = ApiGenerator.getApiService(APIService::class.java)
+
 
 
 object Util {

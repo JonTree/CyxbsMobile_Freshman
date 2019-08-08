@@ -33,7 +33,6 @@ object ApiGenerator {
 
     private fun configureOkHttp(builder: OkHttpClient.Builder): OkHttpClient {
         builder.connectTimeout(DEFAULT_TIME_OUT.toLong(), TimeUnit.SECONDS)
-
         if (BuildConfig.DEBUG) {
             val logging = HttpLoggingInterceptor()
             logging.level = HttpLoggingInterceptor.Level.BODY

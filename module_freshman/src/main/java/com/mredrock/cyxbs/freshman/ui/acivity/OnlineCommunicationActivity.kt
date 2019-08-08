@@ -16,10 +16,15 @@ import com.mredrock.cyxbs.freshman.updata.ApiGenerator
 class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationViewModel>() {
     override val viewModelClass: Class<OnlineCommunicationViewModel> = OnlineCommunicationViewModel::class.java
     override val isFragmentActivity: Boolean = false
-        //To change initializer of created properties use File | Settings | File Templates.
+    //To change initializer of created properties use File | Settings | File Templates.
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_online_communication)
+        val a = ApiGenerator.getApiService(APIService::class.java)
+
+        val b = a.getCampusGuideBasicBean()
+
+
     }
 }

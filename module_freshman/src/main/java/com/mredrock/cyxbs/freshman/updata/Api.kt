@@ -47,7 +47,6 @@ interface APIService {
     @GET("zsqy/json/7")
     fun getGroupStudentBean():Call<GroupStudentBean>
 
-
 }
 
 
