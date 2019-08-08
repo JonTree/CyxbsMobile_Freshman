@@ -52,7 +52,7 @@ class GuideViewPagerAdapter(val context: Context, val bean: BusWayBean) : PagerA
                             setOnClickListener {
                                 LogUtils.d("MyTag1","animation${this.ll_guide_bus_routes_item == null}")
                                 if(this.ll_guide_bus_routes_item != null)
-                                    动画(this.ll_guide_bus_routes_item)
+                                    动画(this.ll_guide_bus_routes_item,false)
                                 val index =  bean.text_2.message.indexOf(msg)//获取当前子项在推荐路线里面的索引
 //                                for (view in onClickViews){//所有展开的都关闭
 //                                    if (onClickViews.indexOf(view) !=index) {//若是当前点击的view，不做设置
@@ -96,12 +96,18 @@ class GuideViewPagerAdapter(val context: Context, val bean: BusWayBean) : PagerA
     }
 
     @SuppressLint("ObjectAnimatorBinding")
-    private fun 动画(view : LinearLayout) {
+    private fun 动画(view : LinearLayout,isOpen:Boolean) {
         LogUtils.d("MyTag","animation")
-        val objectAnimator = ObjectAnimator.ofInt(view, "scaleY",1,0)
-        objectAnimator.duration = 1000
-        objectAnimator.start()
-
+        if(isOpen) {
+            val objectAnimator = ObjectAnimator.ofInt(view, "scaleY", 1, 0)
+            objectAnimator.duration = 1000
+            objectAnimator.start()
+        }
+        else{
+            val objectAnimator = ObjectAnimator.ofInt(view, "scaleY", 0, 1)
+            objectAnimator.duration = 1000
+            objectAnimator.start()
+        }
     }
 
 
