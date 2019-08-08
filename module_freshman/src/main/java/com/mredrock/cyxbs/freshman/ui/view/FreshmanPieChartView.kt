@@ -94,12 +94,12 @@ class FreshmanPieChartView @JvmOverloads constructor(
             invalidate()
         }
        val alphaAnimator = ValueAnimator.ofInt(0,255)
-        alphaAnimator.setDuration(600)
+        alphaAnimator.setDuration(500)
         alphaAnimator.addUpdateListener {
             dataPaint.alpha = it.animatedValue as Int
             invalidate()
         }
-        alphaAnimator.startDelay = 1700
+        alphaAnimator.startDelay = 900
         val set = AnimatorSet()
         set.playTogether(valueAnimator,alphaAnimator)
 

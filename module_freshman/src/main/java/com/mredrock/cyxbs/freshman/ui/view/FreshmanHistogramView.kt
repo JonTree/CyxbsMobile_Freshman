@@ -120,9 +120,9 @@ class FreshmanHistogramView @JvmOverloads constructor(
             this.data[2] = it.animatedValue as Float
             this.invalidate()
         }
-        valueAnimator1.startDelay = 304
-        valueAnimator2.startDelay = 730
-        valueAnimator3.startDelay = 1156
+        valueAnimator1.startDelay = 213
+        valueAnimator2.startDelay = 547
+        valueAnimator3.startDelay = 881
         val set = AnimatorSet()
         set.playTogether(valueAnimator1,valueAnimator2,valueAnimator3)
         set.setDuration(1400)

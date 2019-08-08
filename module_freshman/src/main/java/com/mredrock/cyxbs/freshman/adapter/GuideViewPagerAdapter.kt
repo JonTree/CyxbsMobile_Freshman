@@ -1,14 +1,19 @@
 package com.mredrock.cyxbs.freshman.adapter
 
+import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.content.Context
 import android.text.Html
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.PagerAdapter
+import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.bean.BusWayBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerPageGuidedBusWayBinding
+import com.mredrock.cyxbs.freshman.ui.view.AnimationLinearLayout
 import kotlinx.android.synthetic.main.freshman_route_bus_item.view.*
 import kotlinx.android.synthetic.main.freshman_route_bus_item_item.view.*
 import kotlinx.android.synthetic.main.freshman_view_pager_page_guided_bus_way.view.*
@@ -36,7 +41,8 @@ class GuideViewPagerAdapter(val context: Context, val bean: BusWayBean) : PagerA
         ).apply {
             DataBindingUtil.bind<FreshmanViewPagerPageGuidedBusWayBinding>(this)?.bean = bean
             for (msg in bean.text_2.message) {
-                this.ll_guide_bus_routes_item.addView(
+                LogUtils.d("MyTag0","${ll_guide_bus_routes_item==null}")
+                ll_guide_bus_routes_item.addView(
                     View.inflate(//生成子项
                         context,
                         R.layout.freshman_route_bus_item,
@@ -44,22 +50,26 @@ class GuideViewPagerAdapter(val context: Context, val bean: BusWayBean) : PagerA
                     ).apply {//子项初始化
                         onClickViews.add(this.ll_guide_on_clik.apply {//给子项整个设置点击事件
                             setOnClickListener {
+                                LogUtils.d("MyTag1","animation${this.ll_guide_bus_routes_item == null}")
+                                if(this.ll_guide_bus_routes_item != null)
+                                    动画(this.ll_guide_bus_routes_item)
                                 val index =  bean.text_2.message.indexOf(msg)//获取当前子项在推荐路线里面的索引
-                                for (view in onClickViews){//所有展开的都关闭
-                                    if (onClickViews.indexOf(view) !=index) {//若是当前点击的view，不做设置
-                                        isOpens[onClickViews.indexOf(view)] = false
-                                        view.ll_route_bus__item.visibility = View.GONE
-                                    }
-                                }
-                                if (isOpens[index]) {//根据isOpen来判断是点击还是关闭
-                                    this.ll_guide_on_clik.ll_route_bus__item.visibility = View.GONE
-                                    isOpens[index] = false
-                                } else {
-                                    this.ll_guide_on_clik.ll_route_bus__item.visibility = View.VISIBLE
-                                    isOpens[index] = true
-                                }
+//                                for (view in onClickViews){//所有展开的都关闭
+//                                    if (onClickViews.indexOf(view) !=index) {//若是当前点击的view，不做设置
+//                                        isOpens[onClickViews.indexOf(view)] = false
+//                                        view.ll_route_bus__item.visibility = View.GONE
+//                                    }
+//                                }
+//                                if (isOpens[index]) {//根据isOpen来判断是点击还是关闭
+//                                    this.ll_guide_on_clik.ll_route_bus__item.visibility = View.GONE
+//                                    isOpens[index] = false
+//                                } else {
+//                                    this.ll_guide_on_clik.ll_route_bus__item.visibility = View.VISIBLE
+//                                    isOpens[index] = true
+//                                }
                             }
                         })
+                        LogUtils.d("MyTag2","${this.ll_guide_bus_routes_item==null}")
                         this.tv_bus_route_title.text = msg.name
                         for (route in msg.route) {
                             this.ll_route_bus__item.addView(
@@ -83,6 +93,15 @@ class GuideViewPagerAdapter(val context: Context, val bean: BusWayBean) : PagerA
                     })
             }
         })
+    }
+
+    @SuppressLint("ObjectAnimatorBinding")
+    private fun 动画(view : LinearLayout) {
+        LogUtils.d("MyTag","animation")
+        val objectAnimator = ObjectAnimator.ofInt(view, "scaleY",1,0)
+        objectAnimator.duration = 1000
+        objectAnimator.start()
+
     }
 
 
