@@ -4,7 +4,6 @@ package com.mredrock.cyxbs.freshman.data.ViewModel
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideSubjectBean
-import com.mredrock.cyxbs.freshman.data.bean.CampusGuideDemystifyBean
 import com.mredrock.cyxbs.freshman.util.gson
 import org.greenrobot.eventbus.EventBus
 
@@ -124,7 +123,6 @@ class CampusGuideViewModel :BaseViewModel() {
         val a = gson.fromJson(data, CampusGuideBasicBean::class.java)
 
         EventBus.getDefault().postSticky(a)
-        EventBus.getDefault().postSticky(gson.fromJson(de,CampusGuideDemystifyBean::class.java))
     }
 
     fun sendBean(bean: CampusGuideSubjectBean){

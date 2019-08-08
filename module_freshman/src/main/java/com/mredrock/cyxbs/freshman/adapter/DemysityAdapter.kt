@@ -5,17 +5,12 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.data.bean.CampusGuideDemystifyBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideSubjectBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemDemystifyBinding
-import com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityItemBinding
-import com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityTitleBinding
 import com.mredrock.cyxbs.freshman.ui.acivity.DemystifyDetailActivity
-import org.jetbrains.anko.sdk27.coroutines.onClick
 
 /**
  * Created by Tree on 2019/8/6 10:22

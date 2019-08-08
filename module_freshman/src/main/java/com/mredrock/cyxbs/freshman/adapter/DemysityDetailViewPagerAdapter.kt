@@ -3,21 +3,12 @@ package com.mredrock.cyxbs.freshman.adapter
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.Interpolator
-import android.widget.Scroller
-import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.PagerAdapter
-import androidx.viewpager.widget.ViewPager
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.data.bean.CampusGuideDemystifyBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideManAndWomanBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideSubjectBean
-import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerDormitoryAndCanteenPageBinding
-import com.mredrock.cyxbs.freshman.event.UpdataViewPagerAutoSlideEvent
-import kotlinx.android.synthetic.main.freshman_view_pager_dormitory_and_canteen_page.view.*
 import kotlinx.android.synthetic.main.freshman_view_pager_page_demystify_male_female_ratio.view.*
 import kotlinx.android.synthetic.main.freshman_view_pager_item_demystify_subject_data.view.*
-import org.greenrobot.eventbus.EventBus
 
 /**
  * Created by Tree on 2019/8/6 22:31

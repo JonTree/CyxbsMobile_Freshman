@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:paddingStart="15dp"
+              android:paddingEnd="15dp"
+              android:paddingBottom="15dp"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+
+    <LinearLayout
+            android:background="@drawable/freshman_shape_guide_backgroup"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingTop="7dp"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:background="#aec0ff"
+                android:padding="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="98dp">
+            <ImageView
+                    android:src="@drawable/freshman_text"
+                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="96dp"/>
+
+        </LinearLayout>
+
+
+        <TextView
+                android:layout_marginTop="10dp"
+                android:text="八十万"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+    <View
+            android:layout_width="5dp"
+            android:layout_height="0dp"/>
+
+
+
+    <LinearLayout
+            android:background="@drawable/freshman_shape_guide_backgroup"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingTop="7dp"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:background="#aec0ff"
+                android:padding="1dp"
+                android:layout_width="match_parent"
+                android:layout_height="98dp">
+            <ImageView
+                    android:src="@drawable/freshman_text"
+                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="96dp"/>
+
+        </LinearLayout>
+
+
+        <TextView
+                android:layout_marginTop="10dp"
+                android:text="八十万"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

@@ -1,7 +1,6 @@
 package com.mredrock.cyxbs.freshman.ui.fragment
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,15 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mredrock.cyxbs.common.ui.BaseFragment
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.adapter.DemysityAdapter
-import com.mredrock.cyxbs.freshman.data.bean.CampusGuideExpressDeliveryBean
-import com.mredrock.cyxbs.freshman.adapter.ExpressDeliveryViewPagerAdapter
-import com.mredrock.cyxbs.freshman.data.bean.CampusGuideDemystifyBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideSubjectBean
-import com.mredrock.cyxbs.freshman.ui.acivity.DemystifyDetailActivity
 import com.mredrock.cyxbs.freshman.util.gson
 import kotlinx.android.synthetic.main.freshman_fragment_demystify.*
-import kotlinx.android.synthetic.main.freshman_fragment_express_delivery.*
-import org.greenrobot.eventbus.Subscribe
 
 /**
  * Created by Tree on 2019/8/3 10:15

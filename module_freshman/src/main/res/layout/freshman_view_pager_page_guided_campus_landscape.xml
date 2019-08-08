@@ -5,11 +5,6 @@
               android:layout_height="wrap_content">
 
 
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
 
         <LinearLayout
                 android:orientation="vertical"
@@ -58,38 +53,21 @@
             </LinearLayout>
 
 
+            <LinearLayout
+                    android:id="@+id/ll_guide_scenery_container"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+
+            </LinearLayout>
+
 
 
         </LinearLayout>
 
-        <GridLayout
-                android:columnCount="2"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="0dp">
-
-            <ImageView
-                    android:background="@drawable/freshman_text"
-                    android:layout_height="138dp"
-
-                    android:layout_columnWeight="1"/>
-
-            <ImageView
-                    android:background="@drawable/freshman_text"
-                    android:layout_height="138dp"
-                    android:layout_columnWeight="1"/>
 
 
-            <TableLayout>
-
-
-
-
-            </TableLayout>
-
-        </GridLayout>
-
-    </LinearLayout>
 
 </ScrollView>
