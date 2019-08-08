@@ -2,6 +2,8 @@ package com.mredrock.cyxbs.freshman.ui.acivity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.transition.Explode
+import android.transition.Fade
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
@@ -22,7 +24,9 @@ class MoreFunctionActivity : BaseViewModelActivity<MoreFunctionViewModel>(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bind = DataBindingUtil.setContentView<FreshmanActivityMoreFuntionBinding>(this,R.layout.freshman_activity_more_funtion)
+
         bind.activity = this
+
         common_toolbar.init(
             title = "更多功能"
         )

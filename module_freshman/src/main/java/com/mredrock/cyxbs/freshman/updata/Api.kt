@@ -33,6 +33,9 @@ interface APIService {
     @GET("zsqy/json/33")
     fun getCampusGuideExpressDeliveryBean(): Call<CampusGuideExpressDeliveryBean>
 
+    @GET("zsqy/json/5")
+    fun getGuideBusBean():Call<GuideBusBean>
+
     @GET("zsqy/json/6")
     fun getCampusSightseeingBean(): Call<CampusSightseeingBean>
 

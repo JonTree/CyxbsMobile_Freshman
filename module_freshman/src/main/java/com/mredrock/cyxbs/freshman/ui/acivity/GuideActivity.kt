@@ -1,13 +1,11 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
 import android.os.Bundle
-import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
-import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.adapter.GuideViewPagerAdapter
 import com.mredrock.cyxbs.freshman.data.ViewModel.GuidedViewModel
-import com.mredrock.cyxbs.freshman.data.bean.BusWayBean
+import com.mredrock.cyxbs.freshman.data.bean.GuideBusBean
 import com.mredrock.cyxbs.freshman.util.gson
 import kotlinx.android.synthetic.main.freshman_activity_guided.*
 import kotlinx.android.synthetic.main.freshman_fragment_dormitory.*
@@ -44,7 +42,8 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_guided)
-        vp_guided.adapter = GuideViewPagerAdapter(this, gson.fromJson(data, BusWayBean::class.java))
+
+        vp_guided.adapter = GuideViewPagerAdapter(this, gson.fromJson(data, GuideBusBean::class.java))
         tl_guided.setupWithViewPager(vp_dormitory)
     }
 }

@@ -11,9 +11,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.PagerAdapter
 import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.R
-import com.mredrock.cyxbs.freshman.data.bean.BusWayBean
+import com.mredrock.cyxbs.freshman.data.bean.GuideBusBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerPageGuidedBusWayBinding
-import com.mredrock.cyxbs.freshman.ui.view.AnimationLinearLayout
 import kotlinx.android.synthetic.main.freshman_route_bus_item.view.*
 import kotlinx.android.synthetic.main.freshman_route_bus_item_item.view.*
 import kotlinx.android.synthetic.main.freshman_view_pager_page_guided_bus_way.view.*
@@ -21,7 +20,7 @@ import kotlinx.android.synthetic.main.freshman_view_pager_page_guided_bus_way.vi
 /**
  * Created by Tree on 2019/8/7 16:24
  */
-class GuideViewPagerAdapter(val context: Context, val bean: BusWayBean) : PagerAdapter() {
+class GuideViewPagerAdapter(val context: Context, val bean: GuideBusBean) : PagerAdapter() {
 
 
     val titleList = listOf("公交路线", "校园风光")
@@ -91,14 +90,17 @@ class GuideViewPagerAdapter(val context: Context, val bean: BusWayBean) : PagerA
 
     @SuppressLint("ObjectAnimatorBinding")
     private fun animation(view: LinearLayout, isOpen: Boolean) {
-        LogUtils.d("MyTag", "animation")
-        if (isOpen) {
-            val objectAnimator = ObjectAnimator.ofInt(view, "scaleY", 1, 0)
-            objectAnimator.duration = 1000
+        LogUtils.d("MyTag", "animation $isOpen")
+        if (!isOpen) {
+            val objectAnimator = ObjectAnimator.ofInt(view, "alpha", 1, 0)
+            view.clearAnimation()
+            objectAnimator.duration = 100
             objectAnimator.start()
+
         } else {
             val objectAnimator = ObjectAnimator.ofInt(view, "scaleY", 0, 1)
-            objectAnimator.duration = 1000
+            objectAnimator.duration = 100
+            view.clearAnimation()
             objectAnimator.start()
         }
     }

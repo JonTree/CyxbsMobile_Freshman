@@ -8,24 +8,9 @@ import com.mredrock.cyxbs.freshman.generated.callback.OnClickListener
 import com.mredrock.cyxbs.freshman.util.gson
 import org.greenrobot.eventbus.EventBus
 
-class NecessityViewModel :BaseViewModel(),NecessityViewModelCallback {
-    var basicBean :NecessityBean? = null
-    override fun internetDataReady(bean: NecessityBean) {
-        if(basicBean != null){
-            basicBean = bean
-        }
-        else{
-            compareBean(bean)
-        }
-    }
+class NecessityViewModel :BaseViewModel() {
 
-    override fun getLocalData(bean: NecessityBean) {
-        compareBean(bean)
-    }
 
-    override fun getLocalMemorandum(bean: NecessityBean) {
-        compareBean(bean)
-    }
 
     val data = "{\n" +
             "\t\"code\": 200,\n" +

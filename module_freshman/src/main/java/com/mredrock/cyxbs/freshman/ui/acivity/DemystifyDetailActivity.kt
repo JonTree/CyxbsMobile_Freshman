@@ -79,6 +79,7 @@ class DemystifyDetailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.mredrock.cyxbs.freshman.R.layout.freshman_activity_demystify_detail)
+
         common_toolbar.init(
             title = "数据揭秘"
         )

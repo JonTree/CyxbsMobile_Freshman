@@ -15,5 +15,7 @@ class ProcessActivity : BaseViewModelActivity<ProcessViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_process)
+
+
     }
 }
