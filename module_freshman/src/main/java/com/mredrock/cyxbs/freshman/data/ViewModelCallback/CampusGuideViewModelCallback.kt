@@ -5,7 +5,7 @@ import com.mredrock.cyxbs.freshman.data.bean.CampusGuideExpressDeliveryBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideManAndWomanBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideSubjectBean
 
-interface CampusGuideViewModelCallback {
+interface CampusGuideViewModelCallback :ViewModelCallback{
     fun onCampusGuideBasicBeanReady(bean:CampusGuideBasicBean?)
     fun onCampusGuideExpressDeliveryBeanReady(bean:CampusGuideExpressDeliveryBean?)
     fun onCampusGuideManAndWomanBeanReady(bean:CampusGuideManAndWomanBean?)
