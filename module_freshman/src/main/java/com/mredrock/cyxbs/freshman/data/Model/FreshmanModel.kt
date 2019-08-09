@@ -80,7 +80,6 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                     override fun onFailure(call: Call<CampusSightseeingBean>, t: Throwable) {
                         callback.onFaire()
                     }
-
                     override fun onResponse(
                         call: Call<CampusSightseeingBean>,
                         response: Response<CampusSightseeingBean>
