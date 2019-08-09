@@ -1,6 +1,8 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
 import android.os.Bundle
+import android.transition.Fade
+import android.transition.Slide
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
@@ -20,7 +22,8 @@ class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_necessity)
 
-
+        val fade = Fade()
+        window.enterTransition = fade
         common_toolbar.init(
             title = "入学必备"
         )

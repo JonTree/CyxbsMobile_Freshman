@@ -17,6 +17,9 @@ import com.mredrock.cyxbs.freshman.util.apiService
 import org.jetbrains.anko.textColor
 import javax.security.auth.callback.Callback
 import android.R
+import android.transition.Explode
+import android.transition.Fade
+import android.transition.Slide
 import android.widget.Toast
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -37,8 +40,11 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
     private var expressDeliveryFragment: ExpressDeliveryFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val fade = Fade()
+        window.enterTransition = fade
         super.onCreate(savedInstanceState)
         binding = setContentView(this, com.mredrock.cyxbs.freshman.R.layout.freshman_activity_campus_guide)
+
         common_toolbar.init(
             title = "校园指引"
         )

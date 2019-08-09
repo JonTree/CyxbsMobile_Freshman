@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
 import android.os.Bundle
+import android.transition.Fade
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
@@ -16,6 +17,7 @@ class ProcessActivity : BaseViewModelActivity<ProcessViewModel>() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_process)
 
-
+        val fade = Fade()
+        window.enterTransition = fade
     }
 }

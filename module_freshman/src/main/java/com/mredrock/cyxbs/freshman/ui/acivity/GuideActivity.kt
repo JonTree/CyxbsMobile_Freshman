@@ -1,16 +1,13 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
 import android.os.Bundle
-import com.mredrock.cyxbs.common.ui.BaseActivity
+import android.transition.Fade
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
-import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.adapter.GuideViewPagerAdapter
 import com.mredrock.cyxbs.freshman.data.ViewModel.GuidedViewModel
-import com.mredrock.cyxbs.freshman.data.bean.CampusGuideSubjectBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusSightseeingBean
 import com.mredrock.cyxbs.freshman.data.bean.GuideBusBean
-import com.mredrock.cyxbs.freshman.event.CampusGuideDataEvent
 import com.mredrock.cyxbs.freshman.event.GuideDataEvent
 import com.mredrock.cyxbs.freshman.util.gson
 import com.tencent.bugly.crashreport.common.strategy.StrategyBean
@@ -88,6 +85,8 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_guided)
+        val fade = Fade()
+        window.enterTransition = fade
         tl_guided.setupWithViewPager(vp_guided)
         vp_guided.adapter = GuideViewPagerAdapter(
             this, GuideDataEvent(
@@ -95,9 +94,6 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
                 gson.fromJson(data2, CampusSightseeingBean::class.java)
             )
         )
-
-
-
     }
 
     @Subscribe

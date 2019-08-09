@@ -114,6 +114,20 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                     }
 
                 })
+
+                apiService.getCampusGuideManAndWomanBean().enqueue(object : retrofit2.Callback<CampusGuideManAndWomanBean>{
+                    override fun onFailure(call: Call<CampusGuideManAndWomanBean>, t: Throwable) {
+                        callback.onFaire()
+                    }
+
+                    override fun onResponse(
+                        call: Call<CampusGuideManAndWomanBean>,
+                        response: Response<CampusGuideManAndWomanBean>
+                    ) {
+                        callback.onCampusGuideManAndWomanBeanReady(response.body())
+                    }
+
+                })
             }
         }
     }
