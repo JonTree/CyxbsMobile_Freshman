@@ -24,7 +24,7 @@ object ApiGenerator {
         okHttpClient =
             configureOkHttp(OkHttpClient.Builder())
         retrofit = Retrofit.Builder()
-                .baseUrl(END_POINT_REDROCK)
+                .baseUrl(DATA_BASE_URI)
                 .client(okHttpClient)
                 .addConverterFactory(QualifiedTypeConverterFactory(GsonConverterFactory.create(), SimpleXmlConverterFactory.create()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

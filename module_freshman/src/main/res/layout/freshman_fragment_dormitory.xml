@@ -18,7 +18,6 @@
                 android:id="@+id/tl_dormitory"
                 app:tabSelectedTextColor="#000000"
                 android:background="#F9FCFF"
-                app:tabTextAppearance="@style/freshman_TabLayoutTextStyle"
                 app:tabIndicatorHeight="0dp"
                 app:tabRippleColor="@null"
                 android:layout_width="match_parent"

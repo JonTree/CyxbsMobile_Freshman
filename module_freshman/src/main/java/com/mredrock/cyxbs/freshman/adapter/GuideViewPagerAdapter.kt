@@ -42,7 +42,6 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
 
     val heightList = mutableListOf<Int>()
 
-    val imageList = mutableListOf<ImageView>()
 
     private val pagerList = ArrayList<View>()
 
@@ -66,7 +65,6 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
                         R.layout.freshman_route_bus_item,
                         null
                     ).apply XML@{
-                        imageList.add(this.iv_arrow)
                         //子项初始化
                         val index = guideDataEvent.guideBusBean.text_2.message.indexOf(msg)//获取当前子项在推荐路线里面的索引
                         onClickViews.add(this.ll_guide_on_clik.apply {
@@ -80,7 +78,7 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
                                     }
                                 }
 
-                                animation(this@XML.ll_route_bus__item, isOpens[index],heightList[index],imageList[index])
+                                animation(this@XML.ll_route_bus__item, isOpens[index],heightList[index])
                                 isOpens[index] = !isOpens[index]
                             }
                         })
@@ -156,7 +154,7 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
         )
     }
 
-    private fun animation(view: LinearLayout, isOpen: Boolean,height:Int,img:ImageView) {
+    private fun animation(view: LinearLayout, isOpen: Boolean,height:Int) {
         LogUtils.d("MyTag", "animation $isOpen")
         LogUtils.d("MyTag","${view.measuredHeight}")
         if (isOpen) {
