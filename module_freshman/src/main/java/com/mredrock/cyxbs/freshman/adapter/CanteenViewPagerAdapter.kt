@@ -40,7 +40,7 @@ class CanteenViewPagerAdapter(val context: Context, var bean: CampusGuideBasicBe
     }
 
 //    override fun getPageTitle(position: Int): CharSequence? {
-//        return bean.text[position].name
+//        return guideBusBean.text[position].name
 //    }
 
     override fun getCount(): Int {
@@ -62,7 +62,7 @@ class CanteenViewPagerAdapter(val context: Context, var bean: CampusGuideBasicBe
                 )
                 pagerList[position].ll_express_delivery_container.addView(view)
                 val bind = DataBindingUtil.bind<FreshmanViewPagerPageScrollViewItemExpressDeliveryBinding>(view)
-//                bind?.bean = msg
+//                bind?.guideBusBean = msg
             }
         }
 

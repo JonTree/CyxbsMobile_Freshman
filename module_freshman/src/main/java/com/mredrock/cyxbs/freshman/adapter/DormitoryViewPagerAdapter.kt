@@ -13,6 +13,8 @@ import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerDormitoryAndCanteenPageBinding
 import com.mredrock.cyxbs.freshman.event.UpdataViewPagerAutoSlideEvent
 import kotlinx.android.synthetic.main.freshman_view_pager_dormitory_and_canteen_page.view.*
+import kotlinx.android.synthetic.main.freshman_view_pager_page_demystify_male_female_ratio.*
+import kotlinx.android.synthetic.main.freshman_view_pager_page_demystify_male_female_ratio.view.*
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -54,9 +56,16 @@ class DormitoryViewPagerAdapter(val context: Context, val bean: CampusGuideBasic
                     e.printStackTrace()
                 }
 
+
                 Thread {
+                    var isFirst = true
                     while (true) {
-                        Thread.sleep(3000)
+                        if (isFirst){
+                            Thread.sleep(3000)
+                            isFirst = false
+                            continue
+                        }
+                        Thread.sleep(5000)
                         if (isPause) {
                             continue
                         }

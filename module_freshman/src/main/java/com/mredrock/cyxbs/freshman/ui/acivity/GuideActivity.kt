@@ -1,14 +1,22 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
 import android.os.Bundle
+import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
+import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.adapter.GuideViewPagerAdapter
 import com.mredrock.cyxbs.freshman.data.ViewModel.GuidedViewModel
+import com.mredrock.cyxbs.freshman.data.bean.CampusGuideSubjectBean
+import com.mredrock.cyxbs.freshman.data.bean.CampusSightseeingBean
 import com.mredrock.cyxbs.freshman.data.bean.GuideBusBean
+import com.mredrock.cyxbs.freshman.event.CampusGuideDataEvent
+import com.mredrock.cyxbs.freshman.event.GuideDataEvent
 import com.mredrock.cyxbs.freshman.util.gson
+import com.tencent.bugly.crashreport.common.strategy.StrategyBean
 import kotlinx.android.synthetic.main.freshman_activity_guided.*
 import kotlinx.android.synthetic.main.freshman_fragment_dormitory.*
+import org.greenrobot.eventbus.Subscribe
 
 class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
     override val viewModelClass: Class<GuidedViewModel> = GuidedViewModel::class.java
@@ -16,7 +24,7 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
     override val isFragmentActivity: Boolean = false
         //To change initializer of created properties use File | Settings | File Templates.
 
-    val data = "{\n" +
+    val data1 = "{\n" +
             "  \"code\": 200,\n" +
             "  \"info\": \"ok\",\n" +
             "  \"text_1\": {\n" +
@@ -38,12 +46,63 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
             "}"
 
 
+    val data2 = "{\n" +
+            "\t\"code\": 200,\n" +
+            "\t\"info\": \"ok\",\n" +
+            "\t\"text\": {\n" +
+            "\t\t\"title\": \"重邮2D地图\",\n" +
+            "\t\t\"photo\": \"...\",\n" +
+            "\t\t\"message\": [{\n" +
+            "\t\t\t\t\"name\": \"八十万\",\n" +
+            "\t\t\t\t\"photo\": \"....\"\n" +
+            "\t\t\t},\n" +
+            "\t\t\t{\n" +
+            "\t\t\t\t\"name\": \"仰望八教\",\n" +
+            "\t\t\t\t\"photo\": \"....\"\n" +
+            "\t\t\t},\n" +
+            "\t\t\t{\n" +
+            "\t\t\t\t\"name\": \"仰望八教\",\n" +
+            "\t\t\t\t\"photo\": \"....\"\n" +
+            "\t\t\t},\n" +
+            "\t\t\t{\n" +
+            "\t\t\t\t\"name\": \"仰望八教\",\n" +
+            "\t\t\t\t\"photo\": \"....\"\n" +
+            "\t\t\t},\n" +
+            "\t\t\t{\n" +
+            "\t\t\t\t\"name\": \"仰望八教\",\n" +
+            "\t\t\t\t\"photo\": \"....\"\n" +
+            "\t\t\t},\n" +
+            "\t\t\t{\n" +
+            "\t\t\t\t\"name\": \"仰望八教\",\n" +
+            "\t\t\t\t\"photo\": \"....\"\n" +
+            "\t\t\t},\n" +
+            "\t\t\t{\n" +
+            "\t\t\t\t\"name\": \"仰望八教\",\n" +
+            "\t\t\t\t\"photo\": \"....\"\n" +
+            "\t\t\t}\n" +
+            "\t\t]\n" +
+            "\t}\n" +
+            "}"
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_guided)
+        tl_guided.setupWithViewPager(vp_guided)
+        vp_guided.adapter = GuideViewPagerAdapter(
+            this, GuideDataEvent(
+                gson.fromJson(data1, GuideBusBean::class.java),
+                gson.fromJson(data2, CampusSightseeingBean::class.java)
+            )
+        )
 
-        vp_guided.adapter = GuideViewPagerAdapter(this, gson.fromJson(data, GuideBusBean::class.java))
-        tl_guided.setupWithViewPager(vp_dormitory)
+
+
     }
+
+    @Subscribe
+    fun initData(uideDataEvent: GuideDataEvent){
+//        vp_guided.adapter = GuideViewPagerAdapter(this,campusGuideDataEvent)
+    }
+
 }

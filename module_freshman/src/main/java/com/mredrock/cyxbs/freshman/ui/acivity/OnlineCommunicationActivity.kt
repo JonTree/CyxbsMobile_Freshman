@@ -21,7 +21,7 @@ class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationVie
     override val isFragmentActivity: Boolean = false
         //To change initializer of created properties use File | Settings | File Templates.
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_online_communication)
 

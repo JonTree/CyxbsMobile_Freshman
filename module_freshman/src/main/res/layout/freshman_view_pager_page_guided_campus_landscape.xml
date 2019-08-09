@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+    <data>
+
+        <variable
+                name="bean"
+                type="com.mredrock.cyxbs.freshman.data.bean.CampusSightseeingBean"/>
+
+
+    </data>
+
+    <ScrollView
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
         <LinearLayout
@@ -25,6 +36,7 @@
 
 
                 <ImageView
+                        android:id="@+id/image_view_tiltle"
                         android:src="@drawable/freshman_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -33,7 +45,7 @@
 
 
                 <TextView
-                        android:text="hfjdhjdfhjhds"
+                        android:id="@+id/tv_tiltle"
                         android:textSize="15sp"
                         android:textColor="#737575"
                         android:layout_marginTop="16dp"
@@ -45,7 +57,7 @@
                 <TextView
                         android:textColor="#646567"
                         android:textSize="13sp"
-                        android:text="dfbhjbvdfhfbhb"
+                        android:text="重邮全景地图前往发现查看(发现→重邮地图)"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
 
@@ -60,14 +72,11 @@
                     android:layout_height="wrap_content">
 
 
-
             </LinearLayout>
-
 
 
         </LinearLayout>
 
 
-
-
-</ScrollView>
+    </ScrollView>
+</layout>

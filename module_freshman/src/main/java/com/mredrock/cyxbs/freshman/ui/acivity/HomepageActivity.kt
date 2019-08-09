@@ -53,7 +53,6 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
         animationRed.repeatCount = Animation.INFINITE
 
         animationRed.interpolator = LinearInterpolator()
-        iv_home_purple_screw.startAnimation(animation)
 
 
 //        LogUtils.d("MyTag","${iv_home_red_screw.layoutParams.height}")
@@ -88,7 +87,6 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
 
     override fun onPause() {
         iv_home_red_screw.clearAnimation()
-        iv_home_purple_screw.clearAnimation()
         super.onPause()
     }
 

@@ -16,7 +16,9 @@ val apiService = ApiGenerator.getApiService(APIService::class.java)
 
 object Util {
     @BindingAdapter(value = ["imageUrl", "error"], requireAll = false)
-    fun loadImage(view: ImageView, url: String, error: Drawable) {
-        Glide.with(view.context).load(url).into(view)
+    fun loadImage(view: ImageView, url: String, error: Drawable?) {
+        if (url != "") {
+            Glide.with(view.context).load(url).into(view)
+        }
     }
 }
