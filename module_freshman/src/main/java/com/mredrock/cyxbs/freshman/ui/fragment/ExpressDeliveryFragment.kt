@@ -29,7 +29,6 @@ class ExpressDeliveryFragment : BaseFragment() {
     }
     @Subscribe(sticky = true)
     fun onBeanReady(bean: CampusGuideExpressDeliveryBean){
-
         vp_express_delivery.adapter =
             ExpressDeliveryViewPagerAdapter(activity as Context, bean)
         tl_express_delivery.setupWithViewPager(vp_express_delivery)

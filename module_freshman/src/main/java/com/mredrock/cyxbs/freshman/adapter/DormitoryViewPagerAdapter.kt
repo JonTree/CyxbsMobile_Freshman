@@ -36,7 +36,7 @@ class DormitoryViewPagerAdapter(val context: Context, val bean: CampusGuideBasic
                 null
             ).apply {
                 vp_dormitory_carousel.adapter =
-                    DormitoryCarouselViewPagerAdapter(context as Context, bean)
+                    DormitoryCarouselViewPagerAdapter(context as Context, bean.message[bean.message.indexOf(msg)].photos)
                 vp_dormitory_carousel.currentItem = ((Int.MAX_VALUE / 2) - 1)
                 try {
                     val aClass = ViewPager::class.java

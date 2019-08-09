@@ -20,559 +20,585 @@
             tools:context=".ui.acivity.HomepageActivity">
 
 
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <FrameLayout
+
+            <ImageView
+                    android:id="@+id/img_banner"
+                    android:src="@mipmap/freshman_banner"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"/>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <com.github.glomadrian.grav.GravView
+                        android:id="@+id/grav_1"
+                        android:layout_width="50dp"
+                        android:layout_height="0dp"
+                        android:layout_centerInParent="true"
+                        app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
+                        app:array_colors="@array/freshman_Spectral"
+                        app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
+                        app:regular_cell_size="60"
+                        app:regular_variance="200"
+                        app:gravGenerator="com.github.glomadrian.grav.generator.grav.BallGenerator"
+                        app:ball_size="3dp"
+                        app:animationGenerators="@array/freshman_BallWaveAnimations"
+                        app:side_to_side_min_duration="2000"
+                        app:side_to_side_max_duration="3500"
+                        app:side_to_side_direction="downToUp"
+                        app:shake_variance="50dp"
+                        app:ball_size_from_size="4px"
+                        app:ball_size_to_size="6px"
+                        app:shake_direction="horizontal"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintHorizontal_bias="0.26"
+                        app:layout_constraintBottom_toBottomOf="@+id/freshman_view2"
+                        app:layout_constraintTop_toTopOf="@+id/freshman_view3"
+                        app:layout_constraintVertical_bias="0.0"/>
+
+
+                <View
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintHorizontal_bias="0.506"
+                        app:layout_constraintVertical_bias="0.63"
+                        android:id="@+id/freshman_view2"/>
+
+                <View
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintHorizontal_bias="0.498"
+                        app:layout_constraintVertical_bias="0.45"
+                        android:id="@+id/freshman_view3"/>
+
+                <com.github.glomadrian.grav.GravView
+                        android:id="@+id/grav_2"
+                        android:layout_width="50dp"
+                        android:layout_height="0dp"
+                        android:layout_centerInParent="true"
+                        app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
+                        app:array_colors="@array/freshman_Spectral"
+                        app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
+                        app:regular_cell_size="60"
+                        app:regular_variance="200"
+                        app:gravGenerator="com.github.glomadrian.grav.generator.grav.BallGenerator"
+                        app:ball_size="3dp"
+                        app:animationGenerators="@array/freshman_BallWaveAnimations"
+                        app:side_to_side_min_duration="2000"
+                        app:side_to_side_max_duration="5000"
+                        app:side_to_side_direction="downToUp"
+                        app:shake_variance="50dp"
+                        app:ball_size_from_size="4px"
+                        app:ball_size_to_size="6px"
+                        app:shake_direction="horizontal"
+                        app:layout_constraintTop_toTopOf="@+id/freshman_view3"
+                        app:layout_constraintBottom_toBottomOf="@+id/freshman_view2"
+                        app:layout_constraintVertical_bias="0.0"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginEnd="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.74"/>
 
 
                 <ImageView
-                        android:id="@+id/img_banner"
-                        android:src="@mipmap/freshman_banner"
-                        android:layout_marginBottom="12dp"
-                        android:scaleType="fitXY"
-                        android:adjustViewBounds="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:id="@+id/iv_home_red_screw"
+                        android:src="@mipmap/freshamn_ic_home_red_screw"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@+id/grav_2"
+                        app:layout_constraintHorizontal_bias="0.555"
+                        app:layout_constraintVertical_bias="0.768"
+                        app:layout_constraintStart_toEndOf="@+id/freshman_view2"
+                        android:layout_marginBottom="8dp"/>
 
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                    <com.github.glomadrian.grav.GravView
-                            android:id="@+id/grav_1"
-                            android:layout_width="50dp"
-                            android:layout_height="0dp"
-                            android:layout_centerInParent="true"
-                            app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
-                            app:array_colors="@array/freshman_Spectral"
-                            app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
-                            app:regular_cell_size="60"
-                            app:regular_variance="200"
-                            app:gravGenerator="com.github.glomadrian.grav.generator.grav.BallGenerator"
-                            app:ball_size="3dp"
-                            app:animationGenerators="@array/freshman_BallWaveAnimations"
-                            app:side_to_side_min_duration="2000"
-                            app:side_to_side_max_duration="3500"
-                            app:side_to_side_direction="downToUp"
-                            app:shake_variance="50dp"
-                            app:ball_size_from_size="4px"
-                            app:ball_size_to_size="6px"
-                            app:shake_direction="horizontal"
-                            android:layout_marginStart="8dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintHorizontal_bias="0.26"
-                            app:layout_constraintBottom_toBottomOf="@+id/freshman_view2"
-                            app:layout_constraintTop_toTopOf="@+id/freshman_view3"
-                            app:layout_constraintVertical_bias="0.0"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                    <View
-                            android:layout_width="1dp"
-                            android:layout_height="1dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginStart="8dp"
-                            app:layout_constraintHorizontal_bias="0.506"
-                            app:layout_constraintVertical_bias="0.583"
-                            android:id="@+id/freshman_view2"/>
+        </FrameLayout>
 
-                    <View
-                            android:layout_width="1dp"
-                            android:layout_height="1dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginStart="8dp"
-                            app:layout_constraintHorizontal_bias="0.498"
-                            app:layout_constraintVertical_bias="0.33"
-                            android:id="@+id/freshman_view3"/>
-
-                    <com.github.glomadrian.grav.GravView
-                            android:id="@+id/grav_2"
-                            android:layout_width="50dp"
-                            android:layout_height="0dp"
-                            android:layout_centerInParent="true"
-                            app:colorGenerator="com.github.glomadrian.grav.generator.paint.ArrayColorGenerator"
-                            app:array_colors="@array/freshman_Spectral"
-                            app:pointGenerator="com.github.glomadrian.grav.generator.point.RegularPointGenerator"
-                            app:regular_cell_size="60"
-                            app:regular_variance="200"
-                            app:gravGenerator="com.github.glomadrian.grav.generator.grav.BallGenerator"
-                            app:ball_size="3dp"
-                            app:animationGenerators="@array/freshman_BallWaveAnimations"
-                            app:side_to_side_min_duration="2000"
-                            app:side_to_side_max_duration="5000"
-                            app:side_to_side_direction="downToUp"
-                            app:shake_variance="50dp"
-                            app:ball_size_from_size="4px"
-                            app:ball_size_to_size="6px"
-                            app:shake_direction="horizontal"
-                            app:layout_constraintTop_toTopOf="@+id/freshman_view3"
-                            app:layout_constraintBottom_toBottomOf="@+id/freshman_view2"
-                            app:layout_constraintVertical_bias="0.0"
-                            android:layout_marginStart="8dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.74"/>
-
-
-                    <ImageView
-                            android:id="@+id/iv_home_red_screw"
-                            android:src="@mipmap/freshamn_ic_home_red_screw"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintHorizontal_bias="0.788"
-                            app:layout_constraintVertical_bias="0.409"/>
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            </FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
 
 
             <ScrollView
                     android:layout_weight="1"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp">
+                    android:layout_height="0dp"
+                    android:id="@+id/freshman_scrollview"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
 
                 <LinearLayout
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginBottom="12dp"
-                        android:background="@mipmap/freshman_backgroup_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:onClick="@{()->activity.onClick(1)}">
+                    <View
+                            android:layout_width="match_parent"
+                            android:layout_height="43dp"/>
 
-                    <TextView
-                            android:text="入学必备"
-                            android:textColor="#333333"
-                            android:textSize="16sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintVertical_bias="0.32999998"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            android:id="@+id/freshman_textview_1"
-                            android:layout_marginStart="24dp"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@mipmap/freshman_backgroup_item"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:onClick="@{()->activity.onClick(1)}">
 
-                    <TextView
-                            android:text="报到必备  军训用品"
-                            android:textSize="12sp"
-                            android:textColor="#888888"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintStart_toStartOf="@+id/freshman_textview_1"
-                            android:layout_marginTop="10dp"
-                            app:layout_constraintTop_toBottomOf="@+id/freshman_textview_1"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintVertical_bias="0.0"/>
+                        <TextView
+                                android:text="入学必备"
+                                android:textColor="#333333"
+                                android:textSize="16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintVertical_bias="0.32999998"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                android:id="@+id/freshman_textview_1"
+                                android:layout_marginStart="24dp"/>
 
-
-                    <ImageView
-                            android:src="@mipmap/freshman_way"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/freshman_textview_1"
-                            android:layout_marginStart="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintHorizontal_bias="1.0"
-                            android:layout_marginEnd="16dp"
-                            app:layout_constraintVertical_bias="0.45"/>
+                        <TextView
+                                android:text="报到必备  军训用品"
+                                android:textSize="12sp"
+                                android:textColor="#888888"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintStart_toStartOf="@+id/freshman_textview_1"
+                                android:layout_marginTop="10dp"
+                                app:layout_constraintTop_toBottomOf="@+id/freshman_textview_1"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintVertical_bias="0.0"/>
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                                android:src="@mipmap/freshman_way"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/freshman_textview_1"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintVertical_bias="0.45"/>
 
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginBottom="12dp"
-                        android:background="@mipmap/freshman_backgroup_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:onClick="@{()->activity.onClick(2)}">
-
-                    <TextView
-                            android:text="指路重邮"
-                            android:textColor="#333333"
-                            android:textSize="16sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintVertical_bias="0.32999998"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            android:id="@+id/freshman_textview_2"
-                            android:layout_marginStart="24dp"/>
-
-                    <TextView
-                            android:text="公交路线  重邮地图  校园风光"
-                            android:textSize="12sp"
-                            android:textColor="#888888"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintStart_toStartOf="@+id/freshman_textview_2"
-                            android:layout_marginTop="10dp"
-                            app:layout_constraintTop_toBottomOf="@+id/freshman_textview_2"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintVertical_bias="0.0"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                    <ImageView
-                            android:src="@mipmap/freshman_way"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/freshman_textview_2"
-                            android:layout_marginStart="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintHorizontal_bias="1.0"
-                            android:layout_marginEnd="16dp"
-                            app:layout_constraintVertical_bias="0.45"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@mipmap/freshman_backgroup_item"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:onClick="@{()->activity.onClick(2)}">
+
+                        <TextView
+                                android:text="指路重邮"
+                                android:textColor="#333333"
+                                android:textSize="16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintVertical_bias="0.32999998"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                android:id="@+id/freshman_textview_2"
+                                android:layout_marginStart="24dp"/>
+
+                        <TextView
+                                android:text="公交路线  重邮地图  校园风光"
+                                android:textSize="12sp"
+                                android:textColor="#888888"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintStart_toStartOf="@+id/freshman_textview_2"
+                                android:layout_marginTop="10dp"
+                                app:layout_constraintTop_toBottomOf="@+id/freshman_textview_2"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintVertical_bias="0.0"/>
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginBottom="12dp"
-                        android:background="@mipmap/freshman_backgroup_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:onClick="@{()->activity.onClick(3)}">
-
-                    <TextView
-                            android:text="入学流程"
-                            android:textColor="#333333"
-                            android:textSize="16sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintVertical_bias="0.32999998"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            android:id="@+id/freshman_textview_3"
-                            android:layout_marginStart="24dp"/>
-
-                    <TextView
-                            android:text="报到流程"
-                            android:textSize="12sp"
-                            android:textColor="#888888"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintStart_toStartOf="@+id/freshman_textview_3"
-                            android:layout_marginTop="10dp"
-                            app:layout_constraintTop_toBottomOf="@+id/freshman_textview_3"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintVertical_bias="0.0"/>
+                        <ImageView
+                                android:src="@mipmap/freshman_way"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/freshman_textview_2"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintVertical_bias="0.45"/>
 
 
-                    <ImageView
-                            android:src="@mipmap/freshman_way"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/freshman_textview_3"
-                            android:layout_marginStart="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintHorizontal_bias="1.0"
-                            android:layout_marginEnd="16dp"
-                            app:layout_constraintVertical_bias="0.45"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@mipmap/freshman_backgroup_item"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:onClick="@{()->activity.onClick(3)}">
+
+                        <TextView
+                                android:text="入学流程"
+                                android:textColor="#333333"
+                                android:textSize="16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintVertical_bias="0.32999998"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                android:id="@+id/freshman_textview_3"
+                                android:layout_marginStart="24dp"/>
+
+                        <TextView
+                                android:text="报到流程"
+                                android:textSize="12sp"
+                                android:textColor="#888888"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintStart_toStartOf="@+id/freshman_textview_3"
+                                android:layout_marginTop="10dp"
+                                app:layout_constraintTop_toBottomOf="@+id/freshman_textview_3"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintVertical_bias="0.0"/>
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                                android:src="@mipmap/freshman_way"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/freshman_textview_3"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintVertical_bias="0.45"/>
 
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginBottom="12dp"
-                        android:background="@mipmap/freshman_backgroup_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:onClick="@{()->activity.onClick(4)}">
-
-                    <TextView
-                            android:text="校园指引"
-                            android:textColor="#333333"
-                            android:textSize="16sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintVertical_bias="0.32999998"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            android:id="@+id/freshman_textview_4"
-                            android:layout_marginStart="24dp"/>
-
-                    <TextView
-                            android:text="宿舍  食堂  快递  数据揭秘"
-                            android:textSize="12sp"
-                            android:textColor="#888888"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintStart_toStartOf="@+id/freshman_textview_4"
-                            android:layout_marginTop="10dp"
-                            app:layout_constraintTop_toBottomOf="@+id/freshman_textview_4"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintVertical_bias="0.0"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                    <ImageView
-                            android:src="@mipmap/freshman_way"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/freshman_textview_4"
-                            android:layout_marginStart="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintHorizontal_bias="1.0"
-                            android:layout_marginEnd="16dp"
-                            app:layout_constraintVertical_bias="0.45"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@mipmap/freshman_backgroup_item"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:onClick="@{()->activity.onClick(4)}">
+
+                        <TextView
+                                android:text="校园指引"
+                                android:textColor="#333333"
+                                android:textSize="16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintVertical_bias="0.32999998"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                android:id="@+id/freshman_textview_4"
+                                android:layout_marginStart="24dp"/>
+
+                        <TextView
+                                android:text="宿舍  食堂  快递  数据揭秘"
+                                android:textSize="12sp"
+                                android:textColor="#888888"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintStart_toStartOf="@+id/freshman_textview_4"
+                                android:layout_marginTop="10dp"
+                                app:layout_constraintTop_toBottomOf="@+id/freshman_textview_4"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintVertical_bias="0.0"/>
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                                android:src="@mipmap/freshman_way"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/freshman_textview_4"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintVertical_bias="0.45"/>
 
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginBottom="12dp"
-                        android:background="@mipmap/freshman_backgroup_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:onClick="@{()->activity.onClick(5)}">
-
-                    <TextView
-                            android:text="线上交流"
-                            android:textColor="#333333"
-                            android:textSize="16sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintVertical_bias="0.32999998"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            android:id="@+id/freshman_textview_5"
-                            android:layout_marginStart="24dp"/>
-
-                    <TextView
-                            android:text="报到必备、军训用品"
-                            android:textSize="12sp"
-                            android:textColor="#888888"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintStart_toStartOf="@+id/freshman_textview_5"
-                            android:layout_marginTop="10dp"
-                            app:layout_constraintTop_toBottomOf="@+id/freshman_textview_5"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintVertical_bias="0.0"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                    <ImageView
-                            android:src="@mipmap/freshman_way"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/freshman_textview_5"
-                            android:layout_marginStart="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintHorizontal_bias="1.0"
-                            android:layout_marginEnd="16dp"
-                            app:layout_constraintVertical_bias="0.45"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@mipmap/freshman_backgroup_item"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:onClick="@{()->activity.onClick(5)}">
+
+                        <TextView
+                                android:text="线上交流"
+                                android:textColor="#333333"
+                                android:textSize="16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintVertical_bias="0.32999998"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                android:id="@+id/freshman_textview_5"
+                                android:layout_marginStart="24dp"/>
+
+                        <TextView
+                                android:text="报到必备、军训用品"
+                                android:textSize="12sp"
+                                android:textColor="#888888"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintStart_toStartOf="@+id/freshman_textview_5"
+                                android:layout_marginTop="10dp"
+                                app:layout_constraintTop_toBottomOf="@+id/freshman_textview_5"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintVertical_bias="0.0"/>
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                                android:src="@mipmap/freshman_way"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/freshman_textview_5"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintVertical_bias="0.45"/>
 
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginBottom="12dp"
-                        android:background="@mipmap/freshman_backgroup_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:onClick="@{()->activity.onClick(6)}">
-
-                    <TextView
-                            android:text="更多功能"
-                            android:textColor="#333333"
-                            android:textSize="16sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintVertical_bias="0.32999998"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            android:id="@+id/freshman_textview_6"
-                            android:layout_marginStart="24dp"/>
-
-                    <TextView
-                            android:text="迎新网  重邮小帮手  发现"
-                            android:textSize="12sp"
-                            android:textColor="#888888"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintStart_toStartOf="@+id/freshman_textview_6"
-                            android:layout_marginTop="10dp"
-                            app:layout_constraintTop_toBottomOf="@+id/freshman_textview_6"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintVertical_bias="0.0"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                    <ImageView
-                            android:src="@mipmap/freshman_way"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/freshman_textview_6"
-                            android:layout_marginStart="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintHorizontal_bias="1.0"
-                            android:layout_marginEnd="16dp"
-                            app:layout_constraintVertical_bias="0.45"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@mipmap/freshman_backgroup_item"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:onClick="@{()->activity.onClick(6)}">
+
+                        <TextView
+                                android:text="更多功能"
+                                android:textColor="#333333"
+                                android:textSize="16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintVertical_bias="0.32999998"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                android:id="@+id/freshman_textview_6"
+                                android:layout_marginStart="24dp"/>
+
+                        <TextView
+                                android:text="迎新网  重邮小帮手  发现"
+                                android:textSize="12sp"
+                                android:textColor="#888888"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintStart_toStartOf="@+id/freshman_textview_6"
+                                android:layout_marginTop="10dp"
+                                app:layout_constraintTop_toBottomOf="@+id/freshman_textview_6"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintVertical_bias="0.0"/>
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                                android:src="@mipmap/freshman_way"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/freshman_textview_6"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintVertical_bias="0.45"/>
 
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginBottom="12dp"
-                        android:background="@mipmap/freshman_backgroup_item"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:onClick="@{()->activity.onClick(7)}">
-
-                    <TextView
-                            android:text="关于我们"
-                            android:textColor="#333333"
-                            android:textSize="16sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="8dp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:layout_marginBottom="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintVertical_bias="0.59000003"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            android:id="@+id/freshman_textview_7"
-                            android:layout_marginStart="24dp"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_marginHorizontal="20dp"
+                            android:layout_marginBottom="12dp"
+                            android:background="@mipmap/freshman_backgroup_item"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:onClick="@{()->activity.onClick(7)}">
+
+                        <TextView
+                                android:text="关于我们"
+                                android:textColor="#333333"
+                                android:textSize="16sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                android:layout_marginEnd="8dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginBottom="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintVertical_bias="0.59000003"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                android:id="@+id/freshman_textview_7"
+                                android:layout_marginStart="24dp"/>
 
 
-                    <ImageView
-                            android:src="@mipmap/freshman_way"
-                            android:layout_width="16dp"
-                            android:layout_height="16dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/freshman_textview_7"
-                            android:layout_marginStart="8dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintHorizontal_bias="1.0"
-                            android:layout_marginEnd="16dp"
-                            app:layout_constraintVertical_bias="0.45"/>
+                        <ImageView
+                                android:src="@mipmap/freshman_way"
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/freshman_textview_7"
+                                android:layout_marginStart="8dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginTop="8dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintVertical_bias="0.45"/>
 
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>
 
             </ScrollView>
 
-
             <ImageView
-                    android:src="@mipmap/freshman_bottom_home"
-                    android:scaleType="fitXY"
+                    android:src="@mipmap/freshman_banner_bottom"
                     android:adjustViewBounds="true"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias="0.0"/>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+                android:src="@mipmap/freshman_bottom_home"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
     </LinearLayout>
 </layout>

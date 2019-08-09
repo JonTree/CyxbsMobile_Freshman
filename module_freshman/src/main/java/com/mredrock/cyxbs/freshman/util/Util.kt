@@ -15,6 +15,7 @@ val apiService = ApiGenerator.getApiService(APIService::class.java)
 
 
 object Util {
+    @JvmStatic
     @BindingAdapter(value = ["imageUrl", "error"], requireAll = false)
     fun loadImage(view: ImageView, url: String, error: Drawable?) {
         if (url != "") {

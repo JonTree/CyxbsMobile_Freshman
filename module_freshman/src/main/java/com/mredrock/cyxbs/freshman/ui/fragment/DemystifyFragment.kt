@@ -10,8 +10,8 @@ import com.mredrock.cyxbs.common.ui.BaseFragment
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.adapter.DemysityAdapter
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideSubjectBean
-import com.mredrock.cyxbs.freshman.util.gson
 import kotlinx.android.synthetic.main.freshman_fragment_demystify.*
+import org.greenrobot.eventbus.Subscribe
 
 /**
  * Created by Tree on 2019/8/3 10:15
@@ -69,8 +69,13 @@ class DemystifyFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+    }
+
+    @Subscribe
+    fun upData(campusGuideSubjectBean: CampusGuideSubjectBean){
         rc_demysify.layoutManager = LinearLayoutManager(activity as Context)
-        rc_demysify.adapter = DemysityAdapter(activity as Context,gson.fromJson(data,CampusGuideSubjectBean::class.java))
+        rc_demysify.adapter = DemysityAdapter(activity as Context,campusGuideSubjectBean)
     }
 
 }

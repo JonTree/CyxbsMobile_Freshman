@@ -9,6 +9,7 @@ import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideExpressDeliveryBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanViewPagerPageScrollViewItemExpressDeliveryBinding
+import com.mredrock.cyxbs.freshman.updata.IMAGE_BASE_URI
 import kotlinx.android.synthetic.main.freshman_view_pager_express_delivery_page.view.*
 import java.math.MathContext
 
@@ -18,7 +19,6 @@ import java.math.MathContext
 class ExpressDeliveryViewPagerAdapter(val context: Context, var bean: CampusGuideExpressDeliveryBean) : PagerAdapter() {
 
 
-    val list = listOf("顺丰", "韵达", "中通", "圆通", "中通", "邮政", "菜鸟驿站（校外）", "百世")
 
     private val pagerList = ArrayList<View>()
 
@@ -64,7 +64,9 @@ class ExpressDeliveryViewPagerAdapter(val context: Context, var bean: CampusGuid
                 )
                 pagerList[position].ll_express_delivery_container.addView(view)
                 val bind = DataBindingUtil.bind<FreshmanViewPagerPageScrollViewItemExpressDeliveryBinding>(view)
-                bind?.bean = msg
+                bind?.bean = msg.apply {
+                    photo = IMAGE_BASE_URI+ photo
+                }
             }
         }
 

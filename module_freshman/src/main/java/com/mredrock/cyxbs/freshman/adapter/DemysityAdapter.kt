@@ -34,6 +34,7 @@ class DemysityAdapter(val context: Context, val bean: CampusGuideSubjectBean) :
         holder.itemView.setOnClickListener {
             context.startActivity(Intent(context, DemystifyDetailActivity::class.java).apply {
                 putExtra("position",position)
+                putExtra("bean",bean)
             })
         }
     }

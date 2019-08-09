@@ -49,15 +49,6 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
             title = "校园指引"
         )
         binding.activity = this
-        apiService.getCampusGuideBasicBean().enqueue(object :  retrofit2.Callback<CampusGuideBasicBean> {
-            override fun onResponse(call: Call<CampusGuideBasicBean>, response: Response<CampusGuideBasicBean>) {
-                selectTab(0)
-            }
-
-            override fun onFailure(call: Call<CampusGuideBasicBean>, t: Throwable) {
-//                Toast.makeText(this,"网络链接失败",Toast.LENGTH_SHORT)
-            }
-        })
         selectTab(0)
     }
 
