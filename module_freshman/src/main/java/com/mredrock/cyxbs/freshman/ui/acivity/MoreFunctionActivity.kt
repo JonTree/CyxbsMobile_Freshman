@@ -24,7 +24,8 @@ class MoreFunctionActivity : BaseViewModelActivity<MoreFunctionViewModel>(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val bind = DataBindingUtil.setContentView<FreshmanActivityMoreFuntionBinding>(this,R.layout.freshman_activity_more_funtion)
-
+        val fade = Fade()
+        window.enterTransition = fade
         bind.activity = this
 
         common_toolbar.init(

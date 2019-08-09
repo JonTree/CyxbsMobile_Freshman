@@ -30,7 +30,8 @@
 
 
             <ImageView
-                    android:src="@mipmap/freshman_more_function_arrow"
+                    android:id="@+id/iv_arrow"
+                    android:src="@mipmap/freshman_more_function_arrow_open"
                     android:layout_gravity="end"
                     android:layout_alignParentEnd="true"
                     android:layout_width="13dp"

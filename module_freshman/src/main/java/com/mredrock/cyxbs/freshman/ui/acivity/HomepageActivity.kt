@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
+import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -69,17 +70,41 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
     fun onClick(index:Int){
         val intent:Intent
         when(index){
-            1 ->startActivity<NecessityActivity>()
+            1 ->{
+                val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                val intent = Intent(this,NecessityActivity::class.java)
+                startActivity(intent,bundle)
+            }
 
-            2 ->startActivity<GuideActivity>()
+            2 ->{
+                val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                val intent = Intent(this,GuideActivity::class.java)
+                startActivity(intent,bundle)
+            }
 
-            3 ->startActivity<ProcessActivity>()
+            3 ->{
+                val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                val intent = Intent(this,ProcessActivity::class.java)
+                startActivity(intent,bundle)
+            }
 
-            4 ->startActivity<CampusGuideActivity>()
+            4 ->{
+                val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                val intent = Intent(this,CampusGuideActivity::class.java)
+                startActivity(intent,bundle)
+            }
 
-            5 -> startActivity<OnlineCommunicationActivity>()
+            5 -> {
+                val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                val intent = Intent(this,OnlineCommunicationActivity::class.java)
+                startActivity(intent,bundle)
+            }
 
-            6 -> startActivity<MoreFunctionActivity>()
+            6 -> {
+                val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+                val intent = Intent(this,MoreFunctionActivity::class.java)
+                startActivity(intent,bundle)
+            }
 
 //            7 -> startActivity<>()
         }

@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
 import android.os.Bundle
+import android.transition.Fade
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.adapter.GuideViewPagerAdapter
@@ -27,7 +28,7 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
             "    \"title\": \"推荐线路:\",\n" +
             "    \"message\": [{\n" +
             "      \"name\": \"重庆火车北站北广场/南广场\",\n" +
-            "      \"route\": [\"江北机场乘坐三号线→南坪站下车从5号出口出站→乘坐346/347路公交车→邮电大学站下车\",\"乘坐机场大巴→上清寺后下车乘坐108路公交车→南坪站转乘346/347路公交车→邮电大学站下车\"]\n" +
+            "      \"route\": [\"江北机场乘坐三号线→南坪站下车从5号出口出站→乘坐346/347路公交车→邮电大学站下车\",\"乘坐机场大巴→上清寺后下车乘坐108路公交车→南坪站转乘346/347路公交车→邮电大学站下车aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaAaaaaaaaaaa\"]\n" +
             "    },\n" +
             "      {\n" +
             "      \"name\": \"重庆火车北站北广场/南广场\",\n" +
@@ -42,7 +43,8 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_guided)
-
+        val fade = Fade()
+        window.enterTransition = fade
         vp_guided.adapter = GuideViewPagerAdapter(this, gson.fromJson(data, GuideBusBean::class.java))
         tl_guided.setupWithViewPager(vp_dormitory)
     }
