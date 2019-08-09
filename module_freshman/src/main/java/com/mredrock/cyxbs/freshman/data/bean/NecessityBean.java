@@ -75,7 +75,11 @@ public class NecessityBean extends BaseObservable {
              * name : 录取通知书
              * detail : ....
              */
-
+            public void changeOpenState(){
+                open = !open;
+                notifyChange();
+                Log.d("MyTag",""+open);
+            }
             private String name;
             private String detail;
             private boolean open = false;

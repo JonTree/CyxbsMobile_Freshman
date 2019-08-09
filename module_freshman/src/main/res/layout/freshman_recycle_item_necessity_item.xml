@@ -17,6 +17,7 @@
             android:paddingEnd="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{()->bean.changeOpenState()}"
             android:id="@+id/freshman_linearlayout3">
 
         <androidx.constraintlayout.widget.ConstraintLayout
