@@ -13,6 +13,7 @@ import com.mredrock.cyxbs.freshman.util.gson
 import com.tencent.bugly.crashreport.common.strategy.StrategyBean
 import kotlinx.android.synthetic.main.freshman_activity_guided.*
 import kotlinx.android.synthetic.main.freshman_fragment_dormitory.*
+import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 
 class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
@@ -88,17 +89,11 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
         val fade = Fade()
         window.enterTransition = fade
         tl_guided.setupWithViewPager(vp_guided)
-        vp_guided.adapter = GuideViewPagerAdapter(
-            this, GuideDataEvent(
-                gson.fromJson(data1, GuideBusBean::class.java),
-                gson.fromJson(data2, CampusSightseeingBean::class.java)
-            )
-        )
     }
 
     @Subscribe
-    fun initData(uideDataEvent: GuideDataEvent){
-//        vp_guided.adapter = GuideViewPagerAdapter(this,campusGuideDataEvent)
+    fun initData(guideDataEvent: GuideDataEvent){
+        vp_guided.adapter = GuideViewPagerAdapter(this,guideDataEvent)
     }
 
 }

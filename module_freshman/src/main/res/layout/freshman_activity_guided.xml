@@ -24,6 +24,7 @@
         <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tl_guided"
                 app:tabSelectedTextColor="#6083FF"
+                app:tabTextAppearance="@style/freshman_TabLayoutTextStyle"
                 app:tabIndicatorHeight="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="49dp">

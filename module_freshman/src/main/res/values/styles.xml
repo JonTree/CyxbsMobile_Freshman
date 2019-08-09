@@ -10,7 +10,7 @@
 
     <style name="freshman_TabLayoutTextStyle" parent="TextAppearance.Design.Tab">
         <item name="tabSelectedTextColor">#6083FF</item>
-
+        <item name="android:textSize">17sp</item>
     </style>
 
     <!-- 修改tablayout的背景色，提示线的颜色，字体颜色等-->

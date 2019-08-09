@@ -6,10 +6,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <View
-            android:background="#E1E7FF"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"/>
 
     <com.google.android.material.tabs.TabLayout
             android:id="@+id/tl_express_delivery"
