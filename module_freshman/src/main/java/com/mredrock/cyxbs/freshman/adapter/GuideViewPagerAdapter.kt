@@ -40,8 +40,9 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
 
     private val onClickViews = mutableListOf<View>()
 
-    val heightList = mutableListOf<Int>()
+    private val heightList = mutableListOf<Int>()
 
+    private val itemList = mutableListOf<View>()
 
     private val pagerList = ArrayList<View>()
 
@@ -50,7 +51,7 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
         val outMetrics = DisplayMetrics()
         context.windowManager.defaultDisplay.getMetrics(outMetrics)
         windowWidth = outMetrics.widthPixels
-        guideDataEvent.guideBusBean.text_2.message.forEach { isOpens.add(false) }
+        guideDataEvent.guideBusBean.text_2.message.forEach { _ -> isOpens.add(false) }
         pagerList.add(View.inflate(
             context,
             R.layout.freshman_view_pager_page_guided_bus_way,
@@ -66,20 +67,23 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
                         null
                     ).apply XML@{
                         //子项初始化
+                        itemList.add(this)
                         val index = guideDataEvent.guideBusBean.text_2.message.indexOf(msg)//获取当前子项在推荐路线里面的索引
                         onClickViews.add(this.ll_guide_on_clik.apply {
                             //给子项整个设置点击事件
                             setOnClickListener {
-                                for (view in onClickViews) {//所有展开的都关闭
-                                    if (onClickViews.indexOf(view) != index) {//若是当前点击的view，不做设置
-                                        isOpens[onClickViews.indexOf(view)] = false
-//                                        view.scaleY = 0f
-//                                        view.ll_route_bus__item.visibility = View.GONE
-                                    }
-                                }
 
                                 animation(this@XML.ll_route_bus__item, isOpens[index],heightList[index])
                                 isOpens[index] = !isOpens[index]
+                                for (view in onClickViews) {//所有展开的都关闭
+                                    if (onClickViews.indexOf(view) != index) {//若是当前点击的view，不做设置
+                                        if (isOpens[onClickViews.indexOf(view)]) {
+                                            animation(itemList[onClickViews.indexOf(view)] as LinearLayout,isOpens[onClickViews.indexOf(view)],heightList[onClickViews.indexOf(view)])
+                                            isOpens[onClickViews.indexOf(view)] = false
+                                        }
+
+                                    }
+                                }
                             }
                         })
                         LogUtils.d("MyTag2", "${this.ll_guide_bus_routes_item == null}")
@@ -90,7 +94,7 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
                                 R.layout.freshman_route_bus_item_item,
                                 null
                             ).apply {
-                                val title = "路线${convertingNumbers(msg.route.indexOf(route))}"
+                                val title = "路线${convertingNumbers(msg.route.indexOf(route))+1}"
                                 this.tv_route_title.text = title
                                 val detail =
                                     "<font color='#5b69ff'>${route.substringBefore("→")}</font>→${route.substringAfter(
@@ -108,7 +112,6 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
                         this.ll_route_bus__item.measure(View.MeasureSpec.makeMeasureSpec(windowWidth,View.MeasureSpec.AT_MOST),
                             View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED))
                         LogUtils.d("MyTag","height=${ll_route_bus__item.measuredHeight} 20dp=${PixelUtil.dp2px(context,20f)}")
-
                         heightList.add(this.ll_route_bus__item.measuredHeight)
                         ll_route_bus__item.layoutParams = LinearLayout.LayoutParams(ll_route_bus__item.measuredWidth,0)
                     })
@@ -125,31 +128,34 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
                 this.tv_tiltle.text = guideDataEvent.campusSightseeingBean.text.title
                 //第二个页面初始化
                 var viewItem:View? = null
-                for (msg in guideDataEvent.campusSightseeingBean.text.message) {//遍历图片msg
-                    if (guideDataEvent.campusSightseeingBean.text.message.indexOf(msg) % 2 != 0) {
-                        ll_guide_scenery_container.addView(
-                            viewItem?.apply {
-                                Util.loadImage(this.image_view_sight_seeing_tiltle2, msg.photo, null)
-                                this.tv_sight_title2.text = msg.name
-                                Util.loadImage(this.image_view_sight_seeing_tiltle1, guideDataEvent.campusSightseeingBean.text.message[guideDataEvent.campusSightseeingBean.text.message.indexOf(msg)-1].photo, null)
-                                this.tv_sight_title1.text =  guideDataEvent.campusSightseeingBean.text.message[guideDataEvent.campusSightseeingBean.text.message.indexOf(msg)-1].name
-                            }
-                        )
-                    } else {
-                        viewItem =  ViewGroup.inflate(context, R.layout.freshman_view_pager_page_guided_campus_landscape_item, null)
-                        if (guideDataEvent.campusSightseeingBean.text.message.lastIndex
-                            == guideDataEvent.campusSightseeingBean.text.message.indexOf(msg)
-                        ) {
+                if (guideDataEvent.campusSightseeingBean.text.message != null) {
+                    for (msg in guideDataEvent.campusSightseeingBean.text.message) {//遍历图片msg
+                        if (guideDataEvent.campusSightseeingBean.text.message.indexOf(msg) % 2 != 0) {
                             ll_guide_scenery_container.addView(
                                 viewItem?.apply {
-                                    Util.loadImage(this.image_view_sight_seeing_tiltle1, msg.photo, null)
-                                    this.tv_sight_title1.text = msg.name
-                                    this.ll_last.visibility = View.INVISIBLE
+                                    Util.loadImage(this.image_view_sight_seeing_tiltle2, msg.photo, null)
+                                    this.tv_sight_title2.text = msg.name
+                                    Util.loadImage(this.image_view_sight_seeing_tiltle1, guideDataEvent.campusSightseeingBean.text.message[guideDataEvent.campusSightseeingBean.text.message.indexOf(msg)-1].photo, null)
+                                    this.tv_sight_title1.text =  guideDataEvent.campusSightseeingBean.text.message[guideDataEvent.campusSightseeingBean.text.message.indexOf(msg)-1].name
                                 }
                             )
+                        } else {
+                            viewItem =  ViewGroup.inflate(context, R.layout.freshman_view_pager_page_guided_campus_landscape_item, null)
+                            if (guideDataEvent.campusSightseeingBean.text.message.lastIndex
+                                == guideDataEvent.campusSightseeingBean.text.message.indexOf(msg)
+                            ) {
+                                ll_guide_scenery_container.addView(
+                                    viewItem?.apply {
+                                        Util.loadImage(this.image_view_sight_seeing_tiltle1, msg.photo, null)
+                                        this.tv_sight_title1.text = msg.name
+                                        this.ll_last.visibility = View.INVISIBLE
+                                    }
+                                )
+                            }
                         }
                     }
                 }
+
             }
         )
     }
