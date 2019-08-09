@@ -18,7 +18,10 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                 }
 
                 override fun onResponse(call: Call<NecessityBean>, response: Response<NecessityBean>) {
-                    callback.onNecessityBeanReady(response.body())
+                    if(response.code() == 200)
+                        callback.onNecessityBeanReady(response.body())
+                    else
+                        callback.onFaire()
                 }
             })
             }
@@ -30,7 +33,11 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                     }
 
                     override fun onResponse(call: Call<ProcessBean>, response: Response<ProcessBean>) {
-                        callback.onProcessBeanReady(response.body())
+                        if(response.code() == 200)
+                            callback.onProcessBeanReady(response.body())
+                        else
+                            callback.onFaire()
+
                     }
                 })
             }
@@ -45,7 +52,11 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                         call: Call<OnlineActivitiesBean>,
                         response: Response<OnlineActivitiesBean>
                     ) {
-                        callback.onOnlineActivitiesBean(response.body())
+                        if(response.code() == 200)
+                            callback.onOnlineActivitiesBean(response.body())
+                        else
+                            callback.onFaire()
+
                     }
                 })
             }
@@ -57,7 +68,11 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                     }
 
                     override fun onResponse(call: Call<GuideBusBean>, response: Response<GuideBusBean>) {
-                        callback.onGuideBusBeanReady(response.body())
+                        if(response.code() == 200)
+                            callback.onGuideBusBeanReady(response.body())
+                        else
+                            callback.onFaire()
+
                     }
 
                 })
@@ -70,7 +85,11 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                         call: Call<CampusSightseeingBean>,
                         response: Response<CampusSightseeingBean>
                     ) {
-                        callback.onCampusSightseeingBeanReady(response.body())
+                        if(response.code() == 200)
+                            callback.onCampusSightseeingBeanReady(response.body())
+                        else
+                            callback.onFaire()
+
                     }
                 })
             }
@@ -85,7 +104,11 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                         call: Call<CampusGuideBasicBean>,
                         response: Response<CampusGuideBasicBean>
                     ) {
-                        callback.onCampusGuideBasicBeanReady(response.body())
+                        if(response.code() == 200)
+                            callback.onCampusGuideBasicBeanReady(response.body())
+                        else
+                            callback.onFaire()
+
                     }
                 })
                 apiService.getCampusGuideExpressDeliveryBean().enqueue(object :retrofit2.Callback<CampusGuideExpressDeliveryBean>{
@@ -97,7 +120,11 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                         call: Call<CampusGuideExpressDeliveryBean>,
                         response: Response<CampusGuideExpressDeliveryBean>
                     ) {
-                        callback.onCampusGuideExpressDeliveryBeanReady(response.body())
+                        if(response.code() == 200)
+                            callback.onCampusGuideExpressDeliveryBeanReady(response.body())
+                        else
+                            callback.onFaire()
+
                     }
 
                 })
@@ -110,7 +137,11 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                         call: Call<CampusGuideSubjectBean>,
                         response: Response<CampusGuideSubjectBean>
                     ) {
-                        callback.ononCampusGuideSubjectBeanReady(response.body())
+                        if(response.code() == 200)
+                            callback.ononCampusGuideSubjectBeanReady(response.body())
+                        else
+                            callback.onFaire()
+
                     }
 
                 })
@@ -124,7 +155,11 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                         call: Call<CampusGuideManAndWomanBean>,
                         response: Response<CampusGuideManAndWomanBean>
                     ) {
-                        callback.onCampusGuideManAndWomanBeanReady(response.body())
+                        if(response.code() == 200)
+                            callback.onCampusGuideManAndWomanBeanReady(response.body())
+                        else
+                            callback.onFaire()
+
                     }
 
                 })
