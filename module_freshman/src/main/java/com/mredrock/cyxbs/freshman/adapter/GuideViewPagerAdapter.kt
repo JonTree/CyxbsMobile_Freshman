@@ -1,6 +1,7 @@
 package com.mredrock.cyxbs.freshman.adapter
 
 import android.animation.Animator
+import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
@@ -188,6 +189,21 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
         }
     }
 
+    fun closeItem(views:List<LinearLayout>,heights:List<Int>){
+        val set = AnimatorSet()
+        val animations = mutableListOf<Animator>()
+        repeat(views.size){
+            val num = it
+            val valueAnimator = ValueAnimator.ofInt(heights[it],0)
+            valueAnimator.duration = 500
+            valueAnimator.addUpdateListener {
+                views[num].layoutParams = LinearLayout.LayoutParams(views[num].measuredWidth,it.animatedValue as Int)
+            }
+            animations[it] = valueAnimator
+        }
+        set.playSequentially(animations)
+        set.start()
+    }
 
     fun convertingNumbers(num: Int): String {
         val list = listOf("一", "二", "三", "四", "五", "六", "七", "八", "九", "十")
