@@ -7,14 +7,9 @@
 
     </data>
 
-    <LinearLayout
-            android:id="@+id/ln_"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-        <com.mredrock.cyxbs.freshman.ui.view.FreshmanLetterView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-    </LinearLayout>
+        <com.mredrock.cyxbs.freshman.ui.view.FreshmanSuccessView
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+
 
 </layout>
