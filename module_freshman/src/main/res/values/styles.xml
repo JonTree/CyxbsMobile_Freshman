@@ -29,11 +29,16 @@
     </style>
 
     <style name="freshman_MyCheckBox" parent="Theme.AppCompat.Light">
+         <!--选中时的颜色-->
+        <item name="colorControlActivated">@color/colorControlNormal</item>
         <!--未选中时的颜色-->
-        <item name="colorControlNormal">@color/colorControlNormal</item>
-        <!--选中时的颜色-->
-        <item name="colorControlActivated">@color/colorControlActivated</item>
+        <item name="colorControlNormal">#AEC0FF</item>
     </style>
 
+
+    <style name="freshman_edit_MyCheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#AEC0FF</item>
+        <item name="colorControlActivated">#AEC0FF</item>
+    </style>
 
 </resources>

@@ -1,48 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.acivity.NecessityActivity">
 
-    <data>
-
-    </data>
-
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:context=".MainActivity">
+            tools:context=".ui.acivity.NecessityActivity">
 
-        <LinearLayout
-                android:orientation="vertical"
+        <Toolbar
+                android:id="@+id/necessity_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".ui.acivity.NecessityActivity">
+                android:fitsSystemWindows="true"
+                android:background="@drawable/common_toolbar_background"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                android:layout_height="80dp">
 
-            <include layout="@layout/common_toolbar"/>
+            <TextView
+                    android:text="入学必备"
+                    android:textSize="18sp"
+                    android:fitsSystemWindows="true"
+                    android:id="@+id/necessity_toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="#FFFFFF"/>
+
+            <TextView
+                    android:id="@+id/necessityActivity_edit"
+                    android:fitsSystemWindows="true"
+                    android:text="编辑"
+                    android:layout_marginEnd="20dp"
+                    android:textColor="#FFFFFF"
+                    android:layout_gravity="right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/res_necessity"
-                    android:layout_marginTop="15dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+            <ImageView
+                    android:fitsSystemWindows="true"
+                    android:id="@+id/necessityActivity_back"
+                    android:src="@drawable/common_ic_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
 
-        </LinearLayout>
+        </Toolbar>
 
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_marginEnd="29dp"
-                android:layout_marginBottom="91dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                app:srcCompat="@mipmap/ic_add"/>
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/res_necessity"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-</layout>
+
+    </LinearLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_marginEnd="29dp"
+            android:layout_marginBottom="91dp"
+            android:elevation="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            app:srcCompat="@mipmap/ic_add"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 
