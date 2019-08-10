@@ -194,19 +194,23 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
         }
     }
 
-    fun closeItem(views:List<LinearLayout>,heights:List<Int>){
+    fun closeItem(closeView:LinearLayout,openView:LinearLayout,heightCloseView:Int,heightOpenView: Int){
         val set = AnimatorSet()
         val animations = mutableListOf<Animator>()
-        repeat(views.size){
-            val num = it
-            val valueAnimator = ValueAnimator.ofInt(heights[it],0)
-            valueAnimator.duration = 500
-            valueAnimator.addUpdateListener {
-                views[num].layoutParams = LinearLayout.LayoutParams(views[num].measuredWidth,it.animatedValue as Int)
-            }
-            animations[it] = valueAnimator
+
+
+        val closeAnimator = ValueAnimator.ofInt(heightCloseView,0)
+        closeAnimator.duration = 500
+        closeAnimator.addUpdateListener {
+            closeView.layoutParams = LinearLayout.LayoutParams(closeView.measuredWidth,it.animatedValue as Int)
         }
-        set.playSequentially(animations)
+        val openAnimator = ValueAnimator.ofInt(0,heightOpenView)
+        openAnimator.duration = 500
+        openAnimator.addUpdateListener {
+            openView.layoutParams = LinearLayout.LayoutParams(openView.measuredWidth,it.animatedValue as Int)
+        }
+
+        set.playSequentially(closeAnimator,openAnimator)
         set.start()
     }
 

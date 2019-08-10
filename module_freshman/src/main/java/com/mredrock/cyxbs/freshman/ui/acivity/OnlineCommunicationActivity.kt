@@ -33,10 +33,7 @@ class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationVie
         window.enterTransition = fade
 //        FreshmanModel<NecessityViewModel>(NecessityViewModel())
         LogUtils.d("MyTag","Onclick0")
-        btn_test.setOnClickListener(View.OnClickListener {
-            LogUtils.d("MyTag","Onclick")
-            tv_test.scaleY = 0f
-        })
+
 //        btn_test.setOnClickListener {View.OnClickListener(){
 //
 //        }
