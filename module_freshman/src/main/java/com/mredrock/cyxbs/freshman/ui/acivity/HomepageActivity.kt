@@ -24,8 +24,6 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        setContentView(R.layout.freshman_activity_home)
-
         val binding = DataBindingUtil.setContentView<com.mredrock.cyxbs.freshman.databinding.FreshmanActivityHomeBinding>(this,R.layout.freshman_activity_home)
         binding.lifecycleOwner = this
         val homepageViewModel = ViewModelProviders.of(this).get(HomepageViewModel::class.java)
