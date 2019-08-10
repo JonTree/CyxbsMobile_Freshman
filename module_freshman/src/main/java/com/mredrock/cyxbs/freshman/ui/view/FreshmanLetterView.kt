@@ -34,7 +34,7 @@ class FreshmanLetterView @JvmOverloads constructor(
     private val frameBacgroundPaint = Paint()
     init {
         framePaint.color = Color.rgb(13,0,255)
-        backgroundPaint.color = Color.argb(25,255,255,255)
+        backgroundPaint.color = Color.argb(230,255,255,255)
         frameBacgroundPaint.color = Color.rgb(207,205,255)
 
         framePaint.strokeWidth = PixelUtil.dp2px(context,1f).toFloat()
