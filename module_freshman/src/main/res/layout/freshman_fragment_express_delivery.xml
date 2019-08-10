@@ -10,8 +10,9 @@
     <com.google.android.material.tabs.TabLayout
             android:id="@+id/tl_express_delivery"
             app:tabSelectedTextColor="#000000"
-            app:tabIndicatorHeight="0dp"
+            android:background="#F9FCFF"
             app:tabMode="scrollable"
+            app:tabIndicatorHeight="0dp"
             app:tabRippleColor="@null"
             android:layout_width="match_parent"
             android:layout_height="46dp">

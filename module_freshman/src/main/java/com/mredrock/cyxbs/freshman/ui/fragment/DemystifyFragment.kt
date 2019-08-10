@@ -19,48 +19,6 @@ import org.greenrobot.eventbus.Subscribe
 class DemystifyFragment : BaseFragment() {
 
 
-    val data = "{\n" +
-            "  \"code\": 200,\n" +
-            "  \"info\": \"ok\",\n" +
-            "  \"title\": \"最难科目\",\n" +
-            "  \"text\": [\n" +
-            "    {\n" +
-            "      \"name\": \"学院\",\n" +
-            "      \"message\": [\n" +
-            "        {\n" +
-            "          \"subject\": \"....\",\n" +
-            "          \"data\": \"....\"\n" +
-            "        },\n" +
-            "        {\n" +
-            "          \"subject\": \"....\",\n" +
-            "          \"data\": \"....\"\n" +
-            "        },\n" +
-            "        {\n" +
-            "          \"subject\": \"....\",\n" +
-            "          \"data\": \"....\"\n" +
-            "        }\n" +
-            "      ]\n" +
-            "    },\n" +
-            "    {\n" +
-            "      \"name\": \"学院\",\n" +
-            "      \"message\": [\n" +
-            "        {\n" +
-            "          \"subject\": \".....\",\n" +
-            "          \"data\": \"....\"\n" +
-            "        },\n" +
-            "        {\n" +
-            "          \"subject\": \".....\",\n" +
-            "          \"data\":\".....\"\n" +
-            "        },\n" +
-            "        {\n" +
-            "          \"subject\": \".....\",\n" +
-            "          \"data\": \".....\"\n" +
-            "        }\n" +
-            "      ]\n" +
-            "    }\n" +
-            "  ]\n" +
-            "}"
-
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -72,7 +30,7 @@ class DemystifyFragment : BaseFragment() {
 
     }
 
-    @Subscribe
+    @Subscribe(sticky = true)
     fun upData(campusGuideSubjectBean: CampusGuideSubjectBean){
         rc_demysify.layoutManager = LinearLayoutManager(activity as Context)
         rc_demysify.adapter = DemysityAdapter(activity as Context,campusGuideSubjectBean)

@@ -17,7 +17,6 @@
 
 
         <TextView
-                android:text="传媒艺术学院男女比例"
                 android:textSize="15sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -32,17 +31,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 app:layout_constraintHorizontal_bias="0.0"
-                android:id="@+id/freshman_textview4"/>
+                android:id="@+id/tv_man_woman_tiltle"/>
 
 
         <View
                 android:background="@drawable/freshman_shape_demystify_man_linear_backgroup"
                 android:layout_width="23dp"
                 android:layout_height="15dp"
-                app:layout_constraintEnd_toEndOf="@+id/freshman_textview4"
-                app:layout_constraintStart_toStartOf="@+id/freshman_textview4"
+                app:layout_constraintEnd_toEndOf="@+id/tv_man_woman_tiltle"
+                app:layout_constraintStart_toStartOf="@+id/tv_man_woman_tiltle"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintTop_toBottomOf="@+id/freshman_textview4"
+                app:layout_constraintTop_toBottomOf="@+id/tv_man_woman_tiltle"
                 android:layout_marginBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintVertical_bias="0.0"
@@ -56,8 +55,8 @@
                 android:background="@drawable/freshman_shape_demystify_woman_linear_backgroup"
                 android:layout_width="23dp"
                 android:layout_height="15dp"
-                app:layout_constraintEnd_toEndOf="@+id/freshman_textview4"
-                app:layout_constraintStart_toStartOf="@+id/freshman_textview4"
+                app:layout_constraintEnd_toEndOf="@+id/tv_man_woman_tiltle"
+                app:layout_constraintStart_toStartOf="@+id/tv_man_woman_tiltle"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintTop_toBottomOf="@+id/freshman_linearlayout"
                 android:layout_marginBottom="8dp"

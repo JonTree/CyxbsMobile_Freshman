@@ -38,6 +38,7 @@ class DemysityDetailViewPagerAdapter(val context: Context, val bean1: CampusGuid
                 null
             ).apply {
                 fpcv_man_woamn_data.setManProportion(bean2.text[position].boy.substringBefore("%").toFloat()/100)
+                tv_man_woman_tiltle.text = "${bean2.text[position].name}男女比例"
             })
         }
 

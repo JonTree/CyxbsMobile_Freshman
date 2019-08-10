@@ -1,10 +1,12 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Toast
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.event.MemoEvet
@@ -40,6 +42,10 @@ class NecessitiesMemoActivity : BaseActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s.toString().toCharArray().size > 15) {
+                    Toast.makeText(this@NecessitiesMemoActivity, "字数超过限制了哦，改一下吧。", Toast.LENGTH_SHORT).show()
+                    et_memo_edit.setText(s.toString().substring(0, 15))
+                }
             }
         })
     }
