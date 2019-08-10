@@ -76,31 +76,24 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
                                 if (isOpens.filter { it }.count() == 0) {
                                     animation(this@XML.ll_route_bus__item, isOpens[index],heightList[index])
                                     isOpens[index] = !isOpens[index]
-                                }else if (isOpens.filter { it }.count() == 1) {
-                                    for (i in isOpens) {
-                                        if (i) {
-                                            if (it == onClickViews[isOpens.indexOf(i)]) {
+                                }else if (isOpens.filter { it }.count() > 0) {
+                                    for (i in 0 until isOpens.size) {
+                                        if (isOpens[i]) {
+                                            if (this == onClickViews[i]) {
                                                 animation(this@XML.ll_route_bus__item, isOpens[index],heightList[index])
                                                 isOpens[index] = !isOpens[index]
+                                                break
                                             }else{
-                                                closeItem(itemList[isOpens.indexOf(i)].ll_route_bus__item,this@XML.ll_route_bus__item,heightList[isOpens.indexOf(i)],heightList[index])
-                                                isOpens[isOpens.indexOf(i)] = !isOpens[isOpens.indexOf(i)]
+                                                closeItem(itemList[i].ll_route_bus__item,this@XML.ll_route_bus__item,heightList[i],heightList[index])
+                                                isOpens[i] = !isOpens[i]
+                                                isOpens[index] = !isOpens[index]
+                                                break
                                             }
                                         }
                                     }
                                 }
-//                                for (view in onClickViews) {//所有展开的都关闭
-//                                    if (onClickViews.indexOf(view) != index) {//若是当前点击的view，不做设置
-//                                        if (isOpens[onClickViews.indexOf(view)]) {
-//                                            animation(itemList[onClickViews.indexOf(view)] as LinearLayout,isOpens[onClickViews.indexOf(view)],heightList[onClickViews.indexOf(view)])
-//                                            isOpens[onClickViews.indexOf(view)] = false
-//                                        }
-//
-//                                    }
-//                                }
                             }
                         })
-                        LogUtils.d("MyTag2", "${this.ll_guide_bus_routes_item == null}")
                         this.tv_bus_route_title.text = msg.name
                         for (route in msg.route) {
                             val view = View.inflate(
@@ -108,7 +101,7 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
                                 R.layout.freshman_route_bus_item_item,
                                 null
                             ).apply {
-                                val title = "路线${convertingNumbers(msg.route.indexOf(route))+1}"
+                                val title = "路线${convertingNumbers(msg.route.indexOf(route))}"
                                 this.tv_route_title.text = title
                                 val detail =
                                     "<font color='#5b69ff'>${route.substringBefore("→")}</font>→${route.substringAfter(
@@ -123,9 +116,8 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
                                 view
                             )
                         }
-                        this.ll_route_bus__item.measure(View.MeasureSpec.makeMeasureSpec(windowWidth,View.MeasureSpec.AT_MOST),
+                        this.ll_route_bus__item.measure(View.MeasureSpec.makeMeasureSpec(windowWidth-PixelUtil.dp2px(context,70.toFloat()),View.MeasureSpec.AT_MOST),
                             View.MeasureSpec.makeMeasureSpec(0,View.MeasureSpec.UNSPECIFIED))
-                        LogUtils.d("MyTag","height=${ll_route_bus__item.measuredHeight} 20dp=${PixelUtil.dp2px(context,20f)}")
                         heightList.add(this.ll_route_bus__item.measuredHeight)
                         ll_route_bus__item.layoutParams = LinearLayout.LayoutParams(ll_route_bus__item.measuredWidth,0)
                     })
@@ -230,10 +222,10 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
 
     fun convertingNumbers(num: Int): String {
         val list = listOf("一", "二", "三", "四", "五", "六", "七", "八", "九", "十")
-        if (num in 1..10) {
-            return list[num - 1]
+        if (num > 9) {
+            return ""
         }
-        return ""
+        return list[num]
     }
 
     override fun getCount(): Int {

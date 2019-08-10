@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -22,6 +23,11 @@ class EditActivity : BaseActivity() {
         }
         rv_edit.layoutManager = LinearLayoutManager(this)
         rv_edit.adapter = EditRecyclerViewAdapter(tv_edit_delete)
+        tv_tip_tiltle.setOnClickListener {
+            val intent = Intent(this, NecessitiesMemoActivity::class.java)
+            startActivity(intent)
+
+        }
     }
 
 }

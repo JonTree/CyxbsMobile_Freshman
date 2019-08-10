@@ -5,12 +5,65 @@
 
     <data>
 
+        <variable
+                name="bean"
+                type="com.mredrock.cyxbs.freshman.data.bean.ProcessBean"/>
+
+
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+            android:background="#EFF7FF"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".ui.acivity.ProcessActivity">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <include layout="@layout/common_toolbar"/>
+
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/tv_process_time"
+                    android:textSize="16sp"
+                    android:text="@{bean.text[0].title}"
+                    android:textColor="#666666"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:text=":"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:text="@{bean.text[0].message}"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_view_process"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+
+
+
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </LinearLayout>
 </layout>
