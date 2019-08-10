@@ -73,17 +73,31 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
                         onClickViews.add(this.ll_guide_on_clik.apply {
                             //给子项整个设置点击事件
                             setOnClickListener {
-                                animation(this@XML.ll_route_bus__item, isOpens[index],heightList[index])
-                                isOpens[index] = !isOpens[index]
-                                for (view in onClickViews) {//所有展开的都关闭
-                                    if (onClickViews.indexOf(view) != index) {//若是当前点击的view，不做设置
-                                        if (isOpens[onClickViews.indexOf(view)]) {
-                                            animation(itemList[onClickViews.indexOf(view)] as LinearLayout,isOpens[onClickViews.indexOf(view)],heightList[onClickViews.indexOf(view)])
-                                            isOpens[onClickViews.indexOf(view)] = false
+                                if (isOpens.filter { it }.count() == 0) {
+                                    animation(this@XML.ll_route_bus__item, isOpens[index],heightList[index])
+                                    isOpens[index] = !isOpens[index]
+                                }else if (isOpens.filter { it }.count() == 1) {
+                                    for (i in isOpens) {
+                                        if (i) {
+                                            if (it == onClickViews[isOpens.indexOf(i)]) {
+                                                animation(this@XML.ll_route_bus__item, isOpens[index],heightList[index])
+                                                isOpens[index] = !isOpens[index]
+                                            }else{
+                                                closeItem(itemList[isOpens.indexOf(i)].ll_route_bus__item,this@XML.ll_route_bus__item,heightList[isOpens.indexOf(i)],heightList[index])
+                                                isOpens[isOpens.indexOf(i)] = !isOpens[isOpens.indexOf(i)]
+                                            }
                                         }
-
                                     }
                                 }
+//                                for (view in onClickViews) {//所有展开的都关闭
+//                                    if (onClickViews.indexOf(view) != index) {//若是当前点击的view，不做设置
+//                                        if (isOpens[onClickViews.indexOf(view)]) {
+//                                            animation(itemList[onClickViews.indexOf(view)] as LinearLayout,isOpens[onClickViews.indexOf(view)],heightList[onClickViews.indexOf(view)])
+//                                            isOpens[onClickViews.indexOf(view)] = false
+//                                        }
+//
+//                                    }
+//                                }
                             }
                         })
                         LogUtils.d("MyTag2", "${this.ll_guide_bus_routes_item == null}")

@@ -161,6 +161,7 @@
                         android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
+                        android:scrollbars="none"
                         android:id="@+id/freshman_scrollview"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -606,13 +607,18 @@
         </LinearLayout>
 
         <LinearLayout
+                android:animateLayoutChanges="true"
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
             <FrameLayout
+                    android:animateLayoutChanges="true"
+                    android:id="@+id/fl_letter"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
 
                 <com.mredrock.cyxbs.freshman.ui.view.FreshmanLetterView
                         android:id="@+id/flv_home"
@@ -620,15 +626,19 @@
                         android:layout_height="match_parent"/>
 
                 <LinearLayout
+                        android:id="@+id/ll_text_part"
+                        android:visibility="gone"
                         android:orientation="vertical"
                         android:paddingTop="77dp"
                         android:paddingStart="53dp"
                         android:paddingEnd="53dp"
+                        android:paddingBottom="80dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
 
                     <ScrollView
+                            android:scrollbars="none"
                             android:layout_weight="440"
                             android:layout_width="match_parent"
                             android:layout_height="0dp">
@@ -640,6 +650,8 @@
 
                             <TextView
                                     android:text="亲爱的你:"
+                                    android:textSize="15sp"
+                                    android:textColor="#333333"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -652,8 +664,10 @@
                                     android:id="@+id/freshman_textview8"/>
 
                             <TextView
-                                    android:text="@string/freshman__2019_tell"
+                                    android:text="      恭喜你经过了高考的考验，与重邮结识。成为邮子的你，想必一定对这所位于巍巍南山上的它倍感兴趣，在这里，我们将领你走入重邮，助你成功走上进入大学的第一步，帮助你解决从入学前到入学后的一系列可能遇到的问题。这里不仅有你感兴趣的校园宿舍食堂，还有祝你入学的入。更多的功能内容等你的探寻。在追寻梦想与踏上人生新征程的同时，希望有我们的同行与帮助，各位萌新能够更快的适应这全新的生活。\n        希望充满好奇心的你能够在大学找到自己的舞台，发挥更好的自己，努力学习，钻研学术，广交好友。探索更多重邮内容请关注“2019迎新 网”，更多迎新活动请关注微信公号“重邮小帮 手”。"
                                     android:lineSpacingExtra="18dp"
+                                    android:textSize="13sp"
+                                    android:textColor="#444444"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/freshman_textview7"
@@ -668,6 +682,8 @@
 
                             <TextView
                                     android:text="期待与你相遇"
+                                    android:textSize="13sp"
+                                    android:textColor="#444444"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -683,6 +699,8 @@
 
                             <TextView
                                     android:text="红岩网校"
+                                    android:textColor="#333333"
+                                    android:textSize="13sp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/freshman_textview13"
@@ -702,27 +720,34 @@
                     </ScrollView>
 
                     <LinearLayout
-                            android:background="@mipmap/ic_tell_button"
                             android:layout_weight="44"
                             android:gravity="center"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="0dp"
                             app:layout_constraintStart_toStartOf="parent"
-                            android:layout_marginBottom="80dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            android:layout_marginEnd="124dp">
+                            app:layout_constraintEnd_toEndOf="parent">
 
 
-                        <TextView
 
-                                android:text="我知道啦"
-                                android:layout_marginBottom="15dp"
-                                android:layout_marginStart="28dp"
-                                android:layout_marginEnd="28dp"
-                                android:layout_marginTop="15dp"
+                        <LinearLayout
+                                android:id="@+id/ll_home_i_know"
+                                android:background="@mipmap/ic_tell_button"
+                                android:gravity="center"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"/>
+                                android:layout_height="wrap_content">
+                            <TextView
+                                    android:text="我知道啦"
+                                    android:textSize="17sp"
+                                    android:textColor="#ffffff"
+                                    android:layout_marginBottom="15dp"
+                                    android:layout_marginStart="28dp"
+                                    android:layout_marginEnd="28dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"/>
 
+
+                        </LinearLayout>
 
                     </LinearLayout>
 

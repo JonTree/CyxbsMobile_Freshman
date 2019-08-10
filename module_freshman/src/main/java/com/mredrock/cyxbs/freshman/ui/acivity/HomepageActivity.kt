@@ -4,6 +4,7 @@ import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.view.animation.*
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
@@ -13,6 +14,7 @@ import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.HomepageViewModel
+import com.mredrock.cyxbs.freshman.ui.view.FreshmanLetterView
 import kotlinx.android.synthetic.main.freshman_activity_home.*
 
 
@@ -28,6 +30,17 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
         binding.lifecycleOwner = this
         val homepageViewModel = ViewModelProviders.of(this).get(HomepageViewModel::class.java)
         binding.activity = this
+        fl_letter.setOnTouchListener { v, event -> true }
+        ll_home_i_know.setOnClickListener {
+            fl_letter.visibility = View.GONE
+        }
+
+        flv_home.setOnAnimationDoneListener(object : FreshmanLetterView.AnimationDoneListener{
+            override fun onAnimationDone() {
+                ll_text_part.visibility = View.VISIBLE
+            }
+
+        })
 
     }
 
