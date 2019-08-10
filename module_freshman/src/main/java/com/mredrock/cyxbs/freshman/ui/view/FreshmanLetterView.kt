@@ -84,9 +84,9 @@ class FreshmanLetterView @JvmOverloads constructor(
             width = 10/9*(bitLeftTop.width+bitRightTop.width)
 
         moveCanvas(canvas)
-        drawFrame(canvas)
-        drawBackground(canvas)
 
+        drawBackground(canvas)
+        drawFrame(canvas)
         drawAngle(canvas)
         if(animationTag){
             animationTag = false

@@ -2,6 +2,8 @@ package com.mredrock.cyxbs.freshman.ui.view
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Paint
+import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
 import com.mredrock.cyxbs.freshman.util.PixelUtil
@@ -13,6 +15,11 @@ class successView @JvmOverloads constructor(
     private var viewHeight :Int? = null
     private var degree :Float? =null
 
+    private val rect = Rect(0,0,viewWidth!!,viewHeight!!)
+    private val paint = Paint()
+    init {
+//        paint.color =
+    }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         viewWidth = if(MeasureSpec.getMode(widthMeasureSpec) == MeasureSpec.EXACTLY){
@@ -37,7 +44,7 @@ class successView @JvmOverloads constructor(
 
         canvas?.rotate(180f)
         if(degree != null){
-
+//            canvas?.drawArc(rect,0,degree,false,)
         }
     }
 }
