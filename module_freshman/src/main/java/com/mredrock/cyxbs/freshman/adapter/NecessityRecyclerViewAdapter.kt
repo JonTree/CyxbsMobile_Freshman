@@ -82,7 +82,7 @@ class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapt
             }
             holder is ItemViewHolder -> {
                 if (bean.text[beanNum].data != null)
-                    holder.binding?.bean = bean.text[beanNum].data[position - lastFlag - 1]
+                    holder.binding.bean = bean.text[beanNum].data[position - lastFlag - 1]
                 if(holder.binding.bean?.detail != "")
                     holder.binding.bean?.openAble = true
 

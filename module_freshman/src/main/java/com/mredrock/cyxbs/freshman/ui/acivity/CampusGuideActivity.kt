@@ -40,8 +40,6 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
     private var expressDeliveryFragment: ExpressDeliveryFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val fade = Fade()
-        window.enterTransition = fade
         super.onCreate(savedInstanceState)
         binding = setContentView(this, com.mredrock.cyxbs.freshman.R.layout.freshman_activity_campus_guide)
 

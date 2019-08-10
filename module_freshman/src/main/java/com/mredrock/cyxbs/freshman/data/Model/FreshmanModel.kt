@@ -7,26 +7,26 @@ import com.mredrock.cyxbs.freshman.data.bean.*
 import com.mredrock.cyxbs.freshman.util.apiService
 import retrofit2.Call
 import retrofit2.Response
+import java.io.*
 
-class FreshmanModel <T:ViewModelCallback>(callback:T) {
+class FreshmanModel <T:ViewModelCallback>(val callback:T) {
     init {
-        when{
-            callback is NecessityViewModelCallback ->{
-            apiService.getNecessityBean().enqueue(object : retrofit2.Callback<NecessityBean>{
-                override fun onFailure(call: Call<NecessityBean>, t: Throwable) {
-                   callback.onFaire()
-                }
-
-                override fun onResponse(call: Call<NecessityBean>, response: Response<NecessityBean>) {
-                    if(response.code() == 200)
-                        callback.onNecessityBeanReady(response.body())
-                    else
+        when (callback) {
+            is NecessityViewModelCallback -> {
+                apiService.getNecessityBean().enqueue(object : retrofit2.Callback<NecessityBean>{
+                    override fun onFailure(call: Call<NecessityBean>, t: Throwable) {
                         callback.onFaire()
-                }
-            })
-            }
+                    }
 
-            callback is ProcessViewModelCallback ->{
+                    override fun onResponse(call: Call<NecessityBean>, response: Response<NecessityBean>) {
+                        if(response.code() == 200)
+                            callback.onNecessityBeanReady(response.body())
+                        else
+                            callback.onFaire()
+                    }
+                })
+            }
+            is ProcessViewModelCallback -> {
                 apiService.getProcessBean().enqueue(object : retrofit2.Callback<ProcessBean>{
                     override fun onFailure(call: Call<ProcessBean>, t: Throwable) {
                         callback.onFaire()
@@ -41,8 +41,7 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                     }
                 })
             }
-
-            callback is OnlineCommunicationViewModelCallback ->{
+            is OnlineCommunicationViewModelCallback -> {
                 apiService.getOnlineActivitiesBean().enqueue(object : retrofit2.Callback<OnlineActivitiesBean>{
                     override fun onFailure(call: Call<OnlineActivitiesBean>, t: Throwable) {
                         callback.onFaire()
@@ -60,8 +59,7 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                     }
                 })
             }
-
-            callback is GuidedViewModelCallback ->{
+            is GuidedViewModelCallback -> {
                 apiService.getGuideBusBean().enqueue(object : retrofit2.Callback<GuideBusBean>{
                     override fun onFailure(call: Call<GuideBusBean>, t: Throwable) {
                         callback.onFaire()
@@ -80,6 +78,7 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                     override fun onFailure(call: Call<CampusSightseeingBean>, t: Throwable) {
                         callback.onFaire()
                     }
+
                     override fun onResponse(
                         call: Call<CampusSightseeingBean>,
                         response: Response<CampusSightseeingBean>
@@ -92,8 +91,7 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
                     }
                 })
             }
-
-            callback is CampusGuideViewModelCallback ->{
+            is CampusGuideViewModelCallback -> {
                 apiService.getCampusGuideBasicBean().enqueue(object : retrofit2.Callback<CampusGuideBasicBean>{
                     override fun onFailure(call: Call<CampusGuideBasicBean>, t: Throwable) {
                         callback.onFaire()
@@ -163,6 +161,24 @@ class FreshmanModel <T:ViewModelCallback>(callback:T) {
 
                 })
             }
+        }
+    }
+
+    fun storeSerializable(bean:Serializable,name:String){
+
+        val outputStream = ObjectOutputStream(FileOutputStream(name))
+        outputStream.writeObject(bean)
+
+        outputStream.close()
+
+    }
+
+    fun getSerializable(name:String){
+        val inputStream = ObjectInputStream(FileInputStream(name))
+        val bean = inputStream.readObject()
+        inputStream.close()
+        if(callback is NecessityViewModelCallback){
+            callback.onBeanReaded(bean as NecessityBean)
         }
     }
 }

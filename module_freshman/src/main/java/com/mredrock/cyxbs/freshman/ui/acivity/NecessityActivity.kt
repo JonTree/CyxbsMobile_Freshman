@@ -7,6 +7,7 @@ import android.transition.Slide
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.R
@@ -23,8 +24,7 @@ class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_necessity)
-        val fade = Fade()
-        window.enterTransition = fade
+
         necessityActivity_back.setOnClickListener {
             finish()
         }
@@ -44,15 +44,13 @@ class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
 
     @Subscribe(sticky = true)
     fun onBeanReady(bean: NecessityBean) {
-        res_necessity.adapter = NecessityAdapter(bean)
+        val adapter = NecessityAdapter(bean)
+        res_necessity.adapter = adapter
         res_necessity.layoutManager = LinearLayoutManager(this)
 
     }
 
 
-    @Subscribe
-    fun receiveMemo(){
 
-    }
 
 }

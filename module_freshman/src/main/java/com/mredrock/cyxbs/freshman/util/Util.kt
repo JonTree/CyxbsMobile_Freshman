@@ -3,6 +3,7 @@ package com.mredrock.cyxbs.freshman.util
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
+import androidx.databinding.BindingConversion
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.mredrock.cyxbs.freshman.updata.APIService
@@ -22,4 +23,6 @@ object Util {
             Glide.with(view.context).load(url).into(view)
         }
     }
+
+
 }

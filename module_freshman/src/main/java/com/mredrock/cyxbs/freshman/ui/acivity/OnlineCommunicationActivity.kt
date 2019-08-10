@@ -29,8 +29,7 @@ class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationVie
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_online_communication)
 //        val slide = Slide()
-        val fade = Fade()
-        window.enterTransition = fade
+
 //        FreshmanModel<NecessityViewModel>(NecessityViewModel())
         LogUtils.d("MyTag","Onclick0")
 

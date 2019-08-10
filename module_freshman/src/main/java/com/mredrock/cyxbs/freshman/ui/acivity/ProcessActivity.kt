@@ -17,7 +17,6 @@ class ProcessActivity : BaseViewModelActivity<ProcessViewModel>() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_process)
 
-        val fade = Fade()
-        window.enterTransition = fade
+
     }
 }
