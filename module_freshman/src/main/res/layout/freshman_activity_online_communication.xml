@@ -12,16 +12,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
-        <TextView
-                android:id="@+id/tv_test"
-                android:background="#000"
-                android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                android:layout_width="100dp"
-                android:layout_height="100dp"/>
-        <Button
-                android:id="@+id/btn_test"
-                android:layout_width="100dp"
-                android:layout_height="100dp"/>
+        <com.mredrock.cyxbs.freshman.ui.view.FreshmanLetterView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
     </LinearLayout>
 
 </layout>
