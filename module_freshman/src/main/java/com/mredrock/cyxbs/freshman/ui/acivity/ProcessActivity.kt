@@ -26,6 +26,9 @@ class ProcessActivity : BaseViewModelActivity<ProcessViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bind = DataBindingUtil.setContentView<FreshmanActivityProcessBinding>(this,R.layout.freshman_activity_process)
+        common_toolbar.init(
+            title = "入学流程"
+        )
         val fade = Fade()
         window.enterTransition = fade
         recycle_view_process.layoutManager = LinearLayoutManager(this)
