@@ -18,10 +18,10 @@ class FreshmanLetterView @JvmOverloads constructor(
 
     var animationTag = true
 
-    val bitLeftTop by lazy {   BitmapFactory.decodeResource(context.resources, R.mipmap.ic_top_left)}
-    val bitRightTop by lazy { BitmapFactory.decodeResource(context.resources, R.mipmap.ic_top_right)}
-    val bitLeftBottom by lazy { BitmapFactory.decodeResource(context.resources, R.mipmap.ic_bottom_left)}
-    val bitRightBottom by lazy { BitmapFactory.decodeResource(context.resources, R.mipmap.ic_bottom_right)}
+    private val bitLeftTop by lazy {   BitmapFactory.decodeResource(context.resources, R.mipmap.ic_top_left)}
+    private val bitRightTop by lazy { BitmapFactory.decodeResource(context.resources, R.mipmap.ic_top_right)}
+    private val bitLeftBottom by lazy { BitmapFactory.decodeResource(context.resources, R.mipmap.ic_bottom_left)}
+    private val bitRightBottom by lazy { BitmapFactory.decodeResource(context.resources, R.mipmap.ic_bottom_right)}
 
     private val rectTop = Rect()
     private val rectLeft = Rect()
@@ -164,15 +164,13 @@ class FreshmanLetterView @JvmOverloads constructor(
         val set = AnimatorSet()
         set.duration = 1000
         set.playTogether(heightAnimation,wightAnimation)
-        set.addListener(object : AnimationDoneListener, Animator.AnimatorListener {
-            override fun onAnimationDone() {
-                listener?.onAnimationDone()
-            }
+        set.addListener(object :  Animator.AnimatorListener {
 
             override fun onAnimationRepeat(animation: Animator?) {
             }
 
             override fun onAnimationEnd(animation: Animator?) {
+                listener?.onAnimationDone()
             }
 
             override fun onAnimationCancel(animation: Animator?) {

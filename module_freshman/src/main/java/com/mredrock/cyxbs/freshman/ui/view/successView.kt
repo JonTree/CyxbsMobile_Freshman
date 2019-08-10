@@ -1,9 +1,7 @@
 package com.mredrock.cyxbs.freshman.ui.view
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Paint
-import android.graphics.Rect
+import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import com.mredrock.cyxbs.freshman.util.PixelUtil
@@ -15,10 +13,13 @@ class successView @JvmOverloads constructor(
     private var viewHeight :Int? = null
     private var degree :Float? =null
 
-    private val rect = Rect(0,0,viewWidth!!,viewHeight!!)
+    private val rectF = RectF(0f,0f,viewWidth!!.toFloat(),viewHeight!!.toFloat())
     private val paint = Paint()
     init {
-//        paint.color =
+        paint.color = Color.rgb(111,140,255)
+        paint.strokeWidth = PixelUtil.dp2px(context,5f).toFloat()
+        paint.style = Paint.Style.STROKE
+
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -37,6 +38,7 @@ class successView @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas?) {
+        drawCircle(canvas)
 
     }
     private fun drawCircle(canvas: Canvas?){
@@ -44,7 +46,14 @@ class successView @JvmOverloads constructor(
 
         canvas?.rotate(180f)
         if(degree != null){
-//            canvas?.drawArc(rect,0,degree,false,)
+
+            canvas?.drawArc(rectF,0f,degree!!,false,paint)
         }
+
+        canvas?.restore()
+    }
+
+    private fun drawHook(canvas: Canvas?){
+
     }
 }
