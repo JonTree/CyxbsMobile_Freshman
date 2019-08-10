@@ -8,5 +8,5 @@ C68.5809,277.075,273.832,71.8233,527.023,71.8233 Z
   </string>
     <integer name="freshman_grav_original_width">1062</integer>
     <integer name="freshman_grav_original_height">1062</integer>
-   <string name="freshman_data_error">网络请求错误</string>
+    <string name="freshman_data_error">网络请求错误</string>
 </resources>

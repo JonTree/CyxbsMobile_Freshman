@@ -1,8 +1,10 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
+import android.content.Intent
 import android.os.Bundle
 import android.transition.Fade
 import android.transition.Slide
+import android.widget.EditText
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
@@ -21,14 +23,22 @@ class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_necessity)
-
         val fade = Fade()
         window.enterTransition = fade
-        common_toolbar.init(
-            title = "入学必备"
-        )
-        val viewModel = ViewModelProviders.of(this).get(NecessityViewModel::class.java)
+        necessityActivity_back.setOnClickListener {
+            finish()
+        }
+        necessityActivity_edit.setOnClickListener {
+            val intent = Intent(this, EditActivity::class.java)
+            startActivity(intent)
+        }
 
+
+        val viewModel = ViewModelProviders.of(this).get(NecessityViewModel::class.java)
+        fab.setOnClickListener {
+            val intent = Intent(this, NecessitiesMemoActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
@@ -36,6 +46,12 @@ class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
     fun onBeanReady(bean: NecessityBean) {
         res_necessity.adapter = NecessityAdapter(bean)
         res_necessity.layoutManager = LinearLayoutManager(this)
+
+    }
+
+
+    @Subscribe
+    fun receiveMemo(){
 
     }
 

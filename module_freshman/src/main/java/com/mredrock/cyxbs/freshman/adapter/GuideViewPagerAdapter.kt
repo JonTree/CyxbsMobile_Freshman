@@ -73,7 +73,6 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
                         onClickViews.add(this.ll_guide_on_clik.apply {
                             //给子项整个设置点击事件
                             setOnClickListener {
-
                                 animation(this@XML.ll_route_bus__item, isOpens[index],heightList[index])
                                 isOpens[index] = !isOpens[index]
                                 for (view in onClickViews) {//所有展开的都关闭

@@ -36,8 +36,6 @@ class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapt
 
         when (viewType) {
             0 -> {
-//                val view =
-//                    LayoutInflater.from(parent.context).inflate(R.layout.freshman_recycle_item_necessity_title, parent)
                 val binding = DataBindingUtil.inflate<FreshmanRecycleItemNecessityTitleBinding>(
                     LayoutInflater.from(parent.context),
                     R.layout.freshman_recycle_item_necessity_title,
@@ -48,8 +46,6 @@ class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapt
 
             }
             else -> {
-//                val view =
-//                    LayoutInflater.from(parent.context).inflate(R.layout.freshman_recycle_item_necessity_title, parent)
                 val binding = DataBindingUtil.inflate<FreshmanRecycleItemNecessityItemBinding>(
                     LayoutInflater.from(parent.context), R.layout.freshman_recycle_item_necessity_item, parent, false
                 )
@@ -121,7 +117,6 @@ class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapt
     }
 }
 
-class MyViewHolder(item: View) : RecyclerView.ViewHolder(item)
 class TitleViewHolder(item: View, val binding: FreshmanRecycleItemNecessityTitleBinding) :
     RecyclerView.ViewHolder(item) {
     val textView: TextView = item.tv_necessity_title
