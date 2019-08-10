@@ -88,6 +88,10 @@ class FreshmanLetterView @JvmOverloads constructor(
         drawBackground(canvas)
 
         drawAngle(canvas)
+        if(animationTag){
+            animationTag = false
+            doAnimation()
+        }
     }
     private fun moveCanvas(canvas: Canvas?){
         canvas?.translate((viewWidth!!-width!!)/2f,(viewHeight!!-height!!)/2f)
@@ -139,7 +143,7 @@ class FreshmanLetterView @JvmOverloads constructor(
         canvas?.drawBitmap(bitLeftBottom,0f,height!!.toFloat()-bitLeftBottom.height,null)
         canvas?.drawBitmap(bitRightBottom,width!!.toFloat()-bitRightBottom.width,height!!.toFloat()-bitRightBottom.height,null)
     }
-    fun doAnimation(){
+    private fun doAnimation(){
         val heightAnimation = ValueAnimator.ofInt(height!!,targetHeight!!)
         val wightAnimation = ValueAnimator.ofInt(width!!,targetWidth!!)
 
@@ -156,9 +160,37 @@ class FreshmanLetterView @JvmOverloads constructor(
 
         }
 
+
         val set = AnimatorSet()
         set.duration = 1000
         set.playTogether(heightAnimation,wightAnimation)
+        set.addListener(object : AnimationDoneListener, Animator.AnimatorListener {
+            override fun onAnimationDone() {
+                listener?.onAnimationDone()
+            }
+
+            override fun onAnimationRepeat(animation: Animator?) {
+            }
+
+            override fun onAnimationEnd(animation: Animator?) {
+            }
+
+            override fun onAnimationCancel(animation: Animator?) {
+            }
+
+            override fun onAnimationStart(animation: Animator?) {
+            }
+
+        })
         set.start()
     }
+
+    var listener:AnimationDoneListener? = null
+    fun setOnAnimationDoneListener(listener:AnimationDoneListener){
+        this.listener = listener
+    }
+    interface AnimationDoneListener{
+        fun onAnimationDone()
+    }
+
 }
