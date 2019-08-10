@@ -210,7 +210,7 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
             openView.layoutParams = LinearLayout.LayoutParams(openView.measuredWidth,it.animatedValue as Int)
         }
 
-        set.playSequentially(closeAnimator,openAnimator)
+        set.playTogether(closeAnimator,openAnimator)
         set.start()
     }
 
