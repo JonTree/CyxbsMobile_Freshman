@@ -5,20 +5,21 @@ import androidx.databinding.BaseObservable;
 import java.util.List;
 
 /**
- * Created by Tree on 2019/8/2 16:17
+ * Created by Tree on 2019/8/11 13:45
+ * @author 12466
  */
-public class GroupHometownBean extends BaseObservable {
-
+public class GroupHomeBean implements GroupBean{
 
     /**
+     *
      * code : 200
      * info : ok
-     * text : [{"name":"重庆","data":"11111"},{"name":"湖南","data":"11111"}]
+     * text : [{"name":"学院","data":"11111"},{"name":"学院","data":"11111"}]
      */
 
     private int code;
     private String info;
-    private List<TextBean> text;
+    private List<GroupStudentBean.TextBean> text;
 
     public int getCode() {
         return code;
@@ -36,17 +37,17 @@ public class GroupHometownBean extends BaseObservable {
         this.info = info;
     }
 
-    public List<TextBean> getText() {
+    public List<GroupStudentBean.TextBean> getText() {
         return text;
     }
 
-    public void setText(List<TextBean> text) {
+    public void setText(List<GroupStudentBean.TextBean> text) {
         this.text = text;
     }
 
-    public static class TextBean extends BaseObservable{
+    public static class TextBean extends BaseObservable {
         /**
-         * name : 重庆
+         * name : 学院
          * data : 11111
          */
 
