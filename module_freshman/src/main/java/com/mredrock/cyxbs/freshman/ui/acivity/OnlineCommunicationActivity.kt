@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.freshman_activity_online_communication.*
 import org.jetbrains.anko.Android
 import android.transition.Slide
 import android.view.View
+import android.view.animation.LayoutAnimationController
 import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.freshman.data.Model.FreshmanModel
 import com.mredrock.cyxbs.freshman.data.ViewModel.NecessityViewModel
@@ -32,7 +33,11 @@ class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationVie
 
 //        FreshmanModel<NecessityViewModel>(NecessityViewModel())
         LogUtils.d("MyTag","Onclick0")
-
+        btn_a.setOnClickListener {
+            val a = ll_a.layoutParams
+            a.layoutAnimationParameters = LayoutAnimationController.AnimationParameters()
+            ll_a.layoutParams = a
+        }
 //        btn_test.setOnClickListener {View.OnClickListener(){
 //
 //        }

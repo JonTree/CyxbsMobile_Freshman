@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.viewpager.widget.PagerAdapter
+import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.bumptech.glide.request.RequestOptions
@@ -59,6 +60,19 @@ open class PhotoViewerActivity : BaseActivity() {
             adapter = mAdapter
             currentItem = curPos
             setBackgroundColor(backgroundColor)
+            addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
+                override fun onPageScrollStateChanged(state: Int) {
+
+                }
+
+                override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                }
+
+                override fun onPageSelected(position: Int) {
+                    onPageSelect(position)
+                }
+
+            })
         }
 
         setFullScreen()
@@ -75,6 +89,7 @@ open class PhotoViewerActivity : BaseActivity() {
 
     protected open fun onPhotoClick(mData: String, mPos: Int) {}
 
+    protected open fun onPageSelect(position:Int){}
     protected fun addFloatView(@LayoutRes floatLayoutId: Int): View =
         LayoutInflater.from(this).inflate(floatLayoutId, fl_photo_content, true)
 }

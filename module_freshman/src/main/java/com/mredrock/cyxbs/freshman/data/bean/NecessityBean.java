@@ -2,7 +2,6 @@ package com.mredrock.cyxbs.freshman.data.bean;
 
 import android.util.Log;
 import androidx.databinding.BaseObservable;
-import com.mredrock.cyxbs.common.utils.LogUtils;
 
 import java.io.Serializable;
 import java.util.List;
@@ -98,6 +97,10 @@ public class NecessityBean extends BaseObservable implements Serializable {
             private boolean open = false;
             private boolean openAble;
             private boolean choosed = false;
+
+
+
+
             public void onCheckBoxClicked(){
                 choosed = !choosed;
                 notifyChange();

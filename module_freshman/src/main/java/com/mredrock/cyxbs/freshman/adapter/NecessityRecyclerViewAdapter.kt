@@ -1,9 +1,14 @@
 package com.mredrock.cyxbs.freshman.adapter
 
+import android.animation.ValueAnimator
+import android.content.Context
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.common.utils.LogUtils
@@ -13,14 +18,22 @@ import com.mredrock.cyxbs.freshman.data.bean.NecessityBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityItemBinding
 import com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityTitleBinding
 import com.mredrock.cyxbs.freshman.ui.acivity.NecessityActivity
+import com.mredrock.cyxbs.freshman.util.PixelUtil
 import kotlinx.android.synthetic.main.freshman_recycle_item_necessity_item.view.*
 import kotlinx.android.synthetic.main.freshman_recycle_item_necessity_title.view.*
+import org.jetbrains.anko.windowManager
 
 class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private lateinit var titleBinding: FreshmanRecycleItemNecessityTitleBinding
     private lateinit var itemBinding: FreshmanRecycleItemNecessityItemBinding
     lateinit var list: List<String>
+    private var windowWidth:Int? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        val outMetrics = DisplayMetrics()
+        parent.context.windowManager.defaultDisplay.getMetrics(outMetrics)
+        windowWidth = outMetrics.widthPixels
+
         titleBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context),
             R.layout.freshman_recycle_item_necessity_title,
@@ -49,7 +62,7 @@ class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapt
                 val binding = DataBindingUtil.inflate<FreshmanRecycleItemNecessityItemBinding>(
                     LayoutInflater.from(parent.context), R.layout.freshman_recycle_item_necessity_item, parent, false
                 )
-                return ItemViewHolder(binding.root, binding)
+                return ItemViewHolder(binding.root, binding,parent.context)
 
             }
         }
@@ -74,17 +87,27 @@ class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapt
             "MyTag",
             "position=$position,beanNum=$beanNum,flag=$flag,lastFlag=$lastFlag,title=${holder is TitleViewHolder}"
         )
-        when {
-            holder is TitleViewHolder -> {
+        when (holder) {
+            is TitleViewHolder -> {
                 if (bean.text[beanNum].data != null)
-                    holder.binding?.bean = bean.text[beanNum]
+                    holder.binding.bean = bean.text[beanNum]
 
             }
-            holder is ItemViewHolder -> {
+            is ItemViewHolder -> {
                 if (bean.text[beanNum].data != null)
                     holder.binding.bean = bean.text[beanNum].data[position - lastFlag - 1]
                 if(holder.binding.bean?.detail != "")
                     holder.binding.bean?.openAble = true
+
+
+//                holder.itemView.ll_necessity_item.measure(View.MeasureSpec.makeMeasureSpec(windowWidth!!.toInt(),View.MeasureSpec.EXACTLY)
+//                    ,0)
+
+
+
+                LogUtils.d("MyTag","height=${holder.textView_detail.measuredHeight}")
+
+
 
             }
         }
@@ -123,7 +146,7 @@ class TitleViewHolder(item: View, val binding: FreshmanRecycleItemNecessityTitle
 
 }
 
-class ItemViewHolder(item: View, val binding: FreshmanRecycleItemNecessityItemBinding) : RecyclerView.ViewHolder(item) {
+class ItemViewHolder(item: View, val binding: FreshmanRecycleItemNecessityItemBinding,val context:Context) : RecyclerView.ViewHolder(item) {
     val textView_title: TextView = item.tv_necessity_item_name
     val textView_detail: TextView = item.tv_necessity_detail
 }
