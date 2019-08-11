@@ -22,8 +22,7 @@ class DemystifyDetailActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(com.mredrock.cyxbs.freshman.R.layout.freshman_activity_demystify_detail)
-        val fade = Fade()
-        window.enterTransition = fade
+
         common_toolbar.init(
             title = "数据揭秘"
         )

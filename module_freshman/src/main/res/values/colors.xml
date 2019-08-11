@@ -7,4 +7,6 @@
     <color name="colorControlNormal" tools:ignore="ResourceName">#D0D1D2</color>
     <color name="colorControlActivated" tools:ignore="ResourceName">#AEC0FF</color>
     <color name="gravWrite" tools:ignore="ResourceName">#66ffffff</color>
+    <color name="textDefault" tools:ignore="ResourceName">#333333</color>
+    <color name="textGray" tools:ignore="ResourceName">#bfbfbf</color>
 </resources>

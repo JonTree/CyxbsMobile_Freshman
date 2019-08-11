@@ -14,9 +14,17 @@ import com.mredrock.cyxbs.freshman.util.gson
 import org.greenrobot.eventbus.EventBus
 
 class NecessityViewModel :BaseViewModel() {
+    private var basicBean :NecessityBean? = null
+    private var localBean :NecessityBean? = null
+
     private val freshmanModel: FreshmanModel<NecessityViewModelCallback> = FreshmanModel(object :
         NecessityViewModelCallback {
+        override fun onBeanReaded(bean: NecessityBean) {
+            localBean = bean
+        }
+
         override fun onNecessityBeanReady(bean: NecessityBean?) {
+            basicBean = bean
             EventBus.getDefault().postSticky(bean)
             progressDialogEvent.value = ProgressDialogEvent.DISMISS_DIALOG_EVENT
         }

@@ -4,4 +4,5 @@ import com.mredrock.cyxbs.freshman.data.bean.NecessityBean
 
 interface NecessityViewModelCallback :ViewModelCallback{
     fun onNecessityBeanReady(bean:NecessityBean?)
+    fun onBeanReaded(bean:NecessityBean)
 }

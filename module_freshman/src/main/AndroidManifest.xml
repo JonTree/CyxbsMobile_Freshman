@@ -30,7 +30,7 @@
         </activity>
         <activity android:name=".ui.acivity.NecessityActivity">
         </activity>
-        <activity android:name=".ui.acivity.WordsActivity">
+        <activity android:name=".ui.acivity.MyPhotoViewActivity">
         </activity>
         <activity android:name=".ui.acivity.HomepageActivity">
             <intent-filter>
