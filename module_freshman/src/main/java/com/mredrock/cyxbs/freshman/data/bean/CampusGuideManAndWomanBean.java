@@ -1,5 +1,7 @@
 package com.mredrock.cyxbs.freshman.data.bean;
 
+import android.graphics.Rect;
+
 import java.util.List;
 
 /**
@@ -20,70 +22,71 @@ public class CampusGuideManAndWomanBean {
     private List<TextBean> text;
 
     public int getCode() {
-        return code;
-    }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
+                return code;
+            }
 
-    public String getInfo() {
-        return info;
-    }
+            public void setCode ( int code){
+                this.code = code;
+            }
 
-    public void setInfo(String info) {
-        this.info = info;
-    }
+            public String getInfo () {
+                return info;
+            }
 
-    public String getTitle() {
-        return title;
-    }
+            public void setInfo (String info){
+                this.info = info;
+            }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+            public String getTitle () {
+                return title;
+            }
 
-    public List<TextBean> getText() {
-        return text;
-    }
+            public void setTitle (String title){
+                this.title = title;
+            }
 
-    public void setText(List<TextBean> text) {
-        this.text = text;
-    }
+            public List<TextBean> getText () {
+                return text;
+            }
 
-    public static class TextBean {
-        /**
-         * name : 学院
-         * boy : 11%
-         * girl : 11%
-         */
+            public void setText (List < TextBean > text) {
+                this.text = text;
+            }
 
-        private String name;
-        private String boy;
-        private String girl;
+            public static class TextBean {
+                /**
+                 * name : 学院
+                 * boy : 11%
+                 * girl : 11%
+                 */
 
-        public String getName() {
-            return name;
+                private String name;
+                private String boy;
+                private String girl;
+
+                public String getName() {
+                    return name;
+                }
+
+                public void setName(String name) {
+                    this.name = name;
+                }
+
+                public String getBoy() {
+                    return boy;
+                }
+
+                public void setBoy(String boy) {
+                    this.boy = boy;
+                }
+
+                public String getGirl() {
+                    return girl;
+                }
+
+                public void setGirl(String girl) {
+                    this.girl = girl;
+                }
+            }
         }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getBoy() {
-            return boy;
-        }
-
-        public void setBoy(String boy) {
-            this.boy = boy;
-        }
-
-        public String getGirl() {
-            return girl;
-        }
-
-        public void setGirl(String girl) {
-            this.girl = girl;
-        }
-    }
-}

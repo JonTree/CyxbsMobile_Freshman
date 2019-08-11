@@ -1,53 +1,52 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
-import android.animation.ObjectAnimator
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.transition.Fade
+import android.util.Log
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
-import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.OnlineCommunicationViewModel
 import kotlinx.android.synthetic.main.freshman_activity_online_communication.*
-import org.jetbrains.anko.Android
-import android.transition.Slide
-import android.view.View
-import android.view.animation.LayoutAnimationController
-import com.mredrock.cyxbs.common.utils.LogUtils
-import com.mredrock.cyxbs.freshman.data.Model.FreshmanModel
-import com.mredrock.cyxbs.freshman.data.ViewModel.NecessityViewModel
-import com.mredrock.cyxbs.freshman.updata.APIService
-import com.mredrock.cyxbs.freshman.updata.ApiGenerator
-import org.jetbrains.anko.sdk27.coroutines.onClick
+import com.mredrock.cyxbs.freshman.adapter.OnlineCommunicationViewPaggerAdapter
+import com.mredrock.cyxbs.freshman.data.bean.GroupHomeBean
+import com.mredrock.cyxbs.freshman.data.bean.GroupStudentBean
+import com.mredrock.cyxbs.freshman.util.apiService
+import okhttp3.RequestBody
+import org.greenrobot.eventbus.Subscribe
+import retrofit2.Call
+import retrofit2.Response
+import retrofit2.Retrofit
 
 
 class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationViewModel>() {
     override val viewModelClass: Class<OnlineCommunicationViewModel> = OnlineCommunicationViewModel::class.java
     override val isFragmentActivity: Boolean = false
-        //To change initializer of created properties use File | Settings | File Templates.
+    //To change initializer of created properties use File | Settings | File Templates.
 
-    override fun onCreate(savedInstanceState : Bundle?) {
+    private var adapter: OnlineCommunicationViewPaggerAdapter? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_online_communication)
-//        val slide = Slide()
+        val fade = Fade()
+        window.enterTransition = fade
+        common_toolbar.init(
+            title = "线上交流"
+        )
+        adapter = OnlineCommunicationViewPaggerAdapter(this)
+        vp_online_communication.adapter = adapter
+        tl_online_communication.setupWithViewPager(vp_online_communication)
 
-//        FreshmanModel<NecessityViewModel>(NecessityViewModel())
-        LogUtils.d("MyTag","Onclick0")
-        btn_a.setOnClickListener {
-            val a = ll_a.layoutParams
-            a.layoutAnimationParameters = LayoutAnimationController.AnimationParameters()
-            ll_a.layoutParams = a
-        }
-//        btn_test.setOnClickListener {View.OnClickListener(){
-//
-//        }
-//        }
+
     }
 
-    override fun onResume() {
-        super.onResume()
+    @Subscribe(sticky = true)
+    fun upData(groupBean: GroupStudentBean) {
+        adapter?.initPager1(groupBean)
+    }
 
-
-
+    @Subscribe(sticky = true)
+    fun upData(groupBean: GroupHomeBean) {
+        adapter?.initPager2(groupBean)
     }
 }

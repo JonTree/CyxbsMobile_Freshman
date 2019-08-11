@@ -1,0 +1,45 @@
+package com.mredrock.cyxbs.freshman.adapter
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.data.bean.GroupStudentBean
+import kotlinx.android.synthetic.main.freshman_recycle_view_item_group_search.view.*
+import kotlinx.android.synthetic.main.freshman_recycle_view_item_online_group.view.*
+
+/**
+ * Created by Tree on 2019/8/11 15:51
+ */
+class OnlineGroupSearchRecycleViewAdapter(): RecyclerView.Adapter<OnlineGroupSearchRecycleViewAdapter.ViewHolder>() {
+
+    private var bean: GroupStudentBean? = null
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.freshman_recycle_view_item_group_search,
+                null
+            )
+        )
+    }
+
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+            holder.itemView.tv_group_search_title.text = bean?.text?.get(position)?.name?:""
+    }
+
+    override fun getItemCount(): Int {
+            return bean?.text?.size?:0
+    }
+
+    fun updata(bean: GroupStudentBean?) {
+        this.bean = bean
+        this.notifyDataSetChanged()
+    }
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
+
+}

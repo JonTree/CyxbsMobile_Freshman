@@ -7,28 +7,92 @@
 
     </data>
 
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <com.mredrock.cyxbs.freshman.ui.view.FreshmanLinerLayout
-                android:id="@+id/ll_a"
-                android:background="#000"
+        <LinearLayout
+                android:scrollbars="none"
+                android:background="#EFF7FF"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            <TextView
-                    android:text="aaaaaaaaa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            <TextView
-                    android:text="@string/freshman__2019_tell"
-                    android:textColor="#000000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-        </com.mredrock.cyxbs.freshman.ui.view.FreshmanLinerLayout>
-        <Button
-                android:id="@+id/btn_a"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-    </LinearLayout>
+                android:layout_height="match_parent">
+
+            <include layout="@layout/common_toolbar"/>
+
+            <!--<Toolbar-->
+                    <!--android:id="@+id/necessity_toolbar"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:fitsSystemWindows="true"-->
+                    <!--android:background="@drawable/common_toolbar_background"-->
+                    <!--app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+                    <!--android:layout_height="80dp">-->
+
+                <!--<TextView-->
+                        <!--android:text="备忘录"-->
+                        <!--android:textSize="18sp"-->
+                        <!--android:fitsSystemWindows="true"-->
+                        <!--android:id="@+id/necessity_toolbar_title"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:textColor="#FFFFFF"/>-->
+
+                <!--<TextView-->
+                        <!--android:id="@+id/tv_memo_save"-->
+                        <!--android:fitsSystemWindows="true"-->
+                        <!--android:textSize="16sp"-->
+                        <!--android:text="保存"-->
+                        <!--android:visibility="gone"-->
+                        <!--android:layout_marginEnd="20dp"-->
+                        <!--android:textColor="#FFFFFF"-->
+                        <!--android:layout_gravity="right"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"/>-->
+
+
+                <!--<TextView-->
+                        <!--android:text="取消"-->
+                        <!--android:textSize="16sp"-->
+                        <!--android:fitsSystemWindows="true"-->
+                        <!--android:textColor="#ffffff"-->
+                        <!--android:id="@+id/tv_memo_cancel"-->
+                        <!--android:src="@drawable/common_ic_back"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"/>-->
+
+            <!--</Toolbar>-->
+
+            <View
+                    android:layout_width="match_parent"
+                    android:background="#B3C4FF"
+                    android:layout_height="1dp"/>
+
+
+            <com.google.android.material.tabs.TabLayout
+                    android:background="#FFFFFF"
+                    app:tabIndicatorHeight="0dp"
+                    android:id="@+id/tl_online_communication"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <View
+                    android:layout_width="match_parent"
+                    android:background="#B3C4FF"
+                    android:layout_height="1dp"/>
+
+
+            <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/vp_online_communication"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp">
+
+            </androidx.viewpager.widget.ViewPager>
+
+
+
+
+        </LinearLayout>
+
+
 </layout>

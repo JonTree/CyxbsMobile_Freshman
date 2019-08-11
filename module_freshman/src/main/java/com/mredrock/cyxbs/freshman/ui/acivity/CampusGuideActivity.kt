@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
+import android.Manifest
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil.setContentView
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
@@ -21,6 +22,7 @@ import android.transition.Explode
 import android.transition.Fade
 import android.transition.Slide
 import android.widget.Toast
+import com.mredrock.cyxbs.common.utils.extensions.doPermissionAction
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response

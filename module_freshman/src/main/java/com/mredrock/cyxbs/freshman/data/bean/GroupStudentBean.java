@@ -6,8 +6,9 @@ import java.util.List;
 
 /**
  * Created by Tree on 2019/8/2 16:16
+ * @author 12466
  */
-public class GroupStudentBean extends BaseObservable {
+public class GroupStudentBean extends BaseObservable implements GroupBean {
 
 
     /**

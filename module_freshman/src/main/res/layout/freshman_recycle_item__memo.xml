@@ -8,7 +8,7 @@
         android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:background="@drawable/freshman_linear_ness_back"
+            android:background="@drawable/freshman_shape_linear_ness_back"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

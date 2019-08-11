@@ -1,9 +1,15 @@
 package com.mredrock.cyxbs.freshman.updata
 
 import com.mredrock.cyxbs.freshman.data.bean.*
-import io.reactivex.Flowable
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Multipart
+import retrofit2.http.POST
+import retrofit2.http.Part
+import okhttp3.RequestBody
+import com.google.gson.JsonObject
+
+
 
 
 /**
@@ -39,8 +45,8 @@ interface APIService {
     @GET("zsqy/json/6")
     fun getCampusSightseeingBean(): Call<CampusSightseeingBean>
 
-    @GET("zsqy/json/8")
-    fun getGroupHometownBean(): Call<GroupHometownBean>
+    @GET("zsqy/json/77")
+    fun getGroupHometownBean(): Call<GroupHomeBean>
 
 
     @GET("zsqy/json/9")
@@ -49,6 +55,15 @@ interface APIService {
 
     @GET("zsqy/json/7")
     fun getGroupStudentBean():Call<GroupStudentBean>
+
+    @Multipart
+    @POST("zsqy/select/college")
+    fun getGroupCollegeSearch(@Part("college") college: RequestBody): Call<GroupStudentBean>
+
+    @Multipart
+    @POST("zsqy/select/province")
+    fun getGroupProvinceSearch(@Part("province") college: RequestBody): Call<GroupStudentBean>
+
 
 }
 
