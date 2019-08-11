@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
+import android.Manifest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.transition.Explode
@@ -10,6 +11,7 @@ import androidx.databinding.ObservableField
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.common.utils.LogUtils
+import com.mredrock.cyxbs.common.utils.extensions.doPermissionAction
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.CampusGuideViewModel
 import com.mredrock.cyxbs.freshman.data.ViewModel.MoreFunctionViewModel

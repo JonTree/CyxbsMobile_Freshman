@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
+import android.Manifest
 import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
@@ -11,11 +12,13 @@ import androidx.lifecycle.ViewModelProviders
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.common.utils.LogUtils
+import com.mredrock.cyxbs.common.utils.extensions.doPermissionAction
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.HomepageViewModel
 import com.mredrock.cyxbs.freshman.ui.view.FreshmanLetterView
 import kotlinx.android.synthetic.main.freshman_activity_home.*
+
 
 
 class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
@@ -27,6 +30,7 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = DataBindingUtil.setContentView<com.mredrock.cyxbs.freshman.databinding.FreshmanActivityHomeBinding>(this,R.layout.freshman_activity_home)
+
         binding.lifecycleOwner = this
         val homepageViewModel = ViewModelProviders.of(this).get(HomepageViewModel::class.java)
         binding.activity = this
