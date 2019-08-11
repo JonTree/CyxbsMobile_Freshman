@@ -1,9 +1,12 @@
 package com.mredrock.cyxbs.freshman.data.Model
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Environment
 import android.provider.Settings
+import com.mredrock.cyxbs.common.utils.extensions.defaultSharedPreferences
+import com.mredrock.cyxbs.common.utils.extensions.editor
 import com.mredrock.cyxbs.freshman.data.ViewModelCallback.*
 import com.mredrock.cyxbs.freshman.data.bean.*
 import com.mredrock.cyxbs.freshman.util.apiService
@@ -13,6 +16,15 @@ import java.io.File
 import java.io.FileOutputStream
 import java.util.concurrent.Executors
 
+fun letterViewShowed(context:Context){
+    context.defaultSharedPreferences.editor {
+        putBoolean("letterViewShowed",true)
+    }
+}
+
+fun getLetterViewState(context: Context){
+    context.defaultSharedPreferences.getBoolean("letterViewShowed",false)
+}
 class FreshmanModel<T : ViewModelCallback>(callback: T) {
     init {
         when {
