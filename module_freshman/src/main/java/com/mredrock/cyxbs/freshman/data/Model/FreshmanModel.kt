@@ -1,10 +1,17 @@
 package com.mredrock.cyxbs.freshman.data.Model
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.os.Environment
+import android.provider.Settings
 import com.mredrock.cyxbs.freshman.data.ViewModelCallback.*
 import com.mredrock.cyxbs.freshman.data.bean.*
 import com.mredrock.cyxbs.freshman.util.apiService
 import retrofit2.Call
 import retrofit2.Response
+import java.io.File
+import java.io.FileOutputStream
+import java.util.concurrent.Executors
 
 class FreshmanModel<T : ViewModelCallback>(callback: T) {
     init {
@@ -193,4 +200,12 @@ class FreshmanModel<T : ViewModelCallback>(callback: T) {
             }
         }
     }
+    fun saveBitmap(bitmap:Bitmap,name:String){
+        val file = File(Environment.DIRECTORY_PICTURES,name)
+        val outputStream = FileOutputStream(file)
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream)
+        outputStream.flush()
+        outputStream.close()
+    }
+
 }

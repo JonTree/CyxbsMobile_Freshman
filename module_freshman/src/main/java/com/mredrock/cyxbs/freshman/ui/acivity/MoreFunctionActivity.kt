@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.transition.Explode
 import android.transition.Fade
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
@@ -17,6 +18,7 @@ import com.mredrock.cyxbs.freshman.data.ViewModel.CampusGuideViewModel
 import com.mredrock.cyxbs.freshman.data.ViewModel.MoreFunctionViewModel
 import com.mredrock.cyxbs.freshman.databinding.FreshmanActivityMoreFuntionBinding
 import kotlinx.android.synthetic.main.freshman_activity_more_funtion.*
+import org.jetbrains.anko.sdk27.coroutines.onLongClick
 
 class MoreFunctionActivity : BaseViewModelActivity<MoreFunctionViewModel>(){
     override val viewModelClass: Class<MoreFunctionViewModel> = MoreFunctionViewModel::class.java
@@ -28,13 +30,24 @@ class MoreFunctionActivity : BaseViewModelActivity<MoreFunctionViewModel>(){
         val bind = DataBindingUtil.setContentView<FreshmanActivityMoreFuntionBinding>(this,R.layout.freshman_activity_more_funtion)
 
         bind.activity = this
+        img_vx.setOnLongClickListener {
+            this.doPermissionAction(Manifest.permission.WRITE_EXTERNAL_STORAGE){
+                reason = "保存文件需要文件存储权限"
+                doAfterGranted {
+                    viewModel.savePicture()
+                }
+            }
 
+            return@setOnLongClickListener true
+        }
         common_toolbar.init(
             title = "更多功能"
         )
 
     }
+    fun onLongClick(){
 
+    }
     fun onClick(index:Int){
         when(index){
             0->{}
