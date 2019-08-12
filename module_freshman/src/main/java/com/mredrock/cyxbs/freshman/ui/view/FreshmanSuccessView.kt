@@ -89,6 +89,10 @@ class FreshmanSuccessView @JvmOverloads constructor(
     }
 
     fun doAnimation(){
+        LogUtils.d("animTag","success Do animation")
+        degree = 0f
+        rateLine1 = 0f
+        rateLine2 = 0f
         val emptyAnimation = ValueAnimator.ofFloat(0f,1f)
         val circleAnimation = ValueAnimator.ofFloat(0f,360f)
         val line1Animation = ValueAnimator.ofFloat(0f,1f)

@@ -41,10 +41,10 @@ class OnlineGroupStudentRecycleViewAdapter(val bean: GroupStudentBean,val contex
                     val  mClipData = ClipData.newPlainText("Label",bean.text[position].data)
                     (activity.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).primaryClip = mClipData
                     ll_fsv.visibility = View.VISIBLE
+                    fsv.doAnimation()
                     fsv.setOnAnimationDoneListener {
-                        activity.dialog?.hide()
                         ll_fsv.visibility = View.GONE
-
+                        activity.dialog?.hide()
                     }
                 }
             }

@@ -111,7 +111,7 @@ class MoreFunctionActivity : BaseViewModelActivity<MoreFunctionViewModel>(){
             dialogOpen.set(!dialogOpen.get())
         }
         //进入退出的动画
-//        popupWindow?.setAnimationStyle(com.mredrock.cyxbs.freshman.R.style.MyPopWindowAnim)
+        popupWindow?.setAnimationStyle(com.mredrock.cyxbs.freshman.R.style.Animation_AppCompat_DropDownUp)
     }
 
     private fun showPopWindow() {

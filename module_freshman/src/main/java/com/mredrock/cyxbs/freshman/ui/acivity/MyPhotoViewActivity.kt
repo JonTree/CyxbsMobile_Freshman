@@ -44,7 +44,8 @@ class MyPhotoViewActivity : PhotoViewerActivity() {
 
             Glide.with(this).asBitmap().load(list[index]).into(object : SimpleTarget<Bitmap>() {
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
-                    saveBitmap(resource, TODO(),this@MyPhotoViewActivity)
+
+                    saveBitmap(resource, System.currentTimeMillis().toString(),this@MyPhotoViewActivity)
                 }
 
             })
