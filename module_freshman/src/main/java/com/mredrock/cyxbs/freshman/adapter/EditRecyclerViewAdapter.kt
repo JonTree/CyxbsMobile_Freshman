@@ -11,6 +11,7 @@ import com.mredrock.cyxbs.freshman.data.bean.NecessityBean
 import com.mredrock.cyxbs.freshman.event.UpDataMemo
 import kotlinx.android.synthetic.main.freshman_recycle_item__memo.view.*
 import org.greenrobot.eventbus.EventBus
+import org.jetbrains.anko.textColor
 
 /**
  * Created by Tree on 2019/8/10 10:09
@@ -43,13 +44,16 @@ class EditRecyclerViewAdapter (private val delete: TextView, val memo:NecessityB
                     isCheck[position] = true
                     count++
                     delete.text = "删除（${count}）"
+                    delete.textColor = 0xFFffffff.toInt()
                 } else {
                     isCheck[position] = false
                     count--
                     if (count != 0) {
                         delete.text = "删除（${count}）"
+                        delete.textColor = 0xffffffff.toInt()
                     }else{
                         delete.text = "删除"
+                        delete.textColor = 0xff747474.toInt()
                     }
                 }
             }

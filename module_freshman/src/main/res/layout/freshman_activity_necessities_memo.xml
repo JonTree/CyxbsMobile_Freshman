@@ -28,6 +28,7 @@
 
         <TextView
                 android:id="@+id/tv_memo_save"
+                android:visibility="gone"
                 android:fitsSystemWindows="true"
                 android:textSize="16sp"
                 android:text="保存"

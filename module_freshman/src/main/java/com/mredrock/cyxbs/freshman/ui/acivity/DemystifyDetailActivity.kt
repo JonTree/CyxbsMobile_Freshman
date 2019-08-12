@@ -18,6 +18,9 @@ class DemystifyDetailActivity : BaseActivity() {
     var isFirst = true
 
 
+    lateinit var bean:CampusGuideManAndWomanBean
+
+
     override val isFragmentActivity: Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +30,11 @@ class DemystifyDetailActivity : BaseActivity() {
             title = "数据揭秘"
         )
 
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        fpcv_man_woamn_data.tag = true
     }
 
     @Subscribe(sticky = true)

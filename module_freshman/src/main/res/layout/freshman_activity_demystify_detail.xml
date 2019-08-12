@@ -10,12 +10,25 @@
 
     <include layout="@layout/common_toolbar"/>
 
-    <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tl_demystify_detail"
+    <LinearLayout
+            android:padding="1dp"
+            android:background="#B3C4FF"
             android:layout_width="match_parent"
-            android:layout_height="49dp">
+            android:layout_height="wrap_content">
+        <com.google.android.material.tabs.TabLayout
+                android:background="#ffffff"
+                app:tabIndicatorHeight="0dp"
+                app:tabRippleColor="#00ffffff"
+                android:id="@+id/tl_demystify_detail"
+                android:layout_width="match_parent"
+                android:layout_height="49dp">
 
-    </com.google.android.material.tabs.TabLayout>
+        </com.google.android.material.tabs.TabLayout>
+
+
+    </LinearLayout>
+
+
 
     <androidx.viewpager.widget.ViewPager
             android:id="@+id/vp_demystify_detail"
