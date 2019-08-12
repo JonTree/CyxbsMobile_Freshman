@@ -3,6 +3,7 @@ package com.mredrock.cyxbs.freshman.adapter
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
 import android.content.Context
+import android.graphics.BitmapFactory
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
@@ -22,6 +23,7 @@ import com.mredrock.cyxbs.freshman.ui.acivity.NecessityActivity
 import com.mredrock.cyxbs.freshman.util.PixelUtil
 import kotlinx.android.synthetic.main.freshman_recycle_item_necessity_item.view.*
 import kotlinx.android.synthetic.main.freshman_recycle_item_necessity_title.view.*
+import org.jetbrains.anko.imageBitmap
 import org.jetbrains.anko.windowManager
 
 class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -84,6 +86,10 @@ class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapt
 
             beanNum++
         }
+        LogUtils.d(
+            "MyTag",
+            "position=$position,beanNum=$beanNum,flag=$flag,lastFlag=$lastFlag,title=${holder is TitleViewHolder}"
+        )
         when (holder) {
             is TitleViewHolder -> {
                 if (bean.text[beanNum].data != null)
@@ -95,6 +101,19 @@ class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapt
                     holder.binding.bean = bean.text[beanNum].data[position - lastFlag - 1]
                 if(holder.binding.bean?.detail != "")
                     holder.binding.bean?.openAble = true
+
+
+//                holder.itemView.ll_necessity_item.measure(View.MeasureSpec.makeMeasureSpec(windowWidth!!.toInt(),View.MeasureSpec.EXACTLY)
+//                    ,0)
+
+
+                holder.itemView.ll_necessity_item.setOnClickListener {
+                    holder.binding.bean?.changeOpenState()
+                    holder.itemView.img_arrow.imageBitmap = BitmapFactory.decodeResource(holder.context.resources,holder.binding.bean?.res!!)
+                }
+                LogUtils.d("MyTag","height=${holder.textView_detail.measuredHeight}")
+
+
 
             }
         }

@@ -39,19 +39,19 @@ class ProcessRecyclerViewAdapter(val bean: ProcessBean) : RecyclerView.Adapter<P
 
         holder.itemView.apply {
             if (isOpen[position]) {
-                iv_arrow_indicator.imageBitmap = BitmapFactory.decodeResource(context.resources,R.mipmap.freshman_more_function_arrow_top)
+                iv_arrow_indicator.imageBitmap = BitmapFactory.decodeResource(context.resources,R.drawable.freshman_more_function_arrow_top)
                 ll_process.visibility = View.VISIBLE
             }else{
-                iv_arrow_indicator.imageBitmap = BitmapFactory.decodeResource(context.resources,R.mipmap.freshman_more_function_arrow_bottom)
+                iv_arrow_indicator.imageBitmap = BitmapFactory.decodeResource(context.resources,R.drawable.freshman_more_function_arrow_bottom)
                 ll_process.visibility = View.GONE
             }
             ll_process_on_click.setOnClickListener {
                 if (isOpen[position]){
-                    iv_arrow_indicator.imageBitmap = BitmapFactory.decodeResource(context.resources,R.mipmap.freshman_more_function_arrow_bottom)
+                    iv_arrow_indicator.imageBitmap = BitmapFactory.decodeResource(context.resources,R.drawable.freshman_more_function_arrow_bottom)
                     ll_process.visibility = View.GONE
                     isOpen[position] = !isOpen[position]
                 }else{
-                    iv_arrow_indicator.imageBitmap = BitmapFactory.decodeResource(context.resources,R.mipmap.freshman_more_function_arrow_top)
+                    iv_arrow_indicator.imageBitmap = BitmapFactory.decodeResource(context.resources,R.drawable.freshman_more_function_arrow_top)
                     ll_process.visibility = View.VISIBLE
                     isOpen[position] = !isOpen[position]
                 }

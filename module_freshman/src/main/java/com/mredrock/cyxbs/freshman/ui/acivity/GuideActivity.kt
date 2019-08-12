@@ -2,6 +2,7 @@ package com.mredrock.cyxbs.freshman.ui.acivity
 
 import android.os.Bundle
 import android.transition.Fade
+import android.view.View
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.adapter.GuideViewPagerAdapter
@@ -30,6 +31,8 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
             title = "指路重邮"
         )
         tl_guided.setupWithViewPager(vp_guided)
+        common_toolbar.init(
+            "指路重邮",R.drawable.common_ic_back,listener = View.OnClickListener { finish() })
     }
 
     @Subscribe

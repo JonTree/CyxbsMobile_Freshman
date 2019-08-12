@@ -13,6 +13,8 @@
     </data>
 
     <FrameLayout
+            android:animateLayoutChanges="true"
+            android:id="@+id/fl_more_function"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -229,21 +231,31 @@
                 android:onClick="@{()->activity.dismissDialog()}"
                 android:visibility="@{activity.dialogOpen.get()?view.VISIBLE:view.GONE}">
             <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
                     android:layout_centerInParent="true"
                     android:orientation="vertical"
                     android:background="@color/cardview_light_background">
                 <ImageView
                         android:id="@+id/img_vx"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="16dp"
+                        android:adjustViewBounds="true"
                         android:onClick="@{()->activity.nullClick()}"
-                        android:src="@mipmap/freshman_banner"/>
+                        android:src="@drawable/freshman_more_function_qr_code"/>
                 <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="15sp"
+                        android:gravity="center_horizontal"
+                        android:layout_marginLeft="36dp"
+                        android:layout_marginRight="36dp"
+                        android:layout_marginBottom="40dp"
                         android:text="关注'重邮小帮手'微信公众号，参与学长学姐帮帮忙"/>
             </LinearLayout>
         </RelativeLayout>

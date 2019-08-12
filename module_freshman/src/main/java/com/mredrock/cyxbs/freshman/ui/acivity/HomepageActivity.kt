@@ -85,39 +85,39 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
         val intent:Intent
         when(index){
             1 ->{
-                val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+
                 val intent = Intent(this,NecessityActivity::class.java)
-                startActivity(intent,bundle)
+                startActivity(intent)
             }
 
             2 ->{
-                val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+
                 val intent = Intent(this,GuideActivity::class.java)
-                startActivity(intent,bundle)
+                startActivity(intent)
             }
 
             3 ->{
-                val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+
                 val intent = Intent(this,ProcessActivity::class.java)
-                startActivity(intent,bundle)
+                startActivity(intent)
             }
 
             4 ->{
-                val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+
                 val intent = Intent(this,CampusGuideActivity::class.java)
-                startActivity(intent,bundle)
+                startActivity(intent)
             }
 
             5 -> {
-                val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+
                 val intent = Intent(this,OnlineCommunicationActivity::class.java)
-                startActivity(intent,bundle)
+                startActivity(intent)
             }
 
             6 -> {
-                val bundle = ActivityOptions.makeSceneTransitionAnimation(this).toBundle()
+
                 val intent = Intent(this,MoreFunctionActivity::class.java)
-                startActivity(intent,bundle)
+                startActivity(intent)
             }
 
 //            7 -> startActivity<>()
