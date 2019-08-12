@@ -62,7 +62,7 @@ class CanteenViewPagerAdapter(val context: Context, val bean: CampusGuideBasicBe
                 vp_canteen_carousel.adapter =
                     DormitoryCarouselViewPagerAdapter(
                         context as Context,
-                        bean.message[bean.message.indexOf(msg)].photos
+                        bean.message[bean.message.indexOf(msg)].photo
                     )
                 vp_canteen_carousel.currentItem = ((Int.MAX_VALUE / 2) - 1)
                 try {

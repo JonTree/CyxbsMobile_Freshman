@@ -37,7 +37,7 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
 
     }
 
-    @Subscribe
+    @Subscribe(sticky = true)
     fun initData(guideDataEvent: GuideDataEvent){
         vp_guided.adapter = GuideViewPagerAdapter(this,guideDataEvent)
     }

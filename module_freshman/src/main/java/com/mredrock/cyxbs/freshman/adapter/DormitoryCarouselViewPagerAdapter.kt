@@ -13,6 +13,7 @@ import androidx.viewpager.widget.PagerAdapter
 import com.bumptech.glide.Glide
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.bean.CampusGuideBasicBean
+import com.mredrock.cyxbs.freshman.updata.IMAGE_BASE_URI
 import com.mredrock.cyxbs.freshman.util.Util
 import org.jetbrains.anko.imageBitmap
 import java.lang.StringBuilder
@@ -55,7 +56,7 @@ class DormitoryCarouselViewPagerAdapter(val context: Context, val list: List<Str
                 )
                 scaleType = ImageView.ScaleType.CENTER_CROP
             }
-            Glide.with(context).load(list[i]).into(view)
+            Glide.with(context).load("$IMAGE_BASE_URI${list[i]}").into(view)
             container.addView(view)
             return view
         }

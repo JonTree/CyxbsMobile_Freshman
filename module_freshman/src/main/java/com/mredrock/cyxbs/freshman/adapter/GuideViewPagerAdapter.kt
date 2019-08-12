@@ -31,13 +31,15 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
 import com.bumptech.glide.Glide
+import com.mredrock.cyxbs.freshman.ui.acivity.showPhotos
+import com.mredrock.cyxbs.freshman.updata.IMAGE_BASE_URI
 import org.jetbrains.anko.toast
 
 
 /**
  * Created by Tree on 2019/8/7 16:24
  */
-class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataEvent) : PagerAdapter() {
+class GuideViewPagerAdapter(val context: Context, private val guideDataEvent: GuideDataEvent) : PagerAdapter() {
 
 
     private val titleList = listOf("公交路线", "校园风光")
@@ -150,10 +152,16 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
                         if (guideDataEvent.campusSightseeingBean.text.message.indexOf(msg) % 2 != 0) {
                             ll_guide_scenery_container.addView(
                                 viewItem?.apply {
-                                    Util.loadImage(this.image_view_sight_seeing_tiltle2, msg.photo, null)
+                                    Util.loadImage(this.image_view_sight_seeing_tiltle2, "$IMAGE_BASE_URI${msg.photo}", null)
                                     this.tv_sight_title2.text = msg.name
-                                    Util.loadImage(this.image_view_sight_seeing_tiltle1, guideDataEvent.campusSightseeingBean.text.message[guideDataEvent.campusSightseeingBean.text.message.indexOf(msg)-1].photo, null)
+                                    this.image_view_sight_seeing_tiltle2.setOnClickListener {
+                                        showPhotos(context,guideDataEvent.campusSightseeingBean.text.message.map { "$IMAGE_BASE_URI${it.photo}" },guideDataEvent.campusSightseeingBean.text.message.indexOf(msg))
+                                    }
+                                    Util.loadImage(this.image_view_sight_seeing_tiltle1, "$IMAGE_BASE_URI${guideDataEvent.campusSightseeingBean.text.message[guideDataEvent.campusSightseeingBean.text.message.indexOf(msg)-1].photo}", null)
                                     this.tv_sight_title1.text =  guideDataEvent.campusSightseeingBean.text.message[guideDataEvent.campusSightseeingBean.text.message.indexOf(msg)-1].name
+                                    this.image_view_sight_seeing_tiltle1.setOnClickListener {
+                                        showPhotos(context,guideDataEvent.campusSightseeingBean.text.message.map {"$IMAGE_BASE_URI${it.photo}"},guideDataEvent.campusSightseeingBean.text.message.indexOf(msg)-1)
+                                    }
                                 }
                             )
                         } else {
@@ -164,6 +172,9 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
                                 ll_guide_scenery_container.addView(
                                     viewItem?.apply {
                                         Util.loadImage(this.image_view_sight_seeing_tiltle1, msg.photo, null)
+                                        this.image_view_sight_seeing_tiltle1.setOnClickListener {
+                                            showPhotos(context,guideDataEvent.campusSightseeingBean.text.message.map { it.photo },guideDataEvent.campusSightseeingBean.text.message.indexOf(msg))
+                                        }
                                         this.tv_sight_title1.text = msg.name
                                         this.ll_last.visibility = View.INVISIBLE
                                     }

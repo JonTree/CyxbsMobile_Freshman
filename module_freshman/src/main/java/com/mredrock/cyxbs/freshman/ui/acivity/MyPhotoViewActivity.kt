@@ -1,8 +1,10 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -32,12 +34,20 @@ class MyPhotoViewActivity : PhotoViewerActivity() {
     }
 
 
+    @SuppressLint("ObsoleteSdkInt")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         view =addFloatView(R.layout.freshman_float_view)
         val list = intent.extras?.getStringArray("photos")?.toList()
         val curPos = intent.extras?.getInt("position")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            val winContent = this.findViewById(android.R.id.content) as ViewGroup
+            if (winContent.childCount > 0) {
+                val rootView = winContent.getChildAt(0) as ViewGroup
+                rootView.fitsSystemWindows = false
+            }
+        }
         view?.tv_float_now_page!!.text = "$curPos"
         view?.tv_float_max_page!!.text = "${list!!.size}"
         view?.iv_float_download!!.setOnClickListener {
