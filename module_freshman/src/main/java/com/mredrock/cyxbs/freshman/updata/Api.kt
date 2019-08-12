@@ -49,7 +49,7 @@ interface APIService {
     fun getGroupHometownBean(): Call<GroupHomeBean>
 
 
-    @GET("zsqy/json/9")
+    @GET("zsqy/json/8")
     fun getOnlineActivitiesBean():Call<OnlineActivitiesBean>
 
 

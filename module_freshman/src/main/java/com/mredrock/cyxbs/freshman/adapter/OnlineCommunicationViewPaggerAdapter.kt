@@ -18,6 +18,8 @@ import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import android.view.KeyEvent
 import android.widget.EditText
+import com.mredrock.cyxbs.freshman.data.bean.OnlineActivitiesBean
+import kotlinx.android.synthetic.main.freshman_view_pager_page_online_activity.view.*
 
 
 /**
@@ -45,7 +47,7 @@ class OnlineCommunicationViewPaggerAdapter(val context: Context) : PagerAdapter(
         pageList.add(
             View.inflate(
                 context,
-                com.mredrock.cyxbs.freshman.R.layout.freshman_view_pager_group_page, null
+                com.mredrock.cyxbs.freshman.R.layout.freshman_view_pager_page_online_activity, null
             )
         )
     }
@@ -121,6 +123,13 @@ class OnlineCommunicationViewPaggerAdapter(val context: Context) : PagerAdapter(
         }
     }
 
+
+    fun initPager3(bean: OnlineActivitiesBean) {
+        pageList[2].apply {
+            recycle_view_online_activity.layoutManager = LinearLayoutManager(context)
+            recycle_view_online_activity.adapter = OnlineActivityRecycleViewAdapter(bean)
+        }
+    }
 
 
     fun initPager2(groupBean: GroupHomeBean) {

@@ -26,7 +26,9 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_guided)
-
+        common_toolbar.init(
+            title = "指路重邮"
+        )
         tl_guided.setupWithViewPager(vp_guided)
     }
 

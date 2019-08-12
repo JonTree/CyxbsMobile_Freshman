@@ -2,9 +2,7 @@ package com.mredrock.cyxbs.freshman.data.Model
 
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Environment
-import android.provider.Settings
 import com.mredrock.cyxbs.common.utils.extensions.defaultSharedPreferences
 import com.mredrock.cyxbs.common.utils.extensions.editor
 import com.mredrock.cyxbs.freshman.data.ViewModelCallback.*
@@ -12,9 +10,10 @@ import com.mredrock.cyxbs.freshman.data.bean.*
 import com.mredrock.cyxbs.freshman.util.apiService
 import retrofit2.Call
 import retrofit2.Response
-import java.io.File
-import java.io.FileOutputStream
-import java.util.concurrent.Executors
+import java.io.*
+import android.content.Context.MODE_PRIVATE
+
+
 
 fun letterViewShowed(context:Context){
     context.defaultSharedPreferences.editor {
@@ -25,6 +24,8 @@ fun letterViewShowed(context:Context){
 fun getLetterViewState(context: Context){
     context.defaultSharedPreferences.getBoolean("letterViewShowed",false)
 }
+
+
 class FreshmanModel<T : ViewModelCallback>(callback: T) {
     init {
         when {
@@ -33,7 +34,6 @@ class FreshmanModel<T : ViewModelCallback>(callback: T) {
                     override fun onFailure(call: Call<NecessityBean>, t: Throwable) {
                         callback.onFaire()
                     }
-
                     override fun onResponse(call: Call<NecessityBean>, response: Response<NecessityBean>) {
                         if (response.code() == 200)
                             callback.onNecessityBeanReady(response.body())
@@ -42,7 +42,6 @@ class FreshmanModel<T : ViewModelCallback>(callback: T) {
                     }
                 })
             }
-
 
 
             callback is ProcessViewModelCallback -> {
@@ -212,12 +211,100 @@ class FreshmanModel<T : ViewModelCallback>(callback: T) {
             }
         }
     }
-    fun saveBitmap(bitmap:Bitmap,name:String){
-        val file = File(Environment.DIRECTORY_PICTURES,name)
-        val outputStream = FileOutputStream(file)
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream)
-        outputStream.flush()
-        outputStream.close()
+
+
+}
+
+
+ fun saveObject(context: Context,name: String, `object`: Any) {
+
+    var fos: FileOutputStream? = null
+
+    var oos: ObjectOutputStream? = null
+
+    try {
+
+        fos = context.openFileOutput(name, MODE_PRIVATE)
+
+        oos = ObjectOutputStream(fos)
+
+        oos.writeObject(`object`)
+
+    } catch (e: Exception) {
+
+        e.printStackTrace()
+
+        //这里是保存文件产生异常
+
+    } finally {
+
+        if (fos != null) {
+
+            try {
+
+                fos.close()
+
+            } catch (e: IOException) {
+
+                //fos流关闭异常
+
+                e.printStackTrace()
+
+            }
+
+        }
+
+        if (oos != null) {
+
+            try {
+
+                oos.close()
+
+            } catch (e: IOException) {
+
+                //oos流关闭异常
+
+                e.printStackTrace()
+
+            }
+
+        }
+
     }
 
 }
+
+ fun getObject(context: Context,name: String): Any? {
+    var fis: FileInputStream? = null
+    var ois: ObjectInputStream? = null
+    try {
+        fis = context.openFileInput(name)
+        ois = ObjectInputStream(fis)
+        return ois.readObject()
+    } catch (e: Exception) {
+        e.printStackTrace()
+        //这里是读取文件产生异常
+    } finally {
+        if (fis != null) {
+            try {
+                fis.close()
+            } catch (e: IOException) {
+                //fis流关闭异常
+                e.printStackTrace()
+            }
+
+        }
+        if (ois != null) {
+            try {
+                ois.close()
+            } catch (e: IOException) {
+                //ois流关闭异常
+                e.printStackTrace()
+            }
+
+        }
+    }
+    //读取产生异常，返回null
+    return null
+}
+

@@ -23,6 +23,7 @@ import android.transition.Fade
 import android.transition.Slide
 import android.widget.Toast
 import com.mredrock.cyxbs.common.utils.extensions.doPermissionAction
+import com.mredrock.cyxbs.freshman.ui.fragment.CanteenFragment
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
@@ -36,7 +37,7 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
 
     lateinit var binding: FreshmanActivityCampusGuideBinding
 
-    private var canteenFragment: DormitoryCanteenFragment? = null
+    private var canteenFragment: CanteenFragment? = null
     private var demystifyFragment: DemystifyFragment? = null
     private var dormitoryFragment: DormitoryCanteenFragment? = null
     private var expressDeliveryFragment: ExpressDeliveryFragment? = null
@@ -44,7 +45,6 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = setContentView(this, com.mredrock.cyxbs.freshman.R.layout.freshman_activity_campus_guide)
-
         common_toolbar.init(
             title = "校园指引"
         )
@@ -80,23 +80,26 @@ class CampusGuideActivity : BaseViewModelActivity<CampusGuideViewModel>() {
             }
         }
         when (i) {
-            //当选中点击的是微信的Tab时
             0 -> {
+                    canteenFragment?.isPause = true
                 clickLogic(tv_tab_dormitories, dormitoryFragment) {
-                    dormitoryFragment = DormitoryCanteenFragment(0)
+                    dormitoryFragment = DormitoryCanteenFragment()
+                    dormitoryFragment?.isPause = false
                     transaction.add(
                         com.mredrock.cyxbs.freshman.R.id.frame_layout_fragment_container_campus_guide,
                         dormitoryFragment as DormitoryCanteenFragment
+
                     )
                 }
             }
             1 -> {
-
+                dormitoryFragment?.isPause = true
                 clickLogic(tv_tab_canteen, canteenFragment) {
-                    canteenFragment = DormitoryCanteenFragment(1)
+                    canteenFragment = CanteenFragment()
+                    canteenFragment?.isPause = false
                     transaction.add(
                         com.mredrock.cyxbs.freshman.R.id.frame_layout_fragment_container_campus_guide,
-                        canteenFragment as DormitoryCanteenFragment
+                        canteenFragment as CanteenFragment
                     )
                 }
             }

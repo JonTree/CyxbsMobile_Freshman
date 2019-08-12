@@ -9,7 +9,9 @@ import android.view.View
 import android.widget.Toast
 import com.mredrock.cyxbs.common.ui.BaseActivity
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.data.bean.NecessityBean
 import com.mredrock.cyxbs.freshman.event.MemoEvet
+import com.mredrock.cyxbs.freshman.event.UpDataMemo
 import kotlinx.android.synthetic.main.freshman_activity_necessities_memo.*
 import org.greenrobot.eventbus.EventBus
 
@@ -24,17 +26,23 @@ class NecessitiesMemoActivity : BaseActivity() {
             finish()
         }
         tv_memo_save.setOnClickListener {
-
-            EventBus.getDefault().post(MemoEvet(et_memo_edit.text.toString()))
+            val memo = intent.getSerializableExtra("memo") as NecessityBean.TextBean
+            val save = NecessityBean.TextBean.DataBean()
+                .apply {
+                    name = et_memo_edit.text.toString()
+                    detail = ""
+                    open = false
+                }
+            memo.data.add(save)
+            EventBus.getDefault().post(UpDataMemo(memo))
             finish()
         }
-        et_memo_edit.addTextChangedListener(object :TextWatcher{
+        et_memo_edit.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 if (s.toString().toCharArray().isNotEmpty()) {
                     tv_memo_save.visibility = View.VISIBLE
                 } else {
                     tv_memo_save.visibility = View.GONE
-
                 }
             }
 

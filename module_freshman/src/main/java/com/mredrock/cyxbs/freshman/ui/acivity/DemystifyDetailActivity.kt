@@ -33,7 +33,7 @@ class DemystifyDetailActivity : BaseActivity() {
     fun upData(campusGuideManAndWomanBean: CampusGuideManAndWomanBean) {
         vp_demystify_detail.adapter = DemysityDetailViewPagerAdapter(
             this,
-            intent.getSerializableExtra("bean") as CampusGuideSubjectBean,
+            intent.getSerializableExtra("memo") as CampusGuideSubjectBean,
             campusGuideManAndWomanBean,
             intent.getIntExtra("position", -1)
         )

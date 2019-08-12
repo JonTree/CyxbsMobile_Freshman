@@ -29,8 +29,6 @@ class ProcessActivity : BaseViewModelActivity<ProcessViewModel>() {
         common_toolbar.init(
             title = "入学流程"
         )
-        val fade = Fade()
-        window.enterTransition = fade
         recycle_view_process.layoutManager = LinearLayoutManager(this)
     }
 

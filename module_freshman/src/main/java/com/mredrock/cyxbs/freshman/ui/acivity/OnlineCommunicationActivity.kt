@@ -10,6 +10,7 @@ import kotlinx.android.synthetic.main.freshman_activity_online_communication.*
 import com.mredrock.cyxbs.freshman.adapter.OnlineCommunicationViewPaggerAdapter
 import com.mredrock.cyxbs.freshman.data.bean.GroupHomeBean
 import com.mredrock.cyxbs.freshman.data.bean.GroupStudentBean
+import com.mredrock.cyxbs.freshman.data.bean.OnlineActivitiesBean
 import com.mredrock.cyxbs.freshman.util.apiService
 import okhttp3.RequestBody
 import org.greenrobot.eventbus.Subscribe
@@ -28,8 +29,6 @@ class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationVie
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.freshman_activity_online_communication)
-        val fade = Fade()
-        window.enterTransition = fade
         common_toolbar.init(
             title = "线上交流"
         )
@@ -48,5 +47,11 @@ class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationVie
     @Subscribe(sticky = true)
     fun upData(groupBean: GroupHomeBean) {
         adapter?.initPager2(groupBean)
+    }
+
+
+    @Subscribe(sticky = true)
+    fun upData(bean: OnlineActivitiesBean) {
+        adapter?.initPager3(bean)
     }
 }

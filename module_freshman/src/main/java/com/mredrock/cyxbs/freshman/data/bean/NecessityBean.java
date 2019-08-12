@@ -45,7 +45,7 @@ public class NecessityBean extends BaseObservable implements Serializable {
         this.text = text;
     }
 
-    public static class TextBean extends BaseObservable{
+    public static class TextBean extends BaseObservable implements Serializable{
         /**
          * title : 报道必备
          * data : [{"name":"录取通知书","detail":"...."},{"name":"高考准考证","detail":"...."}]
@@ -81,7 +81,7 @@ public class NecessityBean extends BaseObservable implements Serializable {
             notifyChange();
         }
 
-        public static class DataBean extends BaseObservable{
+        public static class DataBean extends BaseObservable implements Serializable{
             /**
              * name : 录取通知书
              * detail : ....
@@ -96,13 +96,13 @@ public class NecessityBean extends BaseObservable implements Serializable {
             private String detail;
             private boolean open = false;
             private boolean openAble;
-            private boolean choosed = false;
+            private boolean isPrepared = false;
 
 
 
 
             public void onCheckBoxClicked(){
-                choosed = !choosed;
+                isPrepared = !isPrepared;
                 notifyChange();
             }
 
@@ -115,12 +115,12 @@ public class NecessityBean extends BaseObservable implements Serializable {
                 notifyChange();
             }
 
-            public boolean getChoosed() {
-                return choosed;
+            public boolean getPrepared() {
+                return isPrepared;
             }
 
-            public void setChoosed(boolean choosed) {
-                this.choosed = choosed;
+            public void setPrepared(boolean prepared) {
+                this.isPrepared = prepared;
                 Log.d("TestTag","setchoosed");
                 notifyChange();
             }

@@ -5,6 +5,7 @@ import androidx.databinding.BaseObservable;
 import java.util.List;
 /**
  * Created by Tree on 2019/8/2 16:17
+ * @author 12466
  */
 public class OnlineActivitiesBean extends BaseObservable {
 
@@ -43,7 +44,7 @@ public class OnlineActivitiesBean extends BaseObservable {
         this.text = text;
     }
 
-    public static class TextBean extends BaseObservable{
+    public static class TextBean {
         /**
          * name : 学长学姐帮帮忙
          * photo : ....

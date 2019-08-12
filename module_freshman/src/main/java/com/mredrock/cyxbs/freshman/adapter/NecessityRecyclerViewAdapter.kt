@@ -83,10 +83,6 @@ class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapt
 
             beanNum++
         }
-        LogUtils.d(
-            "MyTag",
-            "position=$position,beanNum=$beanNum,flag=$flag,lastFlag=$lastFlag,title=${holder is TitleViewHolder}"
-        )
         when (holder) {
             is TitleViewHolder -> {
                 if (bean.text[beanNum].data != null)
@@ -98,16 +94,6 @@ class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapt
                     holder.binding.bean = bean.text[beanNum].data[position - lastFlag - 1]
                 if(holder.binding.bean?.detail != "")
                     holder.binding.bean?.openAble = true
-
-
-//                holder.itemView.ll_necessity_item.measure(View.MeasureSpec.makeMeasureSpec(windowWidth!!.toInt(),View.MeasureSpec.EXACTLY)
-//                    ,0)
-
-
-
-                LogUtils.d("MyTag","height=${holder.textView_detail.measuredHeight}")
-
-
 
             }
         }
