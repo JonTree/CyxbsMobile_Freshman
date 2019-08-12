@@ -49,9 +49,6 @@ class OnlineGroupSearchRecycleViewAdapter(val context: Context): RecyclerView.Ad
 
 
                 }
-//                tv_group_confirm.setOnClickListener {
-//
-//                }
             }
             activity.dialog?.show()
         }

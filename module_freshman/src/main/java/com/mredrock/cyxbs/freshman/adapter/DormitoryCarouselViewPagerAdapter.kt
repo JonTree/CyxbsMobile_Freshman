@@ -66,7 +66,7 @@ class DormitoryCarouselViewPagerAdapter(val context: Context, val list: List<Str
                 LinearLayout.LayoutParams.MATCH_PARENT
             )
             scaleType = ImageView.ScaleType.CENTER_CROP
-            imageBitmap = BitmapFactory.decodeResource(context.resources,R.drawable.freshman_text)
+            imageBitmap = BitmapFactory.decodeResource(context.resources,R.drawable.common_place_holder)
         }
         container.addView(view)
         return view

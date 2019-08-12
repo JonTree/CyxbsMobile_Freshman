@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:paddingStart="15dp"
               android:paddingEnd="15dp"
@@ -8,7 +9,9 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
-    <LinearLayout
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:background="@drawable/freshman_backgroup_view_pager_item"
             android:orientation="vertical"
             android:padding="18dp"
@@ -16,77 +19,85 @@
             android:layout_height="wrap_content">
 
         <View
+                android:layout_height="1dp"
+                android:layout_width="1dp"
                 android:layout_marginStart="1000dp"
                 android:layout_marginEnd="1000dp"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
-
-        <ImageView
-                android:id="@+id/iv_online_activity"
-                android:src="@drawable/freshman_text"
+        <LinearLayout
+                android:id="@+id/ll_online_ig"
+                android:background="#aec0ff"
+                android:padding="1dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:scaleType="fitXY"/>
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintVertical_bias="0.0">
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <ImageView
+                    android:id="@+id/iv_online_activity"
+                    android:src="@drawable/common_place_holder"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"/>
 
+
+        </LinearLayout>
+
+
+        <TextView
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_online_activity_tiltle"
+                app:layout_constraintBottom_toBottomOf="@+id/ll_online_activity_button"
+                app:layout_constraintTop_toTopOf="@+id/ll_online_activity_button"
+                app:layout_constraintEnd_toStartOf="@+id/ll_online_activity_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintVertical_bias="0.5"
+                android:textStyle="bold"/>
+
+
+        <LinearLayout
+                android:id="@+id/ll_online_activity_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/freshman_shape_online_activity"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@+id/ll_online_ig"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="12dp"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toStartOf="parent">
 
             <TextView
-                    android:textSize="15sp"
+                    android:id="@+id/tv_participate_immediately"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginBottom="9dp"
+                    android:text="立即参与"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintHorizontal_bias="0"
-                    app:layout_constraintVertical_bias="0.5"
-                    android:id="@+id/tv_online_activity_tiltle"/>
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
 
 
-            <LinearLayout
-                    android:id="@+id/ll_online_activity_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/freshman_shape_online_activity"
-                    app:layout_constraintStart_toEndOf="@+id/tv_online_activity_tiltle"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginStart="8dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/tv_online_activity_tiltle"
-                    android:gravity="center"
-                    app:layout_constraintTop_toTopOf="@+id/tv_online_activity_tiltle"
-                    app:layout_constraintHorizontal_bias="1"
-                    app:layout_constraintVertical_bias="0.5">
-
-                <TextView
-                        android:id="@+id/tv_participate_immediately"
-                        android:textColor="#ffffff"
-                        android:textSize="14sp"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginTop="9dp"
-                        android:layout_marginBottom="9dp"
-                        android:text="立即参与"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
 

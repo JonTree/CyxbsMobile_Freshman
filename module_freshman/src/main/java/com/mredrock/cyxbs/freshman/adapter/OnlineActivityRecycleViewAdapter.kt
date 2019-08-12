@@ -14,8 +14,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.Model.saveBitmap
 import com.mredrock.cyxbs.freshman.data.bean.OnlineActivitiesBean
+import com.mredrock.cyxbs.freshman.ui.acivity.OnlineCommunicationActivity
+import com.mredrock.cyxbs.freshman.updata.IMAGE_BASE_URI
 import com.mredrock.cyxbs.freshman.util.Util
 import kotlinx.android.synthetic.main.freshman_activity_more_funtion.*
+import kotlinx.android.synthetic.main.freshman_activity_online_communication.*
+import kotlinx.android.synthetic.main.freshman_activity_online_communication.view.*
+import kotlinx.android.synthetic.main.freshman_activity_online_communication.view.rl_vx
 import kotlinx.android.synthetic.main.freshman_popuo_layout.view.*
 import kotlinx.android.synthetic.main.freshman_recycle_view_item_online_acitivity.view.*
 import kotlinx.android.synthetic.main.freshman_view_pager_page_online_activity.view.*
@@ -23,7 +28,7 @@ import kotlinx.android.synthetic.main.freshman_view_pager_page_online_activity.v
 /**
  * Created by Tree on 2019/8/11 20:41
  */
-class OnlineActivityRecycleViewAdapter (val context: Context,val bean: OnlineActivitiesBean,val view:View): RecyclerView.Adapter<OnlineActivityRecycleViewAdapter.ViewHolder>() {
+class OnlineActivityRecycleViewAdapter (val context: Context,val bean: OnlineActivitiesBean): RecyclerView.Adapter<OnlineActivityRecycleViewAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         initPopupWindow()
         return ViewHolder(
@@ -34,17 +39,22 @@ class OnlineActivityRecycleViewAdapter (val context: Context,val bean: OnlineAct
         )
     }
 
+    lateinit var activity: OnlineCommunicationActivity
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemView.apply {
-            Util.loadImage(iv_online_activity, bean.text[position].photo, null)
+            Util.loadImage(iv_online_activity, "$IMAGE_BASE_URI${bean.text[position].photo}", null)
             tv_online_activity_tiltle.text = bean.text[position].name
         }
         holder.itemView.ll_online_activity_button.setOnClickListener {
-            view.rl_vx.visibility = View.VISIBLE
-            view.rl_vx.setOnClickListener {
+            activity = context as OnlineCommunicationActivity
+            activity.rl_vx.visibility = View.VISIBLE
+            activity.isOpen = true
+            activity.rl_vx.setOnClickListener {
                 it.visibility = View.GONE
+                activity.isOpen = false
             }
-            view.img_vx.setOnLongClickListener {
+            activity.rl_vx.img_vx.setOnLongClickListener {
                 showPopWindow()
                 true
             }
@@ -81,7 +91,7 @@ class OnlineActivityRecycleViewAdapter (val context: Context,val bean: OnlineAct
         content!!.tv_cancel_popup_layout.setOnClickListener {
             if(popupWindow!!.isShowing)
                 popupWindow!!.dismiss()
-            view.rl_vx.visibility = View.VISIBLE
+            activity.rl_vx.visibility = View.VISIBLE
         }
         //进入退出的动画
         popupWindow?.setAnimationStyle(R.style.Animation_AppCompat_DropDownUp)
@@ -89,7 +99,7 @@ class OnlineActivityRecycleViewAdapter (val context: Context,val bean: OnlineAct
 
     private fun showPopWindow() {
 
-        popupWindow?.showAtLocation(view, Gravity.BOTTOM, 0, 0)
+        popupWindow?.showAtLocation(activity.view, Gravity.BOTTOM, 0, 0)
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)

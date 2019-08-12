@@ -34,14 +34,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-
-                <ImageView
-                        android:id="@+id/image_view_tiltle"
-                        android:src="@drawable/freshman_text"
+                <LinearLayout
+                        android:background="#aec0ff"
+                        android:padding="1dp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitXY"/>
+                        android:layout_height="wrap_content">
+
+                    <ImageView
+                            android:id="@+id/image_view_tiltle"
+                            android:src="@drawable/common_place_holder"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitXY"/>
+
+
+                </LinearLayout>
+
+
+
 
 
                 <TextView

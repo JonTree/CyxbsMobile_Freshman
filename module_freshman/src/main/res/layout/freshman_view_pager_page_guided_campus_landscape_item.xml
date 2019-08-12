@@ -26,7 +26,7 @@
 
                 <ImageView
                         android:id="@+id/image_view_sight_seeing_tiltle1"
-                        android:src="@drawable/freshman_text"
+                        android:src="@drawable/common_place_holder"
                         android:scaleType="centerCrop"
                         android:layout_width="match_parent"
                         android:layout_height="96dp"/>
@@ -68,7 +68,7 @@
 
                 <ImageView
                         android:id="@+id/image_view_sight_seeing_tiltle2"
-                        android:src="@drawable/freshman_text"
+                        android:src="@drawable/common_place_holder"
                         android:scaleType="centerCrop"
                         android:layout_width="match_parent"
                         android:layout_height="96dp"/>

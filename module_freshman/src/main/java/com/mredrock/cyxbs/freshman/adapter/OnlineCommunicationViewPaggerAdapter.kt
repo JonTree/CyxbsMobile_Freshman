@@ -177,7 +177,7 @@ class OnlineCommunicationViewPaggerAdapter(val context: Context) : PagerAdapter(
     fun initPager3(bean: OnlineActivitiesBean) {
         pageList[2].apply {
             recycle_view_online_activity.layoutManager = LinearLayoutManager(context)
-            recycle_view_online_activity.adapter = OnlineActivityRecycleViewAdapter(context,bean,this)
+            recycle_view_online_activity.adapter = OnlineActivityRecycleViewAdapter(context,bean)
         }
     }
 
