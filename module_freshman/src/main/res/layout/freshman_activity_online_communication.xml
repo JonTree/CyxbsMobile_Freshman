@@ -7,6 +7,13 @@
 
     </data>
 
+    <FrameLayout
+            android:animateLayoutChanges="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
         <LinearLayout
                 android:scrollbars="none"
                 android:background="#EFF7FF"
@@ -93,6 +100,45 @@
 
 
         </LinearLayout>
+
+
+    <RelativeLayout
+            android:id="@+id/rl_vx"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#20000000">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_centerInParent="true"
+                android:orientation="vertical"
+                android:background="@color/cardview_light_background">
+            <ImageView
+                    android:id="@+id/img_vx"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/freshman_more_function_qr_code"/>
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginLeft="36dp"
+                    android:layout_marginRight="36dp"
+                    android:layout_marginBottom="40dp"
+                    android:text="关注'重邮小帮手'微信公众号，参与学长学姐帮帮忙"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    </FrameLayout>
+
 
 
 </layout>

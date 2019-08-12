@@ -21,7 +21,6 @@ class OnlineGroupSearchRecycleViewAdapter(val context: Context): RecyclerView.Ad
 
     private var bean: GroupStudentBean? = null
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context).inflate(
@@ -47,8 +46,6 @@ class OnlineGroupSearchRecycleViewAdapter(val context: Context): RecyclerView.Ad
                     fsv.setOnAnimationDoneListener {
                         ll_fsv.visibility = View.GONE
                         activity.dialog?.dismiss()
-
-
                     }
                 }
             }
@@ -65,6 +62,4 @@ class OnlineGroupSearchRecycleViewAdapter(val context: Context): RecyclerView.Ad
         this.notifyDataSetChanged()
     }
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-
-
 }

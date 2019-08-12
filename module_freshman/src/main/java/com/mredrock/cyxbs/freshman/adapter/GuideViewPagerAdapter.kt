@@ -172,6 +172,7 @@ class GuideViewPagerAdapter(val context: Context, private val guideDataEvent: Gu
                                 ll_guide_scenery_container.addView(
                                     viewItem?.apply {
                                         Util.loadImage(this.image_view_sight_seeing_tiltle1, msg.photo, null)
+
                                         this.image_view_sight_seeing_tiltle1.setOnClickListener {
                                             showPhotos(context,guideDataEvent.campusSightseeingBean.text.message.map { it.photo },guideDataEvent.campusSightseeingBean.text.message.indexOf(msg))
                                         }

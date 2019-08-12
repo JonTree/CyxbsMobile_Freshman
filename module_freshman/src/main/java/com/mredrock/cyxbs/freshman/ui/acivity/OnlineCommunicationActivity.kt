@@ -29,6 +29,8 @@ class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationVie
     var dialog:AlertDialog? = null
     var view:View? = null
 
+    var isOpen = false
+
     private var adapter: OnlineCommunicationViewPaggerAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,6 +47,15 @@ class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationVie
         tl_online_communication.setupWithViewPager(vp_online_communication)
     }
 
+
+    override fun onBackPressed() {
+        if(isOpen){
+            rl_vx.visibility = View.GONE
+            isOpen = false
+        }
+        else
+            super.onBackPressed()
+    }
 
     override fun onDestroy() {
         super.onDestroy()

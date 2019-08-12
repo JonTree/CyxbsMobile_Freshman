@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.bean.ProcessBean
 import com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemProcessBinding
+import com.mredrock.cyxbs.freshman.updata.IMAGE_BASE_URI
+import com.mredrock.cyxbs.freshman.util.Util
 import kotlinx.android.synthetic.main.freshman_recycle_item_process.view.*
 import org.jetbrains.anko.imageBitmap
 
@@ -21,13 +23,26 @@ import org.jetbrains.anko.imageBitmap
 class ProcessRecyclerViewAdapter(val bean: ProcessBean) : RecyclerView.Adapter<ProcessRecyclerViewAdapter.ViewHolder>() {
     lateinit var context:Context
 
-    val isOpen = mutableListOf<Boolean>()
+    private var isOpen = mutableListOf<Boolean>()
+
+    private var photoList:List<String>? = null
+
+    private val viewHolderList = mutableListOf<ProcessRecyclerViewAdapter.ViewHolder?>()
+
+
+    init {
+        for (text in  bean.text) {
+            text.photo = "$IMAGE_BASE_URI${text.photo}"
+        }
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.freshman_recycle_item_process, null)
         val binding = DataBindingUtil.bind<FreshmanRecycleItemProcessBinding>(view)!!
         for (i in 0 until bean.text.size - 1) {
             isOpen.add(false)
+            viewHolderList.add(null)
         }
         context = parent.context
         return ViewHolder(view,binding)
@@ -35,8 +50,8 @@ class ProcessRecyclerViewAdapter(val bean: ProcessBean) : RecyclerView.Adapter<P
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        viewHolderList[position] = holder
         holder.binding.bean = bean.text[position + 1]
-
         holder.itemView.apply {
             if (isOpen[position]) {
                 iv_arrow_indicator.imageBitmap = BitmapFactory.decodeResource(context.resources,R.drawable.freshman_more_function_arrow_top)
@@ -51,12 +66,22 @@ class ProcessRecyclerViewAdapter(val bean: ProcessBean) : RecyclerView.Adapter<P
                     ll_process.visibility = View.GONE
                     isOpen[position] = !isOpen[position]
                 }else{
+                    viewHolderList.forEach { it?.let { it.itemView.ll_process.visibility = View.GONE }}
+                    for (i in 0 until isOpen.size) {
+                        isOpen[i] = false
+                    }
                     iv_arrow_indicator.imageBitmap = BitmapFactory.decodeResource(context.resources,R.drawable.freshman_more_function_arrow_top)
                     ll_process.visibility = View.VISIBLE
                     isOpen[position] = !isOpen[position]
                 }
             }
+
+
+
         }
+
+
+
     }
 
     override fun getItemCount(): Int {
