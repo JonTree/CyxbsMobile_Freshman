@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.adapter
 
+import android.animation.AnimatorSet
 import android.animation.ValueAnimator
 import android.content.Context
 import android.util.DisplayMetrics
@@ -135,4 +136,5 @@ class TitleViewHolder(item: View, val binding: FreshmanRecycleItemNecessityTitle
 class ItemViewHolder(item: View, val binding: FreshmanRecycleItemNecessityItemBinding,val context:Context) : RecyclerView.ViewHolder(item) {
     val textView_title: TextView = item.tv_necessity_item_name
     val textView_detail: TextView = item.tv_necessity_detail
+    val check = item.cb_necessity
 }

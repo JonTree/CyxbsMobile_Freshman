@@ -19,6 +19,7 @@ import android.widget.TextView
 import android.view.KeyEvent
 import android.widget.EditText
 import com.mredrock.cyxbs.freshman.data.bean.OnlineActivitiesBean
+import com.mredrock.cyxbs.freshman.ui.acivity.OnlineCommunicationActivity
 import kotlinx.android.synthetic.main.freshman_view_pager_page_online_activity.view.*
 
 
@@ -88,7 +89,7 @@ class OnlineCommunicationViewPaggerAdapter(val context: Context) : PagerAdapter(
                     fuzzySearch1(et_group){
                         if (it.text == null) {
                             if (s.toString().toCharArray().isEmpty()) {
-                                recycle_view_group.adapter = OnlineGroupStudentRecycleViewAdapter(groupBean)
+                                recycle_view_group.adapter = OnlineGroupStudentRecycleViewAdapter(groupBean,context)
                             }
                             adapter.updata(null)
                         } else {
@@ -110,7 +111,7 @@ class OnlineCommunicationViewPaggerAdapter(val context: Context) : PagerAdapter(
                                 et_group.text.clear()
                                 et_group.hint = "暂时没有你想要的群号"
                             } else {
-                                recycle_view_group.adapter = OnlineGroupStudentRecycleViewAdapter(it)
+                                recycle_view_group.adapter = OnlineGroupStudentRecycleViewAdapter(it,context)
                             }
                         }
                         return true
@@ -119,15 +120,7 @@ class OnlineCommunicationViewPaggerAdapter(val context: Context) : PagerAdapter(
                 }
             })
             recycle_view_group.layoutManager = LinearLayoutManager(context)
-            recycle_view_group.adapter = OnlineGroupStudentRecycleViewAdapter(groupBean)
-        }
-    }
-
-
-    fun initPager3(bean: OnlineActivitiesBean) {
-        pageList[2].apply {
-            recycle_view_online_activity.layoutManager = LinearLayoutManager(context)
-            recycle_view_online_activity.adapter = OnlineActivityRecycleViewAdapter(bean)
+            recycle_view_group.adapter = OnlineGroupStudentRecycleViewAdapter(groupBean,context)
         }
     }
 
@@ -144,7 +137,7 @@ class OnlineCommunicationViewPaggerAdapter(val context: Context) : PagerAdapter(
                     fuzzySearch2(et_group){
                         if (it.text == null) {
                             if (s.toString().toCharArray().isEmpty()) {
-                                recycle_view_group.adapter = OnlineGroupHomeRecycleViewAdapter(groupBean)
+                                recycle_view_group.adapter = OnlineGroupHomeRecycleViewAdapter(groupBean,context)
                             }
                             adapter.updata(null)
                         } else {
@@ -166,7 +159,7 @@ class OnlineCommunicationViewPaggerAdapter(val context: Context) : PagerAdapter(
                                 et_group.text.clear()
                                 et_group.hint = "暂时没有你想要的群号"
                             } else {
-                                recycle_view_group.adapter = OnlineGroupStudentRecycleViewAdapter(it)
+                                recycle_view_group.adapter = OnlineGroupStudentRecycleViewAdapter(it,context)
                             }
                         }
                         return true
@@ -175,9 +168,19 @@ class OnlineCommunicationViewPaggerAdapter(val context: Context) : PagerAdapter(
                 }
             })
             recycle_view_group.layoutManager = LinearLayoutManager(context)
-            recycle_view_group.adapter = OnlineGroupHomeRecycleViewAdapter(groupBean)
+            recycle_view_group.adapter = OnlineGroupHomeRecycleViewAdapter(groupBean,context)
         }
     }
+
+
+
+    fun initPager3(bean: OnlineActivitiesBean) {
+        pageList[2].apply {
+            recycle_view_online_activity.layoutManager = LinearLayoutManager(context)
+            recycle_view_online_activity.adapter = OnlineActivityRecycleViewAdapter(bean)
+        }
+    }
+
 
 
     fun fuzzySearch1(et_group: EditText,funtion: (GroupStudentBean) -> Unit) {

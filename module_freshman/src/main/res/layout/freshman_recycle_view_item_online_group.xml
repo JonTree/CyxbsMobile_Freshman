@@ -17,6 +17,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_online_group_click"
                 android:background="@drawable/freshman_shape_online_group"
                 android:layout_marginTop="15dp"
                 android:layout_width="match_parent"

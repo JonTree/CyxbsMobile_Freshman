@@ -15,7 +15,7 @@ import com.google.gson.JsonObject
 /**
  * Created by Tree on 2019/8/8 15:32
  */
-const val DATA_BASE_URI = "http://129.28.185.138:9025/"
+const val DATA_BASE_URI = "http://129.28.185.138:8080/"
 const val IMAGE_BASE_URI = "${DATA_BASE_URI}zsqy/image/"
 
 interface APIService {

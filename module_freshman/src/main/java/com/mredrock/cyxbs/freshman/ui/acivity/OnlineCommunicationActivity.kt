@@ -1,8 +1,10 @@
 package com.mredrock.cyxbs.freshman.ui.acivity
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.transition.Fade
 import android.util.Log
+import android.view.View
 import com.mredrock.cyxbs.common.ui.BaseViewModelActivity
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.ViewModel.OnlineCommunicationViewModel
@@ -24,6 +26,9 @@ class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationVie
     override val isFragmentActivity: Boolean = false
     //To change initializer of created properties use File | Settings | File Templates.
 
+    var dialog:AlertDialog? = null
+    var view:View? = null
+
     private var adapter: OnlineCommunicationViewPaggerAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,11 +37,20 @@ class OnlineCommunicationActivity : BaseViewModelActivity<OnlineCommunicationVie
         common_toolbar.init(
             title = "线上交流"
         )
+        viewModel.initDialog(this)
+        dialog = viewModel.alertDialog
+        view = viewModel.view
         adapter = OnlineCommunicationViewPaggerAdapter(this)
         vp_online_communication.adapter = adapter
         tl_online_communication.setupWithViewPager(vp_online_communication)
+    }
 
 
+    override fun onDestroy() {
+        super.onDestroy()
+        dialog = null
+        view = null
+        viewModel.dialogDismiss()
     }
 
     @Subscribe(sticky = true)

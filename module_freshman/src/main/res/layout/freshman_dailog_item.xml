@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:layout_width="300dp"
+              android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
 
     <LinearLayout
             android:paddingTop="37dp"
-            android:paddingStart="24dp"
-            android:paddingEnd="24dp"
+            android:paddingBottom="31dp"
             android:gravity="center"
+            android:orientation="vertical"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp">
 
         <TextView
+                android:id="@+id/tv_group_name"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:id="@+id/tv_group_qq_num"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 android:gravity="center"
@@ -37,31 +45,31 @@
             android:layout_height="wrap_content">
 
         <TextView
+                android:text="取消"
+                android:id="@+id/tv_group_cancle"
                 android:gravity="center"
                 android:textColor="#A3A3A3"
                 android:textSize="16sp"
-                android:layout_marginTop="22dp"
-                android:layout_marginBottom="22dp"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent"/>
 
 
         <View
                 android:background="#EEEEEE"
                 android:layout_width="1dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="57dp"/>
 
 
         <TextView
+                android:id="@+id/tv_group_confirm"
+                android:text="复制"
                 android:gravity="center"
                 android:textSize="16sp"
-                android:textColor="#A3A3A3"
-                android:layout_marginTop="22dp"
-                android:layout_marginBottom="22dp"
+                android:textColor="#4672ff"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content"/>
+                android:layout_height="match_parent"/>
 
 
     </LinearLayout>
