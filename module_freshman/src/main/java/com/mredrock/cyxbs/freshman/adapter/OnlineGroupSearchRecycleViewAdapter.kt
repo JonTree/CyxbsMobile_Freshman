@@ -39,18 +39,19 @@ class OnlineGroupSearchRecycleViewAdapter(val context: Context): RecyclerView.Ad
             activity.view?.apply {
                 tv_group_name.text = bean?.text?.get(position)?.name ?:""
                 tv_group_qq_num.text = bean?.text?.get(position)?.data ?: ""
-                tv_group_confirm.setOnClickListener {
-                    val  mClipData = ClipData.newPlainText("Label", bean?.text?.get(position)?.data)
-                    (activity.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).primaryClip = mClipData
-                    ll_fsv.visibility = View.VISIBLE
-                    fsv.doAnimation()
-                    fsv.setOnAnimationDoneListener {
-                        ll_fsv.visibility = View.GONE
-                        activity.dialog?.dismiss()
+                val  mClipData = ClipData.newPlainText("Label", bean?.text?.get(position)?.data)
+                (activity.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).primaryClip = mClipData
+                ll_fsv.visibility = View.VISIBLE
+                fsv.doAnimation()
+                fsv.setOnAnimationDoneListener {
+                    ll_fsv.visibility = View.GONE
+                    activity.dialog?.dismiss()
 
 
-                    }
                 }
+//                tv_group_confirm.setOnClickListener {
+//
+//                }
             }
             activity.dialog?.show()
         }

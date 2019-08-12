@@ -51,6 +51,7 @@ class OnlineGroupHomeRecycleViewAdapter(val bean: GroupHomeBean,val context: Con
                     }
                 }
             }
+
             activity.dialog?.show()
         }
     }
