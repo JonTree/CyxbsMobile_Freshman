@@ -41,4 +41,8 @@
         <item name="colorControlActivated">#AEC0FF</item>
     </style>
 
+    <style name="freshman.custom.checkbox.theme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/freshman_check_selector</item>
+    </style>
+
 </resources>

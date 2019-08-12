@@ -51,8 +51,8 @@ class NecessitiesMemoActivity : BaseActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s.toString().toCharArray().size > 15) {
-                    Toast.makeText(this@NecessitiesMemoActivity, "字数超过限制了哦，改一下吧。", Toast.LENGTH_SHORT).show()
                     et_memo_edit.setText(s.toString().substring(0, 15))
+                    et_memo_edit.setSelection(15)
                 }
             }
         })

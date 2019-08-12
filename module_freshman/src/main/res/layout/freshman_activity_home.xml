@@ -175,14 +175,14 @@
 
                         <View
                                 android:layout_width="match_parent"
-                                android:layout_height="43dp"/>
+                                android:layout_height="41dp"/>
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                                 android:layout_marginHorizontal="20dp"
                                 android:layout_marginBottom="12dp"
                                 android:background="@mipmap/freshman_backgroup_item"
                                 android:layout_width="match_parent"
-                                android:layout_height="80dp"
+                                android:layout_height="wrap_content"
                                 android:onClick="@{()->activity.onClick(1)}">
 
                             <TextView
@@ -196,8 +196,9 @@
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
                                     android:layout_marginBottom="8dp"
+                                    android:layout_marginTop="20dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintVertical_bias="0.32999998"
+                                    app:layout_constraintVertical_bias="0.0"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     android:id="@+id/freshman_textview_1"
                                     android:layout_marginStart="24dp"/>
@@ -211,9 +212,9 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     android:layout_marginEnd="8dp"
                                     app:layout_constraintStart_toStartOf="@+id/freshman_textview_1"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="5dp"
                                     app:layout_constraintTop_toBottomOf="@+id/freshman_textview_1"
-                                    android:layout_marginBottom="8dp"
+                                    android:layout_marginBottom="23dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintVertical_bias="0.0"/>
@@ -242,7 +243,7 @@
                                 android:layout_marginBottom="12dp"
                                 android:background="@mipmap/freshman_backgroup_item"
                                 android:layout_width="match_parent"
-                                android:layout_height="80dp"
+                                android:layout_height="wrap_content"
                                 android:onClick="@{()->activity.onClick(2)}">
 
                             <TextView
@@ -256,8 +257,9 @@
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
                                     android:layout_marginBottom="8dp"
+                                    android:layout_marginTop="20dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintVertical_bias="0.32999998"
+                                    app:layout_constraintVertical_bias="0.0"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     android:id="@+id/freshman_textview_2"
                                     android:layout_marginStart="24dp"/>
@@ -271,9 +273,9 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     android:layout_marginEnd="8dp"
                                     app:layout_constraintStart_toStartOf="@+id/freshman_textview_2"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="5dp"
                                     app:layout_constraintTop_toBottomOf="@+id/freshman_textview_2"
-                                    android:layout_marginBottom="8dp"
+                                    android:layout_marginBottom="23dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintVertical_bias="0.0"/>
@@ -301,7 +303,7 @@
                                 android:layout_marginBottom="12dp"
                                 android:background="@mipmap/freshman_backgroup_item"
                                 android:layout_width="match_parent"
-                                android:layout_height="80dp"
+                                android:layout_height="wrap_content"
                                 android:onClick="@{()->activity.onClick(3)}">
 
                             <TextView
@@ -316,8 +318,9 @@
                                     app:layout_constraintTop_toTopOf="parent"
                                     android:layout_marginBottom="8dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintVertical_bias="0.32999998"
+                                    app:layout_constraintVertical_bias="0.0"
                                     app:layout_constraintHorizontal_bias="0.0"
+                                    android:layout_marginTop="20dp"
                                     android:id="@+id/freshman_textview_3"
                                     android:layout_marginStart="24dp"/>
 
@@ -330,9 +333,9 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     android:layout_marginEnd="8dp"
                                     app:layout_constraintStart_toStartOf="@+id/freshman_textview_3"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="5dp"
                                     app:layout_constraintTop_toBottomOf="@+id/freshman_textview_3"
-                                    android:layout_marginBottom="8dp"
+                                    android:layout_marginBottom="23dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintVertical_bias="0.0"/>
@@ -361,7 +364,7 @@
                                 android:layout_marginBottom="12dp"
                                 android:background="@mipmap/freshman_backgroup_item"
                                 android:layout_width="match_parent"
-                                android:layout_height="80dp"
+                                android:layout_height="wrap_content"
                                 android:onClick="@{()->activity.onClick(4)}">
 
                             <TextView
@@ -376,10 +379,11 @@
                                     app:layout_constraintTop_toTopOf="parent"
                                     android:layout_marginBottom="8dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintVertical_bias="0.32999998"
+                                    app:layout_constraintVertical_bias="0.0"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     android:id="@+id/freshman_textview_4"
-                                    android:layout_marginStart="24dp"/>
+                                    android:layout_marginStart="24dp"
+                                    android:layout_marginTop="20dp"/>
 
                             <TextView
                                     android:text="宿舍  食堂  快递  数据揭秘"
@@ -390,9 +394,9 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     android:layout_marginEnd="8dp"
                                     app:layout_constraintStart_toStartOf="@+id/freshman_textview_4"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="5dp"
                                     app:layout_constraintTop_toBottomOf="@+id/freshman_textview_4"
-                                    android:layout_marginBottom="8dp"
+                                    android:layout_marginBottom="23dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintVertical_bias="0.0"/>
@@ -421,7 +425,7 @@
                                 android:layout_marginBottom="12dp"
                                 android:background="@mipmap/freshman_backgroup_item"
                                 android:layout_width="match_parent"
-                                android:layout_height="80dp"
+                                android:layout_height="wrap_content"
                                 android:onClick="@{()->activity.onClick(5)}">
 
                             <TextView
@@ -436,10 +440,11 @@
                                     app:layout_constraintTop_toTopOf="parent"
                                     android:layout_marginBottom="8dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintVertical_bias="0.32999998"
+                                    app:layout_constraintVertical_bias="0.0"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     android:id="@+id/freshman_textview_5"
-                                    android:layout_marginStart="24dp"/>
+                                    android:layout_marginStart="24dp"
+                                    android:layout_marginTop="20dp"/>
 
                             <TextView
                                     android:text="报到必备、军训用品"
@@ -450,9 +455,9 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     android:layout_marginEnd="8dp"
                                     app:layout_constraintStart_toStartOf="@+id/freshman_textview_5"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="5dp"
                                     app:layout_constraintTop_toBottomOf="@+id/freshman_textview_5"
-                                    android:layout_marginBottom="8dp"
+                                    android:layout_marginBottom="23dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintVertical_bias="0.0"/>
@@ -481,7 +486,7 @@
                                 android:layout_marginBottom="12dp"
                                 android:background="@mipmap/freshman_backgroup_item"
                                 android:layout_width="match_parent"
-                                android:layout_height="80dp"
+                                android:layout_height="wrap_content"
                                 android:onClick="@{()->activity.onClick(6)}">
 
                             <TextView
@@ -496,10 +501,11 @@
                                     app:layout_constraintTop_toTopOf="parent"
                                     android:layout_marginBottom="8dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintVertical_bias="0.32999998"
+                                    app:layout_constraintVertical_bias="0.0"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     android:id="@+id/freshman_textview_6"
-                                    android:layout_marginStart="24dp"/>
+                                    android:layout_marginStart="24dp"
+                                    android:layout_marginTop="20dp"/>
 
                             <TextView
                                     android:text="迎新网  重邮小帮手  发现"
@@ -510,12 +516,12 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     android:layout_marginEnd="8dp"
                                     app:layout_constraintStart_toStartOf="@+id/freshman_textview_6"
-                                    android:layout_marginTop="10dp"
+                                    android:layout_marginTop="5dp"
                                     app:layout_constraintTop_toBottomOf="@+id/freshman_textview_6"
-                                    android:layout_marginBottom="8dp"
+                                    android:layout_marginBottom="23dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintHorizontal_bias="0.0"
-                                    app:layout_constraintVertical_bias="0.0"/>
+                                    app:layout_constraintVertical_bias="1.0"/>
 
 
                             <ImageView
@@ -541,7 +547,7 @@
                                 android:layout_marginBottom="12dp"
                                 android:background="@mipmap/freshman_backgroup_item"
                                 android:layout_width="match_parent"
-                                android:layout_height="80dp"
+                                android:layout_height="85dp"
                                 android:onClick="@{()->activity.onClick(7)}">
 
                             <TextView
@@ -556,7 +562,7 @@
                                     app:layout_constraintTop_toTopOf="parent"
                                     android:layout_marginBottom="8dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintVertical_bias="0.59000003"
+                                    app:layout_constraintVertical_bias="0.57"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     android:id="@+id/freshman_textview_7"
                                     android:layout_marginStart="24dp"/>

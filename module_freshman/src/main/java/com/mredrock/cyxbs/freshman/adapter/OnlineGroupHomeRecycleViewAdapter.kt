@@ -40,7 +40,12 @@ class OnlineGroupHomeRecycleViewAdapter(val bean: GroupHomeBean,val context: Con
                 tv_group_confirm.setOnClickListener {
                     val  mClipData = ClipData.newPlainText("Label",bean.text[position].data)
                     (activity.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).primaryClip = mClipData
-                    activity.dialog?.hide()
+                    ll_fsv.visibility = View.VISIBLE
+                    fsv.setOnAnimationDoneListener {
+                        activity.dialog?.hide()
+                        ll_fsv.visibility = View.GONE
+
+                    }
                 }
             }
             activity.dialog?.show()
