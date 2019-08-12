@@ -85,6 +85,7 @@ class MoreFunctionActivity : BaseViewModelActivity<MoreFunctionViewModel>(){
                     popupWindow!!.dismiss()
             }
         }
+
         else
             super.onBackPressed()
     }
