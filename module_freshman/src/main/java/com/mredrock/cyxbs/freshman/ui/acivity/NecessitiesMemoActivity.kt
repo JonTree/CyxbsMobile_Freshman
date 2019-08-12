@@ -14,6 +14,10 @@ import com.mredrock.cyxbs.freshman.event.MemoEvet
 import com.mredrock.cyxbs.freshman.event.UpDataMemo
 import kotlinx.android.synthetic.main.freshman_activity_necessities_memo.*
 import org.greenrobot.eventbus.EventBus
+import android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT
+import com.umeng.commonsdk.stateless.UMSLEnvelopeBuild.mContext
+import android.view.inputmethod.InputMethodManager
+
 
 class NecessitiesMemoActivity : BaseActivity() {
     override val isFragmentActivity: Boolean = false
@@ -25,6 +29,7 @@ class NecessitiesMemoActivity : BaseActivity() {
         tv_memo_cancel.setOnClickListener {
             finish()
         }
+
         tv_memo_save.setOnClickListener {
             val memo = intent.getSerializableExtra("memo") as NecessityBean.TextBean
             val save = NecessityBean.TextBean.DataBean()
@@ -42,7 +47,7 @@ class NecessitiesMemoActivity : BaseActivity() {
                 if (s.toString().toCharArray().isNotEmpty()) {
                     tv_memo_save.visibility = View.VISIBLE
                 } else {
-                    tv_memo_save.visibility = View.GONE
+                    tv_memo_save.visibility = View.INVISIBLE
                 }
             }
 
@@ -50,10 +55,10 @@ class NecessitiesMemoActivity : BaseActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s.toString().toCharArray().size > 15) {
-                    Toast.makeText(this@NecessitiesMemoActivity, "字数超过限制了哦，改一下吧。", Toast.LENGTH_SHORT).show()
-                    et_memo_edit.setText(s.toString().substring(0, 15))
-                }
+//                if (s.toString().toCharArray().size > 15) {
+//                    Toast.makeText(this@NecessitiesMemoActivity, "字数超过限制了哦，改一下吧。", Toast.LENGTH_SHORT).show()
+//                    et_memo_edit.setText(s.toString().substring(0, 15))
+//                }
             }
         })
     }

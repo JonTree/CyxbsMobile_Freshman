@@ -54,7 +54,7 @@ class DemysityDetailViewPagerAdapter(val context: Context, val bean1: CampusGuid
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position){
             0 -> bean1.title
-            1 -> bean1.title
+            1 -> bean2.title
             else -> ""
         }
     }

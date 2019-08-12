@@ -27,6 +27,9 @@ class OnlineActivityRecycleViewAdapter (val bean: OnlineActivitiesBean): Recycle
             Util.loadImage(iv_online_activity, bean.text[position].photo, null)
             tv_online_activity_tiltle.text = bean.text[position].name
         }
+        holder.itemView.ll_online_activity_button.setOnClickListener {
+
+        }
     }
 
     override fun getItemCount(): Int {

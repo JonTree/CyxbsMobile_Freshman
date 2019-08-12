@@ -13,7 +13,8 @@
             android:usesCleartextTraffic="true">
         <activity android:name=".ui.acivity.EditActivity">
         </activity>
-        <activity android:name=".ui.acivity.NecessitiesMemoActivity">
+        <activity android:name=".ui.acivity.NecessitiesMemoActivity"
+                android:windowSoftInputMode="stateAlwaysVisible">
         </activity>
         <activity android:name=".ui.acivity.DemystifyDetailActivity">
         </activity>

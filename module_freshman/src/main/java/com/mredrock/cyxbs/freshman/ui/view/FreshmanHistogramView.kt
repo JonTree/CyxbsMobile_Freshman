@@ -162,7 +162,7 @@ class FreshmanHistogramView @JvmOverloads constructor(
 //        canvas?.drawPath(path,coordinatePaint)
 //        canvas?.drawTextOnPath("挂科率前三",path,0.toFloat(),0.toFloat(),coordinatePaint)
 
-        canvas?.translate(((viewWidth!!-viewWidth!!.toFloat()*0.9.toFloat()!!)*0.5).toFloat(),((viewHeight!!-viewHeight!!.toFloat()*0.9.toFloat()!!)*0.1+viewHeight!!.toFloat()*0.9.toFloat()!!).toFloat())
+        canvas?.translate(((viewWidth!!-viewWidth!!.toFloat()*0.9.toFloat()!!)*0.5).toFloat(),((viewHeight!!*0.1)*0.1+viewHeight!!.toFloat()*0.9.toFloat()!!).toFloat())
 
 
         drawHorizontal(canvas)
@@ -219,6 +219,18 @@ class FreshmanHistogramView @JvmOverloads constructor(
         if(title!= null) {
             if(title.length>6){
 
+                canvas?.drawText(
+                    title.subSequence(0,6).toString(),
+                    (pix+0.07*viewWidth!!.toFloat()*0.95.toFloat()!!).toFloat(),
+                    (mergin*viewHeight!!.toFloat()*0.9.toFloat()!!).toFloat(),
+                    textPaint
+                )
+                canvas?.drawText(
+                    title.subSequence(7,title.length).toString(),
+                    (pix+0.07*viewWidth!!.toFloat()*0.95.toFloat()!!).toFloat(),
+                    (mergin*viewHeight!!.toFloat()*1.8.toFloat()!!).toFloat(),
+                    textPaint
+                )
             }
             else
                 canvas?.drawText(

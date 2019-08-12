@@ -5,6 +5,8 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.text.Html
 import android.view.View
@@ -26,7 +28,10 @@ import kotlinx.android.synthetic.main.freshman_view_pager_page_guided_campus_lan
 import org.jetbrains.anko.windowManager
 import android.util.DisplayMetrics
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import com.bumptech.glide.Glide
+import org.jetbrains.anko.toast
 
 
 /**
@@ -58,6 +63,12 @@ class GuideViewPagerAdapter(val context: Context, val guideDataEvent: GuideDataE
             R.layout.freshman_view_pager_page_guided_bus_way,
             null
         ).apply {
+
+            this.tv_bus_way_copy.setOnClickListener {
+                val  mClipData = ClipData.newPlainText("Label",guideDataEvent.guideBusBean.text_1.message)
+                (context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).primaryClip = mClipData
+                Toast.makeText(context,"复制成功",Toast.LENGTH_SHORT).show()
+            }
             DataBindingUtil.bind<FreshmanViewPagerPageGuidedBusWayBinding>(this)?.bean = guideDataEvent.guideBusBean
             for (msg in guideDataEvent.guideBusBean.text_2.message) {
                 LogUtils.d("MyTag0", "${ll_guide_bus_routes_item == null}")
