@@ -104,6 +104,7 @@
                     android:text="@{bean.detail}"
                     android:textColor="@{bean.prepared?@color/textGray:@color/textDefault}"
                     android:layout_marginBottom="18dp"
+                    android:layout_marginTop="15dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:animateLayoutChanges="true"
                     android:visibility="@{bean.open?view.VISIBLE:view.GONE}"
