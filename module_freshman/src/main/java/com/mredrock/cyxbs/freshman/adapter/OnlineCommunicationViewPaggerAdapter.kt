@@ -80,7 +80,7 @@ class OnlineCommunicationViewPaggerAdapter(val context: Context) : PagerAdapter(
     fun initPager1(groupBean: GroupStudentBean) {
         pageList[0].apply {
             recycle_view_group_search.layoutManager = LinearLayoutManager(context)
-            val adapter = OnlineGroupSearchRecycleViewAdapter()
+            val adapter = OnlineGroupSearchRecycleViewAdapter(context)
             recycle_view_group_search.adapter = adapter
             recycle_view_group.setOnTouchListener { _, _ -> adapter.updata(null)
             false}
@@ -128,7 +128,7 @@ class OnlineCommunicationViewPaggerAdapter(val context: Context) : PagerAdapter(
     fun initPager2(groupBean: GroupHomeBean) {
         pageList[1].apply {
             recycle_view_group_search.layoutManager = LinearLayoutManager(context)
-            val adapter = OnlineGroupSearchRecycleViewAdapter()
+            val adapter = OnlineGroupSearchRecycleViewAdapter(context)
             recycle_view_group_search.adapter = adapter
             recycle_view_group.setOnTouchListener { _, _ -> adapter.updata(null)
                 false}
