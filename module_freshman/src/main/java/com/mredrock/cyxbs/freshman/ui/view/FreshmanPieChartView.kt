@@ -19,6 +19,7 @@ class FreshmanPieChartView @JvmOverloads constructor(
     private val pinkFillingPaint = Paint()
     private val lightBlueFillingPaint = Paint()
     private val dataPaint = Paint()
+    var tag = false
 
     private var mProportion :Float = 0.toFloat()
     var textSize = PixelUtil.sp2px(context,20.toFloat()).toFloat()
@@ -61,6 +62,11 @@ class FreshmanPieChartView @JvmOverloads constructor(
 
 //        drawTitle(canvas)
         drawPieChart(canvas)
+        if(tag){
+            doAnimation()
+            tag = false
+        }
+
     }
 
     private fun drawTitle(canvas: Canvas?){
@@ -86,11 +92,13 @@ class FreshmanPieChartView @JvmOverloads constructor(
 
     }
     var targetProportion : Float? = null
+
     fun doAnimation(){
         val valueAnimator = ValueAnimator.ofFloat(0f,targetProportion!!)
         valueAnimator.setDuration(2000)
         valueAnimator.addUpdateListener {
             mProportion = it.animatedValue as Float
+            LogUtils.d("lzxT","animation")
             invalidate()
         }
        val alphaAnimator = ValueAnimator.ofInt(0,255)
@@ -105,6 +113,7 @@ class FreshmanPieChartView @JvmOverloads constructor(
 
         set.start()
     }
+
     private fun drawPieChart(canvas: Canvas?){
         var girlTextPointAngle =  (360-mProportion*360)/2
 //        var boyTextPointAngle = (mProportion*360)
