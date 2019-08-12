@@ -1,18 +1,26 @@
 package com.mredrock.cyxbs.freshman.data.Model
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Environment
+import android.provider.Settings
 import com.mredrock.cyxbs.common.utils.extensions.defaultSharedPreferences
 import com.mredrock.cyxbs.common.utils.extensions.editor
 import com.mredrock.cyxbs.freshman.data.ViewModelCallback.*
 import com.mredrock.cyxbs.freshman.data.bean.*
 import com.mredrock.cyxbs.freshman.util.apiService
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
 import retrofit2.Response
 import java.io.*
 import android.content.Context.MODE_PRIVATE
-
+import android.net.Uri
+import android.os.Environment.DIRECTORY_PICTURES
 
 
 fun letterViewShowed(context:Context){
@@ -24,6 +32,26 @@ fun letterViewShowed(context:Context){
 fun getLetterViewState(context: Context){
     context.defaultSharedPreferences.getBoolean("letterViewShowed",false)
 }
+@SuppressLint("CheckResult")
+fun saveBitmap(bitmap:Bitmap, name:String,context:Context){
+    Observable.create<Any> {
+
+        val file = Environment.getExternalStoragePublicDirectory(DIRECTORY_PICTURES)
+        val saveFile = File(file, "$name.jpg")
+        if(!saveFile.exists()){
+            saveFile.createNewFile()
+        }
+        val outputStream = FileOutputStream(saveFile)
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,outputStream)
+        outputStream.flush()
+        outputStream.close()
+        val contentUri = Uri.fromFile(saveFile)
+        val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE,contentUri)
+        context.sendBroadcast(mediaScanIntent)
+
+    }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe { }
+
+}
 
 
 class FreshmanModel<T : ViewModelCallback>(callback: T) {
@@ -34,6 +62,7 @@ class FreshmanModel<T : ViewModelCallback>(callback: T) {
                     override fun onFailure(call: Call<NecessityBean>, t: Throwable) {
                         callback.onFaire()
                     }
+
                     override fun onResponse(call: Call<NecessityBean>, response: Response<NecessityBean>) {
                         if (response.code() == 200)
                             callback.onNecessityBeanReady(response.body())
@@ -42,6 +71,7 @@ class FreshmanModel<T : ViewModelCallback>(callback: T) {
                     }
                 })
             }
+
 
 
             callback is ProcessViewModelCallback -> {

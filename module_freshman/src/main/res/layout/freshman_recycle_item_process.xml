@@ -87,10 +87,11 @@
 
                         <ImageView
                                 android:id="@+id/iv_arrow_indicator"
-                                android:src="@mipmap/freshman_more_function_arrow_bottom"
+                                android:src="@drawable/freshman_more_function_arrow_bottom"
                                 android:layout_marginEnd="20dp"
                                 android:layout_gravity="end|center_vertical"
-                                android:layout_width="wrap_content"
+                                android:layout_width="18dp"
+                                android:adjustViewBounds="true"
                                 android:layout_height="wrap_content"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintBottom_toBottomOf="@+id/tv_process_tiltle"

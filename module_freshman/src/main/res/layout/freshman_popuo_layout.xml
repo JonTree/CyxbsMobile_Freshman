@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:background="#fff"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+    <TextView
+            android:id="@+id/tv_save_popup_layout"
+            android:layout_width="match_parent"
+            android:text="保存"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"/>
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000"/>
+    <TextView
+            android:id="@+id/tv_cancel_popup_layout"
+            android:text="取消"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+</LinearLayout>

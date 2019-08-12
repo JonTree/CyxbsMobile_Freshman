@@ -20,7 +20,7 @@
             android:paddingBottom="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{()->bean.changeOpenState()}"
+
             android:id="@+id/ll_necessity_item">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -78,9 +78,10 @@
 
                 <ImageView
                         android:id="@+id/img_arrow"
-                        android:layout_width="wrap_content"
+                        android:layout_width="18dp"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/freshman_more_function_arrow_right"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/freshman_more_function_arrow_bottom"
                         android:layout_marginEnd="15dp"
 
                         android:visibility="@{bean.openAble?view.VISIBLE:view.GONE}"
@@ -100,6 +101,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="@{bean.detail}"
+                    android:textColor="@{bean.prepared?@color/textGray:@color/textDefault}"
                     android:layout_marginBottom="18dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:animateLayoutChanges="true"

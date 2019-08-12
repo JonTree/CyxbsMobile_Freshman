@@ -1,7 +1,9 @@
 package com.mredrock.cyxbs.freshman.data.bean;
 
 import android.util.Log;
+import androidx.annotation.DrawableRes;
 import androidx.databinding.BaseObservable;
+import com.mredrock.cyxbs.freshman.R;
 
 import java.io.Serializable;
 import java.util.List;
@@ -89,6 +91,7 @@ public class NecessityBean extends BaseObservable implements Serializable {
             public void changeOpenState(){
                 if(openAble){
                     open = !open;
+                    changeRes();
                     notifyChange();
                 }
             }
@@ -97,6 +100,26 @@ public class NecessityBean extends BaseObservable implements Serializable {
             private boolean open = false;
             private boolean openAble;
             private boolean isPrepared = false;
+
+            @DrawableRes
+            public int getRes() {
+                return res;
+            }
+
+            public void setRes(@DrawableRes int res) {
+                this.res = res;
+            }
+            public void changeRes(){
+                if(res == R.drawable.freshman_more_function_arrow_bottom){
+                    res = R.drawable.freshman_more_function_arrow_top;
+                }else{
+                    res = R.drawable.freshman_more_function_arrow_bottom;
+                }
+                notifyChange();
+            }
+
+            @DrawableRes
+            private int res = R.drawable.freshman_more_function_arrow_bottom;
 
 
 
