@@ -29,8 +29,8 @@ fun letterViewShowed(context:Context){
     }
 }
 
-fun getLetterViewState(context: Context){
-    context.defaultSharedPreferences.getBoolean("letterViewShowed",false)
+fun getLetterViewState(context: Context):Boolean{
+    return context.defaultSharedPreferences.getBoolean("letterViewShowed",false)
 }
 @SuppressLint("CheckResult")
 fun saveBitmap(bitmap:Bitmap, name:String,context:Context){

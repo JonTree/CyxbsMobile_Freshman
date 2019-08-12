@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.ui.view
 
+import android.animation.Animator
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
 import android.content.Context
@@ -88,10 +89,11 @@ class FreshmanSuccessView @JvmOverloads constructor(
     }
 
     private fun doAnimation(){
+        val emptyAnimation = ValueAnimator.ofFloat(0f,1f)
         val circleAnimation = ValueAnimator.ofFloat(0f,360f)
         val line1Animation = ValueAnimator.ofFloat(0f,1f)
         val line2Animation = ValueAnimator.ofFloat(0f,1f)
-
+        emptyAnimation.duration = 300
         circleAnimation.addUpdateListener {
             degree = it.animatedValue as Float
             invalidate()
@@ -107,7 +109,28 @@ class FreshmanSuccessView @JvmOverloads constructor(
 
         val set = AnimatorSet()
         set.duration = 500
-        set.playSequentially(circleAnimation,line1Animation,line2Animation)
+        set.playSequentially(circleAnimation,line1Animation,line2Animation,emptyAnimation)
+        set.addListener(object :Animator.AnimatorListener{
+            override fun onAnimationRepeat(animation: Animator?) {
+
+            }
+
+            override fun onAnimationEnd(animation: Animator?) {
+                function?.invoke()
+            }
+
+            override fun onAnimationCancel(animation: Animator?) {
+            }
+
+            override fun onAnimationStart(animation: Animator?) {
+            }
+
+        })
         set.start()
     }
+    private var function:(()->Unit)? =null
+    fun setOnAnimationDoneListener(function:()->Unit){
+        this.function = function
+    }
+
 }

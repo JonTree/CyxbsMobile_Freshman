@@ -21,6 +21,7 @@ import com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityItemB
 import com.mredrock.cyxbs.freshman.databinding.FreshmanRecycleItemNecessityTitleBinding
 import com.mredrock.cyxbs.freshman.ui.acivity.NecessityActivity
 import com.mredrock.cyxbs.freshman.util.PixelUtil
+import kotlinx.android.synthetic.main.freshman_recycle_item__memo.view.*
 import kotlinx.android.synthetic.main.freshman_recycle_item_necessity_item.view.*
 import kotlinx.android.synthetic.main.freshman_recycle_item_necessity_title.view.*
 import org.jetbrains.anko.imageBitmap

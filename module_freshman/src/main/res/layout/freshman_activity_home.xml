@@ -607,6 +607,8 @@
         </LinearLayout>
 
         <LinearLayout
+                android:id="@+id/ll_worlds"
+                android:visibility="gone"
                 android:animateLayoutChanges="true"
                 android:gravity="center"
                 android:layout_width="match_parent"

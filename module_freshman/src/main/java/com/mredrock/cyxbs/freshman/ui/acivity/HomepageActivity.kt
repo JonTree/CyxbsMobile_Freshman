@@ -15,6 +15,8 @@ import com.mredrock.cyxbs.common.utils.LogUtils
 import com.mredrock.cyxbs.common.utils.extensions.doPermissionAction
 import com.mredrock.cyxbs.common.viewmodel.BaseViewModel
 import com.mredrock.cyxbs.freshman.R
+import com.mredrock.cyxbs.freshman.data.Model.getLetterViewState
+import com.mredrock.cyxbs.freshman.data.Model.letterViewShowed
 import com.mredrock.cyxbs.freshman.data.ViewModel.HomepageViewModel
 import com.mredrock.cyxbs.freshman.ui.view.FreshmanLetterView
 import kotlinx.android.synthetic.main.freshman_activity_home.*
@@ -37,6 +39,7 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
         fl_letter.setOnTouchListener { v, event -> true }
         ll_home_i_know.setOnClickListener {
             fl_letter.visibility = View.GONE
+            letterViewShowed(this)
         }
 
         flv_home.setOnAnimationDoneListener(object : FreshmanLetterView.AnimationDoneListener{
@@ -45,6 +48,11 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
             }
 
         })
+        /*
+        初次进入是否执行
+         */
+//        if(!getLetterViewState(this))
+            ll_worlds.visibility = View.VISIBLE
 
     }
 
