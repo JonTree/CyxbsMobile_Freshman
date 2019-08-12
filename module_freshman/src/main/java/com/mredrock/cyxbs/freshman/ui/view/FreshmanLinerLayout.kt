@@ -80,7 +80,7 @@ class FreshmanLinerLayout @JvmOverloads constructor(
 
         val params = layoutParams
         if(viewHeight == 0){
-            val animation = ValueAnimator.ofInt(0,targetHeight)
+            val animation = ValueAnimator.ofInt(0,(1.56*targetHeight).toInt())
             animation.duration = 500
             viewHeight = targetHeight
             animation.addUpdateListener {

@@ -209,7 +209,7 @@ class FreshmanHistogramView @JvmOverloads constructor(
 
 
         LogUtils.d("MyTag","after:"+((data/100)*(coordinateHeight!!.toFloat())).toInt()+"before:"+coordinateHeight!!.toFloat())
-        var rect:Rect = Rect(pix.toInt(),-((data)*viewHeight!!.toFloat()*0.9.toFloat()!!.toFloat()).toInt(),
+        var rect:Rect = Rect(pix.toInt(),-((data)*viewHeight!!.toFloat()*0.9*1.4.toFloat()!!.toFloat()).toInt(),
             (pix+0.13*viewWidth!!.toFloat()*0.95.toFloat()!!).toInt(),-PixelUtil.dp2px(context ,1.toFloat()))
 
         canvas?.drawRect(rect,framePaint)
@@ -217,14 +217,18 @@ class FreshmanHistogramView @JvmOverloads constructor(
 
 
         if(title!= null) {
-            canvas?.drawText(
-                title,
-                (pix+0.07*viewWidth!!.toFloat()*0.95.toFloat()!!).toFloat(),
-                (mergin*viewHeight!!.toFloat()*0.9.toFloat()!!).toFloat(),
-                textPaint
-            )
+            if(title.length>6){
+
+            }
+            else
+                canvas?.drawText(
+                    title,
+                    (pix+0.07*viewWidth!!.toFloat()*0.95.toFloat()!!).toFloat(),
+                    (mergin*viewHeight!!.toFloat()*0.9.toFloat()!!).toFloat(),
+                    textPaint
+                )
             canvas?.drawText(String.format("%.2f",(data)),(pix+0.07*viewWidth!!.toFloat()*0.95.toFloat()!!).toFloat(),
-                -((data)*viewHeight!!.toFloat()*0.9!!.toFloat()).toInt()-PixelUtil.dp2px(context, (12).toFloat()).toFloat(),dataPaint)
+                -((data)*viewHeight!!.toFloat()*0.9!!.toFloat()*1.4).toInt()-PixelUtil.dp2px(context, (12).toFloat()).toFloat(),dataPaint)
         }
     }
 
