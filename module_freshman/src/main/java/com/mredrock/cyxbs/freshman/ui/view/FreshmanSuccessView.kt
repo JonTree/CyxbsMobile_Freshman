@@ -88,7 +88,7 @@ class FreshmanSuccessView @JvmOverloads constructor(
         canvas?.drawLine(0f,0f, rateLine2*(2f*viewWidth!!/5), -rateLine2*(2f*viewHeight!!/5),paint)
     }
 
-    private fun doAnimation(){
+    fun doAnimation(){
         val emptyAnimation = ValueAnimator.ofFloat(0f,1f)
         val circleAnimation = ValueAnimator.ofFloat(0f,360f)
         val line1Animation = ValueAnimator.ofFloat(0f,1f)

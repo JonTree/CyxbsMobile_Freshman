@@ -39,7 +39,7 @@ class FreshmanPieChartView @JvmOverloads constructor(
         lightBlueFillingPaint.style = Paint.Style.FILL
 
         coordinatePaint.textSize = textSize
-        dataPaint.textSize = textSize
+        dataPaint.textSize = textSize-10
 
         coordinatePaint.textAlign = Paint.Align.CENTER
         dataPaint.textAlign = Paint.Align.CENTER
