@@ -40,6 +40,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:checked="@={bean.prepared}"
                     android:layout_marginEnd="8dp"
+                    android:background="#00ffffff"
                     app:tabRippleColor="@null"
                     android:elevation="0dp"
                     app:layout_constraintStart_toStartOf="parent"
