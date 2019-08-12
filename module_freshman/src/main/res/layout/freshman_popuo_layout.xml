@@ -4,10 +4,15 @@
               android:background="#fff"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/textDefault"/>
     <TextView
             android:id="@+id/tv_save_popup_layout"
             android:layout_width="match_parent"
             android:text="保存"
+            android:textColor="@color/colorAccent"
             android:layout_marginBottom="15dp"
             android:layout_marginTop="15dp"
             android:textSize="20sp"
@@ -15,7 +20,7 @@
             android:layout_height="wrap_content"/>
     <View
             android:layout_width="match_parent"
-            android:layout_height="1sp"
+            android:layout_height="1px"
             android:background="@color/textDefault"/>
     <TextView
             android:id="@+id/tv_cancel_popup_layout"

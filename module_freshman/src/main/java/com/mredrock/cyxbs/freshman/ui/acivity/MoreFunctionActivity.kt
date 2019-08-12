@@ -80,6 +80,10 @@ class MoreFunctionActivity : BaseViewModelActivity<MoreFunctionViewModel>(){
     override fun onBackPressed() {
         if(dialogOpen.get()){
             dialogOpen.set(!dialogOpen.get())
+            if(popupWindow!=null){
+                if(popupWindow!!.isShowing)
+                    popupWindow!!.dismiss()
+            }
         }
         else
             super.onBackPressed()

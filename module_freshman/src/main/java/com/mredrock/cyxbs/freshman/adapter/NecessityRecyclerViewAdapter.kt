@@ -32,6 +32,8 @@ class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapt
     private lateinit var itemBinding: FreshmanRecycleItemNecessityItemBinding
     lateinit var list: List<String>
     private var windowWidth:Int? = null
+    private var lastOpenedBean :NecessityBean.TextBean.DataBean? = null
+    private var lastOpenedViewHolder :ItemViewHolder? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val outMetrics = DisplayMetrics()
@@ -107,10 +109,18 @@ class NecessityAdapter constructor(val bean: NecessityBean) : RecyclerView.Adapt
 //                holder.itemView.ll_necessity_item.measure(View.MeasureSpec.makeMeasureSpec(windowWidth!!.toInt(),View.MeasureSpec.EXACTLY)
 //                    ,0)
 
-
+                holder.itemView.img_arrow.imageBitmap = BitmapFactory.decodeResource(holder.context.resources,holder.binding.bean?.res!!)
                 holder.itemView.ll_necessity_item.setOnClickListener {
                     holder.binding.bean?.changeOpenState()
                     holder.itemView.img_arrow.imageBitmap = BitmapFactory.decodeResource(holder.context.resources,holder.binding.bean?.res!!)
+                    if(lastOpenedBean != null && lastOpenedBean!!.open && lastOpenedBean!=holder.binding.bean){
+                        lastOpenedBean?.changeOpenState()
+                        if(lastOpenedViewHolder!=null){
+                            lastOpenedViewHolder!!.itemView.img_arrow.imageBitmap = BitmapFactory.decodeResource(lastOpenedViewHolder!!.context.resources,lastOpenedViewHolder!!.binding.bean!!.res)
+                        }
+                    }
+                    lastOpenedBean = holder.binding.bean
+                    lastOpenedViewHolder = holder
                 }
                 LogUtils.d("MyTag","height=${holder.textView_detail.measuredHeight}")
 
@@ -157,4 +167,6 @@ class ItemViewHolder(item: View, val binding: FreshmanRecycleItemNecessityItemBi
     val textView_title: TextView = item.tv_necessity_item_name
     val textView_detail: TextView = item.tv_necessity_detail
     val check = item.cb_necessity
+
+
 }
