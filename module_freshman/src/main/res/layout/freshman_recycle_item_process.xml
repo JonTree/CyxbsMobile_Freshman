@@ -184,7 +184,6 @@
 
 
                 <LinearLayout
-                        android:visibility="gone"
                         android:id="@+id/ll_process"
                         android:orientation="vertical"
                         android:layout_marginStart="13dp"
@@ -203,12 +202,14 @@
                     <TextView
                             android:text="@{bean.detail}"
                             android:textColor="#666666"
+                            android:layout_marginEnd="40dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"/>
 
                     <ImageView
                             imageUrl="@{bean.photo}"
                             android:layout_width="match_parent"
+                            android:layout_marginEnd="40dp"
                             android:layout_height="wrap_content"
                             android:adjustViewBounds="true"
                             app:srcCompat="@drawable/common_place_holder"

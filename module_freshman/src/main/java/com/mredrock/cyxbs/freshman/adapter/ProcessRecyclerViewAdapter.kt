@@ -66,7 +66,10 @@ class ProcessRecyclerViewAdapter(val bean: ProcessBean) : RecyclerView.Adapter<P
                     ll_process.visibility = View.GONE
                     isOpen[position] = !isOpen[position]
                 }else{
-                    viewHolderList.forEach { it?.let { it.itemView.ll_process.visibility = View.GONE }}
+                    viewHolderList.forEach {
+                        it?.let { it.itemView.ll_process.visibility = View.GONE }
+                        it?.itemView?.iv_arrow_indicator?.imageBitmap = BitmapFactory.decodeResource(context.resources,R.drawable.freshman_more_function_arrow_bottom)
+                    }
                     for (i in 0 until isOpen.size) {
                         isOpen[i] = false
                     }
