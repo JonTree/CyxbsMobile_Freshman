@@ -33,6 +33,8 @@ class GuideActivity : BaseViewModelActivity<GuidedViewModel>() {
         tl_guided.setupWithViewPager(vp_guided)
         common_toolbar.init(
             "指路重邮",R.drawable.common_ic_back,listener = View.OnClickListener { finish() })
+
+
     }
 
     @Subscribe

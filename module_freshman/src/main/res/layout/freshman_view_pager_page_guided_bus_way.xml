@@ -65,7 +65,7 @@
                     android:textColor="#7390ff"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/freshman_textview3"
+                    android:id="@+id/tv_bus_way_copy"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/freshman_textview2"
                     app:layout_constraintBottom_toTopOf="@+id/freshman_textview"
