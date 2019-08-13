@@ -16,7 +16,7 @@ import org.greenrobot.eventbus.Subscribe
 class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
     override val viewModelClass: Class<NecessityViewModel> = NecessityViewModel::class.java
     override val isFragmentActivity: Boolean = false
-    //To change initializer of created properties use File | Settings | File Templates.
+    //To change initializer of created properties use File | Settings | File Tempalates.
 
     lateinit var necessityViewModel:NecessityViewModel
 

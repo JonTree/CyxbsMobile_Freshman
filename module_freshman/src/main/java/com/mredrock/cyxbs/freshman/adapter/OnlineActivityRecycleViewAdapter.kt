@@ -1,5 +1,6 @@
 package com.mredrock.cyxbs.freshman.adapter
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -11,6 +12,7 @@ import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.mredrock.cyxbs.common.utils.extensions.doPermissionAction
 import com.mredrock.cyxbs.freshman.R
 import com.mredrock.cyxbs.freshman.data.Model.saveBitmap
 import com.mredrock.cyxbs.freshman.data.bean.OnlineActivitiesBean
@@ -55,7 +57,12 @@ class OnlineActivityRecycleViewAdapter (val context: Context,val bean: OnlineAct
                 activity.isOpen = false
             }
             activity.rl_vx.img_vx.setOnLongClickListener {
-                showPopWindow()
+                activity.doPermissionAction(Manifest.permission.WRITE_EXTERNAL_STORAGE){
+                    reason = "保存文件需要文件存储权限"
+                    doAfterGranted {
+                        showPopWindow()
+                    }
+                }
                 true
             }
         }
