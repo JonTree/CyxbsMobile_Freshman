@@ -22,16 +22,22 @@ import com.mredrock.cyxbs.freshman.ui.view.FreshmanLetterView
 import kotlinx.android.synthetic.main.freshman_activity_home.*
 
 
-
 class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
     override val viewModelClass: Class<HomepageViewModel> = HomepageViewModel::class.java
 
     override val isFragmentActivity: Boolean = false
-         //To change initializer of created properties use File | Settings | File Templates.
+    //To change initializer of created properties use File | Settings | File Templates.
+
+
+    var isCanClick = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<com.mredrock.cyxbs.freshman.databinding.FreshmanActivityHomeBinding>(this,R.layout.freshman_activity_home)
+        val binding =
+            DataBindingUtil.setContentView<com.mredrock.cyxbs.freshman.databinding.FreshmanActivityHomeBinding>(
+                this,
+                R.layout.freshman_activity_home
+            )
 
         binding.lifecycleOwner = this
         val homepageViewModel = ViewModelProviders.of(this).get(HomepageViewModel::class.java)
@@ -42,7 +48,7 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
             letterViewShowed(this)
         }
 
-        flv_home.setOnAnimationDoneListener(object : FreshmanLetterView.AnimationDoneListener{
+        flv_home.setOnAnimationDoneListener(object : FreshmanLetterView.AnimationDoneListener {
             override fun onAnimationDone() {
                 ll_text_part.visibility = View.VISIBLE
             }
@@ -52,16 +58,23 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
         初次进入是否执行
          */
 //        if(!getLetterViewState(this))
-            ll_worlds.visibility = View.VISIBLE
+        ll_worlds.visibility = View.VISIBLE
 
     }
 
     override fun onResume() {
         initAnimation()
         super.onResume()
+        isCanClick = true
     }
 
-    private fun initAnimation (){
+
+    override fun onStart() {
+        super.onStart()
+        isCanClick = true
+    }
+
+    private fun initAnimation() {
 //        val animation :RotateAnimation = RotateAnimation(0f,359f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f)
 //        animation.repeatMode = Animation.RESTART
 //        animation.repeatCount = Animation.INFINITE
@@ -69,10 +82,10 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
 //        animation.interpolator = AccelerateInterpolator()
 ////        animation.fillAfter = true
         val animation = AnimationUtils.loadAnimation(this, com.mredrock.cyxbs.freshman.R.anim.freshman_rotate_screw)
-        val animationRed = AnimationUtils.loadAnimation(this,R.anim.freshman_rotate_screw_red)
+        val animationRed = AnimationUtils.loadAnimation(this, R.anim.freshman_rotate_screw_red)
         animation.repeatMode = Animation.RESTART
         animation.repeatCount = Animation.INFINITE
-        animation.interpolator = LinearInterpolator()
+        animation.interpolator = LinearInterpolator() as Interpolator?
         animationRed.repeatMode = Animation.RESTART
         animationRed.repeatCount = Animation.INFINITE
 
@@ -89,47 +102,51 @@ class HomepageActivity : BaseViewModelActivity<HomepageViewModel>() {
         iv_home_red_screw.startAnimation(animationRed)
     }
 
-    fun onClick(index:Int){
-        val intent:Intent
-        when(index){
-            1 ->{
+    fun onClick(index: Int) {
+        val intent: Intent
+        if (isCanClick) {
 
-                val intent = Intent(this,NecessityActivity::class.java)
-                startActivity(intent)
-            }
+            when (index) {
+                1 -> {
+                        val intent = Intent(this, NecessityActivity::class.java)
+                        startActivity(intent)
+                }
 
-            2 ->{
+                2 -> {
+                    val intent = Intent(this, GuideActivity::class.java)
+                    startActivity(intent)
+                }
 
-                val intent = Intent(this,GuideActivity::class.java)
-                startActivity(intent)
-            }
+                3 -> {
 
-            3 ->{
+                    val intent = Intent(this, ProcessActivity::class.java)
+                    startActivity(intent)
+                }
 
-                val intent = Intent(this,ProcessActivity::class.java)
-                startActivity(intent)
-            }
+                4 -> {
 
-            4 ->{
+                    val intent = Intent(this, CampusGuideActivity::class.java)
+                    startActivity(intent)
+                }
 
-                val intent = Intent(this,CampusGuideActivity::class.java)
-                startActivity(intent)
-            }
+                5 -> {
 
-            5 -> {
+                    val intent = Intent(this, OnlineCommunicationActivity::class.java)
+                    startActivity(intent)
+                }
 
-                val intent = Intent(this,OnlineCommunicationActivity::class.java)
-                startActivity(intent)
-            }
+                6 -> {
 
-            6 -> {
-
-                val intent = Intent(this,MoreFunctionActivity::class.java)
-                startActivity(intent)
-            }
+                    val intent = Intent(this, MoreFunctionActivity::class.java)
+                    startActivity(intent)
+                }
 
 //            7 -> startActivity<>()
+            }
+            isCanClick = false
+
         }
+
 
     }
 

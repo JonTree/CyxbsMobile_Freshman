@@ -12,6 +12,7 @@ import com.mredrock.cyxbs.freshman.event.UpDataMemo
 import kotlinx.android.synthetic.main.freshman_activity_necessity.*
 import org.greenrobot.eventbus.Subscribe
 
+
 class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
     override val viewModelClass: Class<NecessityViewModel> = NecessityViewModel::class.java
     override val isFragmentActivity: Boolean = false
@@ -19,6 +20,8 @@ class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
 
     lateinit var necessityViewModel:NecessityViewModel
 
+
+    var isCanClick = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,16 +31,24 @@ class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
             finish()
         }
 
+
+
         necessityViewModel = ViewModelProviders.of(this).get(NecessityViewModel::class.java)
         necessityActivity_edit.setOnClickListener {
             val intent = Intent(this, EditActivity::class.java)
             intent.putExtra("memo",necessityViewModel.memo)
-            startActivity(intent)
+            if (isCanClick) {
+                startActivity(intent)
+                isCanClick = false
+            }
         }
         fab.setOnClickListener {
             val intent = Intent(this, NecessitiesMemoActivity::class.java)
             intent.putExtra("memo",necessityViewModel.memo)
-            startActivity(intent)
+            if (isCanClick) {
+                startActivity(intent)
+                isCanClick = false
+            }
         }
         necessityViewModel.getLocal(this)
     }
@@ -46,6 +57,12 @@ class NecessityActivity : BaseViewModelActivity<NecessityViewModel>() {
     override fun onResume() {
         super.onResume()
         necessityViewModel.reComparativeData()
+        isCanClick = true
+    }
+
+    override fun onStart() {
+        super.onStart()
+        isCanClick = true
     }
 
 

@@ -75,6 +75,7 @@
             <com.google.android.material.tabs.TabLayout
                     android:background="#FFFFFF"
                     app:tabIndicatorHeight="0dp"
+                    style="@style/freshman_TabLayoutTextStyle"
                     android:id="@+id/tl_online_communication"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
